@@ -10,7 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ButtonBarComponent } from './components/button-bar/button-bar.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,16 +27,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     FontAwesomeModule,
     StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: false,
-      autoPause: true,
-      features: {
-        pause: false,
-        lock: true,
-        persist: true
-      }
-    })
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

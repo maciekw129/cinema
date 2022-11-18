@@ -4,4 +4,9 @@
         [buttonBarElements]="buttonBarElements"
         (buttonEvent)="catchValue($event)"
     ></app-button-bar>
+    <app-movie
+        class="home__movie"
+        *ngFor="let movie of movies"
+        [movie]="movie"
+    ></app-movie>
 </div>

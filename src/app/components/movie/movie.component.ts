@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import Movie from 'src/app/services/movies.interface';
 
 @Component({
   selector: 'app-movie',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
-
-  constructor() { }
+  @Input() movie!: Movie;
 
   ngOnInit(): void {
+  }
+
+  getInformations() {
+    return this.movie.genre + ' | ' + this.movie.duration + ' | ' + this.movie.ageRestrictions;
   }
 
 }

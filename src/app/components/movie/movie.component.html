@@ -1,6 +1,11 @@
 <div class="movie">
-    <img />
+    <img [src]="movie.image" />
     <div>
-        
+        <p>{{ movie.name }}</p>
+        <p>{{ getInformations() }}</p>
+        <app-button-bar
+        [buttonBarElements]="movie.hoursOfScreenings"
+    ></app-button-bar>
     </div>
+    <p>{{ movie.rating }}/10</p>
 </div>

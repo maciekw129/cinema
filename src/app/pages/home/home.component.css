@@ -7,3 +7,8 @@
 .home__button-bar {
     margin: 10px;
 }
+
+.home__movie {
+    width: 100%;
+    margin: 0 50px;
+}

@@ -1,0 +1,15 @@
+{
+    "movies":[
+        {
+            "name": "Skazani na Shawshank",
+            "image": "https://fwcdn.pl/fpo/10/48/1048/6925401.6.jpg",
+            "premiere": false,
+            "genre": "dramat",
+            "duration": "120 minut",
+            "ageRestrictions": "PG-16",
+            "description": "Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.",
+            "hoursOfScreenings": ["12:00", "15:30", "21:30"],
+            "rating": 8
+        }
+    ]
+}
