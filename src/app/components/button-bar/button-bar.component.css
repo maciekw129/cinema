@@ -1,0 +1,11 @@
+.button-bar {
+
+}
+
+.button-bar__button:hover {
+    cursor: pointer;
+}
+
+.button-bar__button--clicked {
+    background-color: blue;
+}

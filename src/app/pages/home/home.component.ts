@@ -9,6 +9,10 @@ import getNextFiveDays from '../../../utils/getNextFiveDays';
 export class HomeComponent implements OnInit {
   buttonBarElements: string[] = getNextFiveDays();
 
+  catchValue(value: string) {
+    console.log(value);
+  }
+
   ngOnInit(): void {
   }
 }

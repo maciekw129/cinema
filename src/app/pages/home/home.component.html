@@ -1,5 +1,7 @@
 <div class="home">
     <app-button-bar
+        class="home__button-bar"
         [buttonBarElements]="buttonBarElements"
+        (buttonEvent)="catchValue($event)"
     ></app-button-bar>
 </div>

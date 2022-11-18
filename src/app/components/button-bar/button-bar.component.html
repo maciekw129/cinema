@@ -1,5 +1,8 @@
-<div class="button-bar">
+<div #buttonBar class="button-bar">
     <button
+        #button
+        class="button-bar__button"
         *ngFor="let element of buttonBarElements"
+        (click)="handleClick(button)"
     >{{ element }}</button>
 </div>
