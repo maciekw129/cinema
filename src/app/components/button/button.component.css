@@ -5,8 +5,23 @@
     align-items: center;
     justify-content: center;
     margin: 0 15px;
+    background: var(--colorWhite);
+    border-radius: 5px;
+    border: 2px solid var(--colorDarkGreen);
+    transition: 0.2s background-color linear;
 }
 
 .button:hover {
     cursor: pointer;
+    background-color: var(--colorDarkGreen);
+    transition: 0.2s background-color linear;
+    color: var(--colorWhite);
+}
+
+.button--important {
+    border-color: var(--colorPurple);
+}
+
+.button--important:hover {
+    background-color: var(--colorPurple);
 }

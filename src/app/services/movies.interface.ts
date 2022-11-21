@@ -2,7 +2,7 @@ export default interface movie {
     name: string,
     image: string,
     premiere: boolean,
-    genre: string,
+    genre: string[],
     duration: string,
     ageRestrictions: string,
     description: string,

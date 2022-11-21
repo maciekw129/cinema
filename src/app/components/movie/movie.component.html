@@ -1,11 +1,12 @@
-<div class="movie">
-    <img [src]="movie.image" />
-    <div>
-        <p>{{ movie.name }}</p>
-        <p>{{ getInformations() }}</p>
+<div class="movie main-container box-shadow-container">
+    <img class="movie__image" [src]="movie.image" alt="Movie image" />
+    <div class="movie__content">
+        <p class="content__name">{{ movie.name }}</p>
+        <p class="cotent__informations">{{ getInformations() }}</p>
         <app-button-bar
-        [buttonBarElements]="movie.hoursOfScreenings"
+            class="content__button-bar"
+            [buttonBarElements]="movie.hoursOfScreenings"
     ></app-button-bar>
     </div>
-    <p>{{ movie.rating }}/10</p>
+    <p class="movie__rating">{{ movie.rating }}/10</p>
 </div>

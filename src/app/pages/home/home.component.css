@@ -2,10 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: hsl(0, 0%, 95%);
 }
 
 .home__button-bar {
-    margin: 10px;
+    margin: 25px 0;
 }
 
 .home__movie {

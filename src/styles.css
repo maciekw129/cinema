@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+:root {
+    --colorWhite: #FFFFFF;
+    --colorLightGray: hsl(0, 0%, 95%);
+    --colorBlack: #000000;
+    --colorDarkGreen: #005C53;
+    --colorDarkBlue: #042940;
+    --colorGreen: #9FC131;
+    --colorBrightGreen: #DBF227;
+    --colorGrayishGreen: #D6D58E;
+    --colorRed: #C2301D;
+    --colorPurple: #75124D;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lobster', cursive;
+}
+
+.main-container {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 25px;
+}
+
+.box-shadow-container {
+    box-shadow: 1.5px 1.5px hsl(0, 0%, 50%);
+}

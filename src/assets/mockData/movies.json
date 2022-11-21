@@ -4,12 +4,34 @@
             "name": "Skazani na Shawshank",
             "image": "https://fwcdn.pl/fpo/10/48/1048/6925401.6.jpg",
             "premiere": false,
-            "genre": "dramat",
+            "genre": ["dramat"],
             "duration": "120 minut",
             "ageRestrictions": "PG-16",
             "description": "Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.",
             "hoursOfScreenings": ["12:00", "15:30", "21:30"],
             "rating": 8
+        },
+        {
+            "name": "Osobliwość",
+            "image": "https://fwcdn.pl/fpo/04/80/10010480/8032934.6.jpg",
+            "premiere": false,
+            "genre": ["thriller"],
+            "duration": "109 minut",
+            "ageRestrictions": "PG-16",
+            "description": "Rok 1862. Dręczona przeszłością pielęgniarka wyjeżdża z Anglii do odległej irlandzkiej wioski, aby zbadać sprawę pewnej dziewczynki i jej rzekomo cudownego postu.",
+            "hoursOfScreenings": ["12:00", "15:30", "21:30"],
+            "rating": 6  
+        },
+        {
+            "name": "Na zachodzie bez zmian",
+            "image": "https://fwcdn.pl/fpo/08/67/430867/8035016.6.jpg",
+            "premiere": false,
+            "genre": ["dramat", "wojenny"],
+            "duration": "147 minut",
+            "ageRestrictions": "PG-16",
+            "description": "Przerażające przeżycia młodego niemieckiego żołnierza na froncie zachodnim podczas I wojny światowej.",
+            "hoursOfScreenings": ["12:00", "15:30", "21:30"],
+            "rating": 8  
         }
     ]
 }

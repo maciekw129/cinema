@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,8 +9,12 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 export class ButtonComponent implements OnInit {
   @Input() text?: string;
   @Input() icon?: IconDefinition;
+  @Input() important: boolean = false;
   
   ngOnInit(): void {
   }
 
+  getStyle() {
+    return `button ${this.important ? 'button--important' : ''}`;
+  }
 }

@@ -13,7 +13,7 @@ export class MovieComponent implements OnInit {
   }
 
   getInformations() {
-    return this.movie.genre + ' | ' + this.movie.duration + ' | ' + this.movie.ageRestrictions;
+    return this.movie.genre.join(' | ') + ' | ' + this.movie.duration + ' | ' + this.movie.ageRestrictions;
   }
 
 }
