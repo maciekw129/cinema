@@ -1,8 +1,10 @@
 <div #buttonBar class="button-bar">
     <button
+        *ngFor="let element of buttonBarElements; let i = index"
         #button
         class="button-bar__button"
-        *ngFor="let element of buttonBarElements"
-        (click)="handleClick(button)"
+        [ngClass]="{'button-bar__button--clicked': (clicked === 'button' + i) && !isDisabled}"
+        [disabled]="isDisabled"
+        (click)="handleClick(button, i)"
     >{{ element }}</button>
 </div>

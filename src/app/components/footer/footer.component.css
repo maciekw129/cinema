@@ -1,0 +1,40 @@
+.footer {
+    width: 100%;
+    padding: 50px 20px 15px 20px;
+    background-color: var(--colorWhite);
+    height: 160px;
+}
+
+.footer__upper-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__icons {
+    display: flex;
+}
+
+.footer__link {
+    color: var(--colorBlack);
+}
+
+.footer__icon {
+    margin: 0 15px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.footer__nav {
+    list-style-type: none;
+    display: flex;
+}
+
+.footer__nav-item {
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.footer__copyright {
+    width: 100%;
+    text-align: center;
+}

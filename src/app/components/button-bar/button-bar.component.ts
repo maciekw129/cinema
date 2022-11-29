@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-button-bar',
@@ -7,24 +7,14 @@ import { Component, Input, Output, OnInit, EventEmitter, ViewChild, ElementRef }
 })
 export class ButtonBarComponent {
   @Input() buttonBarElements: string[] = [];
-  @Output() buttonEvent = new EventEmitter<string>();
+  @Input() isDisabled: boolean = false;
+  @Output() buttonEvent = new EventEmitter<{date: string, index: number}>();
   @ViewChild('buttonBar') buttonBar: ElementRef | undefined;
 
-  ngAfterViewInit() {
-    console.log(this.buttonBar?.nativeElement)
-    this.buttonBar?.nativeElement.children[0].classList.add('button-bar__button--clicked');
-  }
+  clicked = 'button0';
 
-  clearColor() {
-    const buttonsCollection: HTMLCollection = this.buttonBar?.nativeElement.children;
-    Array.from(buttonsCollection).forEach((button: Element) => {
-        button.classList.remove('button-bar__button--clicked');
-    })
-  }
-
-  handleClick(element: HTMLButtonElement) {
-    this.clearColor();
-    element.classList.add('button-bar__button--clicked');
-    this.buttonEvent.emit(element.innerText);
+  handleClick(element: HTMLButtonElement, index: number) {
+    this.clicked = 'button' + index;
+    this.buttonEvent.emit({date: element.innerText, index: index + 1});
   }
 }

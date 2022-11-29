@@ -1,20 +1,28 @@
 .button-bar {
+    display: flex;
     border-radius: 5px;
     overflow: hidden;
+    border: 1px solid var(--colorBlack);
 }
 
 .button-bar__button {
     padding: 5px 20px;
     border: none;
     border-right: 1px solid var(--colorBlack);
-}
-
-.button-bar__button:last-child {
-    border: none;
+    background-color: var(--colorWhite);
 }
 
 .button-bar__button:hover {
     cursor: pointer;
+}
+
+.button-bar__button:disabled {
+    color: var(--colorBlack);
+    cursor: default;
+}
+
+.button-bar__button:last-child {
+    border: none;
 }
 
 .button-bar__button--clicked {

@@ -5,6 +5,8 @@
     font-family: 'Lato', sans-serif;
 }
 
+/* COLORS */
+
 :root {
     --colorWhite: #FFFFFF;
     --colorLightGray: hsl(0, 0%, 95%);
@@ -18,16 +20,38 @@
     --colorPurple: #75124D;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lobster', cursive;
+body {
+    background-color: var(--colorLightGray);
+}
+
+/* LAYOUT */
+
+.main-page {
+    min-height: calc(100vh - 235px);
 }
 
 .main-container {
     margin: 0 auto;
-    max-width: 1400px;
+    max-width: 1024px;
     padding: 25px;
 }
 
 .box-shadow-container {
     box-shadow: 1.5px 1.5px hsl(0, 0%, 50%);
+}
+
+/* FONTS */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lobster', cursive;
+}
+
+.fnt-24-bold {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.fnt-18-regular {
+    font-size: 18px;
+    font-weight: 400;
 }

@@ -11,6 +11,10 @@ import { ButtonBarComponent } from './components/button-bar/button-bar.component
 import { MovieComponent } from './components/movie/movie.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './pages/about/about.component';
+import { WorkComponent } from './pages/work/work.component';
+import { RegulationsComponent } from './pages/regulations/regulations.component';
+import { RentalComponent } from './pages/rental/rental.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     ButtonBarComponent,
     MovieComponent,
+    AboutComponent,
+    WorkComponent,
+    RegulationsComponent,
+    RentalComponent,
   ],
   imports: [
     BrowserModule,

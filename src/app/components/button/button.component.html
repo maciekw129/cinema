@@ -1,4 +1,6 @@
-<button [class]="getStyle()">
+<button 
+    class="button" 
+    [ngClass]="{'button--important': important}">
     <p class="button__text" *ngIf="text">{{ text }}</p>
     <fa-icon class="button__icon" *ngIf="icon" [icon]="icon"></fa-icon>
 </button>

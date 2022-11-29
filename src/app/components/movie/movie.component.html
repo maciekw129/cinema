@@ -1,12 +1,28 @@
-<div class="movie main-container box-shadow-container">
+<div class="movie main-container">
     <img class="movie__image" [src]="movie.image" alt="Movie image" />
     <div class="movie__content">
-        <p class="content__name">{{ movie.name }}</p>
-        <p class="cotent__informations">{{ getInformations() }}</p>
+        <div class="content__text">
+            <h2 class="content__name">
+                {{ movie.name }}<span class="content__premiere fnt-18-regular" *ngIf="movie.premiere"> - Premiera!</span>
+            </h2>
+            <p class="content__informations">{{ movie.genre.join(' | ') + ' | ' + movie.duration + ' | ' + movie.ageRestrictions }}</p>
+            <p class="content__description">{{ movie.description}}</p>
+        </div>
         <app-button-bar
             class="content__button-bar"
+            [isDisabled]="true"
             [buttonBarElements]="movie.hoursOfScreenings"
     ></app-button-bar>
     </div>
-    <p class="movie__rating">{{ movie.rating }}/10</p>
+    <div class="movie__left-container">
+        <p class="movie__rating fnt-24-bold">{{ movie.rating }}/10</p>
+        <app-button
+            *ngIf="user.length"
+            text="Oceń ten film!"
+        ></app-button>
+        <app-button
+            *ngIf="user.length"
+            text="Chcę zobaczyć"
+        ></app-button>
+    </div>
 </div>

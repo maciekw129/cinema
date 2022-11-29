@@ -1,3 +1,33 @@
-<footer>
-    
+<footer class="footer">
+    <div class="main-container">
+        <div class="footer__upper-container">
+            <div class="footer__icons">
+                <a class="footer__link" href="http://www.faceook.com" target="_blank">
+                    <fa-icon
+                        class="footer__icon" 
+                        [icon]="facebook"
+                    ></fa-icon>
+                </a>
+                <a class="footer__link" href="http://www.instagram.com" target="_blank">
+                    <fa-icon
+                        class="footer__icon" 
+                        [icon]="instagram"
+                    ></fa-icon>
+                </a>
+                <a class="footer__link" href="http://www.youtube.com" target="_blank">
+                    <fa-icon
+                        class="footer__icon" 
+                        [icon]="youtube"
+                    ></fa-icon>
+                </a>
+            </div>
+            <ul class="footer__nav">
+                <li class="footer__nav-item" routerLink="about">O nas</li>
+                <li class="footer__nav-item" routerLink="work">Praca</li>
+                <li class="footer__nav-item" routerLink="regulations">Regulamin</li>
+                <li class="footer__nav-item" routerLink="rental">Wynajem sal</li>
+            </ul>
+        </div>
+        <p class="footer__copyright">&#169; Ale kino! 2022</p>
+    </div>
 </footer>

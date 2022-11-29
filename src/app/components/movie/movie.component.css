@@ -1,6 +1,51 @@
 .movie {
     display: flex;
+    height: 330px;
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    background-color: var(--colorWhite);
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.movie__image {
+    border-radius: 5px;
+    position: relative;
+}
+
+.movie__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    justify-content: space-between;
+    padding: 10px 0;
+    max-width: 450px;
+}
+
+.movie__left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    row-gap: 15px;
+}
+
+.content__name {
+    display: flex;
+    align-items: center;
+}
+
+.content__premiere {
+    color: var(--colorRed);
+    white-space: pre-wrap;
+}
+
+.content__informations {
+    margin: 5px 0 20px 0;
+}
+
+.content__button-bar {
+    margin-top: 20px
 }

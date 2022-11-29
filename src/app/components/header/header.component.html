@@ -1,12 +1,31 @@
-<header class="header main-container">
-    <h1 class="header__title">Ale kino!</h1>
-    <div class="header__buttons">
-        <app-button
-            [icon]="faCartShopping"
-        ></app-button>
-        <app-button
-            text="Zaloguj"
-            [important]="true"
-        ></app-button>
+<header class="header__wrapper">
+    <div class="header">
+        <h1 class="header__title">Ale kino! <fa-icon class="header__icon" [icon]="film"></fa-icon></h1>
+        <div class="header__buttons">
+            <app-button
+                [icon]="cartShopping"
+            ></app-button>
+            <app-button
+                *ngIf="!user.length; else elseBlock"
+                text="Zaloguj"
+                [important]="true"
+                (click)="handleLogin()"
+            ></app-button>
+            <ng-template #elseBlock>
+                <div class="header__dropdown-wrapper">
+                    <app-button
+                        class=""
+                        [text]="'Cześć ' + user[0].name + ' !'"
+                        (click)="toggleDropdown()"
+                    ></app-button>
+                    <ul class="header__dropdown" *ngIf="isDropdownVisible">
+                        <li class="header__dropdown-item">Moje bilety</li>
+                        <li class="header__dropdown-item">Chcę obejrzeć</li>
+                        <li class="header__dropdown-item">Ustawienia</li>
+                        <li class="header__dropdown-item" (click)="handleLogout()">Wyloguj</li>
+                    </ul>
+                </div>
+            </ng-template>
+        </div>
     </div>
 </header>

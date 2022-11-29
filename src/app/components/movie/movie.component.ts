@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import Movie from 'src/app/services/movies.interface';
+import { Component, Input, OnInit } from '@angular/core';
+import Movie from 'src/app/services/movies/movies.interface';
+import { User, UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-movie',
@@ -8,12 +9,13 @@ import Movie from 'src/app/services/movies.interface';
 })
 export class MovieComponent implements OnInit {
   @Input() movie!: Movie;
+  user: User[] = []
 
-  ngOnInit(): void {
+  constructor(private userService: UserService){}
+
+  ngOnInit() {
+    this.userService.user$$.subscribe(value => {
+      this.user = value;
+    })
   }
-
-  getInformations() {
-    return this.movie.genre.join(' | ') + ' | ' + this.movie.duration + ' | ' + this.movie.ageRestrictions;
-  }
-
 }
