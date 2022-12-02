@@ -7,14 +7,14 @@ import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@
 })
 export class ButtonBarComponent {
   @Input() buttonBarElements: string[] = [];
-  @Input() isDisabled: boolean = false;
-  @Output() buttonEvent = new EventEmitter<{date: string, index: number}>();
+  @Input() isClicked: boolean = true;
+  @Output() buttonEvent = new EventEmitter<{date: string, id: number}>();
   @ViewChild('buttonBar') buttonBar: ElementRef | undefined;
 
   clicked = 'button0';
 
   handleClick(element: HTMLButtonElement, index: number) {
     this.clicked = 'button' + index;
-    this.buttonEvent.emit({date: element.innerText, index: index + 1});
+    this.buttonEvent.emit({date: String(index + 1), id: index});
   }
 }

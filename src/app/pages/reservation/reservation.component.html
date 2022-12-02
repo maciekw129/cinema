@@ -1,0 +1,6 @@
+<div class="reservation main-page" *ngIf="screening">
+    <div class="reservation__header-wrapper">
+        <h2 class="reservation__title">{{ screening.movie.name + ' -'}}</h2>
+        <p class="reservation__text-details">{{ screening.day + ', godz. ' + screening.hour[0] }}</p>
+    </div>
+</div>

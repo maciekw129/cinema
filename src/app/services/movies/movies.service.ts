@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import Movie from './movies.interface';
-
-
+import { Movie, Screening, Screenings } from './movies.interface';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,29 @@ import Movie from './movies.interface';
 export class MoviesService {
   constructor(private http: HttpClient) {}
 
-  getMovies(date: string) {
-    return this.http.get<Movie[]>(`http://localhost:3000/movies?day=` + (date));
+  getScreenings(date: string) {
+    return this.http.get<Screening[]>(`http://localhost:3000/screenings?day=${date}&_expand=movie`)
+    .pipe(
+      map((screenings) => {
+        const object = screenings.reduce((acc: {[key: string]: Screenings} , curr: Screening) => {
+          if(acc.hasOwnProperty(curr.movieId)) {
+            acc[curr.movieId].hours = [...acc[curr.movieId].hours, {hour: curr.hour[0], screeningId: curr.id}];
+          } else {
+            acc[String(curr.movieId)] = {
+              hours: [{hour: curr.hour[0], screeningId: curr.id}],
+              movie: curr.movie,
+              movieId: curr.movieId,
+              day: curr.day
+            };
+          }
+          return acc;
+        }, {})
+        console.log(Object.values(object))
+        return Object.values(object);
+      }))
+  }
+
+  getScreening(screeningId: number) {
+    return this.http.get<Screening>(`http://localhost:3000/screenings/${screeningId}?_expand=movie&_expand=room`);
   }
 }

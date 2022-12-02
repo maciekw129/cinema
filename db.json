@@ -1,191 +1,238 @@
 {
   "users": [
     {
-      "userId": 1,
+      "id": 1,
       "name": "Maciej"
+    },
+    {
+      "email": "ee@email.com",
+      "password": "$2a$10$xWT/.S9fXmwKcXq4nWUDju5NAwj9Xrm1uEdfLvOOiOZ9Cv5ROGUsG",
+      "id": 2,
+      "firstName": "Maciej"
     }
   ],
-  "movies": [ 
-              {
-                  "name": "Skazani na Shawshank",
-                  "image": "https://fwcdn.pl/fpo/10/48/1048/6925401.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat"],
-                  "duration": "120 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 8,
-                  "day": 1
-              },
-              {
-                  "name": "Osobliwość",
-                  "image": "https://fwcdn.pl/fpo/04/80/10010480/8032934.6.jpg",
-                  "premiere": true,
-                  "genre": ["thriller"],
-                  "duration": "109 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Rok 1862. Dręczona przeszłością pielęgniarka wyjeżdża z Anglii do odległej irlandzkiej wioski, aby zbadać sprawę pewnej dziewczynki i jej rzekomo cudownego postu.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 6,
-                  "day": 1
-              },
-              {
-                  "name": "Na zachodzie bez zmian",
-                  "image": "https://fwcdn.pl/fpo/08/67/430867/8035016.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat", "wojenny"],
-                  "duration": "147 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Przerażające przeżycia młodego niemieckiego żołnierza na froncie zachodnim podczas I wojny światowej.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 8,
-                  "day": 1
-              },
-              {
-                  "name": "Uśmiechnj się",
-                  "image": "https://fwcdn.pl/fpo/51/05/10015105/8027491.6.jpg",
-                  "premiere": false,
-                  "genre": ["horror"],
-                  "duration": "75 min.",
-                  "ageRestrictions": "PG-18",
-                  "description": "Po tym, jak dr Rose Carter bierze udział w traumatycznym zdarzeniu z udziałem pacjentki, wokół niej zaczynają dziać się niewytłumaczalne rzeczy.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 6,
-                  "day": 2
-              },
-              {
-                  "name": "Zielona mila",
-                  "image": "https://fwcdn.pl/fpo/08/62/862/7517878.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat"],
-                  "duration": "188 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Emerytowany strażnik więzienny opowiada przyjaciółce o niezwykłym mężczyźnie, którego skazano na śmierć za zabójstwo dwóch 9-letnich dziewczynek.",
-                  "hoursOfScreenings": ["10:00", "14:30", "22:30"],
-                  "rating": 9.5,
-                  "day": 2
-              },
-              {
-                  "name": "Forrest Gump",
-                  "image": "https://fwcdn.pl/fpo/09/98/998/8021615.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat", "komedia"],
-                  "duration": "144 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Historia życia Forresta, chłopca o niskim ilorazie inteligencji z niedowładem kończyn, który staje się miliarderem i bohaterem wojny w Wietnamie.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 9.5,
-                  "day": 2
-              },
-              {
-                  "name": "Plan lekcji",
-                  "image": "https://fwcdn.pl/fpo/24/45/10022445/8043947.6.jpg",
-                  "premiere": true,
-                  "genre": ["dramat", "kryminał"],
-                  "duration": "101 min.",
-                  "ageRestrictions": "PG-18",
-                  "description": "Po śmierci nauczyciela jego przyjaciel i były policjant podejmuje pracę w szkole, aby zmierzyć się z gangiem podejrzewanym o jego zabójstwo.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 6,
-                  "day": 3
-              },
-              {
-                  "name": "Osobliwość",
-                  "image": "https://fwcdn.pl/fpo/04/80/10010480/8032934.6.jpg",
-                  "premiere": true,
-                  "genre": ["thriller"],
-                  "duration": "109 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Rok 1862. Dręczona przeszłością pielęgniarka wyjeżdża z Anglii do odległej irlandzkiej wioski, aby zbadać sprawę pewnej dziewczynki i jej rzekomo cudownego postu.",
-                  "hoursOfScreenings": ["13:30", "15:30", "22:30"],
-                  "rating": 6,
-                  "day": 3 
-              },
-              {
-                  "name": "Do ostatniej kości",
-                  "image": "https://fwcdn.pl/fpo/04/59/10000459/8033337.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat", "horror", "romans"],
-                  "duration": "130 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Młoda kobieta uczy się jak przetrwać na marginesie społeczeństwa.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 8,
-                  "day": 3
-              },
-              {
-                  "name": "Na zachodzie bez zmian",
-                  "image": "https://fwcdn.pl/fpo/08/67/430867/8035016.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat", "wojenny"],
-                  "duration": "147 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Przerażające przeżycia młodego niemieckiego żołnierza na froncie zachodnim podczas I wojny światowej.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 8,
-                  "day": 4 
-              },
-              {
-                  "name": "Zielona mila",
-                  "image": "https://fwcdn.pl/fpo/08/62/862/7517878.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat"],
-                  "duration": "188 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Emerytowany strażnik więzienny opowiada przyjaciółce o niezwykłym mężczyźnie, którego skazano na śmierć za zabójstwo dwóch 9-letnich dziewczynek.",
-                  "hoursOfScreenings": ["10:00", "14:30", "22:30"],
-                  "rating": 9.5,
-                  "day": 4
-              },
-              {
-                  "name": "Skazani na Shawshank",
-                  "image": "https://fwcdn.pl/fpo/10/48/1048/6925401.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat"],
-                  "duration": "120 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 8,
-                  "day": 4
-              },
-              {
-                  "name": "Osobliwość",
-                  "image": "https://fwcdn.pl/fpo/04/80/10010480/8032934.6.jpg",
-                  "premiere": true,
-                  "genre": ["thriller"],
-                  "duration": "109 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Rok 1862. Dręczona przeszłością pielęgniarka wyjeżdża z Anglii do odległej irlandzkiej wioski, aby zbadać sprawę pewnej dziewczynki i jej rzekomo cudownego postu.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 6,
-                  "day": 5 
-              },
-              {
-                  "name": "Forrest Gump",
-                  "image": "https://fwcdn.pl/fpo/09/98/998/8021615.6.jpg",
-                  "premiere": false,
-                  "genre": ["dramat", "komedia"],
-                  "duration": "144 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Historia życia Forresta, chłopca o niskim ilorazie inteligencji z niedowładem kończyn, który staje się miliarderem i bohaterem wojny w Wietnamie.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 9.5,
-                  "day": 5 
-              },
-              {
-                  "name": "Menu",
-                  "image": "https://fwcdn.pl/fpo/56/47/875647/8038812.6.jpg",
-                  "premiere": true,
-                  "genre": ["czarna komedia"],
-                  "duration": "144 min.",
-                  "ageRestrictions": "PG-16",
-                  "description": "Młoda para wybiera się na odległą wyspę, do ekskluzywnej restauracji. Okazuje się jednak, że nie wszystko jest takie jakim się wydaje a w menu czekają zaskakujące niespodzianki.",
-                  "hoursOfScreenings": ["12:00", "15:30", "21:30"],
-                  "rating": 7,
-                  "day": 5 
-              }
-          ]
-      
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Sala mała",
+      "rows": 10,
+      "columns": 10
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "name": "Skazani na Shawshank",
+      "image": "https://fwcdn.pl/fpo/10/48/1048/6925401.6.jpg",
+      "premiere": false,
+      "genre": [
+        "dramat"
+      ],
+      "duration": "120 min.",
+      "ageRestrictions": "PG-16",
+      "description": "Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.",
+      "rating": 8
+    },
+    {
+      "id": 2,
+      "name": "Osobliwość",
+      "image": "https://fwcdn.pl/fpo/04/80/10010480/8032934.6.jpg",
+      "premiere": true,
+      "genre": [
+        "thriller"
+      ],
+      "duration": "109 min.",
+      "ageRestrictions": "PG-16",
+      "description": "Rok 1862. Dręczona przeszłością pielęgniarka wyjeżdża z Anglii do odległej irlandzkiej wioski, aby zbadać sprawę pewnej dziewczynki i jej rzekomo cudownego postu.",
+      "hoursOfScreenings": [
+        "12:00",
+        "15:30",
+        "21:30"
+      ],
+      "rating": 6,
+      "day": 1
+    },
+    {
+      "id": 3,
+      "name": "Na zachodzie bez zmian",
+      "image": "https://fwcdn.pl/fpo/08/67/430867/8035016.6.jpg",
+      "premiere": false,
+      "genre": [
+        "dramat",
+        "wojenny"
+      ],
+      "duration": "147 min.",
+      "ageRestrictions": "PG-16",
+      "description": "Przerażające przeżycia młodego niemieckiego żołnierza na froncie zachodnim podczas I wojny światowej.",
+      "hoursOfScreenings": [
+        "12:00",
+        "15:30",
+        "21:30"
+      ],
+      "rating": 8,
+      "day": 1
+    },
+    {
+      "id": 4,
+      "name": "Uśmiechnj się",
+      "image": "https://fwcdn.pl/fpo/51/05/10015105/8027491.6.jpg",
+      "premiere": false,
+      "genre": [
+        "horror"
+      ],
+      "duration": "75 min.",
+      "ageRestrictions": "PG-18",
+      "description": "Po tym, jak dr Rose Carter bierze udział w traumatycznym zdarzeniu z udziałem pacjentki, wokół niej zaczynają dziać się niewytłumaczalne rzeczy.",
+      "hoursOfScreenings": [
+        "12:00",
+        "15:30",
+        "21:30"
+      ],
+      "rating": 6,
+      "day": 2
+    },
+    {
+      "id": 5,
+      "name": "Zielona mila",
+      "image": "https://fwcdn.pl/fpo/08/62/862/7517878.6.jpg",
+      "premiere": false,
+      "genre": [
+        "dramat"
+      ],
+      "duration": "188 min.",
+      "ageRestrictions": "PG-16",
+      "description": "Emerytowany strażnik więzienny opowiada przyjaciółce o niezwykłym mężczyźnie, którego skazano na śmierć za zabójstwo dwóch 9-letnich dziewczynek.",
+      "hoursOfScreenings": [
+        "10:00",
+        "14:30",
+        "22:30"
+      ],
+      "rating": 9.5,
+      "day": 2
+    },
+    {
+      "id": 6,
+      "name": "Forrest Gump",
+      "image": "https://fwcdn.pl/fpo/09/98/998/8021615.6.jpg",
+      "premiere": false,
+      "genre": [
+        "dramat",
+        "komedia"
+      ],
+      "duration": "144 min.",
+      "ageRestrictions": "PG-16",
+      "description": "Historia życia Forresta, chłopca o niskim ilorazie inteligencji z niedowładem kończyn, który staje się miliarderem i bohaterem wojny w Wietnamie.",
+      "hoursOfScreenings": [
+        "12:00",
+        "15:30",
+        "21:30"
+      ],
+      "rating": 9.5,
+      "day": 2
+    },
+    {
+      "id": 7,
+      "name": "Plan lekcji",
+      "image": "https://fwcdn.pl/fpo/24/45/10022445/8043947.6.jpg",
+      "premiere": true,
+      "genre": [
+        "dramat",
+        "kryminał"
+      ],
+      "duration": "101 min.",
+      "ageRestrictions": "PG-18",
+      "description": "Po śmierci nauczyciela jego przyjaciel i były policjant podejmuje pracę w szkole, aby zmierzyć się z gangiem podejrzewanym o jego zabójstwo.",
+      "hoursOfScreenings": [
+        "12:00",
+        "15:30",
+        "21:30"
+      ],
+      "rating": 6,
+      "day": 3
+    },
+    {
+      "id": 8,
+      "name": "Do ostatniej kości",
+      "image": "https://fwcdn.pl/fpo/04/59/10000459/8033337.6.jpg",
+      "premiere": false,
+      "genre": [
+        "dramat",
+        "horror",
+        "romans"
+      ],
+      "duration": "130 min.",
+      "ageRestrictions": "PG-16",
+      "description": "Młoda kobieta uczy się jak przetrwać na marginesie społeczeństwa.",
+      "hoursOfScreenings": [
+        "12:00",
+        "15:30",
+        "21:30"
+      ],
+      "rating": 8,
+      "day": 3
+    },
+    {
+      "id": 9,
+      "name": "Menu",
+      "image": "https://fwcdn.pl/fpo/56/47/875647/8038812.6.jpg",
+      "premiere": true,
+      "genre": [
+        "czarna komedia"
+      ],
+      "duration": "144 min.",
+      "ageRestrictions": "PG-16",
+      "description": "Młoda para wybiera się na odległą wyspę, do ekskluzywnej restauracji. Okazuje się jednak, że nie wszystko jest takie jakim się wydaje a w menu czekają zaskakujące niespodzianki.",
+      "hoursOfScreenings": [
+        "12:00",
+        "15:30",
+        "21:30"
+      ],
+      "rating": 7,
+      "day": 5
+    }
+  ],
+  "screenings": [
+    {
+      "id": 1,
+      "movieId": 1,
+      "hour": ["15:30"],
+      "day": 1,
+      "roomId": 1
+    },
+    {
+      "id": 2,
+      "movieId": 2,
+      "hour": ["15:30"],
+      "day": 2,
+      "roomId": 1
+    },
+    {
+      "id": 3,
+      "movieId": 2,
+      "hour": ["15:30"],
+      "day": 1,
+      "roomId": 1
+    },
+    {
+      "id": 4,
+      "movieId": 2,
+      "hour": ["21:30"],
+      "day": 1,
+      "roomId": 1
+    },
+    {
+      "id": 5,
+      "movieId": 9,
+      "hour": ["15:30"],
+      "day": 3,
+      "roomId": 1
+    },
+    {
+      "id": 6,
+      "movieId": 7,
+      "hour": ["15:30"],
+      "day": 4,
+      "roomId": 1
+    }
+  ]
 }

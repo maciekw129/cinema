@@ -28,6 +28,7 @@ body {
 
 .main-page {
     min-height: calc(100vh - 235px);
+    width: 100%;
 }
 
 .main-container {
@@ -54,4 +55,15 @@ h1, h2, h3, h4, h5, h6 {
 .fnt-18-regular {
     font-size: 18px;
     font-weight: 400;
+}
+
+.fnt-13-regular {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* ELEMENTS */
+
+a {
+    color: var(--colorDarkPurple);
 }

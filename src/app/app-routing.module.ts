@@ -5,13 +5,19 @@ import { AboutComponent } from './pages/about/about.component';
 import { WorkComponent } from './pages/work/work.component';
 import { RegulationsComponent } from './pages/regulations/regulations.component';
 import { RentalComponent } from './pages/rental/rental.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'work', component: WorkComponent },
   { path: 'regulations', component: RegulationsComponent },
-  { path: 'rental', component: RentalComponent }
+  { path: 'rental', component: RentalComponent },
+  { path: 'reservation/:id', component: ReservationComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

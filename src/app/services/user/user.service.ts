@@ -1,38 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 export interface User {
-  userId: number,
-  name: string
+  id: number,
+  name: string,
+  email: string
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  user$$ = new BehaviorSubject<User[]>([]);
+  private _user$$ = new BehaviorSubject<User[]>([]);
+  public readonly user$$: Observable<User[]> = this._user$$.asObservable();
 
-  constructor(private http: HttpClient){
-    if(localStorage.getItem("user")) {
-      this.getUserDetails(localStorage.getItem("user") as string);
-    }
-  }
+  constructor(private http: HttpClient, private router: Router){}
 
-  getUserDetails(userId: string) {
-    return this.http.get<User[]>(`http://localhost:3000/users?userId=${userId}`).subscribe({
-      next: (response) => this.user$$.next(response),
-      error: (error) => console.log(error)
+  login(values: {email: string, password: string}) {
+    return this.http.post<{accessToken: string, user: User}>(`http://localhost:3000/login`, { email: values.email, password: values.password}).subscribe({
+      next: (response) => {
+        localStorage.setItem("token", response.accessToken);
+        localStorage.setItem("userId", String(response.user.id));
+        this._user$$.next([response.user]);
+        this.router.navigate(['']);
+      },
+      error: (error) => {
+        console.log(error);
+      }
     })
-  }
-
-  login(userId: string) {
-    this.getUserDetails(userId);
-    localStorage.setItem("user", userId);
   }
 
   logout() {
     localStorage.removeItem("user");
-    this.user$$.next([]);
   }
 }

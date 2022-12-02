@@ -1,0 +1,24 @@
+<div class="login__wrapper main-page">
+    <div class="login main-container">
+        <h2>Login</h2>
+        <form class="login__form" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+            <input
+                class="login__input"
+                type="text"
+                formControlName="email"
+                placeholder="E-mail..."
+            />
+            <input
+                class="login__input"
+                type="password"
+                formControlName="password"
+                placeholder="Hasło..."
+            />
+            <app-button
+                text="Zaloguj"
+                type="submit"
+            ></app-button>
+        </form>
+        <p class="fnt-13-regular">Nie posiadasz konta? <a routerLink="/register"> Zarejestruj się.</a></p>
+    </div>
+</div>

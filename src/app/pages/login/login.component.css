@@ -1,0 +1,24 @@
+.login__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+    justify-content: center;
+    background-color: var(--colorWhite);
+    border-radius: 5px;
+}
+
+.login__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 25px;
+}

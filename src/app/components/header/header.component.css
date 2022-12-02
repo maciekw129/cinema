@@ -16,6 +16,7 @@
 .header__title {
     color: var(--colorDarkBlue);
     font-size: 225%;
+    cursor: pointer;
 }
 
 .header__icon {

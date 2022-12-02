@@ -47,5 +47,29 @@
 }
 
 .content__button-bar {
-    margin-top: 20px
+    margin-top: 20px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--colorBlack);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.button-bar__item {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-right: 1px solid var(--colorBlack);
+    transition: background-color 0.2s linear;
+}
+
+.button-bar__item:last-child {
+    border-right: none;
+}
+
+.button-bar__item:hover {
+    background-color: var(--colorDarkGreen);
+    color: var(--colorWhite);
+    transition: background-color 0.2s linear;
 }

@@ -1,15 +1,15 @@
 <header class="header__wrapper">
     <div class="header">
-        <h1 class="header__title">Ale kino! <fa-icon class="header__icon" [icon]="film"></fa-icon></h1>
+        <h1 class="header__title" routerLink="">Ale kino! <fa-icon class="header__icon" [icon]="film"></fa-icon></h1>
         <div class="header__buttons">
             <app-button
                 [icon]="cartShopping"
             ></app-button>
             <app-button
-                *ngIf="!user.length; else elseBlock"
+                *ngIf="!user; else elseBlock"
                 text="Zaloguj"
                 [important]="true"
-                (click)="handleLogin()"
+                routerLink="login"
             ></app-button>
             <ng-template #elseBlock>
                 <div class="header__dropdown-wrapper">

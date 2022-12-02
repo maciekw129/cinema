@@ -1,12 +1,12 @@
-<div class="home">
+<div class="home main-page">
     <app-button-bar
         class="home__button-bar"
         [buttonBarElements]="buttonBarElements"
-        (buttonEvent)="catchValue($event)"
+        (buttonEvent)="handleButtonEvent($event)"
     ></app-button-bar>
     <app-movie
         class="home__movie"
-        *ngFor="let movie of movies"
-        [movie]="movie"
+        *ngFor="let screening of screenings"
+        [screenings]="screening"
     ></app-movie>
 </div>

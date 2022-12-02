@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleStrategy } from '@angular/router';
 import { faCartShopping, faFilm } from '@fortawesome/free-solid-svg-icons';
 import { User, UserService } from 'src/app/services/user/user.service';
 
@@ -16,15 +17,10 @@ export class HeaderComponent implements OnInit {
   constructor(private userService: UserService){}
 
   ngOnInit() {
-    this.userService.user$$.subscribe(value => {
-      this.user = value;
-      console.log('hello', this.user)
+    this.userService.user$$.subscribe(result => {
+      console.log(result);
+      this.user = result;
     })
-  }
-
-  handleLogin() {
-    this.userService.login('1');
-    this.isDropdownVisible = false;
   }
 
   handleLogout() {
