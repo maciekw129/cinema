@@ -10,8 +10,7 @@
                 <div class="room__row-signer">{{ alphabeth[column] }}</div>
                 <app-seat
                     *ngFor="let row of rows" 
-                    [row]="row"
-                    [column]="column"
+                    [seat]="[column, row]"
                     [seatsOccupied]="screening.seatsOccupied"
                 ></app-seat>
             </div>

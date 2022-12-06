@@ -8,8 +8,7 @@ import { OrderService } from 'src/app/services/order/order.service';
   styleUrls: ['./seat.component.css']
 })
 export class SeatComponent implements OnInit {
-  @Input() row!: number;
-  @Input() column!: number;
+  @Input() seat!: Seat;
   @Input() seatsOccupied: Seat[] = [];
   seatsChosen: Seat[] = [];
   isSeatOccupied = false;
@@ -18,15 +17,15 @@ export class SeatComponent implements OnInit {
   constructor(private orderService: OrderService) {}
 
   ngOnInit() {
-    this.isSeatOccupied = this.seatsOccupied.some(seat => seat[0] === this.column && seat[1] === this.row);
+    this.isSeatOccupied = this.seatsOccupied.some(seat => seat[0] === this.seat[0] && seat[1] === this.seat[1]);
 
     this.orderService.seatsChosen$$.subscribe(result => {
       this.seatsChosen = result;
-      this.isSeatChosen = this.orderService.findSeatIndex([this.column, this.row]) !== -1;
+      this.isSeatChosen = this.orderService.findSeatIndex(this.seat) !== -1;
     });
   }
 
   chooseSeat() {
-    this.orderService.toggleSeat([this.column, this.row]);
+    this.orderService.toggleSeat(this.seat);
   }
 }

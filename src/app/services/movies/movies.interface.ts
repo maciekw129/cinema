@@ -33,4 +33,4 @@ export interface Screenings {
     day: number
 }
 
-export type Seat = [column: number, row: number];
+export type Seat = [column: number, row: number, seatType?: string];
