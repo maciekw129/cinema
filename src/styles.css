@@ -20,6 +20,14 @@
     --colorPurple: #75124D;
 }
 
+.fnt-color-red {
+    color: var(--colorRed);
+}
+
+.fnt-color-green {
+    color: var(--colorGreen);
+}
+
 body {
     background-color: var(--colorLightGray);
 }
@@ -66,4 +74,19 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     color: var(--colorDarkPurple);
+    transition: color 0.2s linear;
+}
+
+a:hover {
+    color: var(--colorGreen);
+}
+
+.input {
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 1.25px solid var(--colorBlack);
+}
+
+.input-error {
+    border-color: var(--colorRed);
 }

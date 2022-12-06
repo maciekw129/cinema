@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
 
   fetchScreenings(date: string) {
     this.moviesService.getScreenings(date).subscribe(result => {
+      console.log(result)
       this.screenings = result;
     })
   }

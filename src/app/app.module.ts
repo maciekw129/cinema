@@ -22,6 +22,8 @@ import { ReservationComponent } from './pages/reservation/reservation.component'
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { SeatsGridComponent } from './components/seats-grid/seats-grid.component';
+import { SeatComponent } from './components/seat/seat.component';
+import { ChosenSeatComponent } from './components/chosen-seat/chosen-seat.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { SeatsGridComponent } from './components/seats-grid/seats-grid.component
     LoginComponent,
     RegisterComponent,
     SeatsGridComponent,
+    SeatComponent,
+    ChosenSeatComponent,
   ],
   imports: [
     BrowserModule,

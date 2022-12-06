@@ -16,7 +16,9 @@ export class MovieComponent implements OnInit {
               private router: Router,){}
 
   ngOnInit() {
-    this.userService.user$$.subscribe
+    this.userService.user$$.subscribe(result => {
+      this.user = result;
+    })
   }
 
   handleClick(screeningId: number) {

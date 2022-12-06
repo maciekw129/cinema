@@ -1,0 +1,8 @@
+<div class="chosen-seat">
+    <p class="chosen-seat__text">Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}</p>
+    <select #types (change)="onSelectType(types.value)">
+        <option *ngFor="let option of ticketTypes" [ngValue]="option.id">{{ option.name }}</option>
+    </select>
+    <fa-icon class="chosen-seat__trash" [icon]="trash" (click)="deleteChosenSeat()"></fa-icon>
+<p></p>
+</div>

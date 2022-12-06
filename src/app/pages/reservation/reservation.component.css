@@ -8,8 +8,41 @@
 .reservation__header-wrapper {
     display: flex;
     align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
 }
 
 .reservation__title {
     margin-right: 10px;
+}
+
+.reservation__screen-text {
+    margin: 50px 0 10px 0;
+}
+
+.room__row {
+    display: flex;
+}
+
+.room__seat, .room__row-signer {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.room__row-signer {
+    background-color: var(--colorPurple);
+    color: var(--colorLightGray);
+}
+
+.room__seat {
+    background-color: var(--colorWhite);
+    cursor: pointer;
+}
+
+.room__seat--occupied {
+    background-color: var(--colorDarkBlue);
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TitleStrategy } from '@angular/router';
 import { faCartShopping, faFilm } from '@fortawesome/free-solid-svg-icons';
 import { User, UserService } from 'src/app/services/user/user.service';
 
@@ -18,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.userService.user$$.subscribe(result => {
-      console.log(result);
       this.user = result;
     })
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Movie, Screening, Screenings } from './movies.interface';
+import { Screening, Screenings } from './movies.interface';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class MoviesService {
       map((screenings) => {
         const object = screenings.reduce((acc: {[key: string]: Screenings} , curr: Screening) => {
           if(acc.hasOwnProperty(curr.movieId)) {
-            acc[curr.movieId].hours = [...acc[curr.movieId].hours, {hour: curr.hour[0], screeningId: curr.id}];
+            acc[curr.movieId].hours = [...acc[curr.movieId].hours, { hour: curr.hour[0], screeningId: curr.id }];
           } else {
             acc[String(curr.movieId)] = {
               hours: [{hour: curr.hour[0], screeningId: curr.id}],
@@ -26,7 +26,6 @@ export class MoviesService {
           }
           return acc;
         }, {})
-        console.log(Object.values(object))
         return Object.values(object);
       }))
   }

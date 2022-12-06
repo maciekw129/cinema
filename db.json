@@ -1,14 +1,16 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Maciej"
+      "email": "maciejwalecki99@gmail.com",
+      "password": "$2a$10$skzYJfIMUmhbP2ct2h2KIerjV34CQpgbvL2iDpiy/ICmfkie1PN0q",
+      "firstName": "Maciej",
+      "id": 1
     },
     {
-      "email": "ee@email.com",
-      "password": "$2a$10$xWT/.S9fXmwKcXq4nWUDju5NAwj9Xrm1uEdfLvOOiOZ9Cv5ROGUsG",
-      "id": 2,
-      "firstName": "Maciej"
+      "email": "Test123213123123@gmaile.om",
+      "password": "$2a$10$H2WS6z1hUeZ9rpXTyNhAOuxvG9rj.YWPilWwuVs3jU7OuLHf1Fe1O",
+      "firstName": "Maciejsad",
+      "id": 2
     }
   ],
   "rooms": [
@@ -195,44 +197,79 @@
     {
       "id": 1,
       "movieId": 1,
-      "hour": ["15:30"],
+      "hour": [
+        "15:30"
+      ],
       "day": 1,
-      "roomId": 1
+      "roomId": 1,
+      "seatsOccupied": [[5, 5], [4, 8]]
     },
     {
       "id": 2,
       "movieId": 2,
-      "hour": ["15:30"],
+      "hour": [
+        "15:30"
+      ],
       "day": 2,
-      "roomId": 1
+      "roomId": 1,
+      "seatsOccupied": []
     },
     {
       "id": 3,
       "movieId": 2,
-      "hour": ["15:30"],
+      "hour": [
+        "15:30"
+      ],
       "day": 1,
-      "roomId": 1
+      "roomId": 1,
+      "seatsOccupied": []
     },
     {
       "id": 4,
       "movieId": 2,
-      "hour": ["21:30"],
+      "hour": [
+        "21:30"
+      ],
       "day": 1,
-      "roomId": 1
+      "roomId": 1,
+      "seatsOccupied": []
     },
     {
       "id": 5,
       "movieId": 9,
-      "hour": ["15:30"],
+      "hour": [
+        "15:30"
+      ],
       "day": 3,
-      "roomId": 1
+      "roomId": 1,
+      "seatsOccupied": []
     },
     {
       "id": 6,
       "movieId": 7,
-      "hour": ["15:30"],
+      "hour": [
+        "15:30"
+      ],
       "day": 4,
-      "roomId": 1
+      "roomId": 1,
+      "seatsOccupied": []
+    }
+  ],
+  "ticketTypes": [
+    {
+      "id": 1,
+      "name": "bilet normalny",
+      "price": 22
+    },
+    {
+      "id": 2,
+      "name": "bilet ulgowy",
+      "price": 19
+    },
+    {
+      "id": 3,
+      "name": "bilet rodzinny",
+      "price": 20
     }
   ]
 }

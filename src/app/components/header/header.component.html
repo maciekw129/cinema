@@ -3,10 +3,11 @@
         <h1 class="header__title" routerLink="">Ale kino! <fa-icon class="header__icon" [icon]="film"></fa-icon></h1>
         <div class="header__buttons">
             <app-button
+                *ngIf="user.length"
                 [icon]="cartShopping"
             ></app-button>
             <app-button
-                *ngIf="!user; else elseBlock"
+                *ngIf="!user.length; else elseBlock"
                 text="Zaloguj"
                 [important]="true"
                 routerLink="login"
@@ -15,7 +16,7 @@
                 <div class="header__dropdown-wrapper">
                     <app-button
                         class=""
-                        [text]="'Cześć ' + user[0].name + ' !'"
+                        [text]="'Cześć ' + user[0].firstName + ' !'"
                         (click)="toggleDropdown()"
                     ></app-button>
                     <ul class="header__dropdown" *ngIf="isDropdownVisible">

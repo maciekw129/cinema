@@ -14,7 +14,13 @@ export interface Screening {
     movie: Movie,
     hour: string[],
     day: number,
-    id: number
+    id: number,
+    room: {
+        columns: number,
+        rows: number,
+        name: string
+    },
+    seatsOccupied: Seat[]
 }
 
 export interface Screenings {
@@ -26,3 +32,5 @@ export interface Screenings {
     }[],
     day: number
 }
+
+export type Seat = [column: number, row: number];

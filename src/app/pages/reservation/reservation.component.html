@@ -3,4 +3,22 @@
         <h2 class="reservation__title">{{ screening.movie.name + ' -'}}</h2>
         <p class="reservation__text-details">{{ screening.day + ', godz. ' + screening.hour[0] }}</p>
     </div>
+    <p class="reservation__screen-text">Ekran</p>
+    <div class="reservation__room">
+        <div *ngFor="let column of columns">
+            <div class="room__row">
+                <div class="room__row-signer">{{ alphabeth[column] }}</div>
+                <app-seat
+                    *ngFor="let row of rows" 
+                    [row]="row"
+                    [column]="column"
+                    [seatsOccupied]="screening.seatsOccupied"
+                ></app-seat>
+            </div>
+        </div>
+    </div>
+    <app-chosen-seat 
+        *ngFor="let seat of seatsChosen; index"
+        [seat]="seat"
+    ></app-chosen-seat>
 </div>

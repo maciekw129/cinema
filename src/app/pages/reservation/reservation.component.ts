@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Screening } from 'src/app/services/movies/movies.interface';
+import { Screening, Seat } from 'src/app/services/movies/movies.interface';
 import { MoviesService } from 'src/app/services/movies/movies.service';
+import { OrderService } from 'src/app/services/order/order.service';
 
 @Component({
   selector: 'app-reservation',
@@ -10,15 +11,25 @@ import { MoviesService } from 'src/app/services/movies/movies.service';
 })
 export class ReservationComponent implements OnInit {
   screening: Screening | null = null;
+  rows: number[] = [];
+  columns: number[] = [];
+  alphabeth: string[] = 'ABCDEFGHIJKLMNOPRSTUWZ'.split('');
+  seatsChosen: Seat[] = [];
+
 
   constructor(private moviesService: MoviesService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private orderService: OrderService) {}
 
   ngOnInit() {
     this.moviesService.getScreening(this.route.snapshot.params["id"]).subscribe(response => {
-      console.log(response);
       this.screening = response;
+      this.rows = Array.from(Array(response.room.rows).keys());
+      this.columns = Array.from(Array(response.room.columns).keys());
+    });
+
+    this.orderService.seatsChosen$$.subscribe(result => {
+      this.seatsChosen = result;
     })
   }
-
 }

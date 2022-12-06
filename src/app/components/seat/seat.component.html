@@ -1,0 +1,9 @@
+<button
+    class="seat"
+    [ngClass]="{
+        'seat-occupied': isSeatOccupied,
+        'seat-reserved': isSeatChosen
+    }"
+    [disabled]="isSeatOccupied"
+    (click)="chooseSeat()"
+>{{ row + 1 }}</button>
