@@ -25,10 +25,10 @@ export class ChosenSeatComponent implements OnInit {
   }
 
   onSelectType(value: string) {
-    console.log(value);
+    this.orderService.changeSeatType(this.seat, Number(value));
   }
 
   deleteChosenSeat() {
-    this.orderService.deleteChosenSeat(this.seat)
+    this.orderService.deleteChosenSeat(this.seat);
   }
 }

@@ -46,3 +46,7 @@
 .room__seat--occupied {
     background-color: var(--colorDarkBlue);
 }
+
+.reservation__chosen-seats {
+    margin: 20px 0;
+}

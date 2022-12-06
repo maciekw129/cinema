@@ -18,12 +18,14 @@ import { AboutComponent } from './pages/about/about.component';
 import { WorkComponent } from './pages/work/work.component';
 import { RegulationsComponent } from './pages/regulations/regulations.component';
 import { RentalComponent } from './pages/rental/rental.component';
-import { ReservationComponent } from './pages/reservation/reservation.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { SeatsGridComponent } from './components/seats-grid/seats-grid.component';
 import { SeatComponent } from './components/seat/seat.component';
 import { ChosenSeatComponent } from './components/chosen-seat/chosen-seat.component';
+import { FinalizeComponent } from './pages/finalize/finalize.component';
+import { ChooseSeatComponent } from './components/choose-seat/choose-seat.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ChosenSeatComponent } from './components/chosen-seat/chosen-seat.compon
     SeatsGridComponent,
     SeatComponent,
     ChosenSeatComponent,
+    FinalizeComponent,
+    ChooseSeatComponent,
   ],
   imports: [
     BrowserModule,

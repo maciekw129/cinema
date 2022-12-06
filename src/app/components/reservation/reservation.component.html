@@ -10,14 +10,23 @@
                 <div class="room__row-signer">{{ alphabeth[column] }}</div>
                 <app-seat
                     *ngFor="let row of rows" 
-                    [seat]="[column, row]"
+                    [seat]="[column, row, 1]"
                     [seatsOccupied]="screening.seatsOccupied"
                 ></app-seat>
             </div>
         </div>
     </div>
-    <app-chosen-seat 
+    <div class="reservation__chosen-seats">
+        <app-chosen-seat 
         *ngFor="let seat of seatsChosen; index"
         [seat]="seat"
     ></app-chosen-seat>
+    </div>
+    <p *ngIf="!seatsChosen.length; else elseBlock" class="room__info">Choose seat to continue.</p>
+    <ng-template #elseBlock>
+        <app-button
+            text="Przejdź do zamówienia"
+            (click)="navigateToFinalize()"
+        ></app-button>
+    </ng-template>
 </div>

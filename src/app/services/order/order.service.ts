@@ -20,7 +20,7 @@ export class OrderService {
 
   toggleSeat(seat: Seat) {
     const seatsChosen = this._seatsChosen$$.getValue();
-    if(this.findSeatIndex(seat) === -1) {
+    if(this.findSeatIndex(seat) === -1 && seatsChosen.length < 10) {
       this._seatsChosen$$.next([...seatsChosen, seat]);
     } else {
       this.deleteChosenSeat(seat);
@@ -33,5 +33,11 @@ export class OrderService {
 
   deleteChosenSeat(seat: Seat) {
     this._seatsChosen$$.next(this._seatsChosen$$.getValue().filter((_, index) => index != this.findSeatIndex(seat)));
+  }
+
+  changeSeatType(seat: Seat, seatType: number) {
+    const seatsChosen = this._seatsChosen$$.getValue();
+    seatsChosen[this.findSeatIndex(seat)][2] = seatType;
+    this._seatsChosen$$.next(seatsChosen);
   }
 }
