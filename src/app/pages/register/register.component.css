@@ -1,0 +1,25 @@
+.register__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+    justify-content: center;
+    background-color: var(--colorWhite);
+    border-radius: 5px;
+    margin: 50px 0;
+}
+
+.register__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+}

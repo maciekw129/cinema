@@ -3,21 +3,36 @@
         <h2>Login</h2>
         <form class="login__form" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
             <input
-                class="login__input"
+                class="login__input input"
+                [class.error]="emailCtrl.touched && emailCtrl.errors"
                 type="text"
                 formControlName="email"
-                placeholder="E-mail..."
+                placeholder="E-mail*"
             />
+            <ng-container *ngIf="emailCtrl.errors as errors">
+                <ng-container *ngIf="emailCtrl.touched">
+                  <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                </ng-container>
+            </ng-container>
+
             <input
-                class="login__input"
+                class="login__input input"
+                [class.error]="passwordCtrl.touched && passwordCtrl.errors"
                 type="password"
                 formControlName="password"
-                placeholder="Hasło..."
+                placeholder="Hasło*"
             />
+            <ng-container *ngIf="passwordCtrl.errors as errors">
+                <ng-container *ngIf="passwordCtrl.touched">
+                  <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                </ng-container>
+            </ng-container>
+
             <app-button
                 text="Zaloguj"
                 type="submit"
             ></app-button>
+            <p class="fnt-color-red fnt-13-regular" *ngIf="error">{{ error }}</p>
         </form>
         <p class="fnt-13-regular">Nie posiadasz konta? <a routerLink="/register"> Zarejestruj się.</a></p>
     </div>

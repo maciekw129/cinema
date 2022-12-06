@@ -13,6 +13,7 @@
     justify-content: center;
     background-color: var(--colorWhite);
     border-radius: 5px;
+    margin: 50px 0;
 }
 
 .login__form {
@@ -20,5 +21,5 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    row-gap: 25px;
+    row-gap: 15px;
 }

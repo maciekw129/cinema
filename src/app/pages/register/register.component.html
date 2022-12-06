@@ -1,1 +1,71 @@
-<p>register works!</p>
+<div class="register__wrapper main-page">
+    <div class="register main-container">
+        <h2>Register</h2>
+        <form class="register__form" [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+            <input
+                class="input register__input"
+                type="text"
+                formControlName="firstName"
+                placeholder="Imię..."
+            />
+            <ng-container *ngIf="firstNameCtrl.errors as errors">
+                <ng-container *ngIf="firstNameCtrl.touched">
+                  <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                </ng-container>
+            </ng-container>
+
+            <input
+                class="input register__input"
+                type="text"
+                formControlName="email"
+                placeholder="E-mail..."
+            />
+            <ng-container *ngIf="emailCtrl.errors as errors">
+                <ng-container *ngIf="emailCtrl.touched">
+                  <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                  <p *ngIf="errors['minlength'] as minLength" class="fnt-13-regular fnt-color-red">
+                    E-mail powinien mieć {{ minLength.requiredLength }} znaków, a ma {{ minLength.actualLength }}
+                  </p>
+                </ng-container>
+            </ng-container>
+
+            <input
+                class="input register__input"
+                type="password"
+                formControlName="password"
+                placeholder="Hasło..."
+            />
+            <ng-container *ngIf="passwordCtrl.errors as errors">
+                <ng-container *ngIf="passwordCtrl.touched">
+                  <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                </ng-container>
+            </ng-container>
+
+            <input
+                class="input register__input"
+                type="password"
+                formControlName="confirmPassword"
+                placeholder="Powtórz hasło..."
+            />
+            <ng-container *ngIf="confirmPasswordCtrl.errors as errors">
+                <ng-container *ngIf="confirmPasswordCtrl.touched">
+                  <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                </ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="registerForm.errors as errors">
+                <ng-container *ngIf="confirmPasswordCtrl.touched">
+                    <p *ngIf="errors['isEqual']" class="fnt-13-regular fnt-color-red">Hasła się nie zgadzają</p>
+                </ng-container>
+            </ng-container>
+
+            <app-button
+                text="Zarejestruj"
+                type="submit"
+            ></app-button>
+            <p *ngIf="error" class="fnt-13-regular fnt-color-red">{{ error }}</p>
+            <p *ngIf="isSuccess" class="fnt-13-regular fnt-color-green">Konto zostało stworzone, możesz się teraz zalogować!</p>
+        </form>
+        <p class="fnt-13-regular">Posiadasz już konto? <a routerLink="/login"> Zaloguj się.</a></p>
+    </div>
+</div>
