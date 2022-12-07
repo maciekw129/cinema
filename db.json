@@ -202,7 +202,16 @@
       ],
       "day": 1,
       "roomId": 1,
-      "seatsOccupied": [[5, 5], [4, 8]]
+      "seatsOccupied": [
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          8
+        ]
+      ]
     },
     {
       "id": 2,
@@ -270,6 +279,72 @@
       "id": 3,
       "name": "bilet rodzinny",
       "price": 20
+    }
+  ],
+  "tickets": [
+    {
+      "screeningId": 1,
+      "seats": [],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asdasd",
+        "lastName": "asdasd",
+        "phone": "asdasd",
+        "email": "asdasd"
+      },
+      "id": 1
+    },
+    {
+      "screeningId": 1,
+      "seats": [],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asdasd",
+        "lastName": "asdasd",
+        "phone": "asdasd",
+        "email": "asdasd"
+      },
+      "id": 2
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          8,
+          5,
+          1
+        ],
+        [
+          8,
+          4,
+          1
+        ],
+        [
+          8,
+          3,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": "123123123",
+        "email": "maciejwalecki22"
+      },
+      "id": 3
+    },
+    {
+      "screeningId": 1,
+      "seats": [],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asd",
+        "lastName": "asd",
+        "phone": "asd",
+        "email": "asd"
+      },
+      "id": 4
     }
   ]
 }

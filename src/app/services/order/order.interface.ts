@@ -3,3 +3,10 @@ export interface TicketTypes {
     name: string,
     price: number
 }
+
+export interface FinalizeForm {
+    firstName: string,
+    lastName: string,
+    phone?: string,
+    email: string
+}

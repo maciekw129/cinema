@@ -28,6 +28,10 @@
     color: var(--colorGreen);
 }
 
+.opaque {
+    opacity: 50%;
+}
+
 body {
     background-color: var(--colorLightGray);
 }

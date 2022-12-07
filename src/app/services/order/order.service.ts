@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Seat } from '../movies/movies.interface';
-import { TicketTypes } from './order.interface';
+import { Screening, Seat } from '../movies/movies.interface';
+import { FinalizeForm, TicketTypes } from './order.interface';
 
 
 @Injectable({
@@ -11,11 +11,23 @@ import { TicketTypes } from './order.interface';
 export class OrderService {
   private _seatsChosen$$ = new BehaviorSubject<Seat[]>([]);
   public readonly seatsChosen$$: Observable<Seat[]> = this._seatsChosen$$.asObservable();
+  
+  private _screening$$ = new BehaviorSubject<Screening | null>(null);
+  public readonly screening$$: Observable<Screening | null> = this._screening$$.asObservable();
 
-  constructor(private http: HttpClient) {}
+  private _ticketTypes$$ = new BehaviorSubject<TicketTypes[]>([]);
+  public readonly ticketTypes$$: Observable<TicketTypes[]> = this._ticketTypes$$.asObservable();
 
-  getTicketTypes() {
-    return this.http.get<TicketTypes[]>('http://localhost:3000/ticketTypes');
+  constructor(private http: HttpClient) {
+    this.http.get<TicketTypes[]>('http://localhost:3000/ticketTypes').subscribe(result => {
+      this._ticketTypes$$.next(result);
+    })
+  }
+
+  fetchScreening(id: number ) {
+    this.http.get<Screening>(`http://localhost:3000/screenings/${id}?_expand=movie&_expand=room`).subscribe(response => {
+      this._screening$$.next(response);
+    })
   }
 
   toggleSeat(seat: Seat) {
@@ -39,5 +51,14 @@ export class OrderService {
     const seatsChosen = this._seatsChosen$$.getValue();
     seatsChosen[this.findSeatIndex(seat)][2] = seatType;
     this._seatsChosen$$.next(seatsChosen);
+  }
+
+  createOrder(form: FinalizeForm) {
+    return this.http.post<any>(`http://localhost:3000/tickets`, {
+      screeningId: this._screening$$.getValue()?.id,
+      seats: this._seatsChosen$$.getValue(),
+      userId: localStorage.getItem("userId") ? localStorage.getItem("userId") : null,
+      ownerDetails: form
+    })
   }
 }

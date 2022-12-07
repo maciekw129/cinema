@@ -1,0 +1,22 @@
+.finalize {
+    padding: 25px;
+}
+
+.finalize__seats-container {
+    min-width: 300px;
+}
+
+.finalize__seat {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.seats__informations {
+    margin-right: 15px;
+}
+
+.seats__price-sum {
+    text-align: right;
+    border-top: 1px solid var(--colorBlack);
+}

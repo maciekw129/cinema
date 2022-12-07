@@ -1,8 +1,10 @@
-<p>finalize works!confirmPassword
-    dcdc
-    dc
-    dc
-    dc
-    dcdcd
-    dcdc
-</p>
+<div class="finalize main-container" *ngIf="screening && ticketTypes">
+    <div class="finalize__seats-container">
+        <div class="finalize__seat" *ngFor="let seat of seatsChosen">
+            <p class="seats__informations">Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}</p>
+            <p class="seats__price">{{ ticketTypes[seat[2]].price }}zł</p>
+        </div>
+        <div class="seats__price-sum">razem {{ getPriceSum() }}zł</div>
+    </div>
+    <app-finalize-form></app-finalize-form>
+</div>

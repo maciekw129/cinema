@@ -1,0 +1,93 @@
+<form class="finalize-form" [formGroup]="finalizeForm" (submit)="goToPayment()">
+    <div class="finialize-form__inputs">
+        <div class="finalize-form__name-container">
+            <div class="finalize-form__input-container">
+                <input
+                    class="input finalize-form__input"
+                    formControlName="firstName"
+                    placeholder="Imię*"
+                    type="text"
+                />
+                <ng-container *ngIf="firstNameCtrl.errors as errors">
+                    <ng-container *ngIf="firstNameCtrl.touched">
+                        <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <div class="finalize-form__input-container">
+                <input
+                    class="input finalize-form__input"
+                    formControlName="lastName"
+                    placeholder="Nazwisko*"
+                    type="text"
+                />
+                <ng-container *ngIf="lastNameCtrl.errors as errors">
+                    <ng-container *ngIf="lastNameCtrl.touched">
+                        <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                    </ng-container>
+                </ng-container>
+            </div>
+            
+        </div>
+        <div class="finalize-form__input-container">
+            <input 
+                class="input finalize-form__input"
+                formControlName="phone"
+                placeholder="Numer telefonu"
+            />
+            <ng-container *ngIf="phoneCtrl.errors as errors">
+                <ng-container *ngIf="phoneCtrl.touched">
+                    <p *ngIf="errors['maxlength']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="finalize-form__input-container">
+            <input 
+                class="input finalize-form__input"
+                formControlName="email"
+                placeholder="E-mail*"
+            />
+            <ng-container *ngIf="emailCtrl.errors as errors">
+                <ng-container *ngIf="emailCtrl.touched">
+                    <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="finalize-form__input-container">
+            <input 
+                class="input finalize-form__input"
+                formControlName="confirmEmail"
+                placeholder="Powtórz e-mail*"
+            />
+            <ng-container *ngIf="confirmEmailCtrl.errors as errors">
+                <ng-container *ngIf="confirmEmailCtrl.touched">
+                    <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+                </ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="finalizeForm.errors as errors">
+                <ng-container *ngIf="confirmEmailCtrl.touched">
+                    <p *ngIf="errors['isEmailEqual']" class="fnt-13-regular fnt-color-red">E-maile nie są takie same</p>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <app-button
+        text="Przejdź do płatności"
+        [important]="true"
+    ></app-button>
+
+    <app-modal *ngIf="isModalVisible" (closeEvent)="toggleModal()">
+        <div class="finalize__blik-modal">
+            <h2>Płatność</h2>
+            <form [formGroup]="paymentForm" (submit)="createOrder()">
+                <input 
+                    class="input"
+                    placeholder="kod blik"
+                    formControlName="blikNumber"
+                />
+                <app-button text="Płacę!"></app-button>
+            </form>
+        </div>
+    </app-modal>
+</form>

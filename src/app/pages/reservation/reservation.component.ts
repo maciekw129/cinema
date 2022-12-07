@@ -7,8 +7,7 @@ import { OrderService } from 'src/app/services/order/order.service';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.css'],
-  providers: [OrderService]
+  styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
   screening: Screening | null = null;
@@ -18,17 +17,18 @@ export class ReservationComponent implements OnInit {
   seatsChosen: Seat[] = [];
 
 
-  constructor(private moviesService: MoviesService,
-              private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               private orderService: OrderService,
               private router: Router) {}
 
   ngOnInit() {
-    this.moviesService.getScreening(this.route.snapshot.params["id"]).subscribe(response => {
-      this.screening = response;
-      this.rows = Array.from(Array(response.room.rows).keys());
-      this.columns = Array.from(Array(response.room.columns).keys());
-    });
+    this.orderService.screening$$.subscribe(result => {
+        if(result !== null) {
+          this.screening = result;
+          this.rows = Array.from(Array(result.room.rows).keys());
+          this.columns = Array.from(Array(result.room.columns).keys());
+        }
+    })
 
     this.orderService.seatsChosen$$.subscribe(result => {
       this.seatsChosen = result;
@@ -36,7 +36,6 @@ export class ReservationComponent implements OnInit {
   }
 
   navigateToFinalize() {
-    console.log('sadas')
-    this.router.navigate(['finalize'], {relativeTo:this.route});
+    this.router.navigate(['../finalize'], { relativeTo:this.route });
   }
 }

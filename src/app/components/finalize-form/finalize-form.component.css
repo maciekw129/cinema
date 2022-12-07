@@ -1,0 +1,27 @@
+.finalize-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.finialize-form__inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.finalize-form__name-container {
+    display: flex;
+}
+
+.finalize-form__input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.finalize-form__input {
+    margin: 10px;
+}

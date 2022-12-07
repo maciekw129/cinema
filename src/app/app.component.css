@@ -1,3 +1,7 @@
+.app {
+    position: relative;
+}
+
 .app__footer {
     margin-top: 100px;
 }

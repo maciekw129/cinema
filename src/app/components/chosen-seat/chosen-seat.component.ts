@@ -19,9 +19,10 @@ export class ChosenSeatComponent implements OnInit {
   constructor(private orderService: OrderService) {}
 
   ngOnInit() {
-    this.orderService.getTicketTypes().subscribe(result => {
-      this.ticketTypes = result;
-    })
+    this.orderService.ticketTypes$$.subscribe(result => {
+      console.log(result)
+      this.ticketTypes = result
+    });
   }
 
   onSelectType(value: string) {

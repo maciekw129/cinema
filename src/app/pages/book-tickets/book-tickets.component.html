@@ -1,0 +1,7 @@
+<div *ngIf="screening" class="book-tickets main-page">
+    <div class="book-tickets__header-wrapper">
+        <h2 class="book-tickets__title">{{ screening.movie.name + ' -'}}</h2>
+        <p class="book-tickets__text-details">{{ screening.day + ', godz. ' + screening.hour[0] }}</p>
+    </div>
+    <router-outlet></router-outlet>
+</div>

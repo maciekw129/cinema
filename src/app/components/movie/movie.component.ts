@@ -22,6 +22,6 @@ export class MovieComponent implements OnInit {
   }
 
   handleClick(screeningId: number) {
-    this.router.navigate(['/reservation', screeningId]);
+    this.router.navigate(['/book-tickets', screeningId]);
   }
 }
