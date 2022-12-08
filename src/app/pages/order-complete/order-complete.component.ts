@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/services/order/order.service';
 
 @Component({
   selector: 'app-order-complete',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-complete.component.css']
 })
 export class OrderCompleteComponent implements OnInit {
+  email: string = '';
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
+    this.orderService.email$$.subscribe(result => {
+      this.email = result
+    })
   }
 
 }

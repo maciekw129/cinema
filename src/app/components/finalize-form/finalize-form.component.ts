@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, NonNullableFormBuilder, ValidatorFn, Validators, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order/order.service';
 
 const confirmEmailValidator: ValidatorFn = (control: AbstractControl) => {
@@ -27,7 +28,9 @@ export class FinalizeFormComponent {
   isModalVisible = false;
 
   constructor(private fb: NonNullableFormBuilder,
-              private orderService: OrderService) { }
+              private orderService: OrderService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   get firstNameCtrl() {
     return this.finalizeForm.controls.firstName;
@@ -57,16 +60,17 @@ export class FinalizeFormComponent {
   createOrder() {
     this.paymentForm.markAllAsTouched();
     if(this.paymentForm.invalid) return;
-    console.log('asd')
+    
     const values = this.finalizeForm.value;
     if(values.firstName && values.lastName && values.email) {
+      this.orderService.setEmail(values.email);
       this.orderService.createOrder({
         firstName: values.firstName,
         lastName: values.lastName,
         phone: values.phone,
         email: values.email 
-      }).subscribe(result => {
-        console.log(result);
+      }).subscribe({
+        next: () => this.router.navigate(['../order-complete'], { relativeTo:this.route })
       })
     }
   }

@@ -11,6 +11,7 @@ import { OrderService } from 'src/app/services/order/order.service';
 })
 export class BookTicketsComponent {
   screening: Screening | null = null;
+  isOrderComplete = false;
 
   constructor(private orderService: OrderService,
               private route: ActivatedRoute){}
@@ -19,6 +20,6 @@ export class BookTicketsComponent {
     this.orderService.fetchScreening(this.route.snapshot.params["id"]);
     this.orderService.screening$$.subscribe(result => {
       this.screening = result;
-    })
+    });
   }
 }

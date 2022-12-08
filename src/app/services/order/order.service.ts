@@ -18,6 +18,9 @@ export class OrderService {
   private _ticketTypes$$ = new BehaviorSubject<TicketTypes[]>([]);
   public readonly ticketTypes$$: Observable<TicketTypes[]> = this._ticketTypes$$.asObservable();
 
+  private _email$$ = new BehaviorSubject<string>('');
+  public readonly email$$: Observable<string> = this._email$$.asObservable();
+
   constructor(private http: HttpClient) {
     this.http.get<TicketTypes[]>('http://localhost:3000/ticketTypes').subscribe(result => {
       this._ticketTypes$$.next(result);
@@ -60,5 +63,9 @@ export class OrderService {
       userId: localStorage.getItem("userId") ? localStorage.getItem("userId") : null,
       ownerDetails: form
     })
+  }
+
+  setEmail(email: string) {
+    this._email$$.next(email);
   }
 }

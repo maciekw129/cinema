@@ -2,6 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 50px 0;
+}
+
+.reservation__header-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.reservation__title {
+    margin-right: 10px;
 }
 
 .reservation__screen-text {

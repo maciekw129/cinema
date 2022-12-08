@@ -28,7 +28,7 @@ import { FinalizeComponent } from './pages/finalize/finalize.component';
 import { BookTicketsComponent } from './pages/book-tickets/book-tickets.component';
 import { FinalizeFormComponent } from './components/finalize-form/finalize-form.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { OrderCompleteComponent } from './order-complete/order-complete.component';
+import { OrderCompleteComponent } from './pages/order-complete/order-complete.component';
 
 @NgModule({
   declarations: [

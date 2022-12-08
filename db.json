@@ -345,6 +345,114 @@
         "email": "asd"
       },
       "id": 4
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          9,
+          5,
+          1
+        ],
+        [
+          9,
+          4,
+          1
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asd",
+        "lastName": "asd",
+        "phone": "asd",
+        "email": "asd"
+      },
+      "id": 5
+    },
+    {
+      "screeningId": 1,
+      "seats": [],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asd",
+        "lastName": "asd",
+        "phone": "asd",
+        "email": "asd"
+      },
+      "id": 6
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          8,
+          4,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asd",
+        "lastName": "asd",
+        "phone": "asd",
+        "email": "asd"
+      },
+      "id": 7
+    },
+    {
+      "screeningId": 1,
+      "seats": [],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asd",
+        "lastName": "asd",
+        "phone": "asd",
+        "email": "asd"
+      },
+      "id": 8
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          8,
+          5,
+          1
+        ],
+        [
+          8,
+          4,
+          1
+        ],
+        [
+          8,
+          3,
+          1
+        ]
+      ],
+      "userId": "1",
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": "123123123",
+        "email": "123123123"
+      },
+      "id": 9
     }
   ]
 }

@@ -5,6 +5,10 @@
     margin-top: 20px;
 }
 
+.finalize-form__title {
+    margin: 15px 0;
+}
+
 .finialize-form__inputs {
     display: flex;
     flex-direction: column;
@@ -24,4 +28,18 @@
 
 .finalize-form__input {
     margin: 10px;
+}
+
+.finalize__blik-modal {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blik-modal__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
 }

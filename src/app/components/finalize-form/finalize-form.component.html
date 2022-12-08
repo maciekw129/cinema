@@ -1,4 +1,5 @@
 <form class="finalize-form" [formGroup]="finalizeForm" (submit)="goToPayment()">
+    <p class="finalize-form__title fnt-18-regular">Wprowadź dane do zamówienia:</p>
     <div class="finialize-form__inputs">
         <div class="finalize-form__name-container">
             <div class="finalize-form__input-container">
@@ -13,6 +14,7 @@
                         <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
                     </ng-container>
                 </ng-container>
+
             </div>
             <div class="finalize-form__input-container">
                 <input
@@ -80,7 +82,7 @@
     <app-modal *ngIf="isModalVisible" (closeEvent)="toggleModal()">
         <div class="finalize__blik-modal">
             <h2>Płatność</h2>
-            <form [formGroup]="paymentForm" (submit)="createOrder()">
+            <form class='blik-modal__content' [formGroup]="paymentForm" (submit)="createOrder()">
                 <input 
                     class="input"
                     placeholder="kod blik"

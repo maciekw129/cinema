@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FinalizeComponent } from './pages/finalize/finalize.component';
 import { BookTicketsComponent } from './pages/book-tickets/book-tickets.component';
+import { OrderCompleteComponent } from './pages/order-complete/order-complete.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'reservation', pathMatch: 'full' },
       { path: 'reservation', component: ReservationComponent },
-      { path: 'finalize', component: FinalizeComponent }
+      { path: 'finalize', component: FinalizeComponent },
+      { path: 'order-complete', component: OrderCompleteComponent }
     ]
   },
   { path: 'login', component: LoginComponent},
