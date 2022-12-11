@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Screening, Screenings } from './movies.interface';
 import { map } from 'rxjs';
+import { Screening, Screenings } from 'src/types';
 
 @Injectable({
   providedIn: 'root'

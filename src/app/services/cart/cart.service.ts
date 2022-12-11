@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Movie } from '../movies/movies.interface';
+import { Movie } from '../../types/movies.interface';
 
 interface CartItem {
   movie: Movie,

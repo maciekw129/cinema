@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Seat } from 'src/app/services/movies/movies.interface';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { OrderService } from 'src/app/services/order/order.service';
+import { Seat } from 'src/types';
 
+@UntilDestroy()
 @Component({
-  selector: 'app-seat',
+  selector: 'app-seat[seat]',
   templateUrl: './seat.component.html',
   styleUrls: ['./seat.component.css']
 })
@@ -19,9 +21,11 @@ export class SeatComponent implements OnInit {
   ngOnInit() {
     this.isSeatOccupied = this.seatsOccupied.some(seat => seat[0] === this.seat[0] && seat[1] === this.seat[1]);
 
-    this.orderService.seatsChosen$$.subscribe(result => {
-      this.seatsChosen = result;
-      this.isSeatChosen = this.orderService.findSeatIndex(this.seat) !== -1;
+    this.orderService.seatsChosen$$
+      .pipe(untilDestroyed(this))
+      .subscribe(result => {
+        this.seatsChosen = result;
+        this.isSeatChosen = this.orderService.findSeatIndex(this.seat) !== -1;
     });
   }
 

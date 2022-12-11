@@ -21,14 +21,18 @@ import { RentalComponent } from './pages/rental/rental.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { SeatsGridComponent } from './components/seats-grid/seats-grid.component';
 import { SeatComponent } from './components/seat/seat.component';
 import { ChosenSeatComponent } from './components/chosen-seat/chosen-seat.component';
 import { FinalizeComponent } from './pages/finalize/finalize.component';
 import { BookTicketsComponent } from './pages/book-tickets/book-tickets.component';
-import { FinalizeFormComponent } from './components/finalize-form/finalize-form.component';
+import { FinalizeFormComponent } from './forms/finalize-form/finalize-form.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { OrderCompleteComponent } from './pages/order-complete/order-complete.component';
+import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
+import { OrderComponent } from './components/order/order.component';
+import { LoginFormComponent } from './forms/login-form/login-form.component';
+import { RegisterFormComponent } from './forms/register-form/register-form.component';
+import { PaymentFormComponent } from './forms/payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,6 @@ import { OrderCompleteComponent } from './pages/order-complete/order-complete.co
     ReservationComponent,
     LoginComponent,
     RegisterComponent,
-    SeatsGridComponent,
     SeatComponent,
     ChosenSeatComponent,
     FinalizeComponent,
@@ -54,6 +57,11 @@ import { OrderCompleteComponent } from './pages/order-complete/order-complete.co
     FinalizeFormComponent,
     ModalComponent,
     OrderCompleteComponent,
+    MyOrdersComponent,
+    OrderComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    PaymentFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { FinalizeComponent } from './pages/finalize/finalize.component';
 import { BookTicketsComponent } from './pages/book-tickets/book-tickets.component';
 import { OrderCompleteComponent } from './pages/order-complete/order-complete.component';
+import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'my-orders', component: MyOrdersComponent }
 ];
 
 @NgModule({

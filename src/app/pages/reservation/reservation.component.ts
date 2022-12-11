@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Screening, Seat } from 'src/app/services/movies/movies.interface';
-import { MoviesService } from 'src/app/services/movies/movies.service';
 import { OrderService } from 'src/app/services/order/order.service';
+import { Screening } from 'src/types';
 
+@UntilDestroy()
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
@@ -14,7 +15,7 @@ export class ReservationComponent implements OnInit {
   rows: number[] = [];
   columns: number[] = [];
   alphabeth: string[] = 'ABCDEFGHIJKLMNOPRSTUWZ'.split('');
-  seatsChosen: Seat[] = [];
+  seatsChosen$$ = this.orderService.seatsChosen$$;
 
 
   constructor(private route: ActivatedRoute,
@@ -22,16 +23,14 @@ export class ReservationComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit() {
-    this.orderService.screening$$.subscribe(result => {
+    this.orderService.screening$$
+      .pipe(untilDestroyed(this))
+      .subscribe(result => {
         if(result !== null) {
           this.screening = result;
           this.rows = Array.from(Array(result.room.rows).keys());
           this.columns = Array.from(Array(result.room.columns).keys());
         }
-    })
-
-    this.orderService.seatsChosen$$.subscribe(result => {
-      this.seatsChosen = result;
     })
   }
 

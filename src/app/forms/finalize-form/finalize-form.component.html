@@ -1,4 +1,4 @@
-<form class="finalize-form" [formGroup]="finalizeForm" (submit)="goToPayment()">
+<form class="finalize-form" [formGroup]="finalizeForm" (submit)="handleSubmit()">
     <p class="finalize-form__title fnt-18-regular">Wprowadź dane do zamówienia:</p>
     <div class="finialize-form__inputs">
         <div class="finalize-form__name-container">
@@ -78,18 +78,4 @@
         text="Przejdź do płatności"
         [important]="true"
     ></app-button>
-
-    <app-modal *ngIf="isModalVisible" (closeEvent)="toggleModal()">
-        <div class="finalize__blik-modal">
-            <h2>Płatność</h2>
-            <form class='blik-modal__content' [formGroup]="paymentForm" (submit)="createOrder()">
-                <input 
-                    class="input"
-                    placeholder="kod blik"
-                    formControlName="blikNumber"
-                />
-                <app-button text="Płacę!"></app-button>
-            </form>
-        </div>
-    </app-modal>
 </form>

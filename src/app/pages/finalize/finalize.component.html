@@ -1,7 +1,7 @@
-<div class="finalize main-container" *ngIf="screening && ticketTypes">
+<div class="finalize main-container" *ngIf="(screening | async) && ticketTypes">
     <div class="finalize__header-wrapper">
-        <h2 class="finalize__title">{{ screening.movie.name + ' -'}}</h2>
-        <p class="finalize__text-details">{{ screening.day + ', godz. ' + screening.hour[0] }}</p>
+        <h2 class="finalize__title">{{ (screening | async)!.movie.name + ' -'}}</h2>
+        <p class="finalize__text-details">{{ (screening | async)!.day + ', godz. ' + (screening | async)!.hour[0] }}</p>
     </div>
     <div class="finalize__seats-container">
         <div class="finalize__seat" *ngFor="let seat of seatsChosen">
@@ -10,5 +10,18 @@
         </div>
         <div class="seats__price-sum">razem {{ getPriceSum() }}zł</div>
     </div>
-    <app-finalize-form></app-finalize-form>
+    <app-finalize-form
+        (userDataEvent)="submitUserData($event)"
+    ></app-finalize-form>
+    <a class="finalize__link" routerLink="..">Wróć do wyboru miejsc</a>
+
+    <app-modal *ngIf="isModalVisible" (closeEvent)="toggleModal()">
+        <div class="finalize__payment-modal">
+            <h2>Płatność</h2>
+            <app-payment-form
+                class="finalize__payment-form"
+                (paymentEvent)="submitPayment()"
+            ></app-payment-form>
+        </div>
+    </app-modal>
 </div>

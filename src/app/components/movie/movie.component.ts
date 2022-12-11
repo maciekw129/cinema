@@ -1,25 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Screenings } from 'src/app/services/movies/movies.interface';
-import { User, UserService } from 'src/app/services/user/user.service';
+import { Component, Input } from '@angular/core';
+import { UserService } from 'src/app/services/user/user.service';
 import { Router } from '@angular/router';
+import { Screenings } from 'src/types';
 
 @Component({
-  selector: 'app-movie',
+  selector: 'app-movie[screenings]',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent {
   @Input() screenings!: Screenings;
-  user: User[] = [];
+  user$$ = this.userService.user$$;
 
   constructor(private userService: UserService,
               private router: Router,){}
-
-  ngOnInit() {
-    this.userService.user$$.subscribe(result => {
-      this.user = result;
-    })
-  }
 
   handleClick(screeningId: number) {
     this.router.navigate(['/book-tickets', screeningId]);

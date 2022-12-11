@@ -1,0 +1,8 @@
+<div class="main-page">
+    <div class="my-orders main-container">
+        <h2>Twoje zamówienia</h2>
+        <div>
+            <app-order *ngFor="let order of userOrders" [order]="order"></app-order>
+        </div>
+    </div>
+</div>

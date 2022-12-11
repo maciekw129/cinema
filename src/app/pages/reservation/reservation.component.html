@@ -18,11 +18,11 @@
     </div>
     <div class="reservation__chosen-seats">
         <app-chosen-seat 
-            *ngFor="let seat of seatsChosen; index"
+            *ngFor="let seat of seatsChosen$$ | async; index"
             [seat]="seat"
         ></app-chosen-seat>
     </div>
-    <p *ngIf="!seatsChosen.length; else elseBlock" class="room__info">Choose seat to continue.</p>
+    <p *ngIf="!(seatsChosen$$ | async)!.length; else elseBlock" class="room__info">Choose seat to continue.</p>
     <ng-template #elseBlock>
         <app-button
             text="Przejdź do zamówienia"

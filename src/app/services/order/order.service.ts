@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Screening, Seat } from '../movies/movies.interface';
-import { FinalizeForm, TicketTypes } from './order.interface';
+import { FinalizeForm, Screening, Seat, TicketTypes } from '../../../types';
 
 
 @Injectable({
@@ -57,7 +56,7 @@ export class OrderService {
   }
 
   createOrder(form: FinalizeForm) {
-    return this.http.post<any>(`http://localhost:3000/tickets`, {
+    return this.http.post<any>(`http://localhost:3000/orders`, {
       screeningId: this._screening$$.getValue()?.id,
       seats: this._seatsChosen$$.getValue(),
       userId: localStorage.getItem("userId") ? localStorage.getItem("userId") : null,
