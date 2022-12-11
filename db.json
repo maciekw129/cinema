@@ -223,12 +223,23 @@
       "roomId": 1,
       "seatsOccupied": [
         [
-          5,
-          5
+          1,
+          8
         ],
         [
-          4,
-          8
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1
         ]
       ]
     },
@@ -263,14 +274,13 @@
       "seatsOccupied": []
     },
     {
-      "id": 5,
-      "movieId": 9,
-      "hour": [
-        "15:30"
+      "seatsOccupied": [
+        [
+          1,
+          6
+        ]
       ],
-      "day": 3,
-      "roomId": 1,
-      "seatsOccupied": []
+      "id": 5
     },
     {
       "id": 6,
@@ -524,6 +534,46 @@
         "email": "123"
       },
       "id": 12
+    },
+    {
+      "screeningId": 1,
+      "seats": [],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "123",
+        "lastName": "123",
+        "phone": "123123",
+        "email": "123"
+      },
+      "id": 13
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "123",
+        "lastName": "123",
+        "phone": "123123",
+        "email": "123123"
+      },
+      "id": 14
     }
   ]
 }

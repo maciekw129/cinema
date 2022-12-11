@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { FinalizeForm, Screening, Seat, TicketTypes } from '../../../types';
 
 
@@ -56,12 +56,17 @@ export class OrderService {
   }
 
   createOrder(form: FinalizeForm) {
-    return this.http.post<any>(`http://localhost:3000/orders`, {
+    const orderPost = this.http.post(`http://localhost:3000/orders`, {
       screeningId: this._screening$$.getValue()?.id,
       seats: this._seatsChosen$$.getValue(),
       userId: localStorage.getItem("userId") ? localStorage.getItem("userId") : null,
       ownerDetails: form
     })
+    const seats = this._screening$$.getValue()?.seatsOccupied
+    const seatsPost = this.http.patch(`http://localhost:3000/screenings/${this._screening$$.getValue()?.id}`, {
+      seatsOccupied: seats ? [...seats, ...this._seatsChosen$$.getValue()] : [...this._seatsChosen$$.getValue()]
+    })
+    return combineLatest([orderPost, seatsPost])
   }
 
   setEmail(email: string) {
