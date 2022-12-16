@@ -33,6 +33,9 @@ import { OrderComponent } from './components/order/order.component';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { RegisterFormComponent } from './forms/register-form/register-form.component';
 import { PaymentFormComponent } from './forms/payment-form/payment-form.component';
+import { HeaderDropdownComponent } from './components/header-dropdown/header-dropdown.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,9 @@ import { PaymentFormComponent } from './forms/payment-form/payment-form.componen
     LoginFormComponent,
     RegisterFormComponent,
     PaymentFormComponent,
+    HeaderDropdownComponent,
+    SettingsComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@
 
 .footer__upper-container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -37,4 +38,29 @@
 .footer__copyright {
     width: 100%;
     text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .footer {
+        height: auto;
+    }
+
+    .footer__upper-container {
+        flex-direction: column;
+    }
+
+    .footer__nav {
+        margin: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    .footer__nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__nav-item {
+        padding: 10px 0;
+    }
 }

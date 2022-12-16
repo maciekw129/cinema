@@ -5,5 +5,5 @@
         'seat-reserved': isSeatChosen
     }"
     [disabled]="isSeatOccupied"
-    (click)="chooseSeat()"
+    (click)="handleClickSeat()"
 >{{ seat[1] + 1 }}</button>

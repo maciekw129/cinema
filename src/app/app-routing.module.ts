@@ -12,6 +12,9 @@ import { FinalizeComponent } from './pages/finalize/finalize.component';
 import { BookTicketsComponent } from './pages/book-tickets/book-tickets.component';
 import { OrderCompleteComponent } from './pages/order-complete/order-complete.component';
 import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
+import { AuthGuard } from './guards/auth.guard';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { ScreeningService } from './services/screening/screening.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +22,7 @@ const routes: Routes = [
   { path: 'work', component: WorkComponent },
   { path: 'regulations', component: RegulationsComponent },
   { path: 'rental', component: RentalComponent },
-  { path: 'book-tickets/:id', component: BookTicketsComponent,
+  { path: 'book-tickets/:id', component: BookTicketsComponent, resolve: { screening: ScreeningService },
     children: [
       { path: '', redirectTo: 'reservation', pathMatch: 'full' },
       { path: 'reservation', component: ReservationComponent },
@@ -29,7 +32,9 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
-  { path: 'my-orders', component: MyOrdersComponent }
+  { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

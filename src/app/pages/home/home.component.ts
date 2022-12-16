@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import { ScreeningService } from 'src/app/services/screening/screening.service';
 import { Screenings } from 'src/types';
 
 @Component({
@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   buttonBarElements: string[] = this.getNextFiveDays();
   screenings: Screenings[] = [];
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private screeningService: ScreeningService) {}
 
   ngOnInit(): void {
     this.fetchScreenings('1');
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   fetchScreenings(date: string) {
-    this.moviesService.getScreenings(date).subscribe(result => {
+    this.screeningService.getScreenings(date).subscribe(result => {
       this.screenings = result;
     })
   }

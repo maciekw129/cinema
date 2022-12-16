@@ -28,7 +28,8 @@ export class FinalizeComponent implements OnInit {
     this.orderService.seatsChosen$$
       .pipe(untilDestroyed(this))
       .subscribe(result => {
-        this.seatsChosen = result;
+        if(result.length) this.seatsChosen = result
+        else this.router.navigate(['../reservation'], { relativeTo: this.route });
       })
 
     this.orderService.ticketTypes$$

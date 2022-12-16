@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from 'src/app/services/order/order.service';
+import { ScreeningService } from 'src/app/services/screening/screening.service';
+import { Screening } from 'src/types';
 
 @Component({
   selector: 'app-book-tickets',
@@ -9,10 +11,7 @@ import { OrderService } from 'src/app/services/order/order.service';
   providers: [OrderService]
 })
 export class BookTicketsComponent {
-  constructor(private orderService: OrderService,
-              private route: ActivatedRoute){}
-
-  ngOnInit() {
-    this.orderService.fetchScreening(this.route.snapshot.params["id"]);
+  constructor(private route: ActivatedRoute, private screeningService: ScreeningService){
+    this.screeningService.screening$$.subscribe(console.log)
   }
 }

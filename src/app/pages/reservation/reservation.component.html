@@ -12,6 +12,7 @@
                     *ngFor="let row of rows" 
                     [seat]="[column, row, 1]"
                     [seatsOccupied]="screening.seatsOccupied"
+                    (clickSeatEvent)="chooseSeat($event)"
                 ></app-seat>
             </div>
         </div>
@@ -22,7 +23,7 @@
             [seat]="seat"
         ></app-chosen-seat>
     </div>
-    <p *ngIf="!(seatsChosen$$ | async)!.length; else elseBlock" class="room__info">Choose seat to continue.</p>
+    <p *ngIf="!(seatsChosen$$ | async)!.length; else elseBlock" class="room__info">Wybierz miejsce aby kontynuować.</p>
     <ng-template #elseBlock>
         <app-button
             text="Przejdź do zamówienia"

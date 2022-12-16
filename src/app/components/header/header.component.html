@@ -1,32 +1,29 @@
 <header class="header__wrapper">
     <div class="header">
-        <h1 class="header__title" routerLink="">Ale kino! <fa-icon class="header__icon" [icon]="film"></fa-icon></h1>
+        <div class="header__logo-container" routerLink="">
+            <h1 class="header__title">Ale kino!</h1>
+            <fa-icon class="header__icon" [icon]="film"></fa-icon>
+        </div>
         <div class="header__buttons">
-            <app-button
-                *ngIf="user$$ | async"
-                [icon]="cartShopping"
-            ></app-button>
-            <app-button
-                *ngIf="!(user$$ | async); else elseBlock"
-                text="Zaloguj"
-                [important]="true"
-                routerLink="login"
-            ></app-button>
-            <ng-template #elseBlock>
-                <div class="header__dropdown-wrapper">
-                    <app-button
-                        class=""
-                        [text]="'Cześć ' + (user$$ | async)!.firstName + ' !'"
-                        (click)="toggleDropdown()"
-                    ></app-button>
-                    <ul class="header__dropdown" *ngIf="isDropdownVisible">
-                        <li class="header__dropdown-item" routerLink="my-orders">Moje bilety</li>
-                        <li class="header__dropdown-item">Chcę obejrzeć</li>
-                        <li class="header__dropdown-item">Ustawienia</li>
-                        <li class="header__dropdown-item" (click)="handleLogout()">Wyloguj</li>
-                    </ul>
-                </div>
-            </ng-template>
+            <ng-container *ngIf="userData$$ | async as userData">
+                <app-button
+                    class="header__cart-button"
+                    *ngIf="userData.user"
+                    [icon]="cartShopping"
+                ></app-button>
+                <app-button
+                    *ngIf="!userData.user; else elseBlock"
+                    text="Zaloguj"
+                    [important]="true"
+                    routerLink="login"
+                ></app-button>
+                <ng-template #elseBlock>
+                    <app-header-dropdown
+                        (logoutEvent)="handleLogout()"
+                        [firstName]="userData.user!.firstName"
+                    ></app-header-dropdown>
+                </ng-template>
+            </ng-container>
         </div>
     </div>
 </header>

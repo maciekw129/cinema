@@ -10,16 +10,11 @@ import { UserService } from 'src/app/services/user/user.service';
 export class HeaderComponent {
   cartShopping = faCartShopping;
   film = faFilm;
-  user$$ = this.userService.user$$;
-  isDropdownVisible: boolean = false;
+  userData$$ = this.userService.userData$$;
 
   constructor(private userService: UserService){}
 
   handleLogout() {
     this.userService.logout();
-  }
-
-  toggleDropdown() {
-    this.isDropdownVisible = !this.isDropdownVisible;
   }
 }

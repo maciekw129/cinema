@@ -7,7 +7,8 @@ export interface UserForm {
   firstName: string,
   lastName: string,
   email: string,
-  phone?: string
+  phone?: string,
+  newsletter?: boolean
 }
 
 @Component({
@@ -23,12 +24,12 @@ export class FinalizeFormComponent {
               private userService: UserService,) {}
 
   ngOnInit() {
-    this.userService.user$$.subscribe(result => {
-      if(result) {
-        this.finalizeForm.controls['firstName'].setValue(result.firstName);
-        this.finalizeForm.controls['lastName'].setValue(result.lastName);
-        this.finalizeForm.controls['email'].setValue(result.email);
-        this.finalizeForm.controls['confirmEmail'].setValue(result.email);
+    this.userService.userData$$.subscribe(result => {
+      if(result.user) {
+        this.finalizeForm.controls['firstName'].setValue(result.user.firstName);
+        this.finalizeForm.controls['lastName'].setValue(result.user.lastName);
+        this.finalizeForm.controls['email'].setValue(result.user.email);
+        this.finalizeForm.controls['confirmEmail'].setValue(result.user.email);
       }
     })
   }
@@ -98,6 +99,7 @@ export class FinalizeFormComponent {
           Validators.required
         ]
       }),
+      newsletter: this.fb.control(false),
     }, {validators: confirmEmailValidator})
   }
 }

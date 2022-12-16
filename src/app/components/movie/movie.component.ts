@@ -10,7 +10,7 @@ import { Screenings } from 'src/types';
 })
 export class MovieComponent {
   @Input() screenings!: Screenings;
-  user$$ = this.userService.user$$;
+  userData$$ = this.userService.userData$$;
 
   constructor(private userService: UserService,
               private router: Router,){}

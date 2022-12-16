@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Order } from 'src/types';
 
 @Component({
@@ -6,13 +6,7 @@ import { Order } from 'src/types';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent {
   @Input() order!: Order;
-
-  constructor() { }
-
-  ngOnInit(): void {
-    console.log(this.order);
-  }
-
+  alphabeth: string[] = 'ABCDEFGHIJKLMNOPRSTUWZ'.split('');
 }

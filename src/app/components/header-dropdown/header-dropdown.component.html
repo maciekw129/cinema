@@ -1,0 +1,13 @@
+<div class="header-dropdown__wrapper">
+    <app-button
+        class=""
+        [text]="'Cześć ' + firstName + ' !'"
+        (click)="toggleDropdown()"
+    ></app-button>
+    <ul class="header-dropdown" *ngIf="isDropdownVisible">
+        <li class="header-dropdown__item " (click)="toggleDropdown()" routerLink="my-orders">Moje bilety</li>
+        <li class="header-dropdown__item" (click)="toggleDropdown()">Chcę obejrzeć</li>
+        <li class="header-dropdown__item" (click)="toggleDropdown()" routerLink="settings">Ustawienia</li>
+        <li class="header-dropdown__item" (click)="handleLogoutClicked()" (click)="toggleDropdown()">Wyloguj</li>
+    </ul>
+</div>

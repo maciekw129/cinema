@@ -1,18 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { FinalizeForm, Screening, Seat, TicketTypes } from '../../../types';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { BehaviorSubject, combineLatest, EMPTY, map, Observable, of, switchMap, tap } from 'rxjs';
+import { Cart, FinalizeForm, Screening, Seat, TicketTypes } from '../../../types';
+import { ScreeningService } from '../screening/screening.service';
+import { UserService } from '../user/user.service';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@UntilDestroy()
+@Injectable()
 export class OrderService {
   private _seatsChosen$$ = new BehaviorSubject<Seat[]>([]);
   public readonly seatsChosen$$: Observable<Seat[]> = this._seatsChosen$$.asObservable();
-  
-  private _screening$$ = new BehaviorSubject<Screening | null>(null);
-  public readonly screening$$: Observable<Screening | null> = this._screening$$.asObservable();
 
   private _ticketTypes$$ = new BehaviorSubject<TicketTypes[]>([]);
   public readonly ticketTypes$$: Observable<TicketTypes[]> = this._ticketTypes$$.asObservable();
@@ -20,25 +19,44 @@ export class OrderService {
   private _email$$ = new BehaviorSubject<string>('');
   public readonly email$$: Observable<string> = this._email$$.asObservable();
 
-  constructor(private http: HttpClient) {
+  private screening!: Screening;
+
+  constructor(private http: HttpClient,
+              private userService: UserService, 
+              private screeningService: ScreeningService) {
+    this.getTicketTypes();
+    this.screeningService.screening$$.subscribe(result => {
+      this.screening = result;
+    });
+  }
+
+  getTicketTypes(){
     this.http.get<TicketTypes[]>('http://localhost:3000/ticketTypes').subscribe(result => {
       this._ticketTypes$$.next(result);
     })
   }
 
-  fetchScreening(id: number ) {
-    this.http.get<Screening>(`http://localhost:3000/screenings/${id}?_expand=movie&_expand=room`).subscribe(response => {
-      this._screening$$.next(response);
-    })
+  toggleSeat(seat: Seat) {
+    const screeningId = this.screening.id;
+    const seatsChosen = this._seatsChosen$$.getValue();
+
+    if(this.findSeatIndex(seat) === -1 && seatsChosen.length < 10) {
+      if(this.userService.isUserLogged()) {
+        this.userService.addToCart(seat, screeningId);
+      } else {
+        this._seatsChosen$$.next([...seatsChosen, seat]);
+      }
+    } else {
+      if(this.userService.isUserLogged()){
+        this.userService.removeFromCart(seat, screeningId);
+      } else {
+        this.deleteChosenSeat(seat);
+      } 
+    }
   }
 
-  toggleSeat(seat: Seat) {
-    const seatsChosen = this._seatsChosen$$.getValue();
-    if(this.findSeatIndex(seat) === -1 && seatsChosen.length < 10) {
-      this._seatsChosen$$.next([...seatsChosen, seat]);
-    } else {
-      this.deleteChosenSeat(seat);
-    }
+  updateCartSeats(seats: Seat[]) {
+    this._seatsChosen$$.next(seats);
   }
 
   findSeatIndex(seat: Seat) {
@@ -55,9 +73,13 @@ export class OrderService {
     this._seatsChosen$$.next(seatsChosen);
   }
 
+  setEmail(email: string) {
+    this._email$$.next(email);
+  }
+
   createOrder(form: FinalizeForm) {
     const orderPost = this.http.post(`http://localhost:3000/orders`, {
-      screeningId: this._screening$$.getValue()?.id,
+      screeningId: this.screening.id,
       seats: this._seatsChosen$$.getValue(),
       userId: localStorage.getItem("userId") ? localStorage.getItem("userId") : null,
       ownerDetails: form
@@ -67,9 +89,5 @@ export class OrderService {
       seatsOccupied: seats ? [...seats, ...this._seatsChosen$$.getValue()] : [...this._seatsChosen$$.getValue()]
     })
     return combineLatest([orderPost, seatsPost])
-  }
-
-  setEmail(email: string) {
-    this._email$$.next(email);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { OrderService } from 'src/app/services/order/order.service';
 import { Seat } from 'src/types';
@@ -12,6 +12,7 @@ import { Seat } from 'src/types';
 export class SeatComponent implements OnInit {
   @Input() seat!: Seat;
   @Input() seatsOccupied: Seat[] = [];
+  @Output() clickSeatEvent = new EventEmitter<Seat>();
   seatsChosen: Seat[] = [];
   isSeatOccupied = false;
   isSeatChosen = false;
@@ -29,7 +30,7 @@ export class SeatComponent implements OnInit {
     });
   }
 
-  chooseSeat() {
-    this.orderService.toggleSeat(this.seat);
-  }
+  handleClickSeat() {
+    this.clickSeatEvent.emit(this.seat);
+  }  
 }

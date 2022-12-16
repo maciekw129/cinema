@@ -70,6 +70,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
+.fnt-16-bold {
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .fnt-13-regular {
     font-size: 13px;
     font-weight: 400;

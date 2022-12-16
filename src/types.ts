@@ -1,8 +1,17 @@
+export interface FetchedUser {
+  id: number,
+  firstName: string,
+  email: string,
+  lastName: string,
+  carts: Cart[]
+}
+
 export interface User {
   id: number,
   firstName: string,
   email: string,
-  lastName: string
+  lastName: string,
+  carts: {[key: number]: Cart}
 }
 
 export interface TicketTypes {
@@ -65,6 +74,19 @@ export interface Screenings {
       screeningId: number
   }[],
   day: number
+}
+
+export interface Cart {
+  id: number,
+  userId: number,
+  screeningId: number,
+  reservedSeats: [
+        [
+          1,
+          2,
+          2
+        ]
+      ]
 }
 
 export type Seat = [column: number, row: number, seatTypeId: number];

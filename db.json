@@ -6,30 +6,6 @@
       "firstName": "Maciej",
       "lastName": "Walecki",
       "id": 1
-    },
-    {
-      "email": "Test123213123123@gmaile.om",
-      "password": "$2a$10$H2WS6z1hUeZ9rpXTyNhAOuxvG9rj.YWPilWwuVs3jU7OuLHf1Fe1O",
-      "firstName": "Maciejsad",
-      "id": 2
-    },
-    {
-      "email": "maccccieksdji@gmail.com",
-      "password": "$2a$10$CArNzOGYWMG1ZHTdZ1tbeeIHrP8RoK3H0cn.xSqL4N4xJo./3QnNi",
-      "firstName": "Maciej",
-      "id": 3
-    },
-    {
-      "email": "wqewd@dsssrgwe.pl",
-      "password": "$2a$10$bV.sIiZQS/Vo/NLnw7nnaOD8aJ2f8ef6qyWtor8fiWueWWZsSogta",
-      "firstName": "Maciej",
-      "id": 4
-    },
-    {
-      "email": "wefwefr@esfcse.pl",
-      "password": "$2a$10$mjXgpVvT9tpI/YvppnINC.iQMpxN97g6slTC/TmiNtzgDk5fD1nAi",
-      "firstName": "ewfewfwefwefvedsc",
-      "id": 5
     }
   ],
   "rooms": [
@@ -240,6 +216,26 @@
           0,
           2,
           1
+        ],
+        [
+          6,
+          1,
+          1
+        ],
+        [
+          6,
+          2,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ],
+        [
+          4,
+          4,
+          1
         ]
       ]
     },
@@ -261,7 +257,23 @@
       ],
       "day": 1,
       "roomId": 1,
-      "seatsOccupied": []
+      "seatsOccupied": [
+        [
+          7,
+          3,
+          1
+        ],
+        [
+          7,
+          4,
+          1
+        ],
+        [
+          7,
+          5,
+          1
+        ]
+      ]
     },
     {
       "id": 4,
@@ -574,6 +586,153 @@
         "email": "123123"
       },
       "id": 14
+    },
+    {
+      "screeningId": 3,
+      "seats": [
+        [
+          7,
+          3,
+          1
+        ],
+        [
+          7,
+          4,
+          1
+        ],
+        [
+          7,
+          5,
+          1
+        ]
+      ],
+      "userId": "1",
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": "",
+        "email": "maciejwalecki99@gmail.com"
+      },
+      "id": 15
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          6,
+          1,
+          1
+        ],
+        [
+          6,
+          2,
+          1
+        ]
+      ],
+      "userId": "1",
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": "",
+        "email": "maciejwalecki99@gmail.com"
+      },
+      "id": 16
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          5,
+          5,
+          1
+        ],
+        [
+          4,
+          4,
+          1
+        ]
+      ],
+      "userId": "1",
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": "",
+        "email": "maciejwalecki99@gmail.com"
+      },
+      "id": 17
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "screeningId": 1,
+      "reservedSeats": [
+        [
+          7,
+          6,
+          1
+        ],
+        [
+          7,
+          3,
+          1
+        ],
+        [
+          5,
+          2,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "userId": 1,
+      "screeningId": 6,
+      "reservedSeats": [
+        [
+          4,
+          8,
+          1
+        ],
+        [
+          9,
+          9,
+          1
+        ],
+        [
+          9,
+          9,
+          1
+        ]
+      ],
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "screeningId": 4,
+      "reservedSeats": [
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          2,
+          8,
+          1
+        ],
+        [
+          2,
+          6,
+          1
+        ]
+      ],
+      "id": 3
     }
   ]
 }
