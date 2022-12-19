@@ -1,7 +1,7 @@
-<div class="finalize main-container" *ngIf="(screening | async) && ticketTypes">
+<div class="finalize main-container" *ngIf="screening && ticketTypes">
     <div class="finalize__header-wrapper">
-        <h2 class="finalize__title">{{ (screening | async)!.movie.name + ' -'}}</h2>
-        <p class="finalize__text-details">{{ (screening | async)!.day + ', godz. ' + (screening | async)!.hour[0] }}</p>
+        <h2 class="finalize__title">{{ screening.movie.name + ' -'}}</h2>
+        <p class="finalize__text-details">{{ screening.day + ', godz. ' + screening.hour[0] }}</p>
     </div>
     <div class="finalize__seats-container">
         <div class="finalize__seat" *ngFor="let seat of seatsChosen">

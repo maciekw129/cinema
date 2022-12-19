@@ -14,7 +14,7 @@ import { OrderCompleteComponent } from './pages/order-complete/order-complete.co
 import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SettingsComponent } from './pages/settings/settings.component';
-import { ScreeningService } from './services/screening/screening.service';
+import { ScreeningResolver } from './services/screening/screening.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'work', component: WorkComponent },
   { path: 'regulations', component: RegulationsComponent },
   { path: 'rental', component: RentalComponent },
-  { path: 'book-tickets/:id', component: BookTicketsComponent, resolve: { screening: ScreeningService },
+  { path: 'book-tickets/:id', component: BookTicketsComponent, resolve: { screening: ScreeningResolver },
     children: [
       { path: '', redirectTo: 'reservation', pathMatch: 'full' },
       { path: 'reservation', component: ReservationComponent },

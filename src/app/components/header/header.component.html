@@ -5,14 +5,16 @@
             <fa-icon class="header__icon" [icon]="film"></fa-icon>
         </div>
         <div class="header__buttons">
-            <ng-container *ngIf="userData$$ | async as userData">
-                <app-button
-                    class="header__cart-button"
-                    *ngIf="userData.user"
+            <ng-container *ngIf="userData">
+                <div class="header__cart-button">
+                    <app-button
+                    *ngIf="userData"
                     [icon]="cartShopping"
                 ></app-button>
+                <p class="header__cart-counter fnt-color-red fnt-13-bold" *ngIf="cartCounter">{{ cartCounter }}</p>
+                </div>
                 <app-button
-                    *ngIf="!userData.user; else elseBlock"
+                    *ngIf="!userData; else elseBlock"
                     text="Zaloguj"
                     [important]="true"
                     routerLink="login"
@@ -20,7 +22,7 @@
                 <ng-template #elseBlock>
                     <app-header-dropdown
                         (logoutEvent)="handleLogout()"
-                        [firstName]="userData.user!.firstName"
+                        [firstName]="userData!.firstName"
                     ></app-header-dropdown>
                 </ng-template>
             </ng-container>

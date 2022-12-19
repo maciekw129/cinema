@@ -34,7 +34,22 @@
 }
 
 .header__cart-button {
+    position: relative;
     margin-right: 10px;
+}
+
+.header__cart-counter {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -5px;
+    right: -5px;
+    background-color: var(--colorWhite);
+    border: 1px solid black;
+    height: 22px;
+    width: 22px;
+    border-radius: 50px;
 }
 
 @media only screen and (max-width: 500px) {

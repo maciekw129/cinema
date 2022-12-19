@@ -667,28 +667,7 @@
       "id": 1,
       "userId": 1,
       "screeningId": 1,
-      "reservedSeats": [
-        [
-          7,
-          6,
-          1
-        ],
-        [
-          7,
-          3,
-          1
-        ],
-        [
-          5,
-          2,
-          1
-        ],
-        [
-          5,
-          3,
-          1
-        ]
-      ]
+      "reservedSeats": []
     },
     {
       "userId": 1,

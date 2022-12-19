@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, combineLatest, map, mergeMap, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest, map, mergeMap, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Cart, FetchedUser, Movie, Order, Seat, User } from 'src/types';
@@ -11,13 +11,7 @@ export class UserService {
   private _userData$$ = new BehaviorSubject<{user: User | null}>({user: null});
   public readonly userData$$: Observable<{user: User | null}> = this._userData$$.asObservable();
 
-  private beh$$!: BehaviorSubject<any>;
-
   constructor(private http: HttpClient, private router: Router){
-    //
-
-    this.beh$$ = new BehaviorSubject(7);
-
     const userId = localStorage.getItem("userId");
     if(userId) {
       this.getUserData(+userId).subscribe(result => {
@@ -53,7 +47,7 @@ export class UserService {
           carts: cartsObject
         }
       })
-    );
+    )
   }
 
   saveUser(response: {accessToken: string, user: User}) {
@@ -144,5 +138,16 @@ export class UserService {
         })
       })
     })
+  }
+
+  countCartItems() {
+    let counter = 0;
+    const carts = this._userData$$.getValue().user?.carts;
+    if(carts) {
+      Object.keys(carts).forEach(cartItem => {
+        carts[+cartItem].reservedSeats.forEach(_ => counter++);
+      })
+    }
+    return counter;
   }
 }

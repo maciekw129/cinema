@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order/order.service';
 import { Screening, Seat } from 'src/types';
 import { UserService } from 'src/app/services/user/user.service';
-import { tap } from 'rxjs';
+import { of, tap } from 'rxjs';
 
 @UntilDestroy()
 @Component({
@@ -26,8 +26,7 @@ export class ReservationComponent implements OnInit {
               private userService: UserService){}
 
   ngOnInit() {
-    this.orderService.screening$$
-      .pipe(untilDestroyed(this))
+    of(this.orderService.screening)
       .subscribe(result => {
         if(result !== null) {
           this.screening = result;

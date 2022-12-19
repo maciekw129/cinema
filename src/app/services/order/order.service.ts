@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { BehaviorSubject, combineLatest, EMPTY, map, Observable, of, switchMap, tap } from 'rxjs';
-import { Cart, FinalizeForm, Screening, Seat, TicketTypes } from '../../../types';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { FinalizeForm, Screening, Seat, TicketTypes } from '../../../types';
 import { ScreeningService } from '../screening/screening.service';
 import { UserService } from '../user/user.service';
 
@@ -19,39 +19,46 @@ export class OrderService {
   private _email$$ = new BehaviorSubject<string>('');
   public readonly email$$: Observable<string> = this._email$$.asObservable();
 
-  private screening!: Screening;
+  private _screening!: Screening;
 
   constructor(private http: HttpClient,
               private userService: UserService, 
               private screeningService: ScreeningService) {
-    this.getTicketTypes();
+    this.fetchTicketTypes();
+    this.fetchScreening();
+
+    this.userService.userData$$
+    .pipe(untilDestroyed(this))
+    .subscribe(result => {
+      if(result.user) {
+        this._seatsChosen$$.next(result.user?.carts[this.screening.id].reservedSeats);
+      }
+    })
+  }
+
+  get screening() {
+    return this._screening
+  }
+
+  private fetchScreening() {
     this.screeningService.screening$$.subscribe(result => {
-      this.screening = result;
+      this._screening = result;
     });
   }
 
-  getTicketTypes(){
+  private fetchTicketTypes(){
     this.http.get<TicketTypes[]>('http://localhost:3000/ticketTypes').subscribe(result => {
       this._ticketTypes$$.next(result);
     })
   }
 
   toggleSeat(seat: Seat) {
-    const screeningId = this.screening.id;
     const seatsChosen = this._seatsChosen$$.getValue();
 
     if(this.findSeatIndex(seat) === -1 && seatsChosen.length < 10) {
-      if(this.userService.isUserLogged()) {
-        this.userService.addToCart(seat, screeningId);
-      } else {
-        this._seatsChosen$$.next([...seatsChosen, seat]);
-      }
+      this.addChosenSeat(seat);
     } else {
-      if(this.userService.isUserLogged()){
-        this.userService.removeFromCart(seat, screeningId);
-      } else {
-        this.deleteChosenSeat(seat);
-      } 
+      this.deleteChosenSeat(seat);
     }
   }
 
@@ -63,8 +70,20 @@ export class OrderService {
     return this._seatsChosen$$.getValue().findIndex(chosen => chosen[0] === seat[0] && chosen[1] === seat[1]);
   }
 
+  addChosenSeat(seat: Seat) {
+    if(this.userService.isUserLogged()) {
+      this.userService.addToCart(seat, this._screening.id);
+    } else {
+      this._seatsChosen$$.next([...this._seatsChosen$$.getValue(), seat]);
+    }
+  }
+
   deleteChosenSeat(seat: Seat) {
-    this._seatsChosen$$.next(this._seatsChosen$$.getValue().filter((_, index) => index != this.findSeatIndex(seat)));
+    if(this.userService.isUserLogged()) {
+      this.userService.removeFromCart(seat, this._screening.id);
+    } else {
+      this._seatsChosen$$.next(this._seatsChosen$$.getValue().filter((_, index) => index != this.findSeatIndex(seat)));
+    }
   }
 
   changeSeatType(seat: Seat, seatType: number) {
@@ -79,13 +98,13 @@ export class OrderService {
 
   createOrder(form: FinalizeForm) {
     const orderPost = this.http.post(`http://localhost:3000/orders`, {
-      screeningId: this.screening.id,
+      screeningId: this._screening.id,
       seats: this._seatsChosen$$.getValue(),
       userId: localStorage.getItem("userId") ? localStorage.getItem("userId") : null,
       ownerDetails: form
     })
-    const seats = this._screening$$.getValue()?.seatsOccupied
-    const seatsPost = this.http.patch(`http://localhost:3000/screenings/${this._screening$$.getValue()?.id}`, {
+    const seats = this._screening.seatsOccupied
+    const seatsPost = this.http.patch(`http://localhost:3000/screenings/${this._screening.id}`, {
       seatsOccupied: seats ? [...seats, ...this._seatsChosen$$.getValue()] : [...this._seatsChosen$$.getValue()]
     })
     return combineLatest([orderPost, seatsPost])

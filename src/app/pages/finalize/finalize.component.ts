@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FinalizeComponent implements OnInit {
   alphabeth: string[] = 'ABCDEFGHIJKLMNOPRSTUWZ'.split('');
-  screening = this.orderService.screening$$;
+  screening = this.orderService.screening;
   seatsChosen: Seat[] = [];
   ticketTypes: {[id: string]: TicketTypes} | null = null;
   isModalVisible = false;
