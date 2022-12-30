@@ -1,33 +1,28 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { OrderService } from 'src/app/services/order/order.service';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { Seat } from 'src/types';
 
-@UntilDestroy()
 @Component({
   selector: 'app-seat[seat]',
   templateUrl: './seat.component.html',
-  styleUrls: ['./seat.component.css']
+  styleUrls: ['./seat.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SeatComponent implements OnInit {
+export class SeatComponent implements OnChanges {
   @Input() seat!: Seat;
   @Input() seatsOccupied: Seat[] = [];
+  @Input() seatsChosen: Seat[] = [];
   @Output() clickSeatEvent = new EventEmitter<Seat>();
-  seatsChosen: Seat[] = [];
+
   isSeatOccupied = false;
   isSeatChosen = false;
 
-  constructor(private orderService: OrderService) {}
+  ngOnChanges() {
+    this.isSeatOccupied = this.isSeatInArray(this.seatsOccupied);
+    this.isSeatChosen = this.isSeatInArray(this.seatsChosen);
+  }
 
-  ngOnInit() {
-    this.isSeatOccupied = this.seatsOccupied.some(seat => seat[0] === this.seat[0] && seat[1] === this.seat[1]);
-
-    this.orderService.seatsChosen$$
-      .pipe(untilDestroyed(this))
-      .subscribe(result => {
-        this.seatsChosen = result;
-        this.isSeatChosen = this.orderService.findSeatIndex(this.seat) !== -1;
-    });
+  isSeatInArray(seatsArray: Seat[]) {
+    return seatsArray.some(seat => seat[0] === this.seat[0] && seat[1] === this.seat[1]);
   }
 
   handleClickSeat() {

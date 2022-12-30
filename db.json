@@ -664,54 +664,45 @@
   ],
   "carts": [
     {
-      "id": 1,
       "userId": 1,
-      "screeningId": 1,
-      "reservedSeats": []
+      "screeningId": 3,
+      "reservedSeats": [
+        [
+          1,
+          8,
+          1
+        ]
+      ],
+      "id": 6
     },
     {
       "userId": 1,
       "screeningId": 6,
       "reservedSeats": [
         [
-          4,
+          6,
+          7,
+          1
+        ],
+        [
+          6,
           8,
-          1
-        ],
-        [
-          9,
-          9,
-          1
-        ],
-        [
-          9,
-          9,
           1
         ]
       ],
-      "id": 2
+      "id": 8
     },
     {
       "userId": 1,
-      "screeningId": 4,
+      "screeningId": 1,
       "reservedSeats": [
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          2,
-          8,
-          1
-        ],
         [
           2,
           6,
           1
         ]
       ],
-      "id": 3
+      "id": 9
     }
   ]
 }

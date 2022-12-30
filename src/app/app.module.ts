@@ -36,6 +36,7 @@ import { PaymentFormComponent } from './forms/payment-form/payment-form.componen
 import { HeaderDropdownComponent } from './components/header-dropdown/header-dropdown.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { CartComponent } from './components/cart/cart.component';
     HeaderDropdownComponent,
     SettingsComponent,
     CartComponent,
+    CartItemComponent,
   ],
   imports: [
     BrowserModule,

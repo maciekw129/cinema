@@ -1,3 +1,13 @@
 <div class="cart">
-    
+    <app-button
+        [icon]="cartShopping"
+        (click)="toggleIsCartVisible()"
+    ></app-button>
+    <p class="cart__counter fnt-color-red fnt-13-bold" *ngIf="cartCounter">{{ cartCounter }}</p>
+    <div *ngIf="isCartVisible" class="cart__content">
+        <app-cart-item
+            *ngFor="let cartItem of cartItems"
+            [cartItem]="cartItem"
+        ></app-cart-item>
+    </div>
 </div>

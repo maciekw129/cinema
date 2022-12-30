@@ -13,6 +13,6 @@
     cursor: auto;
 }
 
-.seat-reserved {
+.seat-chosen {
     background-color: var(--colorGreen);
 }

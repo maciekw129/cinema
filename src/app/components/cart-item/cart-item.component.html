@@ -1,0 +1,14 @@
+<div class="cart-item">
+    <p class="cart-item__info">
+        <a 
+            class="cart-item__link"
+            (click)="handleScreeningNavigate()"
+        >{{ cartItem.screening?.movie?.name }}</a>
+    , {{ cartItem.screening?.day }}, {{ cartItem.screening?.hour }}</p>
+    <p>seats: 
+        <span 
+            class="cart-item__seat" 
+            *ngFor="let seat of cartItem.reservedSeats">
+        {{ alphabeth[seat[0]] }}{{ seat[1] + 1 }}</span>
+    </p>
+</div>

@@ -1,0 +1,20 @@
+.cart-item {
+    padding: 15px 0;
+}
+
+.cart-item__info {
+    white-space: nowrap;
+}
+
+.cart-item__link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cart-item__seat::after {
+    content: ','
+}
+
+.cart-item__seat:last-child::after {
+    content: ''
+}

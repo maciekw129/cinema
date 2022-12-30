@@ -80,6 +80,7 @@ export interface Cart {
   id: number,
   userId: number,
   screeningId: number,
+  screening?: Screening,
   reservedSeats: [
         [
           1,

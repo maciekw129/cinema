@@ -1,33 +1,36 @@
-<div class="reservation" *ngIf="screening">
-    <div class="reservation__header-wrapper">
-        <h2 class="reservation__title">{{ screening.movie.name + ' -'}}</h2>
-        <p class="reservation__text-details">{{ screening.day + ', godz. ' + screening.hour[0] }}</p>
-    </div>
-    <p class="reservation__screen-text">Ekran</p>
-    <div class="reservation__room">
-        <div *ngFor="let column of columns">
-            <div class="room__row">
-                <div class="room__row-title">{{ alphabeth[column] }}</div>
-                <app-seat
-                    *ngFor="let row of rows" 
-                    [seat]="[column, row, 1]"
-                    [seatsOccupied]="screening.seatsOccupied"
-                    (clickSeatEvent)="chooseSeat($event)"
-                ></app-seat>
+<div class="reservation" *ngIf="screening$ | async as screening">
+    <ng-container *ngIf="seatsChosen$ | async as seatsChosen">
+        <div class="reservation__header-wrapper">
+            <h2 class="reservation__title">{{ screening.movie.name + ' -'}}</h2>
+            <p class="reservation__text-details">{{ screening.day + ', godz. ' + screening.hour[0] }}</p>
+        </div>
+        <p class="reservation__screen-text">Ekran</p>
+        <div class="reservation__room">
+            <div *ngFor="let column of columns">
+                <div class="room__row">
+                    <div class="room__row-title">{{ alphabeth[column] }}</div>
+                    <app-seat
+                        *ngFor="let row of rows" 
+                        [seat]="[column, row, 1]"
+                        [seatsOccupied]="screening.seatsOccupied"
+                        [seatsChosen]="seatsChosen"
+                        (clickSeatEvent)="toggleSeat($event)"
+                    ></app-seat>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="reservation__chosen-seats">
-        <app-chosen-seat 
-            *ngFor="let seat of seatsChosen$$ | async; index"
-            [seat]="seat"
-        ></app-chosen-seat>
-    </div>
-    <p *ngIf="!(seatsChosen$$ | async)!.length; else elseBlock" class="room__info">Wybierz miejsce aby kontynuować.</p>
-    <ng-template #elseBlock>
-        <app-button
-            text="Przejdź do zamówienia"
-            (click)="navigateToFinalize()"
-        ></app-button>
-    </ng-template>
+        <div class="reservation__chosen-seats">
+            <app-chosen-seat 
+                *ngFor="let seat of seatsChosen; index"
+                [seat]="seat"
+            ></app-chosen-seat>
+        </div>
+        <p *ngIf="!seatsChosen.length; else elseBlock" class="room__info">Wybierz miejsce aby kontynuować.</p>
+        <ng-template #elseBlock>
+            <app-button
+                text="Przejdź do zamówienia"
+                (click)="navigateToFinalize()"
+            ></app-button>
+        </ng-template>
+    </ng-container>
 </div>

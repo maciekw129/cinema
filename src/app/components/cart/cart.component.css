@@ -1,0 +1,29 @@
+.cart {
+    position: relative;
+    margin-right: 10px;
+}
+
+.cart__counter {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -5px;
+    right: -5px;
+    background-color: var(--colorWhite);
+    border: 1px solid black;
+    height: 22px;
+    width: 22px;
+    border-radius: 50px;
+}
+
+.cart__content {
+    position: absolute;
+    right: 0px;
+    top: 42px;
+    min-width: 200px;
+    background-color: var(--colorWhite);
+    border: 1px solid var(--colorPurple);
+    padding: 20px;
+    border-radius: 5px;
+}

@@ -1,8 +1,8 @@
 <button
-    class="seat"
+    class="seat seat-chosen"
     [ngClass]="{
         'seat-occupied': isSeatOccupied,
-        'seat-reserved': isSeatChosen
+        'seat-chosen': isSeatChosen
     }"
     [disabled]="isSeatOccupied"
     (click)="handleClickSeat()"

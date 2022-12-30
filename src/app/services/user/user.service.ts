@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, combineLatest, map, mergeMap, of } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest, map, mergeMap, of, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Cart, FetchedUser, Movie, Order, Seat, User } from 'src/types';
+import { Cart, FetchedUser, Movie, Order, Screening, Seat, User } from 'src/types';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class UserService {
   }
 
   get userId() {
-    return this._userData$$.getValue().user?.id;
+    return localStorage.getItem('userId') !== null ? +localStorage.getItem('userId')! : null;
   }
 
   login(values: {email: string, password: string}) {
@@ -106,7 +106,7 @@ export class UserService {
 
   addToCart(seat: Seat, screeningId: number) {
     const subscription = () => {
-      this.getUserData(this.userId!).subscribe(result => {
+      this.getUserData(+this.userId!).subscribe(result => {
         this._userData$$.next({user: result})
       })
     }
@@ -129,15 +129,44 @@ export class UserService {
     this.getParticularCart(screeningId).subscribe(result => {
       const filteredSeats = result[0].reservedSeats.filter(seat => {
         return (seat[0] != seatToDelete[0]) || (seat[1] != seatToDelete[1])
-      })
-      this.http.patch(`http://localhost:3000/carts/${result[0].id}`, {
-        reservedSeats: filteredSeats
-      }).subscribe(() => {
-        this.getUserData(this.userId!).subscribe(result => {
+      });
+
+      const subscription = () => {
+        this.getUserData(+this.userId!).subscribe(result => {
           this._userData$$.next({user: result})
         })
-      })
+      }
+
+      if(filteredSeats.length) {
+        this.http.patch(`http://localhost:3000/carts/${result[0].id}`, {
+          reservedSeats: filteredSeats
+        }).subscribe(subscription);
+      } else {
+        this.http.delete(`http://localhost:3000/carts/${result[0].id}`).subscribe({
+          error: subscription
+        })
+      }
     })
+  }
+
+  getUserCarts() {
+    return this.http.get<Cart[]>(`http://localhost:3000/carts?userId=${this.userId}&_expand=screening`)
+      .pipe(
+        switchMap(result => {
+          const observables: Observable<Movie>[] = [];
+          result.forEach(result => {
+            observables.push(this.http.get<Movie>(`http://localhost:3000/movies/${result.screening!.movieId}`));
+          })
+          return combineLatest([of(result), ...observables]);
+        }),
+        map(result => {
+          const [carts, ...movies] = result;
+          carts.forEach((cart, index) => {
+            cart.screening!.movie = movies[index];
+          })
+          return carts;
+        })
+      )
   }
 
   countCartItems() {

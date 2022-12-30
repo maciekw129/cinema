@@ -1,43 +1,68 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import { FinalizeForm, Screening, Seat, TicketTypes } from '../../../types';
 import { ScreeningService } from '../screening/screening.service';
 import { UserService } from '../user/user.service';
 
+export interface OrderState {
+  seatsChosen: Seat[],
+  ticketTypes: TicketTypes[],
+  email: string
+}
 
 @UntilDestroy()
 @Injectable()
 export class OrderService {
-  private _seatsChosen$$ = new BehaviorSubject<Seat[]>([]);
-  public readonly seatsChosen$$: Observable<Seat[]> = this._seatsChosen$$.asObservable();
+  private http = inject(HttpClient);
+  private userService = inject(UserService);
+  private screeningService = inject(ScreeningService);
 
-  private _ticketTypes$$ = new BehaviorSubject<TicketTypes[]>([]);
-  public readonly ticketTypes$$: Observable<TicketTypes[]> = this._ticketTypes$$.asObservable();
-
-  private _email$$ = new BehaviorSubject<string>('');
-  public readonly email$$: Observable<string> = this._email$$.asObservable();
-
-  private _screening!: Screening;
-
-  constructor(private http: HttpClient,
-              private userService: UserService, 
-              private screeningService: ScreeningService) {
+  constructor() {
     this.fetchTicketTypes();
     this.fetchScreening();
 
     this.userService.userData$$
     .pipe(untilDestroyed(this))
     .subscribe(result => {
-      if(result.user) {
-        this._seatsChosen$$.next(result.user?.carts[this.screening.id].reservedSeats);
+      if(result.user?.carts[this.screening.id]) {
+        this.patchState({ seatsChosen: result.user?.carts[this.screening.id].reservedSeats });
       }
     })
   }
 
+  private _screening!: Screening;
+
   get screening() {
-    return this._screening
+    return this._screening;
+  }
+
+  private _orderState$$ = new BehaviorSubject<OrderState>({
+    seatsChosen: [],
+    ticketTypes: [],
+    email: ''
+  });
+
+  public readonly orderState$: Observable<OrderState> = this._orderState$$.asObservable();
+
+  get selectSeatsChosen$() {
+    return this.orderState$.pipe(map((state) => state.seatsChosen));
+  }
+
+  get selectTicketTypes$() {
+    return this.orderState$.pipe(map((state) => state.ticketTypes));
+  }
+
+  get selectEmail$() {
+    return this.orderState$.pipe(map((state) => state.email));
+  }
+  
+  private patchState(stateSlice: Partial<OrderState>) {
+    this._orderState$$.next({
+      ...this._orderState$$.value,
+      ...stateSlice
+    });
   }
 
   private fetchScreening() {
@@ -48,12 +73,12 @@ export class OrderService {
 
   private fetchTicketTypes(){
     this.http.get<TicketTypes[]>('http://localhost:3000/ticketTypes').subscribe(result => {
-      this._ticketTypes$$.next(result);
+      this.patchState({ ticketTypes: result })
     })
   }
 
   toggleSeat(seat: Seat) {
-    const seatsChosen = this._seatsChosen$$.getValue();
+    const seatsChosen = this._orderState$$.value.seatsChosen;
 
     if(this.findSeatIndex(seat) === -1 && seatsChosen.length < 10) {
       this.addChosenSeat(seat);
@@ -63,18 +88,18 @@ export class OrderService {
   }
 
   updateCartSeats(seats: Seat[]) {
-    this._seatsChosen$$.next(seats);
+    this.patchState({ seatsChosen: seats });
   }
 
   findSeatIndex(seat: Seat) {
-    return this._seatsChosen$$.getValue().findIndex(chosen => chosen[0] === seat[0] && chosen[1] === seat[1]);
+    return this._orderState$$.value.seatsChosen.findIndex(chosen => chosen[0] === seat[0] && chosen[1] === seat[1]);
   }
 
   addChosenSeat(seat: Seat) {
     if(this.userService.isUserLogged()) {
       this.userService.addToCart(seat, this._screening.id);
     } else {
-      this._seatsChosen$$.next([...this._seatsChosen$$.getValue(), seat]);
+      this.patchState({ seatsChosen: [...this._orderState$$.value.seatsChosen, seat] });
     }
   }
 
@@ -82,30 +107,30 @@ export class OrderService {
     if(this.userService.isUserLogged()) {
       this.userService.removeFromCart(seat, this._screening.id);
     } else {
-      this._seatsChosen$$.next(this._seatsChosen$$.getValue().filter((_, index) => index != this.findSeatIndex(seat)));
+      this.patchState({ seatsChosen: this._orderState$$.value.seatsChosen.filter((_, index) => index != this.findSeatIndex(seat))});
     }
   }
 
   changeSeatType(seat: Seat, seatType: number) {
-    const seatsChosen = this._seatsChosen$$.getValue();
+    const seatsChosen = this._orderState$$.value.seatsChosen
     seatsChosen[this.findSeatIndex(seat)][2] = seatType;
-    this._seatsChosen$$.next(seatsChosen);
+    this.patchState({ seatsChosen: seatsChosen });
   }
 
   setEmail(email: string) {
-    this._email$$.next(email);
+    this.patchState({ email: email });
   }
 
   createOrder(form: FinalizeForm) {
     const orderPost = this.http.post(`http://localhost:3000/orders`, {
       screeningId: this._screening.id,
-      seats: this._seatsChosen$$.getValue(),
+      seats: this._orderState$$.value.seatsChosen,
       userId: localStorage.getItem("userId") ? localStorage.getItem("userId") : null,
       ownerDetails: form
     })
-    const seats = this._screening.seatsOccupied
+    const seats = this._screening.seatsOccupied;
     const seatsPost = this.http.patch(`http://localhost:3000/screenings/${this._screening.id}`, {
-      seatsOccupied: seats ? [...seats, ...this._seatsChosen$$.getValue()] : [...this._seatsChosen$$.getValue()]
+      seatsOccupied: seats ? [...seats, ...this._orderState$$.value.seatsChosen] : [...this._orderState$$.value.seatsChosen]
     })
     return combineLatest([orderPost, seatsPost])
   }

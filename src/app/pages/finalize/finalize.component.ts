@@ -25,14 +25,14 @@ export class FinalizeComponent implements OnInit {
               private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.orderService.seatsChosen$$
+    this.orderService.selectSeatsChosen$
       .pipe(untilDestroyed(this))
       .subscribe(result => {
         if(result.length) this.seatsChosen = result
         else this.router.navigate(['../reservation'], { relativeTo: this.route });
       })
 
-    this.orderService.ticketTypes$$
+    this.orderService.selectTicketTypes$
       .pipe(untilDestroyed(this))
       .pipe(
         map((ticketTypes) => {
