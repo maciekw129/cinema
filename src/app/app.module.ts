@@ -6,78 +6,47 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 
-// COMPONENTS
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { ButtonComponent } from './components/button/button.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ButtonBarComponent } from './components/button-bar/button-bar.component';
-import { MovieComponent } from './components/movie/movie.component';
-import { AboutComponent } from './pages/about/about.component';
-import { WorkComponent } from './pages/work/work.component';
-import { RegulationsComponent } from './pages/regulations/regulations.component';
-import { RentalComponent } from './pages/rental/rental.component';
-import { ReservationComponent } from './pages/reservation/reservation.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { SeatComponent } from './components/seat/seat.component';
-import { ChosenSeatComponent } from './components/chosen-seat/chosen-seat.component';
-import { FinalizeComponent } from './pages/finalize/finalize.component';
-import { BookTicketsComponent } from './pages/book-tickets/book-tickets.component';
-import { FinalizeFormComponent } from './forms/finalize-form/finalize-form.component';
-import { ModalComponent } from './components/modal/modal.component';
-import { OrderCompleteComponent } from './pages/order-complete/order-complete.component';
-import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
-import { OrderComponent } from './components/order/order.component';
-import { LoginFormComponent } from './forms/login-form/login-form.component';
-import { RegisterFormComponent } from './forms/register-form/register-form.component';
-import { PaymentFormComponent } from './forms/payment-form/payment-form.component';
-import { HeaderDropdownComponent } from './components/header-dropdown/header-dropdown.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { CartComponent } from './components/cart/cart.component';
-import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { HeaderComponent } from './home/components/header/header.component';
+import { FooterComponent } from './home/components/footer/footer.component';
+import { ButtonComponent } from './shared/components/button/button.component';
+import { HomeComponent } from './home/home.component';
+import { ButtonBarComponent } from './home/components/button-bar/button-bar.component';
+import { MovieComponent } from './home/components/movie/movie.component';
+import { LoginComponent } from './auth/pages/login/login.component';
+import { RegisterComponent } from './auth/pages/register/register.component';
+import { LoginFormComponent } from './auth/forms/login-form/login-form.component';
+import { RegisterFormComponent } from './auth/forms/register-form/register-form.component';
+import { HeaderDropdownComponent } from './home/components/header-dropdown/header-dropdown.component';
+import { CartComponent } from './home/components/cart/cart.component';
+import { CartItemComponent } from './home/components/cart-item/cart-item.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ButtonComponent,
     HomeComponent,
     ButtonBarComponent,
     MovieComponent,
-    AboutComponent,
-    WorkComponent,
-    RegulationsComponent,
-    RentalComponent,
-    ReservationComponent,
     LoginComponent,
     RegisterComponent,
-    SeatComponent,
-    ChosenSeatComponent,
-    FinalizeComponent,
-    BookTicketsComponent,
-    FinalizeFormComponent,
-    ModalComponent,
-    OrderCompleteComponent,
-    MyOrdersComponent,
-    OrderComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    PaymentFormComponent,
     HeaderDropdownComponent,
-    SettingsComponent,
     CartComponent,
     CartItemComponent,
   ],
   imports: [
+    ButtonComponent,
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     StoreModule.forRoot({}, {}),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

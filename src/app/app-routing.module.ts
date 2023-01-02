@@ -1,44 +1,61 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { WorkComponent } from './pages/work/work.component';
-import { RegulationsComponent } from './pages/regulations/regulations.component';
-import { RentalComponent } from './pages/rental/rental.component';
-import { ReservationComponent } from './pages/reservation/reservation.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { FinalizeComponent } from './pages/finalize/finalize.component';
-import { BookTicketsComponent } from './pages/book-tickets/book-tickets.component';
-import { OrderCompleteComponent } from './pages/order-complete/order-complete.component';
-import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
-import { AuthGuard } from './guards/auth.guard';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { ScreeningResolver } from './services/screening/screening.resolver';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './auth/pages/login/login.component';
+import { RegisterComponent } from './auth/pages/register/register.component';
+import { AuthGuard } from './auth/auth.guard';
+import { ScreeningResolver } from './domains/order/services/screening/screening.resolver';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'work', component: WorkComponent },
-  { path: 'regulations', component: RegulationsComponent },
-  { path: 'rental', component: RentalComponent },
-  { path: 'book-tickets/:id', component: BookTicketsComponent, resolve: { screening: ScreeningResolver },
-    children: [
-      { path: '', redirectTo: 'reservation', pathMatch: 'full' },
-      { path: 'reservation', component: ReservationComponent },
-      { path: 'finalize', component: FinalizeComponent },
-      { path: 'order-complete', component: OrderCompleteComponent }
-    ]
+  {
+    path: '', 
+    component: HomeComponent 
   },
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent },
-  { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
-  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '' }
+  {
+    path: 'login', 
+    component: LoginComponent
+  },
+  {
+    path: 'register', 
+    component: RegisterComponent
+  },
+  {
+    path: 'my-orders', 
+    loadChildren: async() => (await import('./domains/my-orders/my-orders.module')).MyOrdersModule
+  },
+  {
+    path: 'settings', 
+    loadChildren: async() => (await import('./domains/settings/settings.module')).SettingsModule,
+    canActivate: [AuthGuard]
+  },
+  { 
+    path: 'book-tickets/:id', 
+    loadChildren: async() => (await import('./domains/order/order.module')).OrderModule, 
+    resolve: { screening: ScreeningResolver }
+  },
+  {
+    path: 'about', 
+    loadChildren: async() => (await import('./domains/about/about.module')).AboutModule
+  },
+  {
+    path: 'work', 
+    loadChildren: async() => (await import('./domains/work/work.module')).WorkModule
+  },
+  {
+    path: 'regulations', 
+    loadChildren: async() => (await import('./domains/regulations/regulations.module')).RegulationsModule
+  },
+  {
+    path: 'rental', 
+    loadChildren: async() => (await import('./domains/rental/rental.module')).RentalModule
+  },
+  {
+    path: '**', redirectTo: '' 
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,0 +1,32 @@
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+    <input
+        class="login-form__input input"
+        [class.input-error]="emailCtrl.touched && emailCtrl.errors"
+        type="text"
+        formControlName="email"
+        placeholder="E-mail*"
+    />
+    <ng-container *ngIf="emailCtrl.errors as errors">
+        <ng-container *ngIf="emailCtrl.touched">
+          <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+          <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">E-mail jest w niewłaściwym formacie</p>
+        </ng-container>
+    </ng-container>
+
+    <input
+        class="login-form__input input"
+        [class.input-error]="passwordCtrl.touched && passwordCtrl.errors"
+        type="password"
+        formControlName="password"
+        placeholder="Hasło*"
+    />
+    <ng-container *ngIf="passwordCtrl.errors as errors">
+        <ng-container *ngIf="passwordCtrl.touched">
+          <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
+        </ng-container>
+    </ng-container>
+
+    <app-button
+        text="Zaloguj"
+    ></app-button>
+</form>
