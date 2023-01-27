@@ -50,9 +50,9 @@ import { RatingScaleComponent } from './home/components/rating-scale/rating-scal
     StoreModule.forRoot({}, {}),
     HttpClientModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

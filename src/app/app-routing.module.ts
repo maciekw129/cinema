@@ -8,54 +8,68 @@ import { ScreeningResolver } from './domains/order/services/screening/screening.
 
 const routes: Routes = [
   {
-    path: '', 
-    component: HomeComponent 
+    path: '',
+    component: HomeComponent,
   },
   {
-    path: 'login', 
-    component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'register', 
-    component: RegisterComponent
+    path: 'register',
+    component: RegisterComponent,
   },
   {
-    path: 'my-orders', 
-    loadChildren: async() => (await import('./domains/my-orders/my-orders.module')).MyOrdersModule
+    path: 'my-orders',
+    loadChildren: async () =>
+      (await import('./domains/my-orders/my-orders.module')).MyOrdersModule,
   },
   {
-    path: 'settings', 
-    loadChildren: async() => (await import('./domains/settings/settings.module')).SettingsModule,
-    canActivate: [AuthGuard]
-  },
-  { 
-    path: 'book-tickets/:id', 
-    loadChildren: async() => (await import('./domains/order/order.module')).OrderModule, 
-    resolve: { screening: ScreeningResolver }
+    path: 'settings',
+    loadChildren: async () =>
+      (await import('./domains/settings/settings.module')).SettingsModule,
+    canActivate: [AuthGuard],
   },
   {
-    path: 'about', 
-    loadChildren: async() => (await import('./domains/about/about.module')).AboutModule
+    path: 'book-tickets/:id',
+    loadChildren: async () =>
+      (await import('./domains/order/order.module')).OrderModule,
+    resolve: { screening: ScreeningResolver },
   },
   {
-    path: 'work', 
-    loadChildren: async() => (await import('./domains/work/work.module')).WorkModule
+    path: 'wish-list',
+    loadChildren: async () =>
+      (await import('./domains/wish-list/wish-list.module')).WishListModule,
   },
   {
-    path: 'regulations', 
-    loadChildren: async() => (await import('./domains/regulations/regulations.module')).RegulationsModule
+    path: 'about',
+    loadChildren: async () =>
+      (await import('./domains/about/about.module')).AboutModule,
   },
   {
-    path: 'rental', 
-    loadChildren: async() => (await import('./domains/rental/rental.module')).RentalModule
+    path: 'work',
+    loadChildren: async () =>
+      (await import('./domains/work/work.module')).WorkModule,
   },
   {
-    path: '**', redirectTo: '' 
-  }
+    path: 'regulations',
+    loadChildren: async () =>
+      (await import('./domains/regulations/regulations.module'))
+        .RegulationsModule,
+  },
+  {
+    path: 'rental',
+    loadChildren: async () =>
+      (await import('./domains/rental/rental.module')).RentalModule,
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

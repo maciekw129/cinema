@@ -1,0 +1,10 @@
+<div class="wish-list main-page">
+  <div class="wish-list__container main-container">
+    <h2>Chcę obejrzeć:</h2>
+    <ul>
+      <li class="wish-list__movie" *ngFor="let wish of wishList$ | async">
+        {{ wish.movie.name }}
+      </li>
+    </ul>
+  </div>
+</div>

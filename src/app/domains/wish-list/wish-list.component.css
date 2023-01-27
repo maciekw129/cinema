@@ -1,0 +1,10 @@
+.wish-list__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wish-list__movie {
+  padding: 10px;
+}

@@ -736,13 +736,13 @@
     },
     {
       "userId": 1,
-      "movieId": 1,
-      "id": 4
+      "movieId": 2,
+      "id": 5
     },
     {
       "userId": 1,
-      "movieId": 2,
-      "id": 5
+      "movieId": 1,
+      "id": 6
     }
   ]
 }
