@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, inject } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
+import patterns from 'src/app/shared/validatorPatterns';
 import { confirmEmailValidator } from 'src/app/shared/validators';
 
 export interface UserForm {
@@ -85,12 +86,15 @@ export class FinalizeFormComponent {
       phone: this.fb.control('', {
         validators: [
           Validators.maxLength(12),
+          Validators.minLength(9),
+          Validators.pattern(patterns.phone)
         ]
       }),
       email: this.fb.control('', {
         validators: [
           Validators.maxLength(40),
-          Validators.required
+          Validators.required,
+          Validators.pattern(patterns.email)
         ]
       }),
       confirmEmail: this.fb.control('', {

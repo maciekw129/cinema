@@ -21,6 +21,8 @@ import { HeaderDropdownComponent } from './home/components/header-dropdown/heade
 import { CartComponent } from './home/components/cart/cart.component';
 import { CartItemComponent } from './home/components/cart-item/cart-item.component';
 import { CommonModule } from '@angular/common';
+import { ModalComponent } from './shared/components/modal/modal.component';
+import { RatingScaleComponent } from './home/components/rating-scale/rating-scale.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,11 @@ import { CommonModule } from '@angular/common';
     HeaderDropdownComponent,
     CartComponent,
     CartItemComponent,
+    RatingScaleComponent,
   ],
   imports: [
     ButtonComponent,
+    ModalComponent,
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,

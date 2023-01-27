@@ -1,0 +1,33 @@
+.rating-scale {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+}
+
+.rating-scale__stars-container {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.rating-scale__star {
+    font-size: 2rem;
+    color: var(--colorGray);
+}
+
+.rating-scale__stars-container:hover fa-icon {
+    color: var(--colorPurple);
+    cursor: pointer;
+}
+
+.rating-scale__stars-container fa-icon:hover ~ fa-icon {
+    color: var(--colorGray);
+}
+
+.rating-scale__star-active {
+    color: var(--colorPurple);
+}
+
+.rating-scale__text {
+    line-height: 30px;
+}

@@ -1,13 +1,16 @@
 <div class="home main-page">
-    <app-button-bar
-        class="home__button-bar"
-        [buttonBarElements]="buttonBarElements"
-        (buttonEvent)="handleButtonEvent($event)"
-    ></app-button-bar>
-    <app-movie
-        class="home__movie"
-        *ngFor="let screening of screenings"
-        [screenings]="screening"
-    ></app-movie>
-    <p class="home__no-movies" *ngIf="!screenings.length">W tym dniu nie ma żadnego seansu. Przepraszamy!</p>
+  <app-button-bar
+    class="home__button-bar"
+    [buttonBarElements]="buttonBarElements"
+    (buttonEvent)="handleChangeDay($event)"
+  ></app-button-bar>
+  <app-movie
+    class="home__movie"
+    *ngFor="let screening of screenings"
+    [screenings]="screening"
+    (refreshEvent)="refresh()"
+  ></app-movie>
+  <p class="home__no-movies" *ngIf="!screenings.length">
+    W tym dniu nie ma żadnego seansu. Przepraszamy!
+  </p>
 </div>

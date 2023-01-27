@@ -1,0 +1,17 @@
+<div class="rating-scale">
+    <h2 *ngIf="rate; else elseBlock">{{ rate }}</h2>
+    <ng-template #elseBlock>
+        <p class="rating-scale__text">Wybierz ocenę.</p>
+    </ng-template>
+    <div class="rating-scale__stars-container">
+        <fa-icon 
+            *ngFor="let i of [].constructor(rateScale); let index = index" 
+            [icon]="star"
+            class="rating-scale__star"
+            [ngClass]="{
+                'rating-scale__star-active': rate > index
+            }"
+            (click)="handleChangeRate(index + 1)"
+        ></fa-icon>
+    </div>
+</div>

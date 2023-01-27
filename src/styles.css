@@ -10,6 +10,7 @@
 :root {
     --colorWhite: #FFFFFF;
     --colorLightGray: hsl(0, 0%, 95%);
+    --colorGray: hsl(0, 0%, 80%);
     --colorBlack: #000000;
     --colorDarkGreen: #005C53;
     --colorDarkBlue: #042940;

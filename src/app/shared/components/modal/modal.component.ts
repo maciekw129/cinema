@@ -13,8 +13,6 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 export class ModalComponent {
   @Output() closeEvent = new EventEmitter<null>();
   close = faX;
-
-  constructor() { }
   
   handleClose() {
     this.closeEvent.emit();

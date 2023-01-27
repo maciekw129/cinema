@@ -665,28 +665,11 @@
   "carts": [
     {
       "userId": 1,
-      "screeningId": 3,
-      "reservedSeats": [
-        [
-          1,
-          8,
-          1
-        ]
-      ],
-      "id": 6
-    },
-    {
-      "userId": 1,
       "screeningId": 6,
       "reservedSeats": [
         [
           6,
           7,
-          1
-        ],
-        [
-          6,
-          8,
           1
         ]
       ],
@@ -705,9 +688,61 @@
           9,
           6,
           1
+        ],
+        [
+          8,
+          9,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          6,
+          8,
+          1
         ]
       ],
       "id": 9
+    },
+    {
+      "userId": 1,
+      "screeningId": 2,
+      "reservedSeats": [
+        [
+          8,
+          7,
+          1
+        ]
+      ],
+      "id": 10
+    }
+  ],
+  "rating": [
+    {
+      "rate": 4,
+      "movieId": 1,
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "wantToWatch": [
+    {
+      "userId": 1,
+      "movieId": 3,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "movieId": 1,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "movieId": 2,
+      "id": 5
     }
   ]
 }
