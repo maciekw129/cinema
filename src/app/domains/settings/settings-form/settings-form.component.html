@@ -1,0 +1,70 @@
+<form
+  class="settings-form"
+  [formGroup]="settingsForm"
+  (submit)="handleSubmit()"
+>
+  <div class="finalize-form__input-container">
+    <input
+      class="input finalize-form__input"
+      [class.input-error]="firstNameCtrl.touched && firstNameCtrl.errors"
+      formControlName="firstName"
+      placeholder="Imię*"
+      type="text"
+    />
+    <ng-container *ngIf="firstNameCtrl.errors as errors">
+      <ng-container *ngIf="firstNameCtrl.touched">
+        <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+          Te pole jest obowiązkowe
+        </p>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="finalize-form__input-container">
+    <input
+      class="input finalize-form__input"
+      [class.input-error]="lastNameCtrl.touched && lastNameCtrl.errors"
+      formControlName="lastName"
+      placeholder="Nazwisko*"
+      type="text"
+    />
+    <ng-container *ngIf="lastNameCtrl.errors as errors">
+      <ng-container *ngIf="lastNameCtrl.touched">
+        <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+          Te pole jest obowiązkowe
+        </p>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="finalize-form__input-container">
+    <input
+      class="input finalize-form__input"
+      [class.input-error]="phoneCtrl.touched && phoneCtrl.errors"
+      formControlName="phone"
+      placeholder="Numer telefonu"
+    />
+    <ng-container *ngIf="phoneCtrl.errors as errors">
+      <ng-container *ngIf="phoneCtrl.touched">
+        <p *ngIf="errors['maxlength']" class="fnt-13-regular fnt-color-red">
+          Numer telefonu ma za dużo znaków
+        </p>
+        <p *ngIf="errors['minlength']" class="fnt-13-regular fnt-color-red">
+          Numer telefonu ma za mało znaków
+        </p>
+        <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">
+          Numer telefonu jest w niewłaściwym formacie
+        </p>
+      </ng-container>
+    </ng-container>
+  </div>
+  <app-button
+    *ngIf="settingsForm.disabled"
+    (click)="enableForm()"
+    text="Edytuj"
+  ></app-button>
+  <app-button
+    *ngIf="settingsForm.enabled"
+    (click)="cancelForm()"
+    text="Anuluj"
+  ></app-button>
+  <app-button *ngIf="settingsForm.enabled" text="Zatwierdź"></app-button>
+</form>

@@ -11,6 +11,7 @@ export interface User {
   firstName: string;
   email: string;
   lastName: string;
+  phone?: string;
   carts: { [key: number]: Cart };
 }
 

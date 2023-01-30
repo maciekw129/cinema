@@ -3,9 +3,10 @@
     {
       "email": "maciejwalecki99@gmail.com",
       "password": "$2a$10$skzYJfIMUmhbP2ct2h2KIerjV34CQpgbvL2iDpiy/ICmfkie1PN0q",
-      "firstName": "Maciej",
+      "firstName": "Kacper",
       "lastName": "Walecki",
-      "id": 1
+      "id": 1,
+      "phone": ""
     }
   ],
   "rooms": [
@@ -677,38 +678,6 @@
     },
     {
       "userId": 1,
-      "screeningId": 1,
-      "reservedSeats": [
-        [
-          2,
-          6,
-          1
-        ],
-        [
-          9,
-          6,
-          1
-        ],
-        [
-          8,
-          9,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          6,
-          8,
-          1
-        ]
-      ],
-      "id": 9
-    },
-    {
-      "userId": 1,
       "screeningId": 2,
       "reservedSeats": [
         [
@@ -718,6 +687,28 @@
         ]
       ],
       "id": 10
+    },
+    {
+      "userId": 1,
+      "screeningId": 1,
+      "reservedSeats": [
+        [
+          9,
+          6,
+          1
+        ],
+        [
+          8,
+          6,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ]
+      ],
+      "id": 11
     }
   ],
   "rating": [
@@ -737,12 +728,7 @@
     {
       "userId": 1,
       "movieId": 2,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "movieId": 1,
-      "id": 6
+      "id": 4
     }
   ]
 }

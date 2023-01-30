@@ -1,5 +1,9 @@
 <div class="main-page">
-    <div class="settings main-container">
-        
-    </div>
+  <div class="settings main-container">
+    <h2 class="settings__title">Ustawienia</h2>
+    <app-settings-form
+      #settingsForm
+      (sendSettingsForm)="handlePatchSettings($event)"
+    ></app-settings-form>
+  </div>
 </div>
