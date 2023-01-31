@@ -1,3 +1,5 @@
+import { Cart } from './app/domains/cart/cart.interface';
+
 export interface FetchedUser {
   id: number;
   firstName: string;
@@ -77,14 +79,6 @@ export interface Screenings {
     screeningId: number;
   }[];
   day: number;
-}
-
-export interface Cart {
-  id: number;
-  userId: number;
-  screeningId: number;
-  screening?: Screening;
-  reservedSeats: [[1, 2, 2]];
 }
 
 export type Seat = [column: number, row: number, seatTypeId: number];

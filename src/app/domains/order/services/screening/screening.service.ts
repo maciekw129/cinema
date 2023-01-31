@@ -76,7 +76,6 @@ export class ScreeningService {
             if (wantToWatch[index].length)
               screening.wantToWatch = wantToWatch[index][0].id;
           });
-          console.log(oldScreenings);
           return oldScreenings;
         })
       );

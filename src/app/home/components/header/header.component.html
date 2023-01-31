@@ -6,11 +6,7 @@
     </div>
     <div class="header__buttons">
       <ng-container *ngIf="userData$$ | async as user">
-        <app-cart
-          *ngIf="user.user"
-          [cartCounter]="cartCounter"
-          [cartItems]="cartItems"
-        ></app-cart>
+        <app-cart *ngIf="user.user"></app-cart>
         <app-header-dropdown
           *ngIf="user.user; else elseBlock"
           (logoutEvent)="handleLogout()"

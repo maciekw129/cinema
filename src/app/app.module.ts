@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +24,14 @@ import { CartItemComponent } from './domains/cart/cart-item/cart-item.component'
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { RatingScaleComponent } from './home/components/rating-scale/rating-scale.component';
+import { CartEffects } from './domains/cart/store/cart.effects';
+import { CartState } from './domains/cart/cart.interface';
+import { cartReducer } from './domains/cart/store/cart.reducer';
+import { CountCartItemsPipe } from './domains/cart/count-cart-items.pipe';
+
+export interface AppState {
+  cart: CartState;
+}
 
 @NgModule({
   declarations: [
@@ -40,6 +49,7 @@ import { RatingScaleComponent } from './home/components/rating-scale/rating-scal
     CartComponent,
     CartItemComponent,
     RatingScaleComponent,
+    CountCartItemsPipe,
   ],
   imports: [
     ButtonComponent,
@@ -47,7 +57,8 @@ import { RatingScaleComponent } from './home/components/rating-scale/rating-scal
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ cart: cartReducer }),
+    EffectsModule.forRoot([CartEffects]),
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
