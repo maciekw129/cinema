@@ -1,3 +1,3 @@
 export const environment = {
-  API_URL: 'https://ale-kino-json-server.vercel.app',
+  API_URL: 'https://ale-kino-json-server-hhbq.vercel.app',
 };
