@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
+import { API_URL } from 'src/app/env.token';
 import { Movie, Seat } from 'src/types';
 import { Cart } from './cart.interface';
 
@@ -9,19 +10,20 @@ import { Cart } from './cart.interface';
   providedIn: 'root',
 })
 export class CartService {
+  private API_URL = inject(API_URL);
   private authService = inject(AuthService);
   private http = inject(HttpClient);
 
   private getParticularCart(screeningId: number) {
     return this.http.get<Cart[]>(
-      `http://localhost:3000/carts?userId=${this.authService.userId}&screeningId=${screeningId}`
+      `${this.API_URL}/carts?userId=${this.authService.userId}&screeningId=${screeningId}`
     );
   }
 
   fetchCart() {
     return this.http
       .get<Cart[]>(
-        `http://localhost:3000/carts?userId=${this.authService.userId}&_expand=screening`
+        `${this.API_URL}/carts?userId=${this.authService.userId}&_expand=screening`
       )
       .pipe(
         switchMap((result) => {
@@ -29,7 +31,7 @@ export class CartService {
           result.forEach((result) => {
             observables.push(
               this.http.get<Movie>(
-                `http://localhost:3000/movies/${result.screening!.movieId}`
+                `${this.API_URL}/movies/${result.screening!.movieId}`
               )
             );
           });
@@ -49,14 +51,11 @@ export class CartService {
     return this.getParticularCart(screeningId).pipe(
       switchMap((result) => {
         if (result.length) {
-          return this.http.patch(
-            `http://localhost:3000/carts/${result[0].id}`,
-            {
-              reservedSeats: [...result[0].reservedSeats, seat],
-            }
-          );
+          return this.http.patch(`${this.API_URL}/carts/${result[0].id}`, {
+            reservedSeats: [...result[0].reservedSeats, seat],
+          });
         } else {
-          return this.http.post('http://localhost:3000/carts', {
+          return this.http.post(`${this.API_URL}/carts`, {
             userId: this.authService.userId,
             screeningId: screeningId,
             reservedSeats: [seat],
@@ -73,16 +72,11 @@ export class CartService {
           return seat[0] != seatToDelete[0] || seat[1] != seatToDelete[1];
         });
         if (filteredSeats.length) {
-          return this.http.patch(
-            `http://localhost:3000/carts/${result[0].id}`,
-            {
-              reservedSeats: filteredSeats,
-            }
-          );
+          return this.http.patch(`${this.API_URL}/carts/${result[0].id}`, {
+            reservedSeats: filteredSeats,
+          });
         } else {
-          return this.http.delete(
-            `http://localhost:3000/carts/${result[0].id}`
-          );
+          return this.http.delete(`${this.API_URL}/carts/${result[0].id}`);
         }
       })
     );

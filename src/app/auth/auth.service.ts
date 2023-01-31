@@ -1,28 +1,25 @@
-import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  Observable,
-  combineLatest,
-  map,
-  mergeMap,
-  of,
-  tap,
-} from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FetchedUser, Movie, Order, User } from 'src/types';
+import { FetchedUser, User } from 'src/types';
+import { API_URL } from '../env.token';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private API_URL = inject(API_URL);
+  private http = inject(HttpClient);
+  private router = inject(Router);
+
   private _userData$$ = new BehaviorSubject<{ user: User | null }>({
     user: null,
   });
   public readonly userData$$: Observable<{ user: User | null }> =
     this._userData$$.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor() {
     const userId = localStorage.getItem('userId');
     if (userId) {
       this.getUserData(+userId).subscribe();
@@ -37,7 +34,7 @@ export class AuthService {
 
   login(values: { email: string; password: string }) {
     return this.http.post<{ accessToken: string; user: User }>(
-      `http://localhost:3000/login`,
+      `${this.API_URL}/login`,
       {
         email: values.email,
         password: values.password,
@@ -47,7 +44,7 @@ export class AuthService {
 
   getUserData(userId: number) {
     return this.http
-      .get<FetchedUser>(`http://localhost:3000/users/${userId}`)
+      .get<FetchedUser>(`${this.API_URL}/users/${userId}`)
       .pipe(tap((result) => this._userData$$.next({ user: result })));
   }
 
@@ -61,7 +58,7 @@ export class AuthService {
   }
 
   register(values: { email: string; password: string; firstName: string }) {
-    return this.http.post('http://localhost:3000/users', {
+    return this.http.post(`${this.API_URL}/users`, {
       email: values.email,
       password: values.password,
       firstName: values.firstName,
@@ -77,32 +74,5 @@ export class AuthService {
 
   isUserLogged() {
     return !!this.userId;
-  }
-
-  getUserOrders() {
-    return this.http
-      .get<Order[]>(
-        `http://localhost:3000/orders?userId=${this.userId}&_expand=screening`
-      )
-      .pipe(
-        mergeMap((result) => {
-          const observables: Observable<Movie>[] = [];
-          result.forEach((order) => {
-            observables.push(
-              this.http.get<Movie>(
-                `http://localhost:3000/movies/${order.screening.id}`
-              )
-            );
-          });
-          return combineLatest([of(result), ...observables]);
-        }),
-        map((result) => {
-          const [orders, ...movies] = result;
-          orders.forEach((order, index) => {
-            order.screening.movie = movies[index];
-          });
-          return orders;
-        })
-      );
   }
 }

@@ -28,6 +28,8 @@ import { CartEffects } from './domains/cart/store/cart.effects';
 import { CartState } from './domains/cart/cart.interface';
 import { cartReducer } from './domains/cart/store/cart.reducer';
 import { CountCartItemsPipe } from './domains/cart/count-cart-items.pipe';
+import { API_URL } from './env.token';
+import { environment } from 'src/environment';
 
 export interface AppState {
   cart: CartState;
@@ -63,7 +65,12 @@ export interface AppState {
     ReactiveFormsModule,
     CommonModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: API_URL,
+      useValue: environment.API_URL,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

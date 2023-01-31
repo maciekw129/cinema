@@ -14,6 +14,7 @@ import { CartService } from 'src/app/domains/cart/cart.service';
 import { AppState } from 'src/app/app.module';
 import { Store } from '@ngrx/store';
 import { CartActions } from 'src/app/domains/cart/store/cart.actions';
+import { API_URL } from 'src/app/env.token';
 
 export interface OrderState {
   seatsChosen: Seat[];
@@ -24,6 +25,7 @@ export interface OrderState {
 @UntilDestroy()
 @Injectable()
 export class OrderService {
+  private API_URL = inject(API_URL);
   private store = inject<Store<AppState>>(Store);
   private http = inject(HttpClient);
   private authService = inject(AuthService);
@@ -83,7 +85,7 @@ export class OrderService {
 
   private fetchTicketTypes() {
     this.http
-      .get<TicketTypes[]>('http://localhost:3000/ticketTypes')
+      .get<TicketTypes[]>(`${this.API_URL}/ticketTypes`)
       .subscribe((result) => {
         this.patchState({ ticketTypes: result });
       });
@@ -156,7 +158,7 @@ export class OrderService {
   }
 
   createOrder(form: FinalizeForm) {
-    const orderPost = this.http.post(`http://localhost:3000/orders`, {
+    const orderPost = this.http.post(`${this.API_URL}/orders`, {
       screeningId: this._screening.id,
       seats: this._orderState$$.value.seatsChosen,
       userId: localStorage.getItem('userId')
@@ -166,7 +168,7 @@ export class OrderService {
     });
     const seats = this._screening.seatsOccupied;
     const seatsPost = this.http.patch(
-      `http://localhost:3000/screenings/${this._screening.id}`,
+      `${this.API_URL}/screenings/${this._screening.id}`,
       {
         seatsOccupied: seats
           ? [...seats, ...this._orderState$$.value.seatsChosen]

@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
   }
 
   refresh() {
-    console.log('sad');
     this.fetchScreenings(this.date);
   }
 }
