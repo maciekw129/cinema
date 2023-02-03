@@ -4,12 +4,19 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FetchedUser, User } from 'src/types';
 import { API_URL } from '../env.token';
+import { TokenService } from './token.service';
+import {
+  AuthState,
+  LoginApiResponse,
+  LoginCredentials,
+} from './auth.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private API_URL = inject(API_URL);
+  private tokenService = inject(TokenService);
   private http = inject(HttpClient);
   private router = inject(Router);
 
@@ -32,14 +39,11 @@ export class AuthService {
       : null;
   }
 
-  login(values: { email: string; password: string }) {
-    return this.http.post<{ accessToken: string; user: User }>(
-      `${this.API_URL}/login`,
-      {
-        email: values.email,
-        password: values.password,
-      }
-    );
+  login({ email, password }: LoginCredentials) {
+    return this.http.post<LoginApiResponse>(`${this.API_URL}/login`, {
+      email,
+      password,
+    });
   }
 
   getUserData(userId: number) {

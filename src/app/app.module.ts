@@ -30,9 +30,13 @@ import { cartReducer } from './domains/cart/store/cart.reducer';
 import { CountCartItemsPipe } from './domains/cart/count-cart-items.pipe';
 import { API_URL } from './env.token';
 import { environment } from 'src/environment';
+import { AuthState } from './auth/auth.interface';
+import { authReducer } from './auth/store/auth.reducer';
+import { AuthEffects } from './auth/store/auth.effects';
 
 export interface AppState {
   cart: CartState;
+  auth: AuthState;
 }
 
 @NgModule({
@@ -59,8 +63,8 @@ export interface AppState {
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    StoreModule.forRoot({ cart: cartReducer }),
-    EffectsModule.forRoot([CartEffects]),
+    StoreModule.forRoot({ cart: cartReducer, auth: authReducer }),
+    EffectsModule.forRoot([CartEffects, AuthEffects]),
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,

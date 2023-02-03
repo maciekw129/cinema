@@ -7,6 +7,29 @@
       "lastName": "Walecki",
       "id": 1,
       "phone": ""
+    },
+    {
+      "email": "ee@email.com",
+      "password": "$2a$10$Jtmj0EqzZwXtQvsuzTnAS.NZVVeuGyQhirmKPXopehq84kKvc1EmC",
+      "id": 2
+    },
+    {
+      "email": "easdasde@email.com",
+      "password": "$2a$10$G7NXSK6L17QejWvN4IbSzef7PznoVfUDLM/sPC12XKv/Cy5TFmpaW",
+      "accountType": "user",
+      "sadasd": "asdasd",
+      "id": 3
+    },
+    {
+      "email": "user@email.com",
+      "password": "$2a$10$8lSG1y4lyqZZjkTP85YLLOXh4DVRZlogjhaYpQaF80QhhOUIvsEFm",
+      "accountType": "user",
+      "userData": {
+        "firstName": "Jan",
+        "lastName": "Kowalski",
+        "phone": "+48777777777"
+      },
+      "id": 4
     }
   ],
   "rooms": [

@@ -14,7 +14,6 @@ export interface User {
   email: string;
   lastName: string;
   phone?: string;
-  carts: { [key: number]: Cart };
 }
 
 export interface TicketTypes {

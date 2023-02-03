@@ -1,19 +1,15 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import patterns from 'src/app/shared/validatorPatterns';
-
-export interface LoginForm {
-  email: string,
-  password: string
-}
+import { LoginCredentials } from '../../auth.interface';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent {
-  @Output() handleSubmitEvent = new EventEmitter<LoginForm>();
+  @Output() handleSubmitEvent = new EventEmitter<LoginCredentials>();
   loginForm = this.createForm();
 
   constructor(private fb: NonNullableFormBuilder) {}
@@ -28,7 +24,7 @@ export class LoginFormComponent {
 
   handleSubmit() {
     this.loginForm.markAllAsTouched();
-    if(this.loginForm.invalid) return;
+    if (this.loginForm.invalid) return;
     this.handleSubmitEvent.emit(this.loginForm.getRawValue());
   }
 
@@ -37,14 +33,12 @@ export class LoginFormComponent {
       email: this.fb.control('', {
         validators: [
           Validators.required,
-          Validators.pattern(patterns['email'])
-        ]
+          Validators.pattern(patterns['email']),
+        ],
       }),
       password: this.fb.control('', {
-        validators: [
-          Validators.required
-        ]
-      })
+        validators: [Validators.required],
+      }),
     });
   }
 }

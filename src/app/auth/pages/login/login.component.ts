@@ -1,20 +1,18 @@
 import { Component, inject } from '@angular/core';
-import { LoginForm } from 'src/app/auth/forms/login-form/login-form.component';
-import { AuthService } from 'src/app/auth/auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.module';
+import { LoginCredentials } from '../../auth.interface';
+import { AuthActions } from '../../store/auth.actions';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  private authService = inject(AuthService)
-  error = '';
+  private store = inject<Store<AppState>>(Store);
 
-  handleLogin(values: LoginForm) {
-    this.authService.login(values).subscribe({
-      next: (result) => this.authService.saveUser(result),
-      error: (result) => this.error = result.error
-    })
+  handleLogin(values: LoginCredentials) {
+    this.store.dispatch(AuthActions.login(values));
   }
 }
