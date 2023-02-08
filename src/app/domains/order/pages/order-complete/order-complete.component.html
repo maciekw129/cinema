@@ -1,11 +1,10 @@
 <div class="order-complete main-page">
-    <div class="order-complete__content main-container">
-        <h1>Dziękujemy za zamówienie!</h1>
-        <p>Twoje bilety zostały wysłane na adres email: {{ email | async }}</p>
-        <img class="order-complete__qr" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Qr-witaj-w-wikiped.svg/330px-Qr-witaj-w-wikiped.svg.png'/>
-        <app-button
-            text="Wróć na stronę główną"
-            routerLink="/"
-        ></app-button>
-    </div>
+  <div class="order-complete__content main-container">
+    <h1>Dziękujemy za zamówienie!</h1>
+    <img
+      class="order-complete__qr"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Qr-witaj-w-wikiped.svg/330px-Qr-witaj-w-wikiped.svg.png"
+    />
+    <app-button text="Wróć na stronę główną" routerLink="/"></app-button>
+  </div>
 </div>

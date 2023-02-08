@@ -3,21 +3,26 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { RegisterComponent } from './auth/pages/register/register.component';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/guards/auth.guard';
 import { ScreeningResolver } from './domains/order/services/screening/screening.resolver';
+import { CanLoginGuard } from './auth/guards/can-login.guard';
+import { AdminGuard } from './auth/guards/admin.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [AdminGuard],
   },
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [CanLoginGuard],
   },
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [CanLoginGuard],
   },
   {
     path: 'my-orders',
@@ -40,6 +45,7 @@ const routes: Routes = [
     path: 'wish-list',
     loadChildren: async () =>
       (await import('./domains/wish-list/wish-list.module')).WishListModule,
+    canActivate: [AuthGuard],
   },
   {
     path: 'about',

@@ -4,6 +4,7 @@ import { AppState } from 'src/app/app.module';
 import { LoginCredentials } from '../../auth.interface';
 import { AuthActions } from '../../store/auth.actions';
 import { selectAuthLoader } from '../../store/auth.selectors';
+import { TokenService } from '../../token.service';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { selectAuthLoader } from '../../store/auth.selectors';
 })
 export class LoginComponent {
   private store = inject<Store<AppState>>(Store);
+  private token = inject(TokenService);
 
   authLoader$$ = this.store.select(selectAuthLoader);
 

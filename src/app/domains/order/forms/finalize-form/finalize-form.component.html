@@ -1,97 +1,131 @@
-<form class="finalize-form" [formGroup]="finalizeForm" (submit)="handleSubmit()">
-    <p class="finalize-form__title fnt-18-regular">Wprowadź dane do zamówienia:</p>
-    <div class="finialize-form__inputs">
-        <div class="finalize-form__name-container">
-            <div class="finalize-form__input-container">
-                <input
-                    class="input finalize-form__input"
-                    [class.input-error]="firstNameCtrl.touched && firstNameCtrl.errors"
-                    formControlName="firstName"
-                    placeholder="Imię*"
-                    type="text"
-                />
-                <ng-container *ngIf="firstNameCtrl.errors as errors">
-                    <ng-container *ngIf="firstNameCtrl.touched">
-                        <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
-                    </ng-container>
-                </ng-container>
-
-            </div>
-            <div class="finalize-form__input-container">
-                <input
-                    class="input finalize-form__input"
-                    [class.input-error]="lastNameCtrl.touched && lastNameCtrl.errors"
-                    formControlName="lastName"
-                    placeholder="Nazwisko*"
-                    type="text"
-                />
-                <ng-container *ngIf="lastNameCtrl.errors as errors">
-                    <ng-container *ngIf="lastNameCtrl.touched">
-                        <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
-                    </ng-container>
-                </ng-container>
-            </div>
-            
-        </div>
-        <div class="finalize-form__input-container">
-            <input 
-                class="input finalize-form__input"
-                [class.input-error]="phoneCtrl.touched && phoneCtrl.errors"
-                formControlName="phone"
-                placeholder="Numer telefonu"
-            />
-            <ng-container *ngIf="phoneCtrl.errors as errors">
-                <ng-container *ngIf="phoneCtrl.touched">
-                    <p *ngIf="errors['maxlength']" class="fnt-13-regular fnt-color-red">Numer telefonu ma za dużo znaków</p>
-                    <p *ngIf="errors['minlength']" class="fnt-13-regular fnt-color-red">Numer telefonu ma za mało znaków</p>
-                    <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">Numer telefonu jest w niewłaściwym formacie</p>
-                </ng-container>
-            </ng-container>
-        </div>
-        <div class="finalize-form__input-container">
-            <input 
-                class="input finalize-form__input"
-                [class.input-error]="emailCtrl.touched && emailCtrl.errors"
-                formControlName="email"
-                placeholder="E-mail*"
-            />
-            <ng-container *ngIf="emailCtrl.errors as errors">
-                <ng-container *ngIf="emailCtrl.touched">
-                    <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
-                    <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">E-mail jest w niewłaściwym formacie</p>
-                </ng-container>
-            </ng-container>
-        </div>
-        <div class="finalize-form__input-container">
-            <input 
-                class="input finalize-form__input"
-                [class.input-error]="confirmEmailCtrl.touched && confirmEmailCtrl.errors"
-                formControlName="confirmEmail"
-                placeholder="Powtórz e-mail*"
-            />
-            <ng-container *ngIf="confirmEmailCtrl.errors as errors">
-                <ng-container *ngIf="confirmEmailCtrl.touched">
-                    <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
-                </ng-container>
-            </ng-container>
-
-            <ng-container *ngIf="finalizeForm.errors as errors">
-                <ng-container *ngIf="confirmEmailCtrl.touched">
-                    <p *ngIf="errors['isEmailEqual']" class="fnt-13-regular fnt-color-red">E-maile nie są takie same</p>
-                </ng-container>
-            </ng-container>
-        </div>
-        <div>
-            <input
-                class="finalize-form__checkbox"
-                type="checkbox"
-                id="newsletter"
-            />
-            <label for="newsletter">Chcę otrzymywać informację o zniżkach, promocjach itp.</label>
-        </div>
+<form
+  class="finalize-form"
+  [formGroup]="finalizeForm"
+  (submit)="handleSubmit()"
+>
+  <p class="finalize-form__title fnt-18-regular">
+    Wprowadź dane do zamówienia:
+  </p>
+  <div class="finialize-form__inputs">
+    <div class="finalize-form__name-container">
+      <div class="finalize-form__input-container">
+        <input
+          class="input finalize-form__input"
+          [class.input-error]="firstNameCtrl.touched && firstNameCtrl.errors"
+          formControlName="firstName"
+          placeholder="Imię*"
+          type="text"
+        />
+        <ng-container *ngIf="firstNameCtrl.errors as errors">
+          <ng-container *ngIf="firstNameCtrl.touched">
+            <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+              Te pole jest obowiązkowe
+            </p>
+            <p
+              *ngIf="errors['maxlength'] as error"
+              class="fnt-13-regular fnt-color-red"
+            >
+              Pole może mieć maks. {{ error.requiredLength }} znaków
+            </p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="finalize-form__input-container">
+        <input
+          class="input finalize-form__input"
+          [class.input-error]="lastNameCtrl.touched && lastNameCtrl.errors"
+          formControlName="lastName"
+          placeholder="Nazwisko*"
+          type="text"
+        />
+        <ng-container *ngIf="lastNameCtrl.errors as errors">
+          <ng-container *ngIf="lastNameCtrl.touched">
+            <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+              Te pole jest obowiązkowe
+            </p>
+            <p
+              *ngIf="errors['maxlength'] as error"
+              class="fnt-13-regular fnt-color-red"
+            >
+              Pole może mieć maks. {{ error.requiredLength }} znaków
+            </p>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
-    <app-button
-        text="Przejdź do płatności"
-        [important]="true"
-    ></app-button>
+    <div class="finalize-form__input-container">
+      <input
+        class="input finalize-form__input"
+        [class.input-error]="phoneCtrl.touched && phoneCtrl.errors"
+        formControlName="phone"
+        placeholder="Numer telefonu"
+      />
+      <ng-container *ngIf="phoneCtrl.errors as errors">
+        <ng-container *ngIf="phoneCtrl.touched">
+          <p *ngIf="errors['maxlength']" class="fnt-13-regular fnt-color-red">
+            Numer telefonu ma za dużo znaków
+          </p>
+          <p *ngIf="errors['minlength']" class="fnt-13-regular fnt-color-red">
+            Numer telefonu ma za mało znaków
+          </p>
+          <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">
+            Numer telefonu jest w niewłaściwym formacie
+          </p>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="finalize-form__input-container">
+      <input
+        class="input finalize-form__input"
+        [class.input-error]="emailCtrl.touched && emailCtrl.errors"
+        formControlName="email"
+        placeholder="E-mail*"
+      />
+      <ng-container *ngIf="emailCtrl.errors as errors">
+        <ng-container *ngIf="emailCtrl.touched">
+          <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+            Te pole jest obowiązkowe
+          </p>
+          <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">
+            E-mail jest w niewłaściwym formacie
+          </p>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="finalize-form__input-container">
+      <input
+        class="input finalize-form__input"
+        [class.input-error]="
+          confirmEmailCtrl.touched && confirmEmailCtrl.errors
+        "
+        formControlName="confirmEmail"
+        placeholder="Powtórz e-mail*"
+      />
+      <ng-container *ngIf="confirmEmailCtrl.errors as errors">
+        <ng-container *ngIf="confirmEmailCtrl.touched">
+          <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+            Te pole jest obowiązkowe
+          </p>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="finalizeForm.errors as errors">
+        <ng-container *ngIf="confirmEmailCtrl.touched">
+          <p
+            *ngIf="errors['isEmailEqual']"
+            class="fnt-13-regular fnt-color-red"
+          >
+            E-maile nie są takie same
+          </p>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div>
+      <input class="finalize-form__checkbox" type="checkbox" id="newsletter" />
+      <label for="newsletter"
+        >Chcę otrzymywać informację o zniżkach, promocjach itp.</label
+      >
+    </div>
+  </div>
+  <app-button text="Przejdź do płatności" [important]="true"></app-button>
 </form>

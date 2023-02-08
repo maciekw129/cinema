@@ -37,10 +37,11 @@ export class OrderService {
     this.fetchScreening();
 
     this.store
-      .select(selectIsUserLogged)
-      .pipe(take(1))
+      .select((state) => state.auth)
+      .pipe(untilDestroyed(this))
       .subscribe((result) => {
-        this.isUserLogged = result;
+        this.isUserLogged = result.isLogged;
+        this.userId = result.id;
       });
 
     this.getSeatsChosenFromCart()
@@ -52,6 +53,7 @@ export class OrderService {
   }
 
   private isUserLogged: boolean = false;
+  private userId: number | null = null;
   private _screening!: Screening;
 
   get screening() {
@@ -120,6 +122,7 @@ export class OrderService {
 
   private addChosenSeat(seat: Seat) {
     if (this.isUserLogged) {
+      console.log('asdasd');
       this.cartService.addToCart(seat, this._screening.id).subscribe(() => {
         this.store.dispatch(CartActions.fetchCart());
       });
@@ -170,9 +173,7 @@ export class OrderService {
     const orderPost = this.http.post(`${this.API_URL}/orders`, {
       screeningId: this._screening.id,
       seats: this._orderState$$.value.seatsChosen,
-      userId: localStorage.getItem('userId')
-        ? localStorage.getItem('userId')
-        : null,
+      userId: this.userId,
       ownerDetails: form,
     });
     const seats = this._screening.seatsOccupied;

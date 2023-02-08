@@ -3,7 +3,6 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.module';
-import { AuthService } from 'src/app/auth/auth.service';
 import { selectData } from 'src/app/auth/store/auth.selectors';
 import patterns from 'src/app/shared/validatorPatterns';
 import { confirmEmailValidator } from 'src/app/shared/validators';

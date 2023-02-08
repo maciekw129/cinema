@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
-import { combineLatest, map, mergeMap, Observable, of, take } from 'rxjs';
+import { combineLatest, map, mergeMap, Observable, of } from 'rxjs';
 import { AppState } from 'src/app/app.module';
-import { AuthService } from 'src/app/auth/auth.service';
 import { selectUserId } from 'src/app/auth/store/auth.selectors';
 import { API_URL } from 'src/app/env.token';
 import { Movie, Order } from 'src/types';
 
+@UntilDestroy()
 @Injectable({
   providedIn: 'root',
 })
@@ -15,14 +16,13 @@ export class MyOrdersService {
   private store = inject<Store<AppState>>(Store);
   private API_URL = inject(API_URL);
   private http = inject(HttpClient);
-  private authService = inject(AuthService);
 
   private userId: number | null = null;
 
   constructor() {
     this.store
       .select(selectUserId)
-      .pipe(take(1))
+      .pipe(untilDestroyed(this))
       .subscribe((result) => {
         this.userId = result;
       });

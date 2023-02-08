@@ -29,9 +29,8 @@ export class TokenService {
     }
   }
 
-  isTokenExpired(): boolean | void {
+  isTokenExpired(): boolean {
     if (this.decodedToken) {
-      console.log('sadasd');
       const expTime = this.decodedToken.exp;
       if (expTime) {
         const milisecondsInSeconds = 1000;
@@ -39,6 +38,7 @@ export class TokenService {
         return expDate.getTime() - Date.now() < 0;
       }
     }
+    return true;
   }
 
   saveToken(token: string) {

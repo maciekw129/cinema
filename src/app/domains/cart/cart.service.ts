@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import { combineLatest, map, Observable, of, switchMap, take } from 'rxjs';
 import { AppState } from 'src/app/app.module';
@@ -8,6 +9,7 @@ import { API_URL } from 'src/app/env.token';
 import { Movie, Seat } from 'src/types';
 import { Cart } from './cart.interface';
 
+@UntilDestroy()
 @Injectable({
   providedIn: 'root',
 })
@@ -21,7 +23,7 @@ export class CartService {
   constructor() {
     this.store
       .select(selectUserId)
-      .pipe(take(1))
+      .pipe(untilDestroyed(this))
       .subscribe((result) => {
         this.userId = result;
       });

@@ -8,7 +8,7 @@ import { of, tap } from 'rxjs';
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReservationComponent {
   private route = inject(ActivatedRoute);
@@ -17,17 +17,17 @@ export class ReservationComponent {
 
   seatsChosen$ = this.orderService.selectSeatsChosen$;
   screening$ = of(this.orderService.screening).pipe(
-    tap(result => {
+    tap((result) => {
       this.rows = Array.from(Array(result.room.rows).keys());
       this.columns = Array.from(Array(result.room.columns).keys());
     })
-  )
+  );
   rows: number[] = [];
   columns: number[] = [];
   alphabeth: string[] = 'ABCDEFGHIJKLMNOPRSTUWZ'.split('');
 
   toggleSeat(seat: Seat) {
-      this.orderService.toggleSeat(seat);
+    this.orderService.toggleSeat(seat);
   }
 
   navigateToFinalize() {
