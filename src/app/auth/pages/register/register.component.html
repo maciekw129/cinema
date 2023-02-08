@@ -1,11 +1,26 @@
 <div class="register__wrapper main-page">
-    <div class="register main-container">
-        <h2>Register</h2>
-        <app-register-form
-            (handleSubmitEvent)="handleRegister($event)"
-        ></app-register-form>
-        <p *ngIf="error" class="fnt-13-regular fnt-color-red">{{ error }}</p>
-        <p *ngIf="isSuccess" class="fnt-13-regular fnt-color-green">Konto zostało stworzone, możesz się teraz zalogować!</p>
-        <p class="fnt-13-regular">Posiadasz już konto? <a routerLink="/login"> Zaloguj się.</a></p>
-    </div>
+  <div class="register main-container">
+    <h2>Register</h2>
+    <app-register-form
+      (handleSubmitEvent)="handleRegister($event)"
+    ></app-register-form>
+    <ng-container *ngIf="authLoader$$ | async as loader">
+      <app-loader *ngIf="loader.status === 'pending'"></app-loader>
+      <p
+        *ngIf="loader.status === 'failed'"
+        class="fnt-13-regular fnt-color-red"
+      >
+        {{ loader.errorMessage }}
+      </p>
+      <p
+        *ngIf="loader.status === 'success'"
+        class="fnt-13-regular fnt-color-green"
+      >
+        Konto zostało stworzone, możesz się teraz zalogować!
+      </p>
+    </ng-container>
+    <p class="fnt-13-regular">
+      Posiadasz już konto? <a routerLink="/login"> Zaloguj się.</a>
+    </p>
+  </div>
 </div>

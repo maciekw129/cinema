@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
@@ -33,6 +33,8 @@ import { environment } from 'src/environment';
 import { AuthState } from './auth/auth.interface';
 import { authReducer } from './auth/store/auth.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
+import { fetchLoggedUser } from './auth/fetchLoggedUser';
+import { LoaderComponent } from './shared/loader/loader/loader.component';
 
 export interface AppState {
   cart: CartState;
@@ -59,6 +61,7 @@ export interface AppState {
   ],
   imports: [
     ButtonComponent,
+    LoaderComponent,
     ModalComponent,
     BrowserModule,
     AppRoutingModule,
@@ -73,6 +76,10 @@ export interface AppState {
     {
       provide: API_URL,
       useValue: environment.API_URL,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: fetchLoggedUser,
     },
   ],
   bootstrap: [AppComponent],

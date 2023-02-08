@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 import { API_URL } from './env.token';
 
 @Component({
@@ -8,6 +9,7 @@ import { API_URL } from './env.token';
 })
 export class AppComponent {
   private url = inject(API_URL);
+  private authService = inject(AuthService);
 
   ngOnInit() {
     console.log(this.url);

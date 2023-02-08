@@ -1,7 +1,10 @@
 import { Component, Output, EventEmitter, inject } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.module';
 import { AuthService } from 'src/app/auth/auth.service';
+import { selectData } from 'src/app/auth/store/auth.selectors';
 import patterns from 'src/app/shared/validatorPatterns';
 import { confirmEmailValidator } from 'src/app/shared/validators';
 
@@ -20,25 +23,22 @@ export interface UserForm {
   styleUrls: ['./finalize-form.component.css'],
 })
 export class FinalizeFormComponent {
-  private authService = inject(AuthService);
+  private store = inject<Store<AppState>>(Store);
   private fb = inject(NonNullableFormBuilder);
 
   @Output() userDataEvent = new EventEmitter<UserForm>();
   finalizeForm = this.createForm();
 
   ngOnInit() {
-    this.authService.userData$$
+    this.store
+      .select(selectData)
       .pipe(untilDestroyed(this))
       .subscribe((result) => {
-        if (result.user) {
-          this.finalizeForm.controls['firstName'].setValue(
-            result.user.firstName
-          );
-          this.finalizeForm.controls['lastName'].setValue(result.user.lastName);
-          this.finalizeForm.controls['email'].setValue(result.user.email);
-          this.finalizeForm.controls['confirmEmail'].setValue(
-            result.user.email
-          );
+        if (result) {
+          this.finalizeForm.controls['firstName'].setValue(result.firstName);
+          this.finalizeForm.controls['lastName'].setValue(result.lastName);
+          this.finalizeForm.controls['email'].setValue(result.email);
+          this.finalizeForm.controls['confirmEmail'].setValue(result.email);
         }
       });
   }

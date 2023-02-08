@@ -6,6 +6,7 @@ import { Settings } from './settings.interface';
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css'],
+  providers: [SettingsService],
 })
 export class SettingsComponent {
   private settingsService = inject(SettingsService);

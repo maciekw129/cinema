@@ -1,7 +1,9 @@
 import { Component, inject, Output, EventEmitter } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { AuthService } from 'src/app/auth/auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.module';
+import { selectData } from 'src/app/auth/store/auth.selectors';
 import patterns from 'src/app/shared/validatorPatterns';
 import { SettingsForm, Settings } from '../pages/settings/settings.interface';
 
@@ -14,20 +16,21 @@ import { SettingsForm, Settings } from '../pages/settings/settings.interface';
 export class SettingsFormComponent {
   @Output() sendSettingsForm = new EventEmitter<Settings>();
 
+  private store = inject<Store<AppState>>(Store);
   private fb = inject(NonNullableFormBuilder);
-  private authService = inject(AuthService);
 
   settingsForm: FormGroup<SettingsForm> = this.createForm();
 
   ngOnInit() {
-    this.authService.userData$$
+    this.store
+      .select(selectData)
       .pipe(untilDestroyed(this))
       .subscribe((result) => {
-        if (result.user) {
+        if (result) {
           this.settingsForm = this.createForm(
-            result.user.firstName,
-            result.user.lastName,
-            result.user.phone
+            result.firstName,
+            result.lastName,
+            result.phone
           );
         }
         this.settingsForm.disable();
@@ -48,7 +51,6 @@ export class SettingsFormComponent {
     if (this.settingsForm.invalid) return;
 
     this.sendSettingsForm.emit(this.settingsForm.getRawValue());
-    console.log(this.settingsForm.disabled);
   }
 
   get firstNameCtrl() {

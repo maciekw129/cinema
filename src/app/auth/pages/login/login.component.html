@@ -1,10 +1,18 @@
 <div class="login__wrapper main-page">
-    <div class="login main-container">
-        <h2>Login</h2>
-        <app-login-form
-            (handleSubmitEvent)="handleLogin($event)"
-        ></app-login-form>
-        <p class="fnt-13-regular fnt-color-red"></p>
-        <p class="fnt-13-regular">Nie posiadasz konta? <a routerLink="/register"> Zarejestruj się.</a></p>
-    </div>
+  <div class="login main-container">
+    <h2>Login</h2>
+    <app-login-form (handleSubmitEvent)="handleLogin($event)"></app-login-form>
+    <ng-container *ngIf="authLoader$$ | async as loader">
+      <app-loader *ngIf="loader.status === 'pending'"></app-loader>
+      <p
+        class="fnt-13-regular fnt-color-red"
+        *ngIf="loader.status === 'failed'"
+      >
+        {{ loader.errorMessage }}
+      </p>
+    </ng-container>
+    <p class="fnt-13-regular">
+      Nie posiadasz konta? <a routerLink="/register"> Zarejestruj się.</a>
+    </p>
+  </div>
 </div>

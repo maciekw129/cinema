@@ -1,66 +1,63 @@
 <div class="movie main-container">
-  <ng-container *ngIf="userData$$ | async as userData">
-    <img
-      class="movie__image"
-      [src]="screenings.movie.image"
-      alt="Movie image"
-    />
-    <div class="movie__content">
-      <div class="content__text">
-        <h2 class="content__name">
-          {{ screenings.movie.name
-          }}<span
-            class="content__premiere fnt-18-regular"
-            *ngIf="screenings.movie.premiere"
-          >
-            - Premiera!</span
-          >
-        </h2>
-        <p class="content__informations">
-          {{
-            screenings.movie.genre.join(" | ") +
-              " | " +
-              screenings.movie.duration +
-              " | " +
-              screenings.movie.ageRestrictions
-          }}
-        </p>
-        <p class="content__description">{{ screenings.movie.description }}</p>
-      </div>
-      <ul class="content__button-bar">
-        <li
-          *ngFor="let hour of screenings.hours"
-          class="button-bar__item"
-          (click)="handleClick(hour.screeningId)"
+  <img class="movie__image" [src]="screenings.movie.image" alt="Movie image" />
+  <div class="movie__content">
+    <div class="content__text">
+      <h2 class="content__name">
+        {{ screenings.movie.name
+        }}<span
+          class="content__premiere fnt-18-regular"
+          *ngIf="screenings.movie.premiere"
         >
-          {{ hour.hour }}
-        </li>
-      </ul>
+          - Premiera!</span
+        >
+      </h2>
+      <p class="content__informations">
+        {{
+          screenings.movie.genre.join(" | ") +
+            " | " +
+            screenings.movie.duration +
+            " | " +
+            screenings.movie.ageRestrictions
+        }}
+      </p>
+      <p class="content__description">{{ screenings.movie.description }}</p>
     </div>
-    <div class="movie__left-container">
-      <p class="movie__rating fnt-24-bold">{{ screenings.movie.rating }}/10</p>
+    <ul class="content__button-bar">
+      <li
+        *ngFor="let hour of screenings.hours"
+        class="button-bar__item"
+        (click)="handleClick(hour.screeningId)"
+      >
+        {{ hour.hour }}
+      </li>
+    </ul>
+  </div>
+  <div class="movie__left-container">
+    <p class="movie__rating fnt-24-bold">{{ screenings.movie.rating }}/10</p>
+    <ng-container *ngIf="isUserLogged$$ | async as isUserLogged">
       <ng-container *ngIf="ratingState$ | async as ratingState">
         <app-button
-          *ngIf="userData.user && !ratingState.hasUserRated"
+          *ngIf="isUserLogged && !ratingState.hasUserRated"
           text="Oceń ten film!"
           (click)="showRatingModal()"
         ></app-button>
-        <p *ngIf="userData.user && ratingState.hasUserRated">
+        <p *ngIf="isUserLogged && ratingState.hasUserRated">
           Oceniłeś ten film na: {{ ratingState.rating }}
         </p>
       </ng-container>
       <app-button
-        *ngIf="userData.user && !screenings.wantToWatch"
+        *ngIf="isUserLogged && !screenings.wantToWatch"
         text="Chcę zobaczyć"
         (click)="handleAddToWatch()"
       ></app-button>
       <app-button
-        *ngIf="userData.user && screenings.wantToWatch"
+        *ngIf="isUserLogged && screenings.wantToWatch"
         text="Nie chcę zobaczyć"
         (click)="handleRemoveFromWatch()"
       ></app-button>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
+
   <app-modal
     *ngIf="isRatingModalVisible"
     (closeEvent)="closeRatingModal()"

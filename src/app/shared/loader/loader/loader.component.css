@@ -1,0 +1,36 @@
+.loader {
+  display: flex;
+  justify-content: space-evenly;
+  column-gap: 2px;
+}
+
+.loader__dot {
+  content: "";
+  height: 10px;
+  width: 10px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.loader__dot--one {
+  animation: 1s infinite alternate loading;
+}
+
+.loader__dot--two {
+  animation: 1s infinite alternate loading;
+  animation-delay: 0.5s;
+}
+
+.loader__dot--three {
+  animation: 1s infinite alternate loading;
+  animation-delay: 1s;
+}
+
+@keyframes loading {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}

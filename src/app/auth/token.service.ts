@@ -6,14 +6,19 @@ import jwtDecode, { JwtPayload } from 'jwt-decode';
 })
 export class TokenService {
   private _token: string | null = localStorage.getItem('token');
-  private decodedToken: JwtPayload | null;
+  private _decodedToken: JwtPayload | null;
 
   get token() {
     return this._token;
   }
 
+  get decodedToken() {
+    return this._decodedToken;
+  }
+
   constructor() {
-    this.decodedToken = this.decodeToken();
+    this._decodedToken = this.decodeToken();
+    console.log(this._decodedToken);
   }
 
   private decodeToken() {
@@ -25,11 +30,14 @@ export class TokenService {
   }
 
   isTokenExpired(): boolean | void {
-    const expTime = this.decodedToken?.exp;
-    if (expTime) {
-      const milisecondsInSeconds = 1000;
-      const expDate = new Date(expTime * milisecondsInSeconds);
-      return expDate.getTime() - Date.now() < 0;
+    if (this.decodedToken) {
+      console.log('sadasd');
+      const expTime = this.decodedToken.exp;
+      if (expTime) {
+        const milisecondsInSeconds = 1000;
+        const expDate = new Date(expTime * milisecondsInSeconds);
+        return expDate.getTime() - Date.now() < 0;
+      }
     }
   }
 

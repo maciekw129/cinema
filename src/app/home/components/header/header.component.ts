@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.module';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthActions } from 'src/app/auth/store/auth.actions';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +11,10 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class HeaderComponent {
   private store = inject<Store<AppState>>(Store);
-  private authService = inject(AuthService);
+  authState = this.store.select((state) => state.auth);
   film = faFilm;
-  userData$$ = this.authService.userData$$;
 
   handleLogout() {
-    this.authService.logout();
+    this.store.dispatch(AuthActions.logout());
   }
 }

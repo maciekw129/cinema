@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { Store } from '@ngrx/store';
 import {
   map,
   Observable,
@@ -10,17 +12,33 @@ import {
   of,
   iif,
 } from 'rxjs';
+import { AppState } from 'src/app/app.module';
 import { AuthService } from 'src/app/auth/auth.service';
 import { API_URL } from 'src/app/env.token';
 import { Screening, Screenings } from 'src/types';
 
+@UntilDestroy()
 @Injectable({
   providedIn: 'root',
 })
 export class ScreeningService {
+  private store = inject<Store<AppState>>(Store);
   private API_URL = inject(API_URL);
   private http = inject(HttpClient);
   private authService = inject(AuthService);
+
+  private userId: number | null = null;
+  private isUserLogged: boolean = false;
+
+  constructor() {
+    this.store
+      .select((state) => state.auth)
+      .pipe(untilDestroyed(this))
+      .subscribe((result) => {
+        this.userId = result.id;
+        this.isUserLogged = result.isLogged;
+      });
+  }
 
   private _screening$$ = new ReplaySubject<Screening>(1);
   public readonly screening$$: Observable<Screening> =
@@ -30,11 +48,11 @@ export class ScreeningService {
     return of(value).pipe(
       switchMap((screenings) => {
         const observables: Observable<any>[] = [];
-        if (this.authService.isUserLogged()) {
+        if (this.isUserLogged) {
           screenings.forEach((screenings) => {
             observables.push(
               this.http.get<[]>(
-                `${this.API_URL}/wantToWatch?movieId=${screenings.movieId}&userId=${this.authService.userId}`
+                `${this.API_URL}/wantToWatch?movieId=${screenings.movieId}&userId=${this.userId}`
               )
             );
           });
@@ -88,7 +106,7 @@ export class ScreeningService {
         }),
         switchMap((screenings) => {
           return iif(
-            () => this.authService.isUserLogged(),
+            () => this.isUserLogged,
             this.getRating(screenings),
             of(screenings)
           );
@@ -98,7 +116,7 @@ export class ScreeningService {
 
   addToWantToWatch(movieId: number) {
     return this.http.post<any>(`${this.API_URL}/wantToWatch`, {
-      userId: this.authService.userId,
+      userId: this.userId,
       movieId: movieId,
     });
   }

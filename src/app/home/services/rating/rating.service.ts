@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
-import { AuthService } from 'src/app/auth/auth.service';
+import { Store } from '@ngrx/store';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { AppState } from 'src/app/app.module';
+import { selectUserId } from 'src/app/auth/store/auth.selectors';
 import { API_URL } from 'src/app/env.token';
 
 export interface RatingState {
@@ -23,15 +25,16 @@ export interface Rate {
   providedIn: 'root',
 })
 export class RatingService {
+  private store = inject<Store<AppState>>(Store);
   private API_URL = inject(API_URL);
-  private authService = inject(AuthService);
   private http = inject(HttpClient);
 
   constructor() {
-    this.authService.userData$$
+    this.store
+      .select(selectUserId)
       .pipe(untilDestroyed(this))
-      .subscribe((userData) => {
-        this.patchState({ userId: userData.user?.id });
+      .subscribe((result) => {
+        this.patchState({ userId: result });
       });
   }
 
@@ -72,7 +75,7 @@ export class RatingService {
 
   submitRating() {
     return this.http
-      .post('${this.API_URL}/rating', {
+      .post(`${this.API_URL}/rating`, {
         rate: this._ratingState$$.value.rating,
         movieId: this._ratingState$$.value.movieId,
         userId: this._ratingState$$.value.userId,

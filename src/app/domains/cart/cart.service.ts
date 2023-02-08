@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
-import { AuthService } from 'src/app/auth/auth.service';
+import { Store } from '@ngrx/store';
+import { combineLatest, map, Observable, of, switchMap, take } from 'rxjs';
+import { AppState } from 'src/app/app.module';
+import { selectUserId } from 'src/app/auth/store/auth.selectors';
 import { API_URL } from 'src/app/env.token';
 import { Movie, Seat } from 'src/types';
 import { Cart } from './cart.interface';
@@ -10,20 +12,31 @@ import { Cart } from './cart.interface';
   providedIn: 'root',
 })
 export class CartService {
+  private store = inject<Store<AppState>>(Store);
   private API_URL = inject(API_URL);
-  private authService = inject(AuthService);
   private http = inject(HttpClient);
+
+  private userId: number | null = null;
+
+  constructor() {
+    this.store
+      .select(selectUserId)
+      .pipe(take(1))
+      .subscribe((result) => {
+        this.userId = result;
+      });
+  }
 
   private getParticularCart(screeningId: number) {
     return this.http.get<Cart[]>(
-      `${this.API_URL}/carts?userId=${this.authService.userId}&screeningId=${screeningId}`
+      `${this.API_URL}/carts?userId=${this.userId}&screeningId=${screeningId}`
     );
   }
 
   fetchCart() {
     return this.http
       .get<Cart[]>(
-        `${this.API_URL}/carts?userId=${this.authService.userId}&_expand=screening`
+        `${this.API_URL}/carts?userId=${this.userId}&_expand=screening`
       )
       .pipe(
         switchMap((result) => {
@@ -56,7 +69,7 @@ export class CartService {
           });
         } else {
           return this.http.post(`${this.API_URL}/carts`, {
-            userId: this.authService.userId,
+            userId: this.userId,
             screeningId: screeningId,
             reservedSeats: [seat],
           });

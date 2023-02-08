@@ -5,13 +5,14 @@
       <fa-icon class="header__icon" [icon]="film"></fa-icon>
     </div>
     <div class="header__buttons">
-      <ng-container *ngIf="userData$$ | async as user">
-        <app-cart *ngIf="user.user"></app-cart>
-        <app-header-dropdown
-          *ngIf="user.user; else elseBlock"
-          (logoutEvent)="handleLogout()"
-          [firstName]="user.user.firstName"
-        ></app-header-dropdown>
+      <ng-container *ngIf="authState | async as authState">
+        <ng-container *ngIf="authState.isLogged; else elseBlock">
+          <app-cart></app-cart>
+          <app-header-dropdown
+            (logoutEvent)="handleLogout()"
+            [firstName]="authState.data!.firstName"
+          ></app-header-dropdown>
+        </ng-container>
         <ng-template #elseBlock>
           <app-button
             text="Zaloguj"

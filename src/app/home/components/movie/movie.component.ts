@@ -5,6 +5,9 @@ import { Screenings } from 'src/types';
 import { RatingService } from '../../services/rating/rating.service';
 import { tap } from 'rxjs';
 import { ScreeningService } from 'src/app/domains/order/services/screening/screening.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.module';
+import { selectIsUserLogged } from 'src/app/auth/store/auth.selectors';
 
 @Component({
   selector: 'app-movie[screenings]',
@@ -13,17 +16,16 @@ import { ScreeningService } from 'src/app/domains/order/services/screening/scree
   providers: [RatingService],
 })
 export class MovieComponent {
-  private authService = inject(AuthService);
+  private store = inject<Store<AppState>>(Store);
   private ratingService = inject(RatingService);
   private router = inject(Router);
   private screeningService = inject(ScreeningService);
 
   @Output() refreshEvent = new EventEmitter<null>();
   @Input() screenings!: Screenings;
-  userData$$ = this.authService.userData$$.pipe(
-    tap((userData) => {
-      if (userData.user)
-        this.ratingService.fetchRating(this.screenings.movieId);
+  isUserLogged$$ = this.store.select(selectIsUserLogged).pipe(
+    tap((isUserLogged) => {
+      if (isUserLogged) this.ratingService.fetchRating(this.screenings.movieId);
     })
   );
   ratingState$ = this.ratingService.ratingState$;

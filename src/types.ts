@@ -8,7 +8,7 @@ export interface FetchedUser {
   carts: Cart[];
 }
 
-export interface User {
+export interface User2 {
   id: number;
   firstName: string;
   email: string;

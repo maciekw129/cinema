@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable, take } from 'rxjs';
 import {
   FinalizeForm,
   Screening,
@@ -15,6 +15,7 @@ import { AppState } from 'src/app/app.module';
 import { Store } from '@ngrx/store';
 import { CartActions } from 'src/app/domains/cart/store/cart.actions';
 import { API_URL } from 'src/app/env.token';
+import { selectIsUserLogged } from 'src/app/auth/store/auth.selectors';
 
 export interface OrderState {
   seatsChosen: Seat[];
@@ -28,13 +29,20 @@ export class OrderService {
   private API_URL = inject(API_URL);
   private store = inject<Store<AppState>>(Store);
   private http = inject(HttpClient);
-  private authService = inject(AuthService);
   private cartService = inject(CartService);
   private screeningService = inject(ScreeningService);
 
   constructor() {
     this.fetchTicketTypes();
     this.fetchScreening();
+
+    this.store
+      .select(selectIsUserLogged)
+      .pipe(take(1))
+      .subscribe((result) => {
+        this.isUserLogged = result;
+      });
+
     this.getSeatsChosenFromCart()
       .pipe(untilDestroyed(this))
       .subscribe((result) => {
@@ -43,6 +51,7 @@ export class OrderService {
       });
   }
 
+  private isUserLogged: boolean = false;
   private _screening!: Screening;
 
   get screening() {
@@ -110,7 +119,7 @@ export class OrderService {
   }
 
   private addChosenSeat(seat: Seat) {
-    if (this.authService.isUserLogged()) {
+    if (this.isUserLogged) {
       this.cartService.addToCart(seat, this._screening.id).subscribe(() => {
         this.store.dispatch(CartActions.fetchCart());
       });
@@ -132,7 +141,7 @@ export class OrderService {
   }
 
   deleteChosenSeat(seat: Seat) {
-    if (this.authService.isUserLogged()) {
+    if (this.isUserLogged) {
       this.cartService
         .removeFromCart(seat, this._screening.id)
         .subscribe(() => {

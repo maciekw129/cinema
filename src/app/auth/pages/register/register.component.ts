@@ -1,21 +1,21 @@
 import { Component, inject } from '@angular/core';
-import { RegisterForm } from 'src/app/auth/forms/register-form/register-form.component';
-import { AuthService } from 'src/app/auth/auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.module';
+import { RegisterPayload } from '../../auth.interface';
+import { AuthActions } from '../../store/auth.actions';
+import { selectAuthLoader } from '../../store/auth.selectors';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  private authService = inject(AuthService)
-  error = '';
-  isSuccess = false;
+  private store = inject<Store<AppState>>(Store);
 
-  handleRegister(values: RegisterForm) {
-    this.authService.register(values).subscribe({
-      next: () => this.isSuccess = true,
-      error: (result) => this.error = result.error
-    })
+  authLoader$$ = this.store.select(selectAuthLoader);
+
+  handleRegister(values: RegisterPayload) {
+    this.store.dispatch(AuthActions.register(values));
   }
 }

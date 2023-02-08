@@ -4,7 +4,12 @@ export const initialAuthState: AuthState = {
   isLogged: false,
   id: null,
   accountType: null,
-  userData: null,
-  token: null,
-  decodedToken: null,
+  data: {
+    firstName: '',
+    lastName: '',
+    email: '',
+  },
+  loader: {
+    status: 'initial',
+  },
 };
