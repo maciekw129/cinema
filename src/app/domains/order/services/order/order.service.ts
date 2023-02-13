@@ -122,7 +122,6 @@ export class OrderService {
 
   private addChosenSeat(seat: Seat) {
     if (this.isUserLogged) {
-      console.log('asdasd');
       this.cartService.addToCart(seat, this._screening.id).subscribe(() => {
         this.store.dispatch(CartActions.fetchCart());
       });

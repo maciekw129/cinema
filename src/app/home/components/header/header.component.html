@@ -7,10 +7,11 @@
     <div class="header__buttons">
       <ng-container *ngIf="authState | async as authState">
         <ng-container *ngIf="authState.isLogged; else elseBlock">
-          <app-cart></app-cart>
+          <app-cart *ngIf="authState.accountType !== 'admin'"></app-cart>
           <app-header-dropdown
             (logoutEvent)="handleLogout()"
             [firstName]="authState.data!.firstName"
+            [accountType]="authState.accountType"
           ></app-header-dropdown>
         </ng-container>
         <ng-template #elseBlock>

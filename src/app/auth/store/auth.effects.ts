@@ -73,7 +73,10 @@ export class AuthEffects {
     () =>
       this.actions$.pipe(
         ofType(AuthActions.logout),
-        tap(() => this.tokenService.removeToken())
+        tap(() => {
+          this.tokenService.removeToken();
+          window.location.reload();
+        })
       ),
     {
       dispatch: false,

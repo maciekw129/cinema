@@ -5,27 +5,30 @@
     (click)="toggleDropdown()"
   ></app-button>
   <ul class="header-dropdown" *ngIf="isDropdownVisible">
-    <li
-      class="header-dropdown__item"
-      (click)="toggleDropdown()"
-      routerLink="my-orders"
-    >
-      Moje bilety
-    </li>
-    <li
-      class="header-dropdown__item"
-      (click)="toggleDropdown()"
-      routerLink="wish-list"
-    >
-      Chcę obejrzeć
-    </li>
-    <li
-      class="header-dropdown__item"
-      (click)="toggleDropdown()"
-      routerLink="settings"
-    >
-      Ustawienia
-    </li>
+    <ng-container *ngIf="accountType !== 'admin'">
+      <li
+        class="header-dropdown__item"
+        (click)="toggleDropdown()"
+        routerLink="my-orders"
+      >
+        Moje bilety
+      </li>
+      <li
+        class="header-dropdown__item"
+        (click)="toggleDropdown()"
+        routerLink="wish-list"
+      >
+        Chcę obejrzeć
+      </li>
+      <li
+        class="header-dropdown__item"
+        (click)="toggleDropdown()"
+        routerLink="settings"
+      >
+        Ustawienia
+      </li>
+    </ng-container>
+
     <li
       class="header-dropdown__item"
       (click)="handleLogoutClicked()"

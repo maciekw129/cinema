@@ -11,8 +11,13 @@ import { AdminGuard } from './auth/guards/admin.guard';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: async () =>
+      (await import('./domains/adminPanel/admin-panel.module')).AdminPanelModule,
+    canMatch: [AdminGuard],
+  },
+  {
+    path: '',
     component: HomeComponent,
-    canActivate: [AdminGuard],
   },
   {
     path: 'login',
@@ -28,6 +33,7 @@ const routes: Routes = [
     path: 'my-orders',
     loadChildren: async () =>
       (await import('./domains/my-orders/my-orders.module')).MyOrdersModule,
+    canActivate: [AuthGuard],
   },
   {
     path: 'settings',

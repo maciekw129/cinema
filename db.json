@@ -5,11 +5,14 @@
       "password": "$2a$10$8lSG1y4lyqZZjkTP85YLLOXh4DVRZlogjhaYpQaF80QhhOUIvsEFm",
       "accountType": "user",
       "userData": {
-        "firstName": "Jan",
+        "firstName": "Maciej",
         "lastName": "Kowalski",
-        "phone": "+48777777777"
+        "phone": ""
       },
-      "id": 4
+      "id": 4,
+      "firstName": "Janasd",
+      "lastName": "Kowalski",
+      "phone": ""
     },
     {
       "email": "user2@email.com",
@@ -32,6 +35,18 @@
       },
       "type": "[Auth] register",
       "id": 6
+    },
+    {
+      "email": "wdwdscsed@qwecc.pl",
+      "password": "$2a$10$AWbc2RHqjbSdkymF3aKsxe3iKKt9/w6r.en7wdaWm/sINiGwa9R9.",
+      "accountType": "user",
+      "userData": {
+        "firstName": "ewdedwedw",
+        "lastName": "wedwedwed",
+        "phone": ""
+      },
+      "type": "[Auth] register",
+      "id": 7
     }
   ],
   "rooms": [
@@ -40,6 +55,50 @@
       "name": "Sala mała",
       "rows": 10,
       "columns": 10
+    },
+    {
+      "name": "sala duż",
+      "rows": 12,
+      "columns": 12,
+      "id": 2
+    },
+    {
+      "name": "abc",
+      "rows": 12,
+      "columns": 12,
+      "id": 3
+    },
+    {
+      "name": "sala inna",
+      "rows": 10,
+      "columns": 10,
+      "id": 4
+    }
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "name": "dramat"
+    },
+    {
+      "id": 2,
+      "name": "thriller"
+    },
+    {
+      "id": 3,
+      "name": "kryminał"
+    },
+    {
+      "id": 4,
+      "name": "komedia"
+    },
+    {
+      "id": 5,
+      "name": "akcja"
+    },
+    {
+      "id": 6,
+      "name": "romans"
     }
   ],
   "movies": [
@@ -212,6 +271,20 @@
       ],
       "rating": 7,
       "day": 5
+    },
+    {
+      "name": "Aftersun",
+      "image": "https://fwcdn.pl/fpo/33/00/10013300/8056536.6.jpg",
+      "premiere": true,
+      "genre": [
+        "dramat",
+        "komedia"
+      ],
+      "duration": "138min.",
+      "ageRestrictions": "PG-16",
+      "description": "Młody ojciec Calum i jego córka Sophie wyjeżdżają razem do tureckiego kurortu. Podczas wspólnych wakacji stają się sobie bliżsi niż kiedykolwiek.",
+      "rating": 0,
+      "id": 10
     }
   ],
   "screenings": [
@@ -287,6 +360,21 @@
           3,
           9,
           1
+        ],
+        [
+          2,
+          5,
+          2
+        ],
+        [
+          7,
+          6,
+          2
+        ],
+        [
+          7,
+          7,
+          1
         ]
       ]
     },
@@ -343,15 +431,6 @@
       ]
     },
     {
-      "seatsOccupied": [
-        [
-          1,
-          6
-        ]
-      ],
-      "id": 5
-    },
-    {
       "id": 6,
       "movieId": 7,
       "hour": [
@@ -360,6 +439,52 @@
       "day": 4,
       "roomId": 1,
       "seatsOccupied": []
+    },
+    {
+      "movieId": 2,
+      "hour": [
+        "16:28"
+      ],
+      "day": 2,
+      "roomId": 2,
+      "id": 7,
+      "seatsOccupied": []
+    },
+    {
+      "movieId": 5,
+      "hour": [
+        "17:33"
+      ],
+      "day": 5,
+      "roomId": 4,
+      "seatsOccupied": [],
+      "id": 8
+    },
+    {
+      "movieId": 3,
+      "hour": [
+        "10:30"
+      ],
+      "day": 1,
+      "roomId": 2,
+      "seatsOccupied": [],
+      "id": 9
+    },
+    {
+      "movieId": 10,
+      "hour": [
+        "17:30"
+      ],
+      "day": 3,
+      "roomId": 1,
+      "seatsOccupied": [
+        [
+          6,
+          5,
+          1
+        ]
+      ],
+      "id": 10
     }
   ],
   "ticketTypes": [
@@ -380,18 +505,6 @@
     }
   ],
   "orders": [
-    {
-      "screeningId": 1,
-      "seats": [],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "asdasd",
-        "lastName": "asdasd",
-        "phone": "asdasd",
-        "email": "asdasd"
-      },
-      "id": 1
-    },
     {
       "screeningId": 1,
       "seats": [],
@@ -799,6 +912,52 @@
         "email": "user@email.com"
       },
       "id": 21
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          2,
+          5,
+          2
+        ],
+        [
+          7,
+          6,
+          2
+        ],
+        [
+          7,
+          7,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "asdasdasd",
+        "phone": "123123123",
+        "email": "sadasd@o2.pl"
+      },
+      "id": 22
+    },
+    {
+      "screeningId": 10,
+      "seats": [
+        [
+          6,
+          5,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 23
     }
   ],
   "carts": [
@@ -1251,32 +1410,15 @@
     },
     {
       "userId": 4,
-      "screeningId": 4,
+      "screeningId": 10,
       "reservedSeats": [
         [
           6,
-          6,
+          5,
           1
         ]
       ],
       "id": 45
-    },
-    {
-      "userId": 4,
-      "screeningId": 1,
-      "reservedSeats": [
-        [
-          3,
-          8,
-          1
-        ],
-        [
-          3,
-          9,
-          1
-        ]
-      ],
-      "id": 46
     }
   ],
   "rating": [
@@ -1291,6 +1433,12 @@
       "movieId": 1,
       "userId": 4,
       "id": 2
+    },
+    {
+      "rate": 3,
+      "movieId": 2,
+      "userId": 4,
+      "id": 3
     }
   ],
   "wantToWatch": [
@@ -1308,6 +1456,11 @@
       "userId": 1,
       "movieId": 7,
       "id": 5
+    },
+    {
+      "userId": 4,
+      "movieId": 1,
+      "id": 6
     }
   ]
 }

@@ -1,0 +1,103 @@
+<form
+  class="add-movie-form"
+  [formGroup]="addMovieForm"
+  (ngSubmit)="handleSubmit()"
+>
+  <input
+    class="input"
+    [class.input-error]="nameCtrl.touched && nameCtrl.errors"
+    type="text"
+    formControlName="name"
+    placeholder="Nazwa*"
+  />
+  <ng-container *ngIf="nameCtrl.errors as errors">
+    <ng-container *ngIf="nameCtrl.touched">
+      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+        Te pole jest obowiązkowe
+      </p>
+    </ng-container>
+  </ng-container>
+
+  <input
+    class="input"
+    [class.input-error]="imageCtrl.touched && imageCtrl.errors"
+    type="text"
+    formControlName="image"
+    placeholder="Zdjęcie*"
+  />
+  <ng-container *ngIf="imageCtrl.errors as errors">
+    <ng-container *ngIf="imageCtrl.touched">
+      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+        Te pole jest obowiązkowe
+      </p>
+    </ng-container>
+  </ng-container>
+
+  <div>
+    <input
+      class="input"
+      [class.input-error]="premiereCtrl.touched && premiereCtrl.errors"
+      type="checkbox"
+      formControlName="premiere"
+      name="premiere"
+      id="premiere"
+    />
+    <label for="premiere">Premiera</label>
+  </div>
+
+  <fieldset class="add-movie-form__categories">
+    <legend>Kategorie:</legend>
+    <div *ngFor="let genre of genres">
+      <input type="checkbox" [name]="genre" (change)="toggleGenre(genre)" />
+      <label [for]="genre">{{ genre }}</label>
+    </div>
+  </fieldset>
+
+  <input
+    class="input"
+    [class.input-error]="durationCtrl.touched && durationCtrl.errors"
+    type="number"
+    formControlName="duration"
+    placeholder="Czas trwania(minuty)*"
+  />
+  <ng-container *ngIf="durationCtrl.errors as errors">
+    <ng-container *ngIf="durationCtrl.touched">
+      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+        Te pole jest obowiązkowe
+      </p>
+    </ng-container>
+  </ng-container>
+
+  <input
+    class="input"
+    [class.input-error]="
+      ageRestrictionsCtrl.touched && ageRestrictionsCtrl.errors
+    "
+    type="number"
+    formControlName="ageRestrictions"
+    placeholder="Ograniczenia wiekowe*"
+  />
+  <ng-container *ngIf="ageRestrictionsCtrl.errors as errors">
+    <ng-container *ngIf="ageRestrictionsCtrl.touched">
+      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+        Te pole jest obowiązkowe
+      </p>
+    </ng-container>
+  </ng-container>
+
+  <textarea
+    [class.input-error]="descriptionCtrl.touched && descriptionCtrl.errors"
+    formControlName="description"
+    class="add-movie__description"
+    placeholder="Opis*"
+  >
+  </textarea>
+  <ng-container *ngIf="descriptionCtrl.errors as errors">
+    <ng-container *ngIf="descriptionCtrl.touched">
+      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+        Te pole jest obowiązkowe
+      </p>
+    </ng-container>
+  </ng-container>
+  <app-button text="Zatwierdź"></app-button>
+</form>

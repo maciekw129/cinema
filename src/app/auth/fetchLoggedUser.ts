@@ -16,5 +16,7 @@ export function fetchLoggedUser() {
     } else if (tokenService.isTokenExpired()) {
       tokenService.removeToken();
     }
+  } else {
+    store.dispatch(AuthActions.setVisitor());
   }
 }

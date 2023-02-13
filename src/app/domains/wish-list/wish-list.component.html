@@ -1,10 +1,15 @@
 <div class="wish-list main-page">
   <div class="wish-list__container main-container">
     <h2>Chcę obejrzeć:</h2>
-    <ul>
-      <li class="wish-list__movie" *ngFor="let wish of wishList$ | async">
-        {{ wish.movie.name }}
-      </li>
-    </ul>
+    <ng-container *ngIf="wishList$ | async as wishList">
+      <ul *ngIf="wishList.length; else noWishList">
+        <li class="wish-list__movie" *ngFor="let wish of wishList">
+          {{ wish.movie.name }}
+        </li>
+      </ul>
+      <ng-template #noWishList>
+        <p>Nie chcesz obejrzeć żadnych filmów... 😐</p>
+      </ng-template>
+    </ng-container>
   </div>
 </div>

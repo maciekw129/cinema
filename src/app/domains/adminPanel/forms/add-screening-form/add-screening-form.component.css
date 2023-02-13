@@ -1,0 +1,13 @@
+.add-screening-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 16px;
+  max-width: 210px;
+  width: 100%;
+}
+
+.add-screening-form__input {
+  width: 100%;
+}

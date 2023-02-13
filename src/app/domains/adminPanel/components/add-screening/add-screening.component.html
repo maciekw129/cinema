@@ -1,0 +1,27 @@
+<div class="main-page">
+  <div class="main-container add-screening">
+    <h2>Dodaj seans</h2>
+    <ng-container *ngIf="data$ | async as data">
+      <app-add-screening-form
+        [movies]="data[0]"
+        [rooms]="data[1]"
+        (handleSubmitEvent)="createScreening($event)"
+      ></app-add-screening-form>
+    </ng-container>
+    <ng-container *ngIf="requestState | async as requestState">
+      <app-loader *ngIf="requestState.status === 'pending'"></app-loader>
+      <p
+        class="fnt-13-regular fnt-color-red"
+        *ngIf="requestState.status === 'failed'"
+      >
+        {{ requestState.errorMessage }}
+      </p>
+      <p
+        class="fnt-13-regular fnt-color-green"
+        *ngIf="requestState.status === 'success'"
+      >
+        {{ requestState.successMessage }}
+      </p>
+    </ng-container>
+  </div>
+</div>

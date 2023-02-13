@@ -1,0 +1,12 @@
+.admin-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-panel__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 15px;
+}

@@ -1,6 +1,11 @@
 <div class="order">
-    <p class="fnt-16-bold">{{ order.screening.movie.name }}</p>
-    <p>{{ order.screening.day }}</p>
-    <p>{{ order.screening.hour[0] }}</p>
-    <p>Siedzenia: <span *ngFor="let seat of order.seats"> {{ alphabeth[seat[0]]}}{{seat[1]}}, </span></p>
+  <p class="fnt-16-bold">{{ order.screening.movie.name }}</p>
+  <p>{{ order.screening.day }}</p>
+  <p>{{ order.screening.hour[0] }}</p>
+  <p>
+    Siedzenia:
+    <span class="order__seat" *ngFor="let seat of order.seats">
+      {{ alphabeth[seat[0]] }}{{ seat[1] }}
+    </span>
+  </p>
 </div>

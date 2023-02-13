@@ -1,36 +1,29 @@
 import { inject, Injectable } from '@angular/core';
 import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  RouterStateSnapshot,
+  CanMatch,
   UrlTree,
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, of, skip, switchMap } from 'rxjs';
+import { filter, Observable, of, switchMap } from 'rxjs';
 import { AppState } from 'src/app/app.module';
+import { selectAccountType } from '../store/auth.selectors';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AdminGuard implements CanActivate {
+export class AdminGuard implements CanMatch {
   private store = inject<Store<AppState>>(Store);
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
+  canMatch():
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.store
-      .select((store) => store.auth)
-      .pipe(
-        skip(1),
-        switchMap((result) => {
-          console.log(result);
-          return of(result.isLogged);
-        })
-      );
+    return this.store.select(selectAccountType).pipe(
+      filter((accountType) => accountType !== null),
+      switchMap((result) => {
+        return of(result === 'admin');
+      })
+    );
   }
 }

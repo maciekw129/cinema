@@ -23,3 +23,8 @@ export const selectAuthLoader = createSelector(
   selectAuth,
   (state: AuthState) => state.loader
 );
+
+export const selectAccountType = createSelector(
+  selectAuth,
+  (state: AuthState) => state.accountType
+);

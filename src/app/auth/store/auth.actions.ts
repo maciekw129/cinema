@@ -17,10 +17,11 @@ export const AuthLoaderActions = createActionGroup({
 export const AuthActions = createActionGroup({
   source: 'Auth',
   events: {
-    login: props<LoginCredentials>(),
+    'login': props<LoginCredentials>(),
     'get user': props<{ userId: number }>(),
-    logout: emptyProps(),
-    register: props<RegisterPayload>(),
+    'logout': emptyProps(),
+    'register': props<RegisterPayload>(),
+    'set visitor': emptyProps(),
   },
 });
 

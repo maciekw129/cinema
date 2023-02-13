@@ -31,7 +31,11 @@ export interface LoaderInitial {
   status: 'initial';
 }
 
-type Loader = LoaderSuccess | LoaderFailed | LoaderPending | LoaderInitial;
+export type Loader =
+  | LoaderSuccess
+  | LoaderFailed
+  | LoaderPending
+  | LoaderInitial;
 
 export interface LoginCredentials {
   email: string;
@@ -56,7 +60,7 @@ export interface UserData {
   phone?: string;
 }
 
-export type AccountType = 'user' | 'admin' | null;
+export type AccountType = 'user' | 'admin' | 'visitor' | null;
 
 export interface RegisterPayload {
   email: string;

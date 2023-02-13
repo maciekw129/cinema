@@ -1,0 +1,51 @@
+<form
+  [formGroup]="addRoomForm"
+  class="add-room-form"
+  (ngSubmit)="handleSubmit()"
+>
+  <input
+    class="login-form__input input"
+    [class.input-error]="nameCtrl.touched && nameCtrl.errors"
+    type="text"
+    formControlName="name"
+    placeholder="Nazwa*"
+  />
+  <ng-container *ngIf="nameCtrl.errors as errors">
+    <ng-container *ngIf="nameCtrl.touched">
+      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+        Te pole jest obowiązkowe
+      </p>
+    </ng-container>
+  </ng-container>
+
+  <input
+    class="login-form__input input"
+    [class.input-error]="rowsCtrl.touched && rowsCtrl.errors"
+    type="number"
+    formControlName="rows"
+    placeholder="Liczba rzędów*"
+  />
+  <ng-container *ngIf="rowsCtrl.errors as errors">
+    <ng-container *ngIf="rowsCtrl.touched">
+      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+        Te pole jest obowiązkowe
+      </p>
+    </ng-container>
+  </ng-container>
+
+  <input
+    class="login-form__input input"
+    [class.input-error]="columnsCtrl.touched && columnsCtrl.errors"
+    type="number"
+    formControlName="columns"
+    placeholder="Liczba rzędów*"
+  />
+  <ng-container *ngIf="columnsCtrl.errors as errors">
+    <ng-container *ngIf="columnsCtrl.touched">
+      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
+        Te pole jest obowiązkowe
+      </p>
+    </ng-container>
+  </ng-container>
+  <app-button text="zatwierdź" [important]="true"></app-button>
+</form>
