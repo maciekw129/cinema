@@ -1286,6 +1286,18 @@
         ]
       ],
       "id": 1
+    },
+    {
+      "userId": 4,
+      "screeningId": 1,
+      "reservedSeats": [
+        [
+          3,
+          4,
+          1
+        ]
+      ],
+      "id": 2
     }
   ],
   "rating": [
