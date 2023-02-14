@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 import { LoaderState } from './loader.interface';
 
 export class Loader {
@@ -44,17 +44,20 @@ export class Loader {
     successMessage: string
   ) {
     this.setLoading();
-    this.http.patch(url, payload).subscribe({
-      next: () =>
-        this._requestState$$.next({
-          status: 'success',
-          successMessage: successMessage,
-        }),
-      error: () =>
-        this._requestState$$.next({
-          status: 'failed',
-          errorMessage: 'Coś poszło nie tak...',
-        }),
-    });
+    return this.http.patch(url, payload).pipe(
+      tap((r) => console.log(r)),
+      tap({
+        next: () =>
+          this._requestState$$.next({
+            status: 'success',
+            successMessage: successMessage,
+          }),
+        error: () =>
+          this._requestState$$.next({
+            status: 'failed',
+            errorMessage: 'Coś poszło nie tak...',
+          }),
+      })
+    );
   }
 }

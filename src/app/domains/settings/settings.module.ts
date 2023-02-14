@@ -5,6 +5,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { SettingsFormComponent } from './settings-form/settings-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { Loader } from 'src/app/shared/loader/loader';
+import { LoaderComponent } from 'src/app/shared/loader/loader/loader.component';
 
 const routes: Routes = [
   {
@@ -20,6 +22,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     ButtonComponent,
+    LoaderComponent,
   ],
 })
 export class SettingsModule {}

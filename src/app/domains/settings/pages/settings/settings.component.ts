@@ -11,6 +11,8 @@ import { Settings } from './settings.interface';
 export class SettingsComponent {
   private settingsService = inject(SettingsService);
 
+  requestState$ = this.settingsService.requestState$$;
+
   handlePatchSettings(settings: Settings) {
     this.settingsService.patchSettings(settings).subscribe();
   }

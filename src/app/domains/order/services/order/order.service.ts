@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { BehaviorSubject, combineLatest, map, Observable, take } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable, tap } from 'rxjs';
 import {
   FinalizeForm,
   Screening,
@@ -9,13 +9,11 @@ import {
   TicketTypes,
 } from '../../../../../types';
 import { ScreeningService } from '../screening/screening.service';
-import { AuthService } from '../../../../auth/auth.service';
 import { CartService } from 'src/app/domains/cart/cart.service';
 import { AppState } from 'src/app/app.module';
 import { Store } from '@ngrx/store';
 import { CartActions } from 'src/app/domains/cart/store/cart.actions';
 import { API_URL } from 'src/app/env.token';
-import { selectIsUserLogged } from 'src/app/auth/store/auth.selectors';
 
 export interface OrderState {
   seatsChosen: Seat[];
@@ -47,14 +45,19 @@ export class OrderService {
     this.getSeatsChosenFromCart()
       .pipe(untilDestroyed(this))
       .subscribe((result) => {
-        if (result[0])
+        if (result[0]) {
+          this._cartId = result[0].id;
           this.patchState({ seatsChosen: result[0].reservedSeats });
+        } else {
+          this.patchState({ seatsChosen: [] });
+        }
       });
   }
 
   private isUserLogged: boolean = false;
   private userId: number | null = null;
   private _screening!: Screening;
+  private _cartId: number | null = null;
 
   get screening() {
     return this._screening;
@@ -144,11 +147,12 @@ export class OrderService {
 
   deleteChosenSeat(seat: Seat) {
     if (this.isUserLogged) {
-      this.cartService
-        .removeFromCart(seat, this._screening.id)
-        .subscribe(() => {
-          this.store.dispatch(CartActions.fetchCart());
-        });
+      this.store.dispatch(
+        CartActions.removeSeat({
+          seatToDelete: seat,
+          screeningId: this._screening.id,
+        })
+      );
     } else {
       this.patchState({
         seatsChosen: this._orderState$$.value.seatsChosen.filter(
@@ -184,6 +188,16 @@ export class OrderService {
           : [...this._orderState$$.value.seatsChosen],
       }
     );
-    return combineLatest([orderPost, seatsPost]);
+    return combineLatest([orderPost, seatsPost]).pipe(
+      tap({
+        next: () => {
+          if (this._cartId !== null) {
+            this.store.dispatch(
+              CartActions.removeScreening({ id: this._cartId })
+            );
+          }
+        },
+      })
+    );
   }
 }

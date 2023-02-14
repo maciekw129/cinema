@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { take, tap } from 'rxjs';
@@ -27,19 +26,15 @@ export class SettingsService extends Loader {
   }
 
   patchSettings(settings: Settings) {
-    return this.http
-      .patch(`${this.API_URL}/users/${this.userId}`, {
-        userData: {
-          firstName: settings.firstName,
-          lastName: settings.lastName,
-          phone: settings.phone,
-        },
+    return this.patchWithLoader(
+      `${this.API_URL}/users/${this.userId}`,
+      { userData: settings },
+      'Pomyślnie zmieniłeś ustawienia!'
+    ).pipe(
+      tap({
+        next: () =>
+          this.store.dispatch(AuthActions.getUser({ userId: this.userId! })),
       })
-      .pipe(
-        tap({
-          next: () =>
-            this.store.dispatch(AuthActions.getUser({ userId: this.userId! })),
-        })
-      );
+    );
   }
 }

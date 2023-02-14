@@ -27,7 +27,9 @@
     "@ngrx/effects": "^14.3.2",
     "@ngrx/store": "^14.3.2",
     "@ngrx/store-devtools": "^14.3.2",
+    "json-server-auth": "^2.1.0",
     "jwt-decode": "^3.1.2",
+    "lodash": "^4.17.21",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -39,7 +41,6 @@
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
     "json-server": "^0.17.1",
-    "json-server-auth": "^2.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",

@@ -5,5 +5,20 @@
       #settingsForm
       (sendSettingsForm)="handlePatchSettings($event)"
     ></app-settings-form>
+    <ng-container *ngIf="requestState$ | async as requestState">
+      <app-loader *ngIf="requestState.status === 'pending'"></app-loader>
+      <p
+        class="fnt-13-regular fnt-color-red"
+        *ngIf="requestState.status === 'failed'"
+      >
+        {{ requestState.errorMessage }}
+      </p>
+      <p
+        class="fnt-13-regular fnt-color-green"
+        *ngIf="requestState.status === 'success'"
+      >
+        {{ requestState.successMessage }}
+      </p>
+    </ng-container>
   </div>
 </div>

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
-import { combineLatest, map, Observable, of, switchMap, take } from 'rxjs';
+import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { AppState } from 'src/app/app.module';
 import { selectUserId } from 'src/app/auth/store/auth.selectors';
 import { API_URL } from 'src/app/env.token';
@@ -95,5 +95,9 @@ export class CartService {
         }
       })
     );
+  }
+
+  removeScreeningFromCart(id: number) {
+    return this.http.delete(`${this.API_URL}/carts/${id}`);
   }
 }
