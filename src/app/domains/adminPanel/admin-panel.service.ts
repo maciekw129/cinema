@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { API_URL } from 'src/app/env.token';
+import { API_URL } from '../../env.token';
 import {
   FetchedGenre,
   FetchedMovie,
@@ -9,7 +9,7 @@ import {
   Screening,
 } from './admin-panel.interface';
 
-import { Loader } from 'src/app/shared/loader/loader';
+import { Loader } from '../../shared/loader/loader';
 import { map } from 'rxjs';
 
 @Injectable()

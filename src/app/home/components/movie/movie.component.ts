@@ -1,5 +1,4 @@
 import { Component, inject, Input, Output, EventEmitter } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { Screenings } from 'src/types';
 import { RatingService } from '../../services/rating/rating.service';

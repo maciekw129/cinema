@@ -9,10 +9,10 @@ import { SeatComponent } from './components/seat/seat.component';
 import { ChosenSeatComponent } from './components/chosen-seat/chosen-seat.component';
 import { PaymentFormComponent } from './forms/payment-form/payment-form.component';
 import { FinalizeFormComponent } from './forms/finalize-form/finalize-form.component';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomerRoutingModule } from './order-routing.module';
-import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { ModalComponent } from '../../shared/components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
     ReservationComponent,
     SeatComponent,
     ChosenSeatComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +31,7 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
     ButtonComponent,
     ModalComponent,
     ReactiveFormsModule,
-    CustomerRoutingModule
-  ]
+    CustomerRoutingModule,
+  ],
 })
 export class OrderModule {}

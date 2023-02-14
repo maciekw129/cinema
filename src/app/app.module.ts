@@ -29,13 +29,12 @@ import { CartState } from './domains/cart/cart.interface';
 import { cartReducer } from './domains/cart/store/cart.reducer';
 import { CountCartItemsPipe } from './domains/cart/count-cart-items.pipe';
 import { API_URL } from './env.token';
-import { environment } from 'src/environment';
+import { environment } from '../environment';
 import { AuthState } from './auth/auth.interface';
 import { authReducer } from './auth/store/auth.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
 import { fetchLoggedUser } from './auth/fetchLoggedUser';
 import { LoaderComponent } from './shared/loader/loader/loader.component';
-import { MatButtonModule } from '@angular/material';
 
 export interface AppState {
   cart: CartState;
@@ -72,7 +71,6 @@ export interface AppState {
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    MatButtonModule,
   ],
   providers: [
     {
