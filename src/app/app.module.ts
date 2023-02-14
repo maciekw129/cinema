@@ -35,6 +35,7 @@ import { authReducer } from './auth/store/auth.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
 import { fetchLoggedUser } from './auth/fetchLoggedUser';
 import { LoaderComponent } from './shared/loader/loader/loader.component';
+import { MatButtonModule } from '@angular/material';
 
 export interface AppState {
   cart: CartState;
@@ -71,6 +72,7 @@ export interface AppState {
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
+    MatButtonModule,
   ],
   providers: [
     {
