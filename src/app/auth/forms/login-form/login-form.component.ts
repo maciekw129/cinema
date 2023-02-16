@@ -12,6 +12,8 @@ export class LoginFormComponent {
   @Output() handleSubmitEvent = new EventEmitter<LoginCredentials>();
   loginForm = this.createForm();
 
+  hide = true;
+
   constructor(private fb: NonNullableFormBuilder) {}
 
   get emailCtrl() {

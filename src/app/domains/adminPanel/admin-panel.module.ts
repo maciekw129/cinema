@@ -12,6 +12,10 @@ import { AddScreeningComponent } from './components/add-screening/add-screening.
 import { AddScreeningFormComponent } from './forms/add-screening-form/add-screening-form.component';
 import { AddMovieComponent } from './components/add-movie/add-movie/add-movie.component';
 import { AddMovieFormComponent } from './forms/add-movie-form/add-movie-form/add-movie-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   {
@@ -43,6 +47,10 @@ const routes: Routes = [
     AddMovieFormComponent,
   ],
   imports: [
+    MatInputModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
     ButtonComponent,
     CommonModule,
     RouterModule.forChild(routes),

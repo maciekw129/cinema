@@ -1,0 +1,28 @@
+$dark-primary-text: #333;
+$light-primary-text: #ffffff;
+
+$green-palette: (
+  100: #007b71,
+  300: #006c62,
+  500: #005c53,
+  700: #024137,
+  contrast: (
+    100: $dark-primary-text,
+    300: $dark-primary-text,
+    500: $light-primary-text,
+    700: $light-primary-text,
+  ),
+);
+
+$purple-palette: (
+  100: #c61764,
+  300: #b0165e,
+  500: #9b1458,
+  700: #75124d,
+  contrast: (
+    100: $dark-primary-text,
+    300: $dark-primary-text,
+    500: $light-primary-text,
+    700: $light-primary-text,
+  ),
+);

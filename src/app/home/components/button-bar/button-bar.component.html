@@ -1,9 +1,18 @@
 <div #buttonBar class="button-bar">
-    <button
+  <!-- <button
         *ngFor="let element of buttonBarElements; let i = index"
         #button
         class="button-bar__button"
         [ngClass]="{'button-bar__button--clicked': (clicked === 'button' + i) && isClicked}"
         (click)="handleClick(button, i)"
-    >{{ element }}</button>
+    >{{ element }}</button> -->
+  <mat-button-toggle-group name="fontStyle" color="primary" [value]="0">
+    <mat-button-toggle
+      *ngFor="let element of buttonBarElements; let i = index"
+      [value]="i"
+      (click)="handleClick(i)"
+      selected
+      >{{ element }}</mat-button-toggle
+    >
+  </mat-button-toggle-group>
 </div>

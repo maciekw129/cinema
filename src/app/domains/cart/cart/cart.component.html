@@ -1,5 +1,5 @@
 <div class="cart" *ngIf="cartItems | async as cartItems">
-  <app-button
+  <!-- <app-button
     [icon]="cartShopping"
     (click)="toggleIsCartVisible()"
   ></app-button>
@@ -11,5 +11,28 @@
       *ngFor="let cartItem of cartItems"
       [cartItem]="cartItem"
     ></app-cart-item>
-  </div>
+  </div> -->
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon
+      matBadge="{{ cartItems | countCartItems }}"
+      matBadgeSize="small"
+      matBadgeColor="accent"
+      >shopping_cart</mat-icon
+    >
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor="let cartItem of cartItems">
+      <div>
+        <span class="fnt-16-bold">{{ cartItem.screening?.movie?.name }}</span
+        >, {{ cartItem.screening?.day }},
+        {{ cartItem.screening?.hour }}
+        <br />
+        siedzienia:
+        <span *ngFor="let seat of cartItem.reservedSeats">
+          {{ alphabeth[seat[0]] }}{{ seat[1] + 1 }}</span
+        >
+      </div>
+    </button>
+  </mat-menu>
 </div>

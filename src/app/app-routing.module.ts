@@ -7,23 +7,31 @@ import { AuthGuard } from './auth/guards/auth.guard';
 import { ScreeningResolver } from './domains/order/services/screening/screening.resolver';
 import { CanLoginGuard } from './auth/guards/can-login.guard';
 import { AdminGuard } from './auth/guards/admin.guard';
+import { MovieListComponent } from './home/components/movie-list/movie-list.component';
+
+const getToday = () => {
+  const day = new Date();
+  let mounth = `${day.getMonth() + 1}`;
+  if (mounth.length === 1) {
+    mounth = '0' + mounth;
+  }
+  return day.getDate() + '-' + mounth + '-' + day.getFullYear();
+};
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: async () =>
-      (await import('./domains/adminPanel/admin-panel.module')).AdminPanelModule,
+      (await import('./domains/adminPanel/admin-panel.module'))
+        .AdminPanelModule,
     canMatch: [AdminGuard],
-  },
-  {
-    path: '',
-    component: HomeComponent,
   },
   {
     path: 'login',
     component: LoginComponent,
     canActivate: [CanLoginGuard],
   },
+
   {
     path: 'register',
     component: RegisterComponent,
@@ -73,6 +81,27 @@ const routes: Routes = [
     path: 'rental',
     loadChildren: async () =>
       (await import('./domains/rental/rental.module')).RentalModule,
+  },
+  {
+    path: 'ticket/:id',
+    loadComponent: async () =>
+      (await import('./domains/ticket/ticket.component')).TicketComponent,
+  },
+  {
+    path: '',
+
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: `${getToday()}`,
+      },
+      {
+        path: ':date',
+        component: MovieListComponent,
+      },
+    ],
   },
   {
     path: '**',

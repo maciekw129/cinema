@@ -3,7 +3,11 @@
     <h2>Login</h2>
     <app-login-form (handleSubmitEvent)="handleLogin($event)"></app-login-form>
     <ng-container *ngIf="authLoader$$ | async as loader">
-      <app-loader *ngIf="loader.status === 'pending'"></app-loader>
+      <mat-spinner
+        *ngIf="loader.status === 'pending'"
+        [diameter]="25"
+        color="accent"
+      ></mat-spinner>
       <p
         class="fnt-13-regular fnt-color-red"
         *ngIf="loader.status === 'failed'"

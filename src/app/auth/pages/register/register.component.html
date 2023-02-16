@@ -5,7 +5,11 @@
       (handleSubmitEvent)="handleRegister($event)"
     ></app-register-form>
     <ng-container *ngIf="authLoader$$ | async as loader">
-      <app-loader *ngIf="loader.status === 'pending'"></app-loader>
+      <mat-spinner
+        *ngIf="loader.status === 'pending'"
+        [diameter]="25"
+        color="accent"
+      ></mat-spinner>
       <p
         *ngIf="loader.status === 'failed'"
         class="fnt-13-regular fnt-color-red"

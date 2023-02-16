@@ -54,11 +54,14 @@ export class MovieComponent {
   }
 
   handleAddToWatch() {
-    this.screeningService
-      .addToWantToWatch(this.screenings.movieId)
-      .subscribe(() => {
-        this.refreshEvent.emit();
-      });
+    this.screeningService.addToWantToWatch(this.screenings.movieId).subscribe({
+      next: () => this.refreshEvent.emit(),
+      error: (error) => {
+        if (error.status === 500) {
+          this.refreshEvent.emit();
+        }
+      },
+    });
   }
 
   handleRemoveFromWatch() {

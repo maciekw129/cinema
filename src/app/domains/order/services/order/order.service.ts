@@ -18,7 +18,6 @@ import { API_URL } from 'src/app/env.token';
 export interface OrderState {
   seatsChosen: Seat[];
   ticketTypes: TicketTypes[];
-  email: string;
 }
 
 @UntilDestroy()
@@ -66,7 +65,6 @@ export class OrderService {
   private _orderState$$ = new BehaviorSubject<OrderState>({
     seatsChosen: [],
     ticketTypes: [],
-    email: '',
   });
 
   public readonly orderState$: Observable<OrderState> =
@@ -78,10 +76,6 @@ export class OrderService {
 
   get selectTicketTypes$() {
     return this.orderState$.pipe(map((state) => state.ticketTypes));
-  }
-
-  get selectEmail$() {
-    return this.orderState$.pipe(map((state) => state.email));
   }
 
   private patchState(stateSlice: Partial<OrderState>) {
@@ -129,10 +123,29 @@ export class OrderService {
         this.store.dispatch(CartActions.fetchCart());
       });
     } else {
-      this.patchState({
-        seatsChosen: [...this._orderState$$.value.seatsChosen, seat],
+      this.reserveSeat(seat).subscribe(() => {
+        this.patchState({
+          seatsChosen: [...this._orderState$$.value.seatsChosen, seat],
+        });
       });
     }
+  }
+
+  private filterSeat(seat: Seat) {
+    return this._orderState$$.value.seatsChosen.filter(
+      (_, index) => index != this.findSeatIndex(seat)
+    );
+  }
+
+  private reserveSeat(seat: Seat) {
+    console.log('wykonuje');
+    return this.http.patch(`${this.API_URL}/screenings/${this._screening.id}`, {
+      seatsOccupied: [
+        ...this._screening.seatsOccupied,
+        ...this._orderState$$.value.seatsChosen,
+        seat,
+      ],
+    });
   }
 
   toggleSeat(seat: Seat) {
@@ -154,22 +167,34 @@ export class OrderService {
         })
       );
     } else {
-      this.patchState({
-        seatsChosen: this._orderState$$.value.seatsChosen.filter(
-          (_, index) => index != this.findSeatIndex(seat)
-        ),
+      this.cancelSeatReservation(seat).subscribe(() => {
+        this.patchState({
+          seatsChosen: this.filterSeat(seat),
+        });
       });
     }
   }
 
-  changeSeatType(seat: Seat, seatType: number) {
-    const seatsChosen = this._orderState$$.value.seatsChosen;
-    seatsChosen[this.findSeatIndex(seat)][2] = seatType;
-    this.patchState({ seatsChosen: seatsChosen });
+  private cancelSeatReservation(seat: Seat) {
+    return this.http.patch(`${this.API_URL}/screenings/${this._screening.id}`, {
+      seatsOccupied: [
+        ...this._screening.seatsOccupied,
+        ...this.filterSeat(seat),
+      ],
+    });
   }
 
-  setEmail(email: string) {
-    this.patchState({ email: email });
+  changeSeatType(seat: Seat, seatType: number) {
+    const seatIndex = this.findSeatIndex(seat);
+    const newSeatsChosen = this._orderState$$.value.seatsChosen.map(
+      (value, index) => {
+        if (index === seatIndex) {
+          return [value[0], value[1], seatType] as Seat;
+        }
+        return value;
+      }
+    );
+    this.patchState({ seatsChosen: newSeatsChosen });
   }
 
   createOrder(form: FinalizeForm) {

@@ -1,32 +1,57 @@
 <form class="login-form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
-    <input
-        class="login-form__input input"
-        [class.input-error]="emailCtrl.touched && emailCtrl.errors"
-        type="text"
-        formControlName="email"
-        placeholder="E-mail*"
-    />
-    <ng-container *ngIf="emailCtrl.errors as errors">
-        <ng-container *ngIf="emailCtrl.touched">
-          <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
-          <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">E-mail jest w niewłaściwym formacie</p>
-        </ng-container>
-    </ng-container>
+  <mat-form-field color="primary">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="emailCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMinLength"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMinLength>
+        <ng-container
+          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+          >Min. liczba znaków: {{ minLength.actualLength }}/{{
+            minLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container *ngIf="errors['maxlength'] as maxLength; else namePattern"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #namePattern>
+        <ng-container *ngIf="errors['pattern'] as pattern"
+          >Email jest w złym formacie.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
+  <mat-form-field appearance="fill">
+    <mat-label>Hasło</mat-label>
     <input
-        class="login-form__input input"
-        [class.input-error]="passwordCtrl.touched && passwordCtrl.errors"
-        type="password"
-        formControlName="password"
-        placeholder="Hasło*"
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      formControlName="password"
     />
-    <ng-container *ngIf="passwordCtrl.errors as errors">
-        <ng-container *ngIf="passwordCtrl.touched">
-          <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">Te pole jest obowiązkowe</p>
-        </ng-container>
-    </ng-container>
+    <mat-error *ngIf="passwordCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']"
+        >To pole jest wymagane.</ng-container
+      >
+    </mat-error>
+    <button
+      type="button"
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
 
-    <app-button
-        text="Zaloguj"
-    ></app-button>
+  <button mat-flat-button color="primary">Zaloguj</button>
 </form>

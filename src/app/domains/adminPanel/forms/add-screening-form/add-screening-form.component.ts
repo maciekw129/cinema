@@ -19,6 +19,7 @@ export class AddScreeningFormComponent {
 
   private builder = inject(NonNullableFormBuilder);
   addScreeningForm = this.createForm();
+  today = new Date();
 
   get movieIdCtrl() {
     return this.addScreeningForm.controls.movieId;
@@ -50,10 +51,18 @@ export class AddScreeningFormComponent {
 
     const { movieId, hour, day, roomId } = this.addScreeningForm.getRawValue();
 
+    const dayPicked = new Date(day);
+    let mounth = `${dayPicked.getMonth() + 1}`;
+    if (mounth.length === 1) {
+      mounth = '0' + mounth;
+    }
+    const properDay =
+      dayPicked.getDate() + '-' + mounth + '-' + dayPicked.getFullYear();
+
     this.handleSubmitEvent.emit({
       movieId: +movieId!,
       hour: [hour],
-      day: +day!,
+      day: properDay,
       roomId: +roomId!,
       seatsOccupied: [],
     });
@@ -67,7 +76,7 @@ export class AddScreeningFormComponent {
       hour: this.builder.control('', {
         validators: [Validators.required],
       }),
-      day: this.builder.control(null, {
+      day: this.builder.control('', {
         validators: [Validators.required],
       }),
       roomId: this.builder.control(null, {

@@ -45,16 +45,22 @@
           Oceniłeś ten film na: {{ ratingState.rating }}
         </p>
       </ng-container>
-      <app-button
+      <button
         *ngIf="isUserLogged && !screenings.wantToWatch"
-        text="Chcę zobaczyć"
+        mat-flat-button
+        color="primary"
         (click)="handleAddToWatch()"
-      ></app-button>
-      <app-button
+      >
+        Chcę zobaczyć
+      </button>
+      <button
         *ngIf="isUserLogged && screenings.wantToWatch"
-        text="Nie chcę zobaczyć"
+        mat-flat-button
+        color="primary"
         (click)="handleRemoveFromWatch()"
-      ></app-button>
+      >
+        Nie chcę zobaczyć
+      </button>
     </ng-container>
   </div>
 
@@ -65,7 +71,9 @@
   >
     <div class="movie__rating-modal">
       <app-rating-scale (setRateEvent)="setRate($event)"></app-rating-scale>
-      <app-button text="Zatwierdź" (click)="handleRate()"></app-button>
+      <button mat-flat-button color="primary" (click)="handleRate()">
+        Zatwierdź
+      </button>
     </div>
   </app-modal>
 </div>

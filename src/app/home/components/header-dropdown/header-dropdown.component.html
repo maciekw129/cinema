@@ -1,40 +1,9 @@
-<div class="header-dropdown__wrapper">
-  <app-button
-    class=""
-    [text]="'Cześć ' + firstName + ' !'"
-    (click)="toggleDropdown()"
-  ></app-button>
-  <ul class="header-dropdown" *ngIf="isDropdownVisible">
-    <ng-container *ngIf="accountType !== 'admin'">
-      <li
-        class="header-dropdown__item"
-        (click)="toggleDropdown()"
-        routerLink="my-orders"
-      >
-        Moje bilety
-      </li>
-      <li
-        class="header-dropdown__item"
-        (click)="toggleDropdown()"
-        routerLink="wish-list"
-      >
-        Chcę obejrzeć
-      </li>
-      <li
-        class="header-dropdown__item"
-        (click)="toggleDropdown()"
-        routerLink="settings"
-      >
-        Ustawienia
-      </li>
-    </ng-container>
-
-    <li
-      class="header-dropdown__item"
-      (click)="handleLogoutClicked()"
-      (click)="toggleDropdown()"
-    >
-      Wyloguj
-    </li>
-  </ul>
-</div>
+<button mat-flat-button color="primary" [matMenuTriggerFor]="menu">
+  Cześć {{ firstName }}!
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="my-orders">Moje bilety</button>
+  <button mat-menu-item routerLink="wish-list">Chcę obejrzeć</button>
+  <button mat-menu-item routerLink="settings">Ustawienia</button>
+  <button mat-menu-item (click)="handleLogoutClicked()">Wyloguj</button>
+</mat-menu>

@@ -5,11 +5,10 @@ export interface Room {
   rows: number;
   columns: number;
 }
-
 export interface Screening {
   movieId: number;
   hour: string[];
-  day: number;
+  day: string;
   roomId: number;
   seatsOccupied: [];
 }
@@ -36,7 +35,7 @@ export interface FetchedRoom extends Room {
 export interface AddScreeningForm {
   movieId: FormControl<number | null>;
   hour: FormControl<string>;
-  day: FormControl<number | null>;
+  day: FormControl<string>;
   roomId: FormControl<number | null>;
 }
 

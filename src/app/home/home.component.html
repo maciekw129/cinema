@@ -1,16 +1,17 @@
 <div class="home main-page">
-  <app-button-bar
+  <mat-button-toggle-group
+    name="fontStyle"
+    color="primary"
     class="home__button-bar"
-    [buttonBarElements]="buttonBarElements"
-    (buttonEvent)="handleChangeDay($event)"
-  ></app-button-bar>
-  <app-movie
-    class="home__movie"
-    *ngFor="let screening of screenings"
-    [screenings]="screening"
-    (refreshEvent)="refresh()"
-  ></app-movie>
-  <p class="home__no-movies" *ngIf="!screenings.length">
-    W tym dniu nie ma żadnego seansu. Przepraszamy!
-  </p>
+    [value]="day"
+  >
+    <mat-button-toggle
+      *ngFor="let element of getNextFiveDays(); let i = index"
+      [value]="element"
+      selected
+      (click)="navigateToDate(element)"
+      >{{ element }}</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+  <router-outlet></router-outlet>
 </div>

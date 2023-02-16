@@ -1,0 +1,9 @@
+<app-movie
+  class="home__movie"
+  *ngFor="let screening of screenings"
+  [screenings]="screening"
+  (refreshEvent)="refresh()"
+></app-movie>
+<p class="home__no-movies" *ngIf="!screenings.length">
+  W tym dniu nie ma żadnego seansu. Przepraszamy!
+</p>

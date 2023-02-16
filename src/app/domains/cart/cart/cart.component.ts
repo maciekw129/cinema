@@ -14,6 +14,7 @@ export class CartComponent {
   cartItems = this.store.select((state) => state.cart.cart);
   cartShopping = faCartShopping;
   isCartVisible = false;
+  alphabeth: string[] = 'ABCDEFGHIJKLMNOPRSTUWZ'.split('');
 
   toggleIsCartVisible() {
     this.isCartVisible = !this.isCartVisible;

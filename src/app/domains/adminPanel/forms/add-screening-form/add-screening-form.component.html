@@ -46,21 +46,25 @@
     </ng-container>
   </ng-container>
 
-  <select class="add-screening-form__input input" formControlName="day">
-    <option [ngValue]="null" disabled hidden>Wybierz dzień</option>
-    <option
-      *ngFor="let room of [].constructor(5); let i = index"
-      [value]="i + 1"
-    >
-      {{ i + 1 }}
-    </option>
-  </select>
-  <ng-container *ngIf="movieIdCtrl.errors as errors">
-    <ng-container *ngIf="movieIdCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field color="primary" class="fieldset__input">
+    <mat-label>Data</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [min]="today"
+      formControlName="day"
+    />
+    <mat-error *ngIf="dayCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-container *ngIf="errors['matDatepickerMin']"
+        >Data nie może być w przeszłości.</ng-container
+      >
+    </mat-error>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
   <app-button text="Zatwierdź" [important]="true"></app-button>
 </form>

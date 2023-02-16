@@ -5,7 +5,7 @@
       "password": "$2a$10$8lSG1y4lyqZZjkTP85YLLOXh4DVRZlogjhaYpQaF80QhhOUIvsEFm",
       "accountType": "user",
       "userData": {
-        "firstName": "Adam",
+        "firstName": "Maciej",
         "lastName": "Kowalski",
         "phone": ""
       },
@@ -44,6 +44,42 @@
       },
       "type": "[Auth] register",
       "id": 7
+    },
+    {
+      "email": "mmdasdasdm@pl.pl",
+      "password": "$2a$10$g/z0X4MD10b/hGKX.Cj8H.43NhU3JljBcjKiDcob9em36V.tryzqa",
+      "accountType": "user",
+      "userData": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": ""
+      },
+      "type": "[Auth] register",
+      "id": 8
+    },
+    {
+      "email": "qwdqwdqwd2@wdadsd.pl",
+      "password": "$2a$10$52.GrDZfQB8dj4Hco3.27uEh78yw5El7pj6QjnxD2ETYK7RVwAHoC",
+      "accountType": "user",
+      "userData": {
+        "firstName": "wdqdqwdqwd",
+        "lastName": "qwdqwdqwdqwd",
+        "phone": ""
+      },
+      "type": "[Auth] register",
+      "id": 9
+    },
+    {
+      "email": "kacper@email.com",
+      "password": "$2a$10$cdEV2Hw2d3zRlX9aR3bi8O3/3X06T6IVO7XCYCNnJRmTfzXq0hB4S",
+      "accountType": "user",
+      "userData": {
+        "firstName": "Kacper",
+        "lastName": "Nowak",
+        "phone": ""
+      },
+      "type": "[Auth] register",
+      "id": 10
     }
   ],
   "rooms": [
@@ -310,7 +346,7 @@
       "hour": [
         "15:30"
       ],
-      "day": 1,
+      "day": "15-02-2023",
       "roomId": 1,
       "seatsOccupied": [
         [
@@ -451,6 +487,51 @@
           8,
           5,
           1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          9,
+          1,
+          1
+        ],
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          6,
+          1
+        ],
+        [
+          1,
+          6,
+          1
+        ],
+        [
+          7,
+          4,
+          1
+        ],
+        [
+          9,
+          7,
+          1
+        ],
+        [
+          8,
+          7,
+          1
         ]
       ]
     },
@@ -460,9 +541,180 @@
       "hour": [
         "15:30"
       ],
-      "day": 2,
+      "day": "16-02-2023",
       "roomId": 1,
-      "seatsOccupied": []
+      "seatsOccupied": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          9,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          9,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          8,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          8,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          4,
+          8,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          4,
+          1
+        ],
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          5,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          7,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          4,
+          4,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ]
+      ]
     },
     {
       "id": 3,
@@ -470,7 +722,7 @@
       "hour": [
         "15:30"
       ],
-      "day": 1,
+      "day": "19-02-2023",
       "roomId": 1,
       "seatsOccupied": [
         [
@@ -516,12 +768,27 @@
       "hour": [
         "21:30"
       ],
-      "day": 1,
+      "day": "16-02-2023",
       "roomId": 1,
       "seatsOccupied": [
         [
           6,
           6,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          1,
+          9,
+          1
+        ],
+        [
+          0,
+          9,
           1
         ]
       ]
@@ -532,7 +799,7 @@
       "hour": [
         "15:30"
       ],
-      "day": 4,
+      "day": "17-02-2023",
       "roomId": 1,
       "seatsOccupied": [
         [
@@ -552,7 +819,7 @@
       "hour": [
         "16:28"
       ],
-      "day": 2,
+      "day": "18-02-2023",
       "roomId": 2,
       "id": 7,
       "seatsOccupied": []
@@ -562,7 +829,7 @@
       "hour": [
         "17:33"
       ],
-      "day": 5,
+      "day": "19-02-2023",
       "roomId": 4,
       "seatsOccupied": [],
       "id": 8
@@ -572,7 +839,7 @@
       "hour": [
         "10:30"
       ],
-      "day": 1,
+      "day": "18-02-2023",
       "roomId": 2,
       "seatsOccupied": [],
       "id": 9
@@ -582,7 +849,7 @@
       "hour": [
         "17:30"
       ],
-      "day": 3,
+      "day": "17-02-2023",
       "roomId": 1,
       "seatsOccupied": [
         [
@@ -598,10 +865,20 @@
       "hour": [
         "20:05"
       ],
-      "day": 5,
+      "day": "16-02-2023",
       "roomId": 5,
       "seatsOccupied": [],
       "id": 11
+    },
+    {
+      "movieId": 4,
+      "hour": [
+        "17:56"
+      ],
+      "day": "19-02-2023",
+      "roomId": 3,
+      "seatsOccupied": [],
+      "id": 12
     }
   ],
   "ticketTypes": [
@@ -1272,6 +1549,180 @@
         "email": "user@email.com"
       },
       "id": 33
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          9,
+          1,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "ddsfsd",
+        "lastName": "fdsfdsdfs",
+        "phone": "123123123",
+        "email": "mama@dad.pl"
+      },
+      "id": 34
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": "123123123",
+        "email": "asdasd@wqe.pl"
+      },
+      "id": 35
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asssadasd",
+        "lastName": "dasassad",
+        "phone": "123123123",
+        "email": "aaa@aaa.pl"
+      },
+      "id": 36
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          2,
+          6,
+          1
+        ],
+        [
+          1,
+          6,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 37
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          7,
+          4,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 38
+    },
+    {
+      "screeningId": 1,
+      "seats": [
+        [
+          9,
+          7,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 39
+    },
+    {
+      "screeningId": 2,
+      "seats": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 40
+    },
+    {
+      "screeningId": 2,
+      "seats": [
+        [
+          4,
+          6,
+          1
+        ]
+      ],
+      "userId": 10,
+      "ownerDetails": {
+        "firstName": "Kacper",
+        "lastName": "Nowak",
+        "phone": "",
+        "email": "kacper@email.com"
+      },
+      "id": 41
     }
   ],
   "carts": [
@@ -1280,24 +1731,100 @@
       "screeningId": 6,
       "reservedSeats": [
         [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
           4,
-          8,
+          1
+        ],
+        [
+          0,
+          5,
           1
         ]
       ],
-      "id": 1
+      "id": 3
     },
     {
       "userId": 4,
-      "screeningId": 1,
+      "screeningId": 2,
       "reservedSeats": [
         [
-          3,
-          4,
+          0,
+          0,
           1
         ]
       ],
-      "id": 2
+      "id": 4
+    },
+    {
+      "userId": 4,
+      "screeningId": 11,
+      "reservedSeats": [
+        [
+          0,
+          14,
+          1
+        ],
+        [
+          1,
+          14,
+          1
+        ],
+        [
+          1,
+          13,
+          1
+        ],
+        [
+          0,
+          13,
+          1
+        ]
+      ],
+      "id": 5
+    },
+    {
+      "userId": 4,
+      "screeningId": 4,
+      "reservedSeats": [
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          1,
+          9,
+          1
+        ],
+        [
+          0,
+          9,
+          1
+        ]
+      ],
+      "id": 6
+    },
+    {
+      "userId": 10,
+      "screeningId": 2,
+      "reservedSeats": [
+        [
+          4,
+          6,
+          1
+        ]
+      ],
+      "id": 7
     }
   ],
   "rating": [
@@ -1324,6 +1851,18 @@
       "movieId": 3,
       "userId": 4,
       "id": 4
+    },
+    {
+      "rate": 4,
+      "movieId": 10,
+      "userId": 4,
+      "id": 5
+    },
+    {
+      "rate": 4,
+      "movieId": 5,
+      "userId": 4,
+      "id": 6
     }
   ],
   "wantToWatch": [
@@ -1345,7 +1884,12 @@
     {
       "userId": 4,
       "movieId": 2,
-      "id": 6
+      "id": 7
+    },
+    {
+      "userId": 4,
+      "movieId": 1,
+      "id": 8
     }
   ]
 }

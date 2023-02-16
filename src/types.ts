@@ -58,6 +58,7 @@ export interface Movie {
 export interface Screening {
   movieId: number;
   movie: Movie;
+  roomId: number;
   hour: string[];
   day: number;
   id: number;

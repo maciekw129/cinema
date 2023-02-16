@@ -3,6 +3,7 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from '../../../shared/validators';
 import patterns from 'src/app/shared/validatorPatterns';
 import { RegisterPayload } from '../../auth.interface';
+import { ConfirmPasswordStateMatcher } from '../confirmPasswordStateMatcher';
 
 @Component({
   selector: 'app-register-form',
@@ -14,6 +15,8 @@ export class RegisterFormComponent {
   registerForm = this.createForm();
 
   constructor(private fb: NonNullableFormBuilder) {}
+
+  confirmPasswordMatcher = new ConfirmPasswordStateMatcher();
 
   get emailCtrl() {
     return this.registerForm.controls.email;
@@ -63,13 +66,25 @@ export class RegisterFormComponent {
           ],
         }),
         firstName: this.fb.control('', {
-          validators: [Validators.required, Validators.minLength(2)],
+          validators: [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(20),
+          ],
         }),
         lastName: this.fb.control('', {
-          validators: [Validators.required, Validators.minLength(2)],
+          validators: [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(20),
+          ],
         }),
         password: this.fb.control('', {
-          validators: [Validators.required, Validators.minLength(10)],
+          validators: [
+            Validators.required,
+            Validators.minLength(10),
+            Validators.maxLength(20),
+          ],
         }),
         confirmPassword: this.fb.control('', {
           validators: [Validators.required],

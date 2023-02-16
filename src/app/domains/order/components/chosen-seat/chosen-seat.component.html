@@ -1,7 +1,20 @@
-<div class="chosen-seat">
-    <p class="chosen-seat__text">Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}</p>
-    <select #types (change)="onSelectType(types.value)">
-        <option *ngFor="let option of ticketTypes$ | async" [value]="option.id">{{ option.name }}</option>
-    </select>
-    <fa-icon class="chosen-seat__trash" [icon]="trash" (click)="deleteChosenSeat()"></fa-icon>
-</div>
+<ng-container *ngIf="ticketTypes$ | async as ticketTypes">
+  <div class="chosen-seat">
+    <p class="chosen-seat__text">
+      Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}
+    </p>
+    <mat-form-field appearance="fill">
+      <mat-label>Typ biletu</mat-label>
+      <mat-select [formControl]="selectControl">
+        <mat-option *ngFor="let option of ticketTypes" [value]="option.id"
+          >{{ option.name }} - {{ option.price }}zł</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <fa-icon
+      class="chosen-seat__trash"
+      [icon]="trash"
+      (click)="deleteChosenSeat()"
+    ></fa-icon>
+  </div>
+</ng-container>

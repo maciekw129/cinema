@@ -28,7 +28,6 @@ export class AuthEffects {
             return AuthApiActions.loginSuccess(result);
           }),
           catchError((error) => {
-            console.log(error.error);
             return of(AuthLoaderActions.setError({ error: error.error }));
           })
         );

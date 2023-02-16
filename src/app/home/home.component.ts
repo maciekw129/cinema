@@ -1,44 +1,32 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ScreeningService } from '../domains/order/services/screening/screening.service';
-import { Screenings } from 'src/types';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
-  private screeningService = inject(ScreeningService);
-
+export class HomeComponent {
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
   buttonBarElements: string[] = this.getNextFiveDays();
-  screenings: Screenings[] = [];
   isRatingModalVisible = false;
-  date = '1';
 
-  ngOnInit(): void {
-    this.fetchScreenings('1');
-  }
-
-  handleChangeDay(value: { date: string; id: number }) {
-    this.date = value.date;
-    this.fetchScreenings(String(value.date));
-  }
-
-  fetchScreenings(date: string) {
-    this.screeningService.getScreenings(date).subscribe((result) => {
-      this.screenings = result;
-    });
-  }
+  day = this.route.snapshot.params;
 
   getNextFiveDays() {
     return [...Array(5)].map((_, index) => {
       let day = new Date();
       day.setDate(day.getDate() + index);
-      return day.getDate() + '/' + (day.getMonth() + 1);
+      let mounth = `${day.getMonth() + 1}`;
+      if (mounth.length === 1) {
+        mounth = '0' + mounth;
+      }
+      return day.getDate() + '-' + mounth + '-' + day.getFullYear();
     });
   }
 
-  refresh() {
-    this.fetchScreenings(this.date);
+  navigateToDate(date: string) {
+    this.router.navigate(['/', date]);
   }
 }

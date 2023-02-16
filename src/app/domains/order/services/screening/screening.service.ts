@@ -13,7 +13,7 @@ import {
   iif,
 } from 'rxjs';
 import { AppState } from 'src/app/app.module';
-import { AuthService } from 'src/app/auth/auth.service';
+import { Cart } from 'src/app/domains/cart/cart.interface';
 import { API_URL } from 'src/app/env.token';
 import { Screening, Screenings } from 'src/types';
 
@@ -25,7 +25,6 @@ export class ScreeningService {
   private store = inject<Store<AppState>>(Store);
   private API_URL = inject(API_URL);
   private http = inject(HttpClient);
-  private authService = inject(AuthService);
 
   private userId: number | null = null;
   private isUserLogged: boolean = false;
@@ -75,7 +74,23 @@ export class ScreeningService {
       .get<Screening>(
         `${this.API_URL}/screenings/${screeningId}?_expand=movie&_expand=room`
       )
-      .pipe(tap((result) => this._screening$$.next(result)));
+      .pipe(
+        switchMap((screening) => {
+          const carts = this.http.get<Cart[]>(
+            `${this.API_URL}/carts?screeningId=${screeningId}`
+          );
+          return combineLatest([of(screening), carts]);
+        }),
+        map(([screening, carts]) => {
+          carts.forEach((cart) => {
+            if (cart.userId !== this.userId) {
+              screening.seatsOccupied.push(...cart.reservedSeats);
+            }
+          });
+          return screening;
+        }),
+        tap((result) => this._screening$$.next(result))
+      );
   }
 
   getScreenings(date: string) {

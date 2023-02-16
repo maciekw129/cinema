@@ -1,0 +1,55 @@
+<ng-container *ngIf="ticket$ | async as ticket">
+  <ng-container *ngIf="ticketTypes$ | async as ticketTypes">
+    <div class="main-page">
+      <div class="tickets">
+        <mat-card
+          class="main-container tickets__ticket"
+          *ngFor="let seat of ticket.seats"
+        >
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-title><h2>Ale Kino!</h2></mat-card-title>
+              <mat-icon>confirmation_number</mat-icon>
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content class="ticket__content">
+            <div class="ticket__left">
+              <p>
+                {{ ticket.screening.movie.name }} -
+                {{ ticket.screening.room.name }}
+              </p>
+              <p>{{ ticketTypes[seat[2]] }}</p>
+              <p>
+                Rząd: <span class="fnt-16-bold">{{ seat[0] }}</span>
+              </p>
+              <p>
+                Miejsce: <span class="fnt-16-bold">{{ seat[1] }}</span>
+              </p>
+              <p>
+                data:
+                <span class="fnt-16-bold">{{ ticket.screening.day }}</span>
+              </p>
+              <p>
+                godzina:
+                <span class="fnt-16-bold">{{ ticket.screening.hour[0] }}</span>
+              </p>
+            </div>
+            <div class="ticket__right">
+              <img
+                class="ticket__bar-code"
+                [src]="
+                  BARCODE_API_URL +
+                  ticket.screening.day +
+                  '-' +
+                  ticket.screeningId +
+                  seat[0] +
+                  seat[1]
+                "
+              />
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

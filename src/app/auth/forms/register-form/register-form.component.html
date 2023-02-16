@@ -3,100 +3,133 @@
   [formGroup]="registerForm"
   (ngSubmit)="handleSubmit()"
 >
-  <input
-    class="input register-form__input"
-    [class.input-error]="firstNameCtrl.touched && firstNameCtrl.errors"
-    type="text"
-    formControlName="firstName"
-    placeholder="Imię*"
-  />
-  <ng-container *ngIf="firstNameCtrl.errors as errors">
-    <ng-container *ngIf="firstNameCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
-
-  <input
-    class="input register-form__input"
-    [class.input-error]="lastNameCtrl.touched && lastNameCtrl.errors"
-    type="text"
-    formControlName="lastName"
-    placeholder="Nazwisko*"
-  />
-  <ng-container *ngIf="lastNameCtrl.errors as errors">
-    <ng-container *ngIf="lastNameCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
-
-  <input
-    class="input register-form__input"
-    [class.input-error]="emailCtrl.touched && emailCtrl.errors"
-    type="text"
-    formControlName="email"
-    placeholder="E-mail*"
-  />
-  <ng-container *ngIf="emailCtrl.errors as errors">
-    <ng-container *ngIf="emailCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-      <p
-        *ngIf="errors['minlength'] as minLength"
-        class="fnt-13-regular fnt-color-red"
+  <mat-form-field color="primary">
+    <mat-label>Imię</mat-label>
+    <input matInput formControlName="firstName" />
+    <mat-error *ngIf="firstNameCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMinLength"
+        >To pole jest wymagane.</ng-container
       >
-        E-mail powinien mieć {{ minLength.requiredLength }} znaków, a ma
-        {{ minLength.actualLength }}
-      </p>
-      <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">
-        E-mail jest w niewłaściwym formacie
-      </p>
-    </ng-container>
-  </ng-container>
+      <ng-template #nameMinLength>
+        <ng-container
+          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+          >Min. liczba znaków: {{ minLength.actualLength }}/{{
+            minLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container *ngIf="errors['maxlength'] as maxLength"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
-  <input
-    class="input register-form__input"
-    [class.input-error]="passwordCtrl.touched && passwordCtrl.errors"
-    type="password"
-    formControlName="password"
-    placeholder="Hasło*"
-  />
-  <ng-container *ngIf="passwordCtrl.errors as errors">
-    <ng-container *ngIf="passwordCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field color="primary">
+    <mat-label>Nazwisko</mat-label>
+    <input matInput formControlName="lastName" />
+    <mat-error *ngIf="lastNameCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMinLength"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMinLength>
+        <ng-container
+          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+          >Min. liczba znaków: {{ minLength.actualLength }}/{{
+            minLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container *ngIf="errors['maxlength'] as maxLength"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
-  <input
-    class="input register-form__input"
-    [class.input-error]="
-      confirmPasswordCtrl.touched && confirmPasswordCtrl.errors
-    "
-    type="password"
-    formControlName="confirmPassword"
-    placeholder="Powtórz hasło*"
-  />
-  <ng-container *ngIf="confirmPasswordCtrl.errors as errors">
-    <ng-container *ngIf="confirmPasswordCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field color="primary">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="emailCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMinLength"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMinLength>
+        <ng-container
+          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+          >Min. liczba znaków: {{ minLength.actualLength }}/{{
+            minLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container *ngIf="errors['maxlength'] as maxLength; else namePattern"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #namePattern>
+        <ng-container *ngIf="errors['pattern'] as pattern"
+          >Email jest w złym formacie.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
-  <ng-container *ngIf="registerForm.errors as errors">
-    <ng-container *ngIf="confirmPasswordCtrl.touched">
-      <p *ngIf="errors['isEqual']" class="fnt-13-regular fnt-color-red">
-        Hasła się nie zgadzają
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field color="primary">
+    <mat-label>Hasło</mat-label>
+    <input type="password" matInput formControlName="password" />
+    <mat-error *ngIf="passwordCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMinLength"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMinLength>
+        <ng-container
+          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+          >Min. liczba znaków: {{ minLength.actualLength }}/{{
+            minLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container *ngIf="errors['maxlength'] as maxLength"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
+  <mat-form-field color="primary">
+    <mat-label>Powtórz hasło</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="confirmPassword"
+      [errorStateMatcher]="confirmPasswordMatcher"
+    />
+    <mat-error>
+      <ng-container *ngIf="confirmPasswordCtrl.errors as errors; else isEqual">
+        <ng-container *ngIf="errors['required']"
+          >To pole jest wymagane.</ng-container
+        >
+      </ng-container>
+      <ng-template #isEqual>
+        <ng-container *ngIf="registerForm.errors as errors">
+          <ng-container *ngIf="errors['isEqual']">
+            Hasła się nie zgadzają
+          </ng-container>
+        </ng-container>
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
   <app-button text="Zarejestruj" type="submit"></app-button>
 </form>

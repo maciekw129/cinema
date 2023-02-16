@@ -6,7 +6,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './home/components/header/header.component';
 import { FooterComponent } from './home/components/footer/footer.component';
@@ -35,6 +34,16 @@ import { authReducer } from './auth/store/auth.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
 import { fetchLoggedUser } from './auth/fetchLoggedUser';
 import { LoaderComponent } from './shared/loader/loader/loader.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MovieListComponent } from './home/components/movie-list/movie-list.component';
 
 export interface AppState {
   cart: CartState;
@@ -58,12 +67,22 @@ export interface AppState {
     CartItemComponent,
     RatingScaleComponent,
     CountCartItemsPipe,
+    MovieListComponent,
   ],
   imports: [
+    MatBadgeModule,
+    MatButtonToggleModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatMenuModule,
     ButtonComponent,
     LoaderComponent,
     ModalComponent,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
     StoreModule.forRoot({ cart: cartReducer, auth: authReducer }),

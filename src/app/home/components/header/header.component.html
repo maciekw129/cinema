@@ -15,11 +15,9 @@
           ></app-header-dropdown>
         </ng-container>
         <ng-template #elseBlock>
-          <app-button
-            text="Zaloguj"
-            [important]="true"
-            routerLink="login"
-          ></app-button>
+          <button mat-flat-button routerLink="login" color="primary">
+            Zaloguj
+          </button>
         </ng-template>
       </ng-container>
     </div>
