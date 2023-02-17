@@ -6,6 +6,7 @@ import { AppState } from 'src/app/app.module';
 import { selectData } from 'src/app/auth/store/auth.selectors';
 import patterns from 'src/app/shared/validatorPatterns';
 import { confirmEmailValidator } from 'src/app/shared/validators';
+import { ConfirmEmailStateMatcher } from './confirmEmailStateMatcher';
 
 export interface UserForm {
   firstName: string;
@@ -27,6 +28,8 @@ export class FinalizeFormComponent {
 
   @Output() userDataEvent = new EventEmitter<UserForm>();
   finalizeForm = this.createForm();
+
+  confirmEmailStateMatcher = new ConfirmEmailStateMatcher();
 
   ngOnInit() {
     this.store
@@ -80,10 +83,18 @@ export class FinalizeFormComponent {
     return this.fb.group(
       {
         firstName: this.fb.control('', {
-          validators: [Validators.maxLength(20), Validators.required],
+          validators: [
+            Validators.maxLength(20),
+            Validators.required,
+            Validators.pattern(patterns.noSpecialLetters),
+          ],
         }),
         lastName: this.fb.control('', {
-          validators: [Validators.maxLength(20), Validators.required],
+          validators: [
+            Validators.maxLength(20),
+            Validators.required,
+            Validators.pattern(patterns.noSpecialLetters),
+          ],
         }),
         phone: this.fb.control('', {
           validators: [

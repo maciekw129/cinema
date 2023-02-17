@@ -1,20 +1,26 @@
 .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: hsl(0, 0%, 95%);
-    margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(0, 0%, 95%);
+  margin-bottom: 70px;
 }
 
 .home__button-bar {
-    margin: 25px 0;
+  margin: 25px 0;
 }
 
 .home__movie {
-    width: 100%;
-    margin: 0 50px;
+  width: 100%;
+  margin: 0 50px;
 }
 
 .home__no-movies {
-    margin-top: 50px;
+  margin-top: 50px;
+}
+
+mat-button-toggle-group {
+  flex-wrap: wrap;
+  border: none;
+  justify-content: center;
 }

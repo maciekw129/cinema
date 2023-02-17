@@ -62,6 +62,7 @@ export class RegisterFormComponent {
           validators: [
             Validators.required,
             Validators.minLength(15),
+            Validators.maxLength(50),
             Validators.pattern(patterns['email']),
           ],
         }),
@@ -70,6 +71,7 @@ export class RegisterFormComponent {
             Validators.required,
             Validators.minLength(2),
             Validators.maxLength(20),
+            Validators.pattern(patterns['noSpecialLetters']),
           ],
         }),
         lastName: this.fb.control('', {
@@ -77,6 +79,7 @@ export class RegisterFormComponent {
             Validators.required,
             Validators.minLength(2),
             Validators.maxLength(20),
+            Validators.pattern(patterns['noSpecialLetters']),
           ],
         }),
         password: this.fb.control('', {

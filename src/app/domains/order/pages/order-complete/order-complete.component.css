@@ -1,16 +1,23 @@
 .order-complete {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .order-complete__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.order-complete__button-link {
+  width: 200px;
+  background-color: none;
+  border: none;
+  cursor: pointer;
 }
 
 .order-complete__qr {
-    width: 200px;
+  width: 100%;
 }

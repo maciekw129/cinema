@@ -4,6 +4,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, combineLatest, map, Observable, tap } from 'rxjs';
 import {
   FinalizeForm,
+  Order,
   Screening,
   Seat,
   TicketTypes,
@@ -18,6 +19,18 @@ import { API_URL } from 'src/app/env.token';
 export interface OrderState {
   seatsChosen: Seat[];
   ticketTypes: TicketTypes[];
+  order: OrderPostResponse | null;
+  coupon: Coupon | null;
+}
+
+interface OrderPostResponse extends Order {
+  id: number;
+}
+
+export interface Coupon {
+  id: number;
+  code: string;
+  discount: number;
 }
 
 @UntilDestroy()
@@ -65,6 +78,8 @@ export class OrderService {
   private _orderState$$ = new BehaviorSubject<OrderState>({
     seatsChosen: [],
     ticketTypes: [],
+    order: null,
+    coupon: null,
   });
 
   public readonly orderState$: Observable<OrderState> =
@@ -76,6 +91,10 @@ export class OrderService {
 
   get selectTicketTypes$() {
     return this.orderState$.pipe(map((state) => state.ticketTypes));
+  }
+
+  get selectOrder$() {
+    return this.orderState$.pipe(map((state) => state.order));
   }
 
   private patchState(stateSlice: Partial<OrderState>) {
@@ -197,13 +216,18 @@ export class OrderService {
     this.patchState({ seatsChosen: newSeatsChosen });
   }
 
+  calculatePrice() {}
+
   createOrder(form: FinalizeForm) {
-    const orderPost = this.http.post(`${this.API_URL}/orders`, {
-      screeningId: this._screening.id,
-      seats: this._orderState$$.value.seatsChosen,
-      userId: this.userId,
-      ownerDetails: form,
-    });
+    const orderPost = this.http.post<OrderPostResponse>(
+      `${this.API_URL}/orders`,
+      {
+        screeningId: this._screening.id,
+        seats: this._orderState$$.value.seatsChosen,
+        userId: this.userId,
+        ownerDetails: form,
+      }
+    );
     const seats = this._screening.seatsOccupied;
     const seatsPost = this.http.patch(
       `${this.API_URL}/screenings/${this._screening.id}`,
@@ -215,12 +239,13 @@ export class OrderService {
     );
     return combineLatest([orderPost, seatsPost]).pipe(
       tap({
-        next: () => {
+        next: ([postResponse]) => {
           if (this._cartId !== null) {
             this.store.dispatch(
               CartActions.removeScreening({ id: this._cartId })
             );
           }
+          this.patchState({ order: postResponse });
         },
       })
     );

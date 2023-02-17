@@ -1,12 +1,13 @@
-<ng-container *ngIf="userData$ | async as userData">
+<ng-container *ngIf="order$ | async as order">
   <div class="order-complete main-page">
     <div class="order-complete__content main-container">
       <h1>Dziękujemy za zamówienie!</h1>
-      <p>Bilety zostały wysłane na e-mail: {{ userData.email }}</p>
+      <p>Bilety zostały wysłane na e-mail: {{ order.ownerDetails.email }}</p>
       <img
         class="order-complete__qr"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Qr-witaj-w-wikiped.svg/330px-Qr-witaj-w-wikiped.svg.png"
+        [src]="BARCODE_API_URL + 'localhost%3A4200%2Ftickets%2F' + order.id"
       />
+      <a (click)="navigateToTicket(order.id)">Link do biletów</a>
       <app-button text="Wróć na stronę główną" routerLink="/"></app-button>
     </div>
   </div>

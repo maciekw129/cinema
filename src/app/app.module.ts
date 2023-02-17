@@ -44,6 +44,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MovieListComponent } from './home/components/movie-list/movie-list.component';
+import { NoSpacesDirective } from './shared/directives/no-spaces.directive';
 
 export interface AppState {
   cart: CartState;
@@ -68,6 +69,7 @@ export interface AppState {
     RatingScaleComponent,
     CountCartItemsPipe,
     MovieListComponent,
+    NoSpacesDirective,
   ],
   imports: [
     MatBadgeModule,

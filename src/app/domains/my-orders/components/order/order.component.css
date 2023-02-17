@@ -3,8 +3,15 @@
   column-gap: 10px;
   padding: 10px 5px;
   margin: 10px 0;
-  border: 1.5px solid var(--colorDarkBlue);
+  border: 1.5px solid var(--colorDarkGreen);
   border-radius: 5px;
+  width: 100%;
+  background-color: var(--colorLightGray);
+  cursor: pointer;
+}
+
+.order:hover {
+  opacity: 0.75;
 }
 
 .order__seat::after {

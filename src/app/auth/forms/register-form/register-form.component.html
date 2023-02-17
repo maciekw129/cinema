@@ -5,7 +5,7 @@
 >
   <mat-form-field color="primary">
     <mat-label>Imię</mat-label>
-    <input matInput formControlName="firstName" />
+    <input appNoSpaces matInput formControlName="firstName" />
     <mat-error *ngIf="firstNameCtrl.errors as errors">
       <ng-container *ngIf="errors['required']; else nameMinLength"
         >To pole jest wymagane.</ng-container
@@ -19,10 +19,16 @@
         >
       </ng-template>
       <ng-template #nameMaxLength>
-        <ng-container *ngIf="errors['maxlength'] as maxLength"
+        <ng-container
+          *ngIf="errors['maxlength'] as maxLength; else nameSpecialLetters"
           >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
             maxLength.requiredLength
           }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameSpecialLetters>
+        <ng-container *ngIf="errors['pattern']"
+          >Znaki specjalne są niedozwolone</ng-container
         >
       </ng-template>
     </mat-error>
@@ -30,7 +36,7 @@
 
   <mat-form-field color="primary">
     <mat-label>Nazwisko</mat-label>
-    <input matInput formControlName="lastName" />
+    <input appNoSpaces matInput formControlName="lastName" />
     <mat-error *ngIf="lastNameCtrl.errors as errors">
       <ng-container *ngIf="errors['required']; else nameMinLength"
         >To pole jest wymagane.</ng-container
@@ -44,10 +50,16 @@
         >
       </ng-template>
       <ng-template #nameMaxLength>
-        <ng-container *ngIf="errors['maxlength'] as maxLength"
+        <ng-container
+          *ngIf="errors['maxlength'] as maxLength; else nameSpecialLetters"
           >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
             maxLength.requiredLength
           }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameSpecialLetters>
+        <ng-container *ngIf="errors['pattern']"
+          >Znaki specjalne są niedozwolone</ng-container
         >
       </ng-template>
     </mat-error>
@@ -55,7 +67,7 @@
 
   <mat-form-field color="primary">
     <mat-label>Email</mat-label>
-    <input matInput formControlName="email" />
+    <input appNoSpaces matInput formControlName="email" />
     <mat-error *ngIf="emailCtrl.errors as errors">
       <ng-container *ngIf="errors['required']; else nameMinLength"
         >To pole jest wymagane.</ng-container
@@ -85,7 +97,7 @@
 
   <mat-form-field color="primary">
     <mat-label>Hasło</mat-label>
-    <input type="password" matInput formControlName="password" />
+    <input appNoSpaces type="password" matInput formControlName="password" />
     <mat-error *ngIf="passwordCtrl.errors as errors">
       <ng-container *ngIf="errors['required']; else nameMinLength"
         >To pole jest wymagane.</ng-container
@@ -111,6 +123,7 @@
   <mat-form-field color="primary">
     <mat-label>Powtórz hasło</mat-label>
     <input
+      appNoSpaces
       type="password"
       matInput
       formControlName="confirmPassword"

@@ -16,7 +16,10 @@ import { ModalComponent } from '../../shared/components/modal/modal.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { NoSpacesDirective } from 'src/app/shared/directives/no-spaces.directive';
+import { CouponFormComponent } from './forms/coupon-form/coupon-form/coupon-form.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { MatIconModule } from '@angular/material/icon';
     SeatComponent,
     ChosenSeatComponent,
     PaymentFormComponent,
+    NoSpacesDirective,
+    CouponFormComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +43,9 @@ import { MatIconModule } from '@angular/material/icon';
     CustomerRoutingModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatInputModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class OrderModule {}

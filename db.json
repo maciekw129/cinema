@@ -112,6 +112,12 @@
       "rows": 15,
       "columns": 15,
       "id": 5
+    },
+    {
+      "name": "asdasd",
+      "rows": 12,
+      "columns": 12,
+      "id": 6
     }
   ],
   "genres": [
@@ -713,6 +719,271 @@
           4,
           5,
           1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          7,
+          5,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          9,
+          4,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          9,
+          8,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          1,
+          1
+        ],
+        [
+          7,
+          1,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          6,
+          1,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          7,
+          3,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          8,
+          5,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          7,
+          7,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          7,
+          9,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          8,
+          6,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          9,
+          9,
+          1
+        ],
+        [
+          9,
+          6,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          6,
+          9,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          9,
+          5,
+          1
         ]
       ]
     },
@@ -759,6 +1030,21 @@
           6,
           4,
           1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          0,
+          1
+        ],
+        [
+          9,
+          2,
+          1
         ]
       ]
     },
@@ -790,6 +1076,276 @@
           0,
           9,
           1
+        ],
+        [
+          5,
+          9,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          9,
+          5,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          8,
+          1,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          9,
+          3,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          9,
+          9,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          7,
+          7,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          4,
+          7,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          9,
+          4,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          9,
+          7,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          7,
+          5,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          8,
+          6,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          0,
+          3,
+          1
         ]
       ]
     },
@@ -811,6 +1367,536 @@
           9,
           4,
           1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          5,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          5,
+          7,
+          1
+        ],
+        [
+          8,
+          4,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          9,
+          6,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          3,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          9,
+          7,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          9,
+          9,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          8,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          5,
+          8,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          5,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          2,
+          7,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          9,
+          8,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          9,
+          5,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          9,
+          1,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          6,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          9,
+          0,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          0,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          4,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          9,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          1,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          8,
+          8,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          7,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          9,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          5,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          6,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          3,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          1,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          7,
+          0,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          6,
+          0,
+          1
         ]
       ]
     },
@@ -822,7 +1908,23 @@
       "day": "18-02-2023",
       "roomId": 2,
       "id": 7,
-      "seatsOccupied": []
+      "seatsOccupied": [
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          11,
+          2,
+          1
+        ],
+        [
+          8,
+          8,
+          1
+        ]
+      ]
     },
     {
       "movieId": 5,
@@ -867,7 +1969,38 @@
       ],
       "day": "16-02-2023",
       "roomId": 5,
-      "seatsOccupied": [],
+      "seatsOccupied": [
+        [
+          0,
+          14,
+          1
+        ],
+        [
+          1,
+          14,
+          1
+        ],
+        [
+          1,
+          13,
+          1
+        ],
+        [
+          0,
+          13,
+          1
+        ],
+        [
+          6,
+          13,
+          1
+        ],
+        [
+          7,
+          9,
+          1
+        ]
+      ],
       "id": 11
     },
     {
@@ -879,6 +2012,16 @@
       "roomId": 3,
       "seatsOccupied": [],
       "id": 12
+    },
+    {
+      "movieId": 8,
+      "hour": [
+        "12:43"
+      ],
+      "day": "22-02-2023",
+      "roomId": 6,
+      "seatsOccupied": [],
+      "id": 13
     }
   ],
   "ticketTypes": [
@@ -1723,13 +2866,79 @@
         "email": "kacper@email.com"
       },
       "id": 41
-    }
-  ],
-  "carts": [
+    },
     {
+      "screeningId": 2,
+      "seats": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
       "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 42
+    },
+    {
+      "screeningId": 11,
+      "seats": [
+        [
+          0,
+          14,
+          1
+        ],
+        [
+          1,
+          14,
+          1
+        ],
+        [
+          1,
+          13,
+          1
+        ],
+        [
+          0,
+          13,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 43
+    },
+    {
+      "screeningId": 7,
+      "seats": [
+        [
+          6,
+          6,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 44
+    },
+    {
       "screeningId": 6,
-      "reservedSeats": [
+      "seats": [
         [
           0,
           2,
@@ -1751,69 +2960,351 @@
           1
         ]
       ],
-      "id": 3
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "u21ser@email.com"
+      },
+      "id": 45
     },
     {
-      "userId": 4,
-      "screeningId": 2,
-      "reservedSeats": [
-        [
-          0,
-          0,
-          1
-        ]
-      ],
-      "id": 4
-    },
-    {
-      "userId": 4,
       "screeningId": 11,
-      "reservedSeats": [
+      "seats": [
         [
-          0,
-          14,
-          1
-        ],
-        [
-          1,
-          14,
-          1
-        ],
-        [
-          1,
-          13,
-          1
-        ],
-        [
-          0,
+          6,
           13,
           1
         ]
       ],
-      "id": 5
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 46
     },
     {
+      "screeningId": 11,
+      "seats": [
+        [
+          7,
+          9,
+          1
+        ]
+      ],
       "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 47
+    },
+    {
+      "screeningId": 7,
+      "seats": [
+        [
+          11,
+          2,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 48
+    },
+    {
       "screeningId": 4,
-      "reservedSeats": [
+      "seats": [
+        [
+          5,
+          9,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 49
+    },
+    {
+      "screeningId": 3,
+      "seats": [
         [
           4,
-          6,
+          3,
           1
-        ],
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 50
+    },
+    {
+      "screeningId": 3,
+      "seats": [
         [
-          1,
-          9,
-          1
-        ],
-        [
+          4,
           0,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 51
+    },
+    {
+      "screeningId": 4,
+      "seats": [
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 52
+    },
+    {
+      "screeningId": 4,
+      "seats": [
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 53
+    },
+    {
+      "screeningId": 3,
+      "seats": [
+        [
+          9,
+          2,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 54
+    },
+    {
+      "screeningId": 4,
+      "seats": [
+        [
+          5,
+          4,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 55
+    },
+    {
+      "screeningId": 4,
+      "seats": [
+        [
+          9,
+          5,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 56
+    },
+    {
+      "screeningId": 2,
+      "seats": [
+        [
+          9,
+          4,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 57
+    },
+    {
+      "screeningId": 2,
+      "seats": [
+        [
+          9,
+          8,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 58
+    },
+    {
+      "screeningId": 6,
+      "seats": [
+        [
+          9,
+          2,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 59
+    },
+    {
+      "screeningId": 2,
+      "seats": [
+        [
+          6,
           9,
           1
         ]
       ],
-      "id": 6
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asdsdads",
+        "lastName": "dassadsd",
+        "phone": "123123123",
+        "email": "kmkm@kmkm.pl"
+      },
+      "id": 60
     },
+    {
+      "screeningId": 4,
+      "seats": [
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "dfsdffds",
+        "lastName": "sdfsdfsdf",
+        "phone": "",
+        "email": "sadas@dasd.pl"
+      },
+      "id": 61
+    },
+    {
+      "screeningId": 4,
+      "seats": [
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 62
+    },
+    {
+      "screeningId": 6,
+      "seats": [
+        [
+          8,
+          4,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 63
+    }
+  ],
+  "carts": [
     {
       "userId": 10,
       "screeningId": 2,
@@ -1825,6 +3316,62 @@
         ]
       ],
       "id": 7
+    },
+    {
+      "userId": 4,
+      "screeningId": 2,
+      "reservedSeats": [
+        [
+          8,
+          2,
+          1
+        ],
+        [
+          9,
+          2,
+          1
+        ]
+      ],
+      "id": 8
+    },
+    {
+      "userId": 4,
+      "screeningId": 4,
+      "reservedSeats": [
+        [
+          7,
+          2,
+          1
+        ],
+        [
+          8,
+          7,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ]
+      ],
+      "id": 9
+    },
+    {
+      "userId": 4,
+      "screeningId": 6,
+      "reservedSeats": [
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          3,
+          7,
+          1
+        ]
+      ],
+      "id": 10
     }
   ],
   "rating": [
@@ -1890,6 +3437,13 @@
       "userId": 4,
       "movieId": 1,
       "id": 8
+    }
+  ],
+  "coupons": [
+    {
+      "id": 1,
+      "code": "super-kupon",
+      "discount": 20
     }
   ]
 }

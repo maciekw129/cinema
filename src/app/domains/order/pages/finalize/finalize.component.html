@@ -1,27 +1,36 @@
-<div class="finalize main-container" *ngIf="screening && ticketTypes">
-    <div class="finalize__header-wrapper">
-        <h2 class="finalize__title">{{ screening.movie.name + ' -'}}</h2>
-        <p class="finalize__text-details">{{ screening.day + ', godz. ' + screening.hour[0] }}</p>
-    </div>
-    <div class="finalize__seats-container">
+<ng-container *ngIf="seatsChosen$ | async as seatsChosen">
+  <ng-container *ngIf="ticketTypes$ | async as ticketTypes">
+    <div class="finalize main-container">
+      <div class="finalize__header-wrapper">
+        <h2 class="finalize__title">{{ screening.movie.name + " -" }}</h2>
+        <p class="finalize__text-details">
+          {{ screening.day + ", godz. " + screening.hour[0] }}
+        </p>
+      </div>
+      <div class="finalize__seats-container">
         <div class="finalize__seat" *ngFor="let seat of seatsChosen">
-            <p class="seats__informations">Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}</p>
-            <p class="seats__price">{{ ticketTypes[seat[2]].price }}zł</p>
+          <p class="seats__informations">
+            Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}
+          </p>
+          <p class="seats__price">{{ ticketTypes[seat[2]].price }}zł</p>
         </div>
-        <div class="seats__price-sum">razem {{ getPriceSum() }}zł</div>
-    </div>
-    <app-finalize-form
+        <div class="seats__price-sum">razem zł</div>
+      </div>
+      <app-coupon-form></app-coupon-form>
+      <app-finalize-form
         (userDataEvent)="submitUserData($event)"
-    ></app-finalize-form>
-    <a class="finalize__link" routerLink="..">Wróć do wyboru miejsc</a>
+      ></app-finalize-form>
+      <a class="finalize__link" routerLink="..">Wróć do wyboru miejsc</a>
 
-    <app-modal *ngIf="isModalVisible" (closeEvent)="toggleModal()">
+      <app-modal *ngIf="isModalVisible" (closeEvent)="toggleModal()">
         <div class="finalize__payment-modal">
-            <h2>Płatność</h2>
-            <app-payment-form
-                class="finalize__payment-form"
-                (paymentEvent)="submitPayment()"
-            ></app-payment-form>
+          <h2>Płatność</h2>
+          <app-payment-form
+            class="finalize__payment-form"
+            (paymentEvent)="submitPayment()"
+          ></app-payment-form>
         </div>
-    </app-modal>
-</div>
+      </app-modal>
+    </div>
+  </ng-container>
+</ng-container>

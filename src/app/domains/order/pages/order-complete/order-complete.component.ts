@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.module';
-import { selectData } from 'src/app/auth/store/auth.selectors';
+import { Router } from '@angular/router';
+import { OrderService } from '../../services/order/order.service';
 
 @Component({
   selector: 'app-order-complete',
@@ -9,7 +8,14 @@ import { selectData } from 'src/app/auth/store/auth.selectors';
   styleUrls: ['./order-complete.component.css'],
 })
 export class OrderCompleteComponent {
-  private store = inject<Store<AppState>>(Store);
+  private orderService = inject(OrderService);
+  private router = inject(Router);
 
-  userData$ = this.store.select(selectData);
+  BARCODE_API_URL = 'https://barcodeapi.org/api/qr/';
+
+  order$ = this.orderService.selectOrder$;
+
+  navigateToTicket(id: number) {
+    this.router.navigate(['/ticket', id]);
+  }
 }

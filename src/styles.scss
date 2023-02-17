@@ -132,10 +132,12 @@ h6 {
 a {
   color: var(--colorDarkPurple);
   transition: color 0.2s linear;
+  text-decoration: underline;
 }
 
 a:hover {
   color: var(--colorGreen);
+  cursor: pointer;
 }
 
 .input {

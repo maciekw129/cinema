@@ -1,4 +1,4 @@
-<div class="order">
+<button class="order" (click)="navigateToTicket()">
   <p class="fnt-16-bold">{{ order.screening.movie.name }}</p>
   <p>{{ order.screening.day }}</p>
   <p>{{ order.screening.hour[0] }}</p>
@@ -8,4 +8,4 @@
       {{ alphabeth[seat[0]] }}{{ seat[1] }}
     </span>
   </p>
-</div>
+</button>

@@ -1,7 +1,7 @@
 <form class="login-form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
   <mat-form-field color="primary">
     <mat-label>Email</mat-label>
-    <input matInput formControlName="email" />
+    <input appNoSpaces matInput formControlName="email" />
     <mat-error *ngIf="emailCtrl.errors as errors">
       <ng-container *ngIf="errors['required']; else nameMinLength"
         >To pole jest wymagane.</ng-container
@@ -32,6 +32,7 @@
   <mat-form-field appearance="fill">
     <mat-label>Hasło</mat-label>
     <input
+      appNoSpaces
       matInput
       [type]="hide ? 'password' : 'text'"
       formControlName="password"

@@ -7,18 +7,12 @@ import { OrderComponent } from './components/order/order.component';
 const routes: Routes = [
   {
     path: '',
-    component: MyOrdersComponent
+    component: MyOrdersComponent,
   },
 ];
 
 @NgModule({
-  declarations: [
-    MyOrdersComponent,
-    OrderComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+  declarations: [MyOrdersComponent, OrderComponent],
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class MyOrdersModule {}
