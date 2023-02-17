@@ -1,14 +1,17 @@
 <form class="coupon-form" [formGroup]="couponForm" (ngSubmit)="handleSubmit()">
-  <ng-container *ngIf="couponCtrl.statusChanges | async as status">
-    <mat-form-field color="primary">
-      <mat-label>Kod zniżkowy</mat-label>
-      <input appNoSpaces matInput formControlName="coupon" />
+  <mat-form-field color="primary">
+    <mat-label>Kod zniżkowy</mat-label>
+    <input appNoSpaces matInput formControlName="coupon" />
+    <mat-spinner
+      matSuffix
+      diameter="20"
+      *ngIf="(couponCtrl.statusChanges | async) === 'PENDING'"
+    ></mat-spinner>
+    <mat-error *ngIf="couponCtrl.errors as errors">
+      Kupon jest nieprawidłowy
+    </mat-error>
+  </mat-form-field>
 
-      <mat-error *ngIf="couponCtrl.errors as errors">
-        Kupon jest nieprawidłowy
-      </mat-error>
-    </mat-form-field>
-  </ng-container>
   <button mat-flat-button color="primary" [disabled]="!couponForm.valid">
     Zatwierdź
   </button>
