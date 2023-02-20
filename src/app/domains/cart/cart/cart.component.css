@@ -31,3 +31,7 @@
 .cart__title {
   font-weight: bold;
 }
+
+.cart__empty {
+  padding: 4px 8px;
+}

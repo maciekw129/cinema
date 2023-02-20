@@ -7,7 +7,7 @@
       "userData": {
         "firstName": "Maciej",
         "lastName": "Kowalski",
-        "phone": ""
+        "phone": "123123122"
       },
       "id": 4
     },
@@ -118,6 +118,24 @@
       "rows": 12,
       "columns": 12,
       "id": 6
+    },
+    {
+      "name": "asddas",
+      "rows": 12,
+      "columns": 12,
+      "id": 7
+    },
+    {
+      "name": "asdasd",
+      "rows": 12,
+      "columns": 12,
+      "id": 8
+    },
+    {
+      "name": "asd",
+      "rows": 1,
+      "columns": 1,
+      "id": 9
     }
   ],
   "genres": [
@@ -343,6 +361,19 @@
       "description": "Najnowsza odsłona serii wigilijnych opowieści \"Listy do M.\", w której zobaczymy nowe świąteczne perypetie znanych bohaterów.",
       "rating": 0,
       "id": 11
+    },
+    {
+      "name": "Wieloryb",
+      "image": "https://fwcdn.pl/fpo/84/78/868478/8055892.6.jpg",
+      "premiere": true,
+      "genre": [
+        "dramat"
+      ],
+      "duration": "117min.",
+      "ageRestrictions": "PG-16",
+      "description": "Cierpiący na poważną otyłość nauczyciel angielskiego próbuje odbudować więź ze swoją nastoletnią córką.",
+      "rating": 0,
+      "id": 12
     }
   ],
   "screenings": [
@@ -354,192 +385,7 @@
       ],
       "day": "15-02-2023",
       "roomId": 1,
-      "seatsOccupied": [
-        [
-          1,
-          8
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          0,
-          1,
-          1
-        ],
-        [
-          0,
-          2,
-          1
-        ],
-        [
-          6,
-          1,
-          1
-        ],
-        [
-          6,
-          2,
-          1
-        ],
-        [
-          5,
-          5,
-          1
-        ],
-        [
-          4,
-          4,
-          1
-        ],
-        [
-          7,
-          5,
-          1
-        ],
-        [
-          9,
-          5,
-          1
-        ],
-        [
-          9,
-          6,
-          1
-        ],
-        [
-          3,
-          8,
-          1
-        ],
-        [
-          3,
-          9,
-          1
-        ],
-        [
-          2,
-          5,
-          2
-        ],
-        [
-          7,
-          6,
-          2
-        ],
-        [
-          7,
-          7,
-          1
-        ],
-        [
-          5,
-          7,
-          1
-        ],
-        [
-          5,
-          9,
-          1
-        ],
-        [
-          9,
-          3,
-          1
-        ],
-        [
-          0,
-          9,
-          1
-        ],
-        [
-          1,
-          9,
-          1
-        ],
-        [
-          9,
-          8,
-          1
-        ],
-        [
-          9,
-          9,
-          1
-        ],
-        [
-          6,
-          3,
-          1
-        ],
-        [
-          6,
-          4,
-          1
-        ],
-        [
-          3,
-          1,
-          1
-        ],
-        [
-          3,
-          2,
-          1
-        ],
-        [
-          8,
-          5,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          9,
-          1,
-          1
-        ],
-        [
-          1,
-          3,
-          3
-        ],
-        [
-          1,
-          2,
-          2
-        ],
-        [
-          2,
-          6,
-          1
-        ],
-        [
-          1,
-          6,
-          1
-        ],
-        [
-          7,
-          4,
-          1
-        ],
-        [
-          9,
-          7,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ]
-      ]
+      "seatsOccupied": []
     },
     {
       "id": 2,
@@ -549,443 +395,7 @@
       ],
       "day": "16-02-2023",
       "roomId": 1,
-      "seatsOccupied": [
-        [
-          6,
-          3,
-          1
-        ],
-        [
-          6,
-          4,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          0,
-          9,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          1,
-          9,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          1,
-          8,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          0,
-          8,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          3,
-          5,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          4,
-          8,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          1,
-          3,
-          1
-        ],
-        [
-          1,
-          4,
-          1
-        ],
-        [
-          1,
-          5,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          0,
-          5,
-          1
-        ],
-        [
-          0,
-          4,
-          1
-        ],
-        [
-          0,
-          3,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          0,
-          7,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          3,
-          2,
-          1
-        ],
-        [
-          3,
-          4,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          4,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          7,
-          5,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          9,
-          4,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          9,
-          8,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          1,
-          1
-        ],
-        [
-          7,
-          1,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          6,
-          1,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          7,
-          3,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          8,
-          5,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          7,
-          7,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          7,
-          9,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          8,
-          6,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          9,
-          9,
-          1
-        ],
-        [
-          9,
-          6,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          6,
-          9,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          9,
-          5,
-          1
-        ]
-      ]
+      "seatsOccupied": []
     },
     {
       "id": 3,
@@ -995,58 +405,7 @@
       ],
       "day": "19-02-2023",
       "roomId": 1,
-      "seatsOccupied": [
-        [
-          7,
-          3,
-          1
-        ],
-        [
-          7,
-          4,
-          1
-        ],
-        [
-          7,
-          5,
-          1
-        ],
-        [
-          4,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          6,
-          3,
-          1
-        ],
-        [
-          6,
-          4,
-          1
-        ],
-        [
-          4,
-          3,
-          1
-        ],
-        [
-          4,
-          0,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ]
-      ]
+      "seatsOccupied": []
     },
     {
       "id": 4,
@@ -1056,298 +415,7 @@
       ],
       "day": "16-02-2023",
       "roomId": 1,
-      "seatsOccupied": [
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          4,
-          6,
-          1
-        ],
-        [
-          1,
-          9,
-          1
-        ],
-        [
-          0,
-          9,
-          1
-        ],
-        [
-          5,
-          9,
-          1
-        ],
-        [
-          4,
-          3,
-          1
-        ],
-        [
-          4,
-          2,
-          1
-        ],
-        [
-          5,
-          4,
-          1
-        ],
-        [
-          9,
-          5,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          8,
-          1,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          9,
-          3,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          9,
-          9,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          7,
-          7,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          4,
-          7,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          9,
-          4,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          9,
-          7,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          7,
-          5,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          8,
-          6,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          5,
-          3,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          2,
-          2,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ],
-        [
-          0,
-          3,
-          1
-        ]
-      ]
+      "seatsOccupied": []
     },
     {
       "id": 6,
@@ -1360,7 +428,7 @@
       "seatsOccupied": [
         [
           9,
-          3,
+          5,
           1
         ],
         [
@@ -1369,593 +437,13 @@
           1
         ],
         [
-          0,
-          2,
-          1
-        ],
-        [
-          0,
-          3,
-          1
-        ],
-        [
-          0,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ],
-        [
-          0,
-          0,
-          1
-        ],
-        [
           2,
           4,
           1
         ],
         [
-          3,
-          4,
-          1
-        ],
-        [
-          5,
-          7,
-          1
-        ],
-        [
-          8,
-          4,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          9,
-          6,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          3,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          9,
-          7,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          9,
-          9,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          8,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          5,
-          8,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          5,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
           2,
-          7,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          6,
-          4,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          9,
-          8,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          3,
-          6,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          9,
           5,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          2,
-          3,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          9,
-          1,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          6,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          9,
-          0,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          0,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          4,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          9,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          1,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          8,
-          8,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          7,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          9,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          5,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          6,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          3,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          1,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          7,
-          0,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          6,
-          0,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          6,
-          9,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          6,
-          5,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          6,
-          8,
-          1
-        ],
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ],
-        [
-          6,
-          7,
           1
         ]
       ]
@@ -1968,23 +456,7 @@
       "day": "18-02-2023",
       "roomId": 2,
       "id": 7,
-      "seatsOccupied": [
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          11,
-          2,
-          1
-        ],
-        [
-          8,
-          8,
-          1
-        ]
-      ]
+      "seatsOccupied": []
     },
     {
       "movieId": 5,
@@ -2013,13 +485,7 @@
       ],
       "day": "17-02-2023",
       "roomId": 1,
-      "seatsOccupied": [
-        [
-          6,
-          5,
-          1
-        ]
-      ],
+      "seatsOccupied": [],
       "id": 10
     },
     {
@@ -2029,38 +495,7 @@
       ],
       "day": "16-02-2023",
       "roomId": 5,
-      "seatsOccupied": [
-        [
-          0,
-          14,
-          1
-        ],
-        [
-          1,
-          14,
-          1
-        ],
-        [
-          1,
-          13,
-          1
-        ],
-        [
-          0,
-          13,
-          1
-        ],
-        [
-          6,
-          13,
-          1
-        ],
-        [
-          7,
-          9,
-          1
-        ]
-      ],
+      "seatsOccupied": [],
       "id": 11
     },
     {
@@ -2082,6 +517,77 @@
       "roomId": 6,
       "seatsOccupied": [],
       "id": 13
+    },
+    {
+      "movieId": 4,
+      "hour": [
+        "19:31"
+      ],
+      "day": "22-02-2023",
+      "roomId": 8,
+      "seatsOccupied": [
+        [
+          1,
+          4,
+          1
+        ],
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          10,
+          7,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          10,
+          1
+        ]
+      ],
+      "id": 14
+    },
+    {
+      "movieId": 2,
+      "hour": [
+        "17:51"
+      ],
+      "day": "19-02-2023",
+      "roomId": 9,
+      "seatsOccupied": [],
+      "id": 15
+    },
+    {
+      "movieId": 6,
+      "hour": [
+        "23:33"
+      ],
+      "day": "22-02-2023",
+      "roomId": 3,
+      "seatsOccupied": [],
+      "id": 16
+    },
+    {
+      "movieId": 12,
+      "hour": [
+        "12:12"
+      ],
+      "day": "22-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 17
     }
   ],
   "ticketTypes": [
@@ -2103,818 +609,57 @@
   ],
   "orders": [
     {
-      "screeningId": 1,
-      "seats": [],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asdasd",
-        "lastName": "asdasd",
-        "phone": "asdasd",
-        "email": "asdasd"
-      },
-      "id": 2
-    },
-    {
-      "screeningId": 1,
+      "screeningId": 6,
       "seats": [
         [
-          8,
+          9,
           5,
           1
         ],
         [
-          8,
+          9,
           4,
-          1
-        ],
-        [
-          8,
-          3,
           1
         ]
       ],
       "userId": null,
       "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Walecki",
+        "firstName": "maciej",
+        "lastName": "adsads",
         "phone": "123123123",
-        "email": "maciejwalecki22"
+        "email": "aa@o2.pl"
       },
-      "id": 3
-    },
-    {
-      "screeningId": 1,
-      "seats": [],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asd",
-        "lastName": "asd",
-        "phone": "asd",
-        "email": "asd"
-      },
-      "id": 4
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          9,
-          5,
-          1
-        ],
-        [
-          9,
-          4,
-          1
-        ],
-        [
-          9,
-          3,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asd",
-        "lastName": "asd",
-        "phone": "asd",
-        "email": "asd"
-      },
-      "id": 5
-    },
-    {
-      "screeningId": 1,
-      "seats": [],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asd",
-        "lastName": "asd",
-        "phone": "asd",
-        "email": "asd"
-      },
-      "id": 6
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          8,
-          4,
-          1
-        ],
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asd",
-        "lastName": "asd",
-        "phone": "asd",
-        "email": "asd"
-      },
-      "id": 7
-    },
-    {
-      "screeningId": 1,
-      "seats": [],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asd",
-        "lastName": "asd",
-        "phone": "asd",
-        "email": "asd"
-      },
-      "id": 8
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          8,
-          5,
-          1
-        ],
-        [
-          8,
-          4,
-          1
-        ],
-        [
-          8,
-          3,
-          1
-        ]
-      ],
-      "userId": "1",
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Walecki",
-        "phone": "123123123",
-        "email": "123123123"
-      },
-      "id": 9
-    },
-    {
-      "screeningId": 3,
-      "seats": [],
-      "userId": "1",
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Walecki",
-        "phone": "",
-        "email": "maciejwalecki99@gmail.com"
-      },
-      "id": 10
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          7,
-          8,
-          1
-        ],
-        [
-          7,
-          5,
-          1
-        ],
-        [
-          7,
-          4,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asdasd",
-        "lastName": "asdad",
-        "phone": "asdasd",
-        "email": "123123123"
-      },
-      "id": 11
-    },
-    {
-      "screeningId": 1,
-      "seats": [],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "123",
-        "lastName": "123",
-        "phone": "123",
-        "email": "123"
-      },
-      "id": 12
-    },
-    {
-      "screeningId": 1,
-      "seats": [],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "123",
-        "lastName": "123",
-        "phone": "123123",
-        "email": "123"
-      },
-      "id": 13
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          0,
-          0,
-          1
-        ],
-        [
-          0,
-          1,
-          1
-        ],
-        [
-          0,
-          2,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "123",
-        "lastName": "123",
-        "phone": "123123",
-        "email": "123123"
-      },
-      "id": 14
-    },
-    {
-      "screeningId": 3,
-      "seats": [
-        [
-          7,
-          3,
-          1
-        ],
-        [
-          7,
-          4,
-          1
-        ],
-        [
-          7,
-          5,
-          1
-        ]
-      ],
-      "userId": "1",
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Walecki",
-        "phone": "",
-        "email": "maciejwalecki99@gmail.com"
-      },
-      "id": 15
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          6,
-          1,
-          1
-        ],
-        [
-          6,
-          2,
-          1
-        ]
-      ],
-      "userId": "1",
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Walecki",
-        "phone": "",
-        "email": "maciejwalecki99@gmail.com"
-      },
-      "id": 16
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          5,
-          5,
-          1
-        ],
-        [
-          4,
-          4,
-          1
-        ]
-      ],
-      "userId": "1",
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Walecki",
-        "phone": "",
-        "email": "maciejwalecki99@gmail.com"
-      },
-      "id": 17
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          7,
-          5,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Walecki",
-        "phone": "123123123",
-        "email": "maciej@email.com"
-      },
-      "id": 18
-    },
-    {
-      "screeningId": 4,
-      "seats": [
-        [
-          6,
-          6,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "Jan",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 19
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          9,
-          5,
-          1
-        ],
-        [
-          9,
-          6,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "Jan",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 20
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          3,
-          8,
-          1
-        ],
-        [
-          3,
-          9,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Jan",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 21
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          2,
-          5,
-          2
-        ],
-        [
-          7,
-          6,
-          2
-        ],
-        [
-          7,
-          7,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "asdasdasd",
-        "phone": "123123123",
-        "email": "sadasd@o2.pl"
-      },
-      "id": 22
-    },
-    {
-      "screeningId": 10,
-      "seats": [
-        [
-          6,
-          5,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 23
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          5,
-          7,
-          1
-        ],
-        [
-          5,
-          9,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 25
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          9,
-          3,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Adam",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 26
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          0,
-          9,
-          1
-        ],
-        [
-          1,
-          9,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Adam",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 27
-    },
-    {
-      "screeningId": 3,
-      "seats": [
-        [
-          6,
-          3,
-          1
-        ],
-        [
-          6,
-          4,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Adam",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 28
+      "id": 1
     },
     {
       "screeningId": 6,
       "seats": [
         [
-          9,
-          3,
-          1
-        ],
-        [
-          9,
-          4,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Adam",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 29
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          9,
-          8,
-          1
-        ],
-        [
-          9,
-          9,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Adam",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 30
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          6,
-          3,
-          1
-        ],
-        [
-          6,
-          4,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Adam",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 31
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          3,
-          1,
-          1
-        ],
-        [
-          3,
           2,
+          4,
           1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Adam",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 32
-    },
-    {
-      "screeningId": 1,
-      "seats": [
+        ],
         [
-          8,
+          2,
           5,
           1
         ]
       ],
       "userId": 4,
       "ownerDetails": {
-        "firstName": "Adam",
+        "firstName": "Maciej",
         "lastName": "Kowalski",
         "phone": "",
         "email": "user@email.com"
       },
-      "id": 33
+      "id": 2
     },
     {
-      "screeningId": 1,
+      "screeningId": 14,
       "seats": [
         [
-          9,
-          2,
-          1
-        ],
-        [
-          9,
-          1,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "ddsfsd",
-        "lastName": "fdsfdsdfs",
-        "phone": "123123123",
-        "email": "mama@dad.pl"
-      },
-      "id": 34
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          1,
-          3,
-          3
-        ],
-        [
-          1,
-          2,
-          2
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Walecki",
-        "phone": "123123123",
-        "email": "asdasd@wqe.pl"
-      },
-      "id": 35
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          1,
-          3,
-          3
-        ],
-        [
-          1,
-          2,
-          2
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asssadasd",
-        "lastName": "dasassad",
-        "phone": "123123123",
-        "email": "aaa@aaa.pl"
-      },
-      "id": 36
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          2,
           6,
-          1
-        ],
-        [
-          1,
-          6,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 37
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          7,
-          4,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 38
-    },
-    {
-      "screeningId": 1,
-      "seats": [
-        [
-          9,
-          7,
-          1
-        ],
-        [
           8,
-          7,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 39
-    },
-    {
-      "screeningId": 2,
-      "seats": [
-        [
-          6,
-          3,
-          1
-        ],
-        [
-          6,
-          4,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 40
-    },
-    {
-      "screeningId": 2,
-      "seats": [
-        [
-          4,
-          6,
           1
         ]
       ],
@@ -2925,415 +670,15 @@
         "phone": "",
         "email": "kacper@email.com"
       },
-      "id": 41
+      "id": 3
     },
     {
-      "screeningId": 2,
+      "screeningId": 14,
       "seats": [
         [
-          0,
-          0,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 42
-    },
-    {
-      "screeningId": 11,
-      "seats": [
-        [
-          0,
-          14,
-          1
-        ],
-        [
-          1,
-          14,
-          1
-        ],
-        [
-          1,
-          13,
-          1
-        ],
-        [
-          0,
-          13,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 43
-    },
-    {
-      "screeningId": 7,
-      "seats": [
-        [
-          6,
-          6,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 44
-    },
-    {
-      "screeningId": 6,
-      "seats": [
-        [
-          0,
-          2,
-          1
-        ],
-        [
-          0,
-          3,
-          1
-        ],
-        [
-          0,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "u21ser@email.com"
-      },
-      "id": 45
-    },
-    {
-      "screeningId": 11,
-      "seats": [
-        [
-          6,
-          13,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 46
-    },
-    {
-      "screeningId": 11,
-      "seats": [
-        [
-          7,
-          9,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 47
-    },
-    {
-      "screeningId": 7,
-      "seats": [
-        [
-          11,
-          2,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 48
-    },
-    {
-      "screeningId": 4,
-      "seats": [
-        [
-          5,
-          9,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 49
-    },
-    {
-      "screeningId": 3,
-      "seats": [
-        [
-          4,
-          3,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 50
-    },
-    {
-      "screeningId": 3,
-      "seats": [
-        [
-          4,
-          0,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 51
-    },
-    {
-      "screeningId": 4,
-      "seats": [
-        [
-          4,
-          3,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 52
-    },
-    {
-      "screeningId": 4,
-      "seats": [
-        [
-          4,
-          2,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 53
-    },
-    {
-      "screeningId": 3,
-      "seats": [
-        [
-          9,
-          2,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 54
-    },
-    {
-      "screeningId": 4,
-      "seats": [
-        [
-          5,
-          4,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 55
-    },
-    {
-      "screeningId": 4,
-      "seats": [
-        [
-          9,
-          5,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 56
-    },
-    {
-      "screeningId": 2,
-      "seats": [
-        [
-          9,
-          4,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 57
-    },
-    {
-      "screeningId": 2,
-      "seats": [
-        [
-          9,
-          8,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 58
-    },
-    {
-      "screeningId": 6,
-      "seats": [
-        [
-          9,
-          2,
-          1
-        ]
-      ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 59
-    },
-    {
-      "screeningId": 2,
-      "seats": [
-        [
-          6,
-          9,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "asdsdads",
-        "lastName": "dassadsd",
-        "phone": "123123123",
-        "email": "kmkm@kmkm.pl"
-      },
-      "id": 60
-    },
-    {
-      "screeningId": 4,
-      "seats": [
-        [
-          2,
-          2,
-          1
-        ]
-      ],
-      "userId": null,
-      "ownerDetails": {
-        "firstName": "dfsdffds",
-        "lastName": "sdfsdfsdf",
-        "phone": "",
-        "email": "sadas@dasd.pl"
-      },
-      "id": 61
-    },
-    {
-      "screeningId": 4,
-      "seats": [
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
+          10,
           7,
           1
-        ],
-        [
-          4,
-          5,
-          1
         ]
       ],
       "userId": 4,
@@ -3343,95 +688,25 @@
         "phone": "",
         "email": "user@email.com"
       },
-      "id": 62
+      "id": 4
     },
     {
-      "screeningId": 6,
+      "screeningId": 14,
       "seats": [
         [
-          8,
-          4,
+          3,
+          10,
           1
         ]
       ],
-      "userId": 4,
-      "ownerDetails": {
-        "firstName": "Maciej",
-        "lastName": "Kowalski",
-        "phone": "",
-        "email": "user@email.com"
-      },
-      "id": 63
-    }
-  ],
-  "carts": [
-    {
       "userId": 10,
-      "screeningId": 2,
-      "reservedSeats": [
-        [
-          4,
-          6,
-          1
-        ]
-      ],
-      "id": 7
-    },
-    {
-      "userId": 4,
-      "screeningId": 2,
-      "reservedSeats": [
-        [
-          8,
-          2,
-          1
-        ],
-        [
-          9,
-          2,
-          1
-        ]
-      ],
-      "id": 8
-    },
-    {
-      "userId": 4,
-      "screeningId": 4,
-      "reservedSeats": [
-        [
-          7,
-          2,
-          1
-        ],
-        [
-          8,
-          7,
-          1
-        ],
-        [
-          4,
-          5,
-          1
-        ]
-      ],
-      "id": 9
-    },
-    {
-      "userId": 4,
-      "screeningId": 6,
-      "reservedSeats": [
-        [
-          6,
-          6,
-          1
-        ],
-        [
-          3,
-          7,
-          1
-        ]
-      ],
-      "id": 10
+      "ownerDetails": {
+        "firstName": "Kacper",
+        "lastName": "Nowak",
+        "phone": "",
+        "email": "kacper@email.com"
+      },
+      "id": 5
     }
   ],
   "rating": [
@@ -3470,6 +745,36 @@
       "movieId": 5,
       "userId": 4,
       "id": 6
+    },
+    {
+      "rate": 4,
+      "movieId": 4,
+      "userId": 4,
+      "id": 7
+    },
+    {
+      "rate": 4,
+      "movieId": 6,
+      "userId": 4,
+      "id": 8
+    },
+    {
+      "rate": 5,
+      "movieId": 4,
+      "userId": 10,
+      "id": 9
+    },
+    {
+      "rate": 2,
+      "movieId": 6,
+      "userId": 10,
+      "id": 10
+    },
+    {
+      "rate": 4,
+      "movieId": 12,
+      "userId": 10,
+      "id": 11
     }
   ],
   "wantToWatch": [
@@ -3487,16 +792,6 @@
       "userId": 1,
       "movieId": 7,
       "id": 5
-    },
-    {
-      "userId": 4,
-      "movieId": 2,
-      "id": 7
-    },
-    {
-      "userId": 4,
-      "movieId": 1,
-      "id": 8
     }
   ],
   "coupons": [
@@ -3504,6 +799,37 @@
       "id": 1,
       "code": "super-kupon",
       "discount": 20
+    },
+    {
+      "id": 2,
+      "code": "ekstra-kupon",
+      "discount": 10
+    }
+  ],
+  "carts": [
+    {
+      "userId": 4,
+      "screeningId": 14,
+      "reservedSeats": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "id": 1
+    },
+    {
+      "userId": 10,
+      "screeningId": 14,
+      "reservedSeats": [
+        [
+          10,
+          10,
+          1
+        ]
+      ],
+      "id": 2
     }
   ]
 }

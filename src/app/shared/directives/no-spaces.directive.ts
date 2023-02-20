@@ -1,6 +1,14 @@
-import { Directive, ElementRef, HostListener, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  inject,
+  NgModule,
+} from '@angular/core';
 
 @Directive({
+  standalone: true,
   selector: '[appNoSpaces]',
 })
 export class NoSpacesDirective {

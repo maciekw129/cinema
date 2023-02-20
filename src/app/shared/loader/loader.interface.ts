@@ -21,3 +21,5 @@ export type LoaderState =
   | LoaderFailed
   | LoaderPending
   | LoaderInitial;
+
+export type LoaderStatuses = 'pending' | 'initial' | 'failed' | 'success';

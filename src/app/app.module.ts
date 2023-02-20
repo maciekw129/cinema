@@ -69,7 +69,6 @@ export interface AppState {
     RatingScaleComponent,
     CountCartItemsPipe,
     MovieListComponent,
-    NoSpacesDirective,
   ],
   imports: [
     MatBadgeModule,
@@ -92,6 +91,7 @@ export interface AppState {
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
+    NoSpacesDirective,
   ],
   providers: [
     {

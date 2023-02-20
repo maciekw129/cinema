@@ -1,9 +1,5 @@
-import { Component, forwardRef, inject } from '@angular/core';
-import {
-  NG_ASYNC_VALIDATORS,
-  NonNullableFormBuilder,
-  Validators,
-} from '@angular/forms';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { CouponValidator } from './coupon-validator';
 
@@ -13,6 +9,8 @@ import { CouponValidator } from './coupon-validator';
   styleUrls: ['./coupon-form.component.css'],
 })
 export class CouponFormComponent {
+  @Output() couponEvent = new EventEmitter<string>();
+
   private fb = inject(NonNullableFormBuilder);
   private couponValidator = inject(CouponValidator);
 
@@ -27,13 +25,19 @@ export class CouponFormComponent {
   }
 
   handleSubmit() {
-    console.log(this.couponForm.getRawValue());
+    this.couponForm.markAllAsTouched();
+    if (this.couponForm.invalid) return;
+
+    this.couponEvent.emit(this.couponCtrl.value);
+  }
+
+  cancelCoupon() {
+    this.couponForm.reset();
   }
 
   private createForm() {
     return this.fb.group({
       coupon: this.fb.control('', {
-        validators: [Validators.required],
         asyncValidators: [
           this.couponValidator.validate.bind(this.couponValidator),
         ],

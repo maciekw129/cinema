@@ -1,5 +1,11 @@
 import { inject, Injectable } from '@angular/core';
-import { CanActivate, Router, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter, Observable, of, switchMap } from 'rxjs';
 import { AppState } from 'src/app/app.module';
@@ -7,11 +13,14 @@ import { AppState } from 'src/app/app.module';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class IsNotAdminGuard implements CanActivate {
   private store = inject<Store<AppState>>(Store);
   private router = inject(Router);
 
-  canActivate():
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
@@ -21,7 +30,7 @@ export class AuthGuard implements CanActivate {
       .pipe(
         filter((result) => result.accountType !== null),
         switchMap((result) => {
-          if (!result.isLogged) {
+          if (result.accountType === 'admin') {
             this.router.navigate(['/']);
             return of(false);
           }

@@ -1,24 +1,14 @@
 <div class="main-page">
-  <div class="main-container add-room">
-    <h2>Dodaj salę</h2>
-    <app-add-room-form
-      #addRoomForm
-      (handleSubmitEvent)="createRoom($event)"
-    ></app-add-room-form>
-    <ng-container *ngIf="requestState | async as requestState">
-      <app-loader *ngIf="requestState.status === 'pending'"></app-loader>
-      <p
-        class="fnt-13-regular fnt-color-red"
-        *ngIf="requestState.status === 'failed'"
-      >
-        {{ requestState.errorMessage }}
-      </p>
-      <p
-        class="fnt-13-regular fnt-color-green"
-        *ngIf="requestState.status === 'success'"
-      >
-        {{ requestState.successMessage }}
-      </p>
-    </ng-container>
+  <div class="main-container">
+    <div class="main-card add-room">
+      <h2>Dodaj salę</h2>
+      <app-add-room-form
+        #addRoomForm
+        (handleSubmitEvent)="createRoom($event)"
+      ></app-add-room-form>
+      <ng-container *ngIf="requestState | async as requestState">
+        <app-loader [requestState]="requestState"></app-loader>
+      </ng-container>
+    </div>
   </div>
 </div>

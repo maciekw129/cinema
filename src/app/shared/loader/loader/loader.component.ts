@@ -1,11 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { LoaderState } from '../loader.interface';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   standalone: true,
-  selector: 'app-loader',
+  selector: 'app-loader[requestState]',
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, MatProgressSpinnerModule],
 })
-export class LoaderComponent {}
+export class LoaderComponent {
+  @Input() requestState!: LoaderState;
+}

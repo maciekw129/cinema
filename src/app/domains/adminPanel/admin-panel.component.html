@@ -1,19 +1,13 @@
 <div class="main-page admin-panel">
   <nav class="main-container admin-panel__nav">
-    <app-button
-      text="Dodaj salę"
-      [important]="true"
-      routerLink="add-room"
-    ></app-button>
-    <app-button
-      text="Dodaj seans"
-      [important]="true"
-      routerLink="add-screening"
-    ></app-button>
-    <app-button
-      text="Dodaj film"
-      [important]="true"
-      routerLink="add-movie"
-    ></app-button>
+    <button mat-flat-button color="accent" routerLink="add-room">
+      Dodaj salę
+    </button>
+    <button mat-flat-button color="accent" routerLink="add-screening">
+      Dodaj seans
+    </button>
+    <button mat-flat-button color="accent" routerLink="add-movie">
+      Dodaj film
+    </button>
   </nav>
 </div>

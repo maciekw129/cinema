@@ -37,10 +37,9 @@
       Wybierz miejsce aby kontynuować.
     </p>
     <ng-template #elseBlock>
-      <app-button
-        text="Przejdź do zamówienia"
-        (click)="navigateToFinalize()"
-      ></app-button>
+      <button mat-flat-button color="primary" (click)="navigateToFinalize()">
+        Przejdź do zamówienia
+      </button>
     </ng-template>
   </ng-container>
 </div>

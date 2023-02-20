@@ -33,7 +33,7 @@
     </ul>
   </div>
   <div class="movie__left-container">
-    <p class="movie__rating fnt-24-bold">{{ screenings.movie.rating }}/10</p>
+    <p class="movie__rating fnt-24-bold">{{ ratingValue$ | async }}/10</p>
     <ng-container *ngIf="isUserLogged$$ | async as isUserLogged">
       <ng-container *ngIf="ratingState$ | async as ratingState">
         <button

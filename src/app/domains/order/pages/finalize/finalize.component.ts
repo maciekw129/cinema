@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { map, tap } from 'rxjs';
-import { TicketTypes } from 'src/types';
+import { tap } from 'rxjs';
 import { OrderService } from '../../services/order/order.service';
 import { UserForm } from '../../forms/finalize-form/finalize-form.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -27,17 +26,10 @@ export class FinalizeComponent {
     })
   );
 
-  ticketTypes$ = this.orderService.selectTicketTypes$.pipe(
-    map((ticketTypes) => {
-      return ticketTypes.reduce(
-        (acc: { [key: string]: TicketTypes }, prev: TicketTypes) => {
-          acc[prev.id] = prev;
-          return acc;
-        },
-        {}
-      );
-    })
-  );
+  ticketTypes$ = this.orderService.transformTicketTypesToObject();
+  calculatePrice$ = this.orderService.calculatePrice();
+  coupon$ = this.orderService.selectCoupon$;
+  requestState$ = this.orderService.requestState$$;
 
   submitUserData(userData: UserForm) {
     this.userData = userData;
@@ -67,9 +59,11 @@ export class FinalizeComponent {
     }
   }
 
-  // getPriceSum() {
-  //   return this.seatsChosen.reduce((acc, prev) => {
-  //     return acc + this.ticketTypes![prev[2]].price;
-  //   }, 0)
-  // }
+  handleAddCoupon(code: string) {
+    this.orderService.addCoupon(code);
+  }
+
+  removeCoupon() {
+    this.orderService.removeCoupon();
+  }
 }

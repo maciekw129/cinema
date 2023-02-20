@@ -3,101 +3,147 @@
   [formGroup]="addMovieForm"
   (ngSubmit)="handleSubmit()"
 >
-  <input
-    class="input"
-    [class.input-error]="nameCtrl.touched && nameCtrl.errors"
-    type="text"
-    formControlName="name"
-    placeholder="Nazwa*"
-  />
-  <ng-container *ngIf="nameCtrl.errors as errors">
-    <ng-container *ngIf="nameCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field color="primary">
+    <mat-label>Nazwa</mat-label>
+    <input matInput formControlName="name" />
+    <mat-error *ngIf="nameCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMinLength"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMinLength>
+        <ng-container
+          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+          >Min. liczba znaków: {{ minLength.actualLength }}/{{
+            minLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container *ngIf="errors['maxlength'] as maxLength"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
-  <input
-    class="input"
-    [class.input-error]="imageCtrl.touched && imageCtrl.errors"
-    type="text"
-    formControlName="image"
-    placeholder="Zdjęcie*"
-  />
-  <ng-container *ngIf="imageCtrl.errors as errors">
-    <ng-container *ngIf="imageCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field color="primary">
+    <mat-label>Zdjęcie</mat-label>
+    <input appNoSpaces matInput formControlName="image" />
+    <mat-hint>Proszę wpisać URL do zdjęcia.</mat-hint>
+    <mat-error *ngIf="imageCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else namePattern"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #namePattern>
+        <ng-container *ngIf="errors['pattern']; else nameMaxLength"
+          >Url powinien być w formacie: https://example.com</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container *ngIf="errors['maxlength'] as maxLength"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
-  <div>
-    <input
-      class="input"
-      [class.input-error]="premiereCtrl.touched && premiereCtrl.errors"
-      type="checkbox"
-      formControlName="premiere"
-      name="premiere"
-      id="premiere"
-    />
-    <label for="premiere">Premiera</label>
-  </div>
+  <p><mat-checkbox formControlName="premiere">Premiera</mat-checkbox></p>
 
-  <fieldset class="add-movie-form__categories">
-    <legend>Kategorie:</legend>
-    <div *ngFor="let genre of genres">
-      <input type="checkbox" [name]="genre" (change)="toggleGenre(genre)" />
-      <label [for]="genre">{{ genre }}</label>
-    </div>
-  </fieldset>
+  <mat-form-field appearance="fill">
+    <mat-label>Kategorie</mat-label>
+    <mat-select formControlName="genre" multiple>
+      <mat-select-trigger>
+        {{ genreCtrl.value[0] || "" }}
+        <span
+          *ngIf="(genreCtrl.value.length || 0) > 1"
+          class="example-additional-selection"
+        >
+          (+{{ (genreCtrl.value.length || 0) - 1 }}
+          {{ genreCtrl.value.length === 2 ? "other" : "others" }})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let genre of genres" [value]="genre">{{
+        genre
+      }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="genreCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']">
+        Musisz wybrać co najmniej jedną kategorię
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
 
-  <input
-    class="input"
-    [class.input-error]="durationCtrl.touched && durationCtrl.errors"
-    type="number"
-    formControlName="duration"
-    placeholder="Czas trwania(minuty)*"
-  />
-  <ng-container *ngIf="durationCtrl.errors as errors">
-    <ng-container *ngIf="durationCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field color="primary">
+    <mat-label>Czas trwania</mat-label>
+    <input matInput formControlName="duration" type="number" />
+    <mat-hint>Czas proszę podać w minutach</mat-hint>
+    <mat-error *ngIf="durationCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMin"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMin>
+        <ng-container *ngIf="errors['min'] as min; else nameMax"
+          >Min. czas trwania: {{ min.actual }}/{{ min.min }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMax>
+        <ng-container *ngIf="errors['max'] as max"
+          >Maks. czas trwania: {{ max.actual }}/{{ max.max }}.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
-  <input
-    class="input"
-    [class.input-error]="
-      ageRestrictionsCtrl.touched && ageRestrictionsCtrl.errors
-    "
-    type="number"
-    formControlName="ageRestrictions"
-    placeholder="Ograniczenia wiekowe*"
-  />
-  <ng-container *ngIf="ageRestrictionsCtrl.errors as errors">
-    <ng-container *ngIf="ageRestrictionsCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field color="primary">
+    <mat-label>Ograniczenia wiekowe</mat-label>
+    <input matInput formControlName="ageRestrictions" type="number" />
+    <mat-hint>Minimalny wiek oglądającego.</mat-hint>
+    <mat-error *ngIf="ageRestrictionsCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMax"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMax>
+        <ng-container *ngIf="errors['max'] as max; else nameMin"
+          >Maks. wiek: {{ max.actual }}/{{ max.max }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMin>
+        <ng-container *ngIf="errors['min'] as min"
+          >Min. wiek: {{ min.actual }}/{{ min.min }}.</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
 
-  <textarea
-    [class.input-error]="descriptionCtrl.touched && descriptionCtrl.errors"
-    formControlName="description"
-    class="add-movie__description"
-    placeholder="Opis*"
-  >
-  </textarea>
-  <ng-container *ngIf="descriptionCtrl.errors as errors">
-    <ng-container *ngIf="descriptionCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
-  <app-button text="Zatwierdź"></app-button>
+  <mat-form-field color="primary" appearance="fill">
+    <textarea
+      formControlName="description"
+      matInput
+      placeholder="Dodaj opis..."
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="5"
+      cdkAutosizeMaxRows="15"
+    ></textarea>
+    <mat-error *ngIf="descriptionCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-container *ngIf="errors['minlength'] as minLength"
+        >Min. liczba znaków: {{ minLength.actualLength }}/{{
+          minLength.requiredLength
+        }}.</ng-container
+      >
+      <ng-container *ngIf="errors['maxlength'] as maxLength"
+        >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+          maxLength.requiredLength
+        }}.</ng-container
+      >
+    </mat-error>
+    <mat-hint>Liczba znaków: {{ descriptionCtrl.value.length }}/4000 </mat-hint>
+  </mat-form-field>
+  <button mat-flat-button color="primary">Zatwierdź</button>
 </form>

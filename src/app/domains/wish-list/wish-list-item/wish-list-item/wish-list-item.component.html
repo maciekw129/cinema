@@ -1,0 +1,19 @@
+<li class="wish-list-item">
+  <mat-card class="wish-list-item__card">
+    <mat-card-header>
+      <mat-card-title
+        ><h2 class="wish-list-item__name">{{ movie.name }}</h2></mat-card-title
+      >
+    </mat-card-header>
+    <img mat-card-image [src]="movie.image" alt="Movie photo" />
+    <mat-card-actions>
+      <button
+        mat-flat-button
+        color="accent"
+        (click)="removeFromWishList(wishId)"
+      >
+        Nie chcę zobaczyć
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</li>

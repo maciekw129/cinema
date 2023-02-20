@@ -1,5 +1,16 @@
-<div class="loader">
-  <div class="loader__dot loader__dot--one"></div>
-  <div class="loader__dot loader__dot--two"></div>
-  <div class="loader__dot loader__dot--three"></div>
-</div>
+<mat-spinner
+  diameter="30"
+  *ngIf="requestState.status === 'pending'"
+></mat-spinner>
+<p
+  class="fnt-13-regular fnt-color-red"
+  *ngIf="requestState.status === 'failed'"
+>
+  {{ requestState.errorMessage }}
+</p>
+<p
+  class="fnt-13-regular fnt-color-green"
+  *ngIf="requestState.status === 'success' && requestState.successMessage"
+>
+  {{ requestState.successMessage }}
+</p>

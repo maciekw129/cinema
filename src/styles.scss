@@ -87,6 +87,31 @@ body {
   padding: 25px;
 }
 
+.main-card {
+  padding: 25px;
+  margin: 16px 0;
+  background-color: var(--colorWhite);
+  border-radius: 5px;
+}
+
+.main-card > h2,
+.main-card > p,
+.main-card > h1,
+.main-card > h3 {
+  text-align: center;
+}
+
+footer > .main-container {
+  padding: 0;
+}
+
+@media only screen and (max-width: 550px) {
+  .main-page,
+  .main-container {
+    padding: 0;
+  }
+}
+
 .box-shadow-container {
   box-shadow: 1.5px 1.5px hsl(0, 0%, 50%);
 }
@@ -153,6 +178,7 @@ a:hover {
 /* MATERIAL */
 
 mat-error,
+mat-hint,
 span.mat-badge-content {
   font-size: 12px;
 }

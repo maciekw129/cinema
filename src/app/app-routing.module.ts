@@ -8,6 +8,7 @@ import { ScreeningResolver } from './domains/order/services/screening/screening.
 import { CanLoginGuard } from './auth/guards/can-login.guard';
 import { AdminGuard } from './auth/guards/admin.guard';
 import { MovieListComponent } from './home/components/movie-list/movie-list.component';
+import { IsNotAdminGuard } from './auth/guards/is-not-admin.guard';
 
 const getToday = () => {
   const day = new Date();
@@ -41,46 +42,52 @@ const routes: Routes = [
     path: 'my-orders',
     loadChildren: async () =>
       (await import('./domains/my-orders/my-orders.module')).MyOrdersModule,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, IsNotAdminGuard],
   },
   {
     path: 'settings',
     loadChildren: async () =>
       (await import('./domains/settings/settings.module')).SettingsModule,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, IsNotAdminGuard],
   },
   {
     path: 'book-tickets/:id',
     loadChildren: async () =>
       (await import('./domains/order/order.module')).OrderModule,
+    canActivate: [IsNotAdminGuard],
     resolve: { screening: ScreeningResolver },
   },
   {
     path: 'wish-list',
     loadChildren: async () =>
       (await import('./domains/wish-list/wish-list.module')).WishListModule,
-    canActivate: [AuthGuard],
+
+    canActivate: [AuthGuard, IsNotAdminGuard],
   },
   {
     path: 'about',
     loadChildren: async () =>
       (await import('./domains/about/about.module')).AboutModule,
+    canActivate: [IsNotAdminGuard],
   },
   {
     path: 'work',
     loadChildren: async () =>
       (await import('./domains/work/work.module')).WorkModule,
+    canActivate: [IsNotAdminGuard],
   },
   {
     path: 'regulations',
     loadChildren: async () =>
       (await import('./domains/regulations/regulations.module'))
         .RegulationsModule,
+    canActivate: [IsNotAdminGuard],
   },
   {
     path: 'rental',
     loadChildren: async () =>
       (await import('./domains/rental/rental.module')).RentalModule,
+    canActivate: [IsNotAdminGuard],
   },
   {
     path: 'ticket/:id',

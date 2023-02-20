@@ -18,24 +18,30 @@ export class Loader {
     this._requestState$$.next({ status: 'pending' });
   }
 
+  protected setLoaderStatus(value: LoaderState) {
+    this._requestState$$.next(value);
+  }
+
   protected postWithLoader(
     url: string,
     payload: Record<any, any>,
     successMessage: string
   ) {
     this.setLoading();
-    this.http.post(url, payload).subscribe({
-      next: () =>
-        this._requestState$$.next({
-          status: 'success',
-          successMessage: successMessage,
-        }),
-      error: () =>
-        this._requestState$$.next({
-          status: 'failed',
-          errorMessage: 'Coś poszło nie tak...',
-        }),
-    });
+    return this.http.post(url, payload).pipe(
+      tap({
+        next: () =>
+          this._requestState$$.next({
+            status: 'success',
+            successMessage: successMessage,
+          }),
+        error: () =>
+          this._requestState$$.next({
+            status: 'failed',
+            errorMessage: 'Coś poszło nie tak...',
+          }),
+      })
+    );
   }
 
   protected patchWithLoader(
@@ -45,7 +51,24 @@ export class Loader {
   ) {
     this.setLoading();
     return this.http.patch(url, payload).pipe(
-      tap((r) => console.log(r)),
+      tap({
+        next: () =>
+          this._requestState$$.next({
+            status: 'success',
+            successMessage: successMessage,
+          }),
+        error: () =>
+          this._requestState$$.next({
+            status: 'failed',
+            errorMessage: 'Coś poszło nie tak...',
+          }),
+      })
+    );
+  }
+
+  protected getWithLoader<T>(url: string, successMessage?: string) {
+    this.setLoading();
+    return this.http.get<T>(url).pipe(
       tap({
         next: () =>
           this._requestState$$.next({

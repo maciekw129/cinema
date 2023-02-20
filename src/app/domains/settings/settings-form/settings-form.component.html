@@ -3,68 +3,106 @@
   [formGroup]="settingsForm"
   (submit)="handleSubmit()"
 >
-  <div class="finalize-form__input-container">
-    <input
-      class="input finalize-form__input"
-      [class.input-error]="firstNameCtrl.touched && firstNameCtrl.errors"
-      formControlName="firstName"
-      placeholder="Imię*"
-      type="text"
-    />
-    <ng-container *ngIf="firstNameCtrl.errors as errors">
-      <ng-container *ngIf="firstNameCtrl.touched">
-        <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-          Te pole jest obowiązkowe
-        </p>
-      </ng-container>
-    </ng-container>
-  </div>
-  <div class="finalize-form__input-container">
-    <input
-      class="input finalize-form__input"
-      [class.input-error]="lastNameCtrl.touched && lastNameCtrl.errors"
-      formControlName="lastName"
-      placeholder="Nazwisko*"
-      type="text"
-    />
-    <ng-container *ngIf="lastNameCtrl.errors as errors">
-      <ng-container *ngIf="lastNameCtrl.touched">
-        <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-          Te pole jest obowiązkowe
-        </p>
-      </ng-container>
-    </ng-container>
-  </div>
-  <div class="finalize-form__input-container">
-    <input
-      class="input finalize-form__input"
-      [class.input-error]="phoneCtrl.touched && phoneCtrl.errors"
-      formControlName="phone"
-      placeholder="Numer telefonu"
-    />
-    <ng-container *ngIf="phoneCtrl.errors as errors">
-      <ng-container *ngIf="phoneCtrl.touched">
-        <p *ngIf="errors['maxlength']" class="fnt-13-regular fnt-color-red">
-          Numer telefonu ma za dużo znaków
-        </p>
-        <p *ngIf="errors['minlength']" class="fnt-13-regular fnt-color-red">
-          Numer telefonu ma za mało znaków
-        </p>
-        <p *ngIf="errors['pattern']" class="fnt-13-regular fnt-color-red">
-          Numer telefonu jest w niewłaściwym formacie
-        </p>
-      </ng-container>
-    </ng-container>
-  </div>
-  <app-button
+  <mat-form-field color="primary">
+    <mat-label>Imię</mat-label>
+    <input appNoSpaces matInput formControlName="firstName" />
+    <mat-error *ngIf="firstNameCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMinLength"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMinLength>
+        <ng-container
+          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+          >Min. liczba znaków: {{ minLength.actualLength }}/{{
+            minLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container
+          *ngIf="errors['maxlength'] as maxLength; else nameSpecialLetters"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameSpecialLetters>
+        <ng-container *ngIf="errors['pattern']"
+          >Znaki specjalne są niedozwolone</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field color="primary">
+    <mat-label>Nazwisko</mat-label>
+    <input appNoSpaces matInput formControlName="lastName" />
+    <mat-error *ngIf="lastNameCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMinLength"
+        >To pole jest wymagane.</ng-container
+      >
+      <ng-template #nameMinLength>
+        <ng-container
+          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+          >Min. liczba znaków: {{ minLength.actualLength }}/{{
+            minLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameMaxLength>
+        <ng-container
+          *ngIf="errors['maxlength'] as maxLength; else nameSpecialLetters"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #nameSpecialLetters>
+        <ng-container *ngIf="errors['pattern']"
+          >Znaki specjalne są niedozwolone</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field color="primary">
+    <mat-label>Numer telefonu</mat-label>
+    <input appNoSpaces matInput formControlName="phone" />
+    <mat-error *ngIf="phoneCtrl.errors as errors">
+      <ng-container *ngIf="errors['minlength'] as minLength; else nameMaxLength"
+        >Min. liczba znaków: {{ minLength.actualLength }}/{{
+          minLength.requiredLength
+        }}.</ng-container
+      >
+      <ng-template #nameMaxLength>
+        <ng-container *ngIf="errors['maxlength'] as maxLength; else namePattern"
+          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
+            maxLength.requiredLength
+          }}.</ng-container
+        >
+      </ng-template>
+      <ng-template #namePattern>
+        <ng-container *ngIf="errors['pattern']"
+          >Telefon jest w niewłaściwym formacie</ng-container
+        >
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
+  <button
+    mat-flat-button
+    color="primary"
     *ngIf="settingsForm.disabled"
     (click)="enableForm()"
-    text="Edytuj"
-  ></app-button>
-  <app-button
+  >
+    Edytuj
+  </button>
+  <button
+    mat-flat-button
+    color="accent"
     *ngIf="settingsForm.enabled"
     (click)="cancelForm()"
-    text="Anuluj"
-  ></app-button>
-  <app-button *ngIf="settingsForm.enabled" text="Zatwierdź"></app-button>
+  >
+    Anuluj
+  </button>
+  <button mat-flat-button color="primary" *ngIf="settingsForm.enabled">
+    Zatwierdź
+  </button>
 </form>

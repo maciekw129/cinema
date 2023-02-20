@@ -30,6 +30,7 @@ export const authReducer = createReducer(
       firstName: action.userData.firstName,
       lastName: action.userData.lastName,
       email: action.email,
+      phone: action.userData.phone,
     },
   })),
   on(AuthActions.logout, (state) => ({
@@ -61,6 +62,6 @@ export const authReducer = createReducer(
   })),
   on(AuthActions.setVisitor, (state) => ({
     ...state,
-    accountType: 'visitor'
+    accountType: 'visitor',
   }))
 );

@@ -1,20 +1,7 @@
 <div class="cart" *ngIf="cartItems | async as cartItems">
-  <!-- <app-button
-    [icon]="cartShopping"
-    (click)="toggleIsCartVisible()"
-  ></app-button>
-  <p class="cart__counter fnt-color-red fnt-13-bold" *ngIf="cartItems.length">
-    {{ cartItems | countCartItems }}
-  </p>
-  <div *ngIf="isCartVisible" class="cart__content">
-    <app-cart-item
-      *ngFor="let cartItem of cartItems"
-      [cartItem]="cartItem"
-    ></app-cart-item>
-  </div> -->
-
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon
+      [matBadgeHidden]="!(cartItems | countCartItems)"
       matBadge="{{ cartItems | countCartItems }}"
       matBadgeSize="small"
       matBadgeColor="accent"
@@ -22,17 +9,22 @@
     >
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngFor="let cartItem of cartItems">
-      <div>
-        <span class="fnt-16-bold">{{ cartItem.screening?.movie?.name }}</span
-        >, {{ cartItem.screening?.day }},
-        {{ cartItem.screening?.hour }}
-        <br />
-        siedzienia:
-        <span *ngFor="let seat of cartItem.reservedSeats">
-          {{ alphabeth[seat[0]] }}{{ seat[1] + 1 }}</span
-        >
-      </div>
-    </button>
+    <p class="cart__empty" *ngIf="!cartItems.length; else cart">
+      Twój koszyk jest pusty
+    </p>
+    <ng-template #cart>
+      <button mat-menu-item *ngFor="let cartItem of cartItems">
+        <div>
+          <span class="fnt-16-bold">{{ cartItem.screening?.movie?.name }}</span
+          >, {{ cartItem.screening?.day }},
+          {{ cartItem.screening?.hour }}
+          <br />
+          siedzienia:
+          <span *ngFor="let seat of cartItem.reservedSeats">
+            {{ alphabeth[seat[0]] }}{{ seat[1] + 1 }}</span
+          >
+        </div>
+      </button>
+    </ng-template>
   </mat-menu>
 </div>

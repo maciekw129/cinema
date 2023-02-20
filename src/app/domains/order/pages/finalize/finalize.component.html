@@ -1,36 +1,56 @@
 <ng-container *ngIf="seatsChosen$ | async as seatsChosen">
   <ng-container *ngIf="ticketTypes$ | async as ticketTypes">
-    <div class="finalize main-container">
-      <div class="finalize__header-wrapper">
-        <h2 class="finalize__title">{{ screening.movie.name + " -" }}</h2>
-        <p class="finalize__text-details">
-          {{ screening.day + ", godz. " + screening.hour[0] }}
-        </p>
-      </div>
-      <div class="finalize__seats-container">
-        <div class="finalize__seat" *ngFor="let seat of seatsChosen">
-          <p class="seats__informations">
-            Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}
-          </p>
-          <p class="seats__price">{{ ticketTypes[seat[2]].price }}zł</p>
-        </div>
-        <div class="seats__price-sum">razem zł</div>
-      </div>
-      <app-coupon-form></app-coupon-form>
-      <app-finalize-form
-        (userDataEvent)="submitUserData($event)"
-      ></app-finalize-form>
-      <a class="finalize__link" routerLink="..">Wróć do wyboru miejsc</a>
+    <div class="main-page">
+      <div class="main-container">
+        <div class="finalize main-card">
+          <div class="finalize__header-wrapper">
+            <h2 class="finalize__title">{{ screening.movie.name + " -" }}</h2>
+            <p class="finalize__text-details">
+              {{ screening.day + ", godz. " + screening.hour[0] }}
+            </p>
+          </div>
+          <div class="finalize__seats-container">
+            <div class="finalize__seat" *ngFor="let seat of seatsChosen">
+              <p class="seats__informations">
+                Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}
+              </p>
+              <p class="seats__price">{{ ticketTypes[+seat[2]].price }}zł</p>
+            </div>
+            <div class="finalize__seat" *ngIf="coupon$ | async as coupon">
+              <button mat-icon-button (click)="removeCoupon()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <p class="seats__informations">
+                {{ coupon.code }}
+              </p>
+              <p class="seats__price">-{{ coupon.discount }}zł</p>
+            </div>
+            <div class="seats__price-sum">
+              razem {{ calculatePrice$ | async }}zł
+            </div>
+          </div>
+          <app-coupon-form
+            (couponEvent)="handleAddCoupon($event)"
+          ></app-coupon-form>
+          <app-finalize-form
+            (userDataEvent)="submitUserData($event)"
+          ></app-finalize-form>
+          <a class="finalize__link" routerLink="..">Wróć do wyboru miejsc</a>
 
-      <app-modal *ngIf="isModalVisible" (closeEvent)="toggleModal()">
-        <div class="finalize__payment-modal">
-          <h2>Płatność</h2>
-          <app-payment-form
-            class="finalize__payment-form"
-            (paymentEvent)="submitPayment()"
-          ></app-payment-form>
+          <app-modal *ngIf="isModalVisible" (closeEvent)="toggleModal()">
+            <div class="finalize__payment-modal">
+              <h2>Płatność</h2>
+              <app-payment-form
+                class="finalize__payment-form"
+                (paymentEvent)="submitPayment()"
+              ></app-payment-form>
+              <ng-container *ngIf="requestState$ | async as requestState">
+                <app-loader [requestState]="requestState"></app-loader>
+              </ng-container>
+            </div>
+          </app-modal>
         </div>
-      </app-modal>
+      </div>
     </div>
   </ng-container>
 </ng-container>

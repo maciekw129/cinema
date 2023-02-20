@@ -2,8 +2,10 @@
   Cześć {{ firstName }}!
 </button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="my-orders">Moje bilety</button>
-  <button mat-menu-item routerLink="wish-list">Chcę obejrzeć</button>
-  <button mat-menu-item routerLink="settings">Ustawienia</button>
+  <ng-container *ngIf="accountType === 'user'">
+    <button mat-menu-item routerLink="my-orders">Moje bilety</button>
+    <button mat-menu-item routerLink="wish-list">Chcę obejrzeć</button>
+    <button mat-menu-item routerLink="settings">Ustawienia</button>
+  </ng-container>
   <button mat-menu-item (click)="handleLogoutClicked()">Wyloguj</button>
 </mat-menu>

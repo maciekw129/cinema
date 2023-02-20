@@ -3,48 +3,37 @@
   class="add-screening-form"
   (ngSubmit)="handleSubmit()"
 >
-  <select class="input add-screening-form__input" formControlName="movieId">
-    <option [ngValue]="null" disabled hidden>Wybierz film</option>
-    <option *ngFor="let movie of movies" [value]="movie.id">
-      {{ movie.name }}
-    </option>
-  </select>
-  <ng-container *ngIf="movieIdCtrl.errors as errors">
-    <ng-container *ngIf="movieIdCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field appearance="fill">
+    <mat-label>Wybierz film</mat-label>
+    <mat-select formControlName="movieId" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let movie of movies" [value]="movie.id">
+        {{ movie.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error>
+      <ng-container *ngIf="movieIdCtrl.errors as errors">
+        <ng-container *ngIf="errors['required']"
+          >To pole jest obowiązkowe</ng-container
+        >
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
 
-  <input
-    class="add-screening-form__input input"
-    [class.input-error]="hourCtrl.touched && hourCtrl.errors"
-    type="time"
-    formControlName="hour"
-    placeholder="Liczba rzędów*"
-  />
-  <ng-container *ngIf="hourCtrl.errors as errors">
-    <ng-container *ngIf="hourCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
-
-  <select class="add-screening-form__input input" formControlName="roomId">
-    <option [ngValue]="null" disabled hidden>Wybierz salę</option>
-    <option *ngFor="let room of rooms" [value]="room.id">
-      {{ room.name }}
-    </option>
-  </select>
-  <ng-container *ngIf="movieIdCtrl.errors as errors">
-    <ng-container *ngIf="movieIdCtrl.touched">
-      <p *ngIf="errors['required']" class="fnt-13-regular fnt-color-red">
-        Te pole jest obowiązkowe
-      </p>
-    </ng-container>
-  </ng-container>
+  <mat-form-field appearance="fill">
+    <mat-label>Wybierz salę</mat-label>
+    <mat-select formControlName="roomId" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let room of rooms" [value]="room.id">
+        {{ room.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="roomIdCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']"
+        >To pole jest obowiązkowe</ng-container
+      >
+    </mat-error>
+  </mat-form-field>
 
   <mat-form-field color="primary" class="fieldset__input">
     <mat-label>Data</mat-label>
@@ -66,5 +55,16 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <app-button text="Zatwierdź" [important]="true"></app-button>
+  <mat-form-field color="primary" class="fieldset__input">
+    <mat-label>Godzina</mat-label>
+    <input matInput formControlName="hour" type="time" />
+    <!-- <mat-error *ngIf="eventDetailsForm.hasError('isHourInThePast')">Godzina nie może być w przeszłości.</mat-error> -->
+    <mat-error *ngIf="hourCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']"
+        >To pole jest wymagane.</ng-container
+      >
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary">Zatwierdź</button>
 </form>

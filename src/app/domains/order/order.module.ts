@@ -17,9 +17,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { NoSpacesDirective } from 'src/app/shared/directives/no-spaces.directive';
 import { CouponFormComponent } from './forms/coupon-form/coupon-form/coupon-form.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { LoaderComponent } from 'src/app/shared/loader/loader/loader.component';
+import { NoSpacesDirective } from 'src/app/shared/directives/no-spaces.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     SeatComponent,
     ChosenSeatComponent,
     PaymentFormComponent,
-    NoSpacesDirective,
     CouponFormComponent,
   ],
   imports: [
@@ -46,6 +47,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    LoaderComponent,
+    NoSpacesDirective,
   ],
 })
 export class OrderModule {}

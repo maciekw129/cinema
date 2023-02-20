@@ -39,7 +39,7 @@ export class MyOrdersService {
           result.forEach((order) => {
             observables.push(
               this.http.get<Movie>(
-                `${this.API_URL}/movies/${order.screening.id}`
+                `${this.API_URL}/movies/${order.screening.movieId}`
               )
             );
           });

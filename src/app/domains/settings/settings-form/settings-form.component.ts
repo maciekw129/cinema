@@ -26,6 +26,7 @@ export class SettingsFormComponent {
       .select(selectData)
       .pipe(untilDestroyed(this))
       .subscribe((result) => {
+        console.log(result);
         if (result) {
           this.settingsForm = this.createForm(
             result.firstName,

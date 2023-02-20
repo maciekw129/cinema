@@ -1,9 +1,16 @@
-<app-movie
-  class="home__movie"
-  *ngFor="let screening of screenings"
-  [screenings]="screening"
-  (refreshEvent)="refresh()"
-></app-movie>
-<p class="home__no-movies" *ngIf="!screenings.length">
-  W tym dniu nie ma żadnego seansu. Przepraszamy!
-</p>
+<ng-container *ngIf="screenings$$ | async as screenings">
+  <ng-container *ngIf="requestState$$ | async as requestState">
+    <ng-container *ngIf="requestState.status === 'success'">
+      <app-movie
+        class="home__movie"
+        *ngFor="let screening of screenings"
+        [screenings]="screening"
+        (refreshEvent)="refresh()"
+      ></app-movie>
+      <p class="home__no-movies" *ngIf="!screenings.length">
+        W tym dniu nie ma żadnego seansu. Przepraszamy!
+      </p>
+    </ng-container>
+    <app-loader [requestState]="requestState"></app-loader>
+  </ng-container>
+</ng-container>

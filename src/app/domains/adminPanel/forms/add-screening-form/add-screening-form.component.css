@@ -8,6 +8,6 @@
   width: 100%;
 }
 
-.add-screening-form__input {
+.add-screening-form > mat-form-field {
   width: 100%;
 }

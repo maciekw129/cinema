@@ -1,5 +1,6 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import patterns from 'src/app/shared/validatorPatterns';
 import { AddMovieForm, Genre, Movie } from '../../../admin-panel.interface';
 
 @Component({
@@ -81,23 +82,43 @@ export class AddMovieFormComponent {
   private createForm() {
     return this.builder.group<AddMovieForm>({
       name: this.builder.control('', {
-        validators: [Validators.required],
+        validators: [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(40),
+        ],
       }),
       image: this.builder.control('', {
-        validators: [Validators.required],
+        validators: [
+          Validators.required,
+          Validators.pattern(patterns.url),
+          Validators.maxLength(2048),
+        ],
       }),
       premiere: this.builder.control(false),
       genre: this.builder.control([], {
         validators: Validators.required,
       }),
       duration: this.builder.control(null, {
-        validators: [Validators.min(1), Validators.required],
+        validators: [
+          Validators.min(1),
+          Validators.required,
+          Validators.max(999),
+        ],
       }),
       ageRestrictions: this.builder.control(null, {
-        validators: [Validators.min(3)],
+        validators: [
+          Validators.min(0),
+          Validators.max(18),
+          Validators.required,
+        ],
       }),
       description: this.builder.control('', {
-        validators: [Validators.required],
+        validators: [
+          Validators.required,
+          Validators.maxLength(4000),
+          Validators.minLength(4),
+        ],
       }),
     });
   }

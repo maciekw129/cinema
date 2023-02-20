@@ -21,7 +21,7 @@ export class AdminPanelService extends Loader {
       `${this.API_URL}/rooms`,
       room,
       'Pomyślnie dodałeś salę!'
-    );
+    ).subscribe();
   }
 
   createScreening(screening: Screening) {
@@ -29,7 +29,7 @@ export class AdminPanelService extends Loader {
       `${this.API_URL}/screenings`,
       screening,
       'Pomyślnie dodałeś seans!'
-    );
+    ).subscribe();
   }
 
   createMovie(movie: Movie) {
@@ -37,7 +37,7 @@ export class AdminPanelService extends Loader {
       `${this.API_URL}/movies`,
       movie,
       'Pomyślnie dodałeś film!'
-    );
+    ).subscribe();
   }
 
   getAllMovies() {

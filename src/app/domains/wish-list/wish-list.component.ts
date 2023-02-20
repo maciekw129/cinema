@@ -9,5 +9,20 @@ import { WishListService } from './wish-list.service';
 export class WishListComponent {
   private wishListService = inject(WishListService);
 
-  wishList$ = this.wishListService.getWishList();
+  wishList$$ = this.wishListService.wishList$$;
+  requestState$$ = this.wishListService.requestState$$;
+
+  ngOnInit() {
+    this.wishListService.getWishList();
+  }
+
+  deleteWish(wishId: number) {
+    this.wishListService.removeFromWishList(wishId).subscribe({
+      next: () => this.wishListService.getWishList(),
+      error: (error) => {
+        if (error.status === 500) {
+        }
+      },
+    });
+  }
 }

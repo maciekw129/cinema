@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, combineLatest, map, Observable, tap } from 'rxjs';
@@ -15,6 +14,7 @@ import { AppState } from 'src/app/app.module';
 import { Store } from '@ngrx/store';
 import { CartActions } from 'src/app/domains/cart/store/cart.actions';
 import { API_URL } from 'src/app/env.token';
+import { Loader } from 'src/app/shared/loader/loader';
 
 export interface OrderState {
   seatsChosen: Seat[];
@@ -35,14 +35,14 @@ export interface Coupon {
 
 @UntilDestroy()
 @Injectable()
-export class OrderService {
+export class OrderService extends Loader {
   private API_URL = inject(API_URL);
   private store = inject<Store<AppState>>(Store);
-  private http = inject(HttpClient);
   private cartService = inject(CartService);
   private screeningService = inject(ScreeningService);
 
   constructor() {
+    super();
     this.fetchTicketTypes();
     this.fetchScreening();
 
@@ -95,6 +95,10 @@ export class OrderService {
 
   get selectOrder$() {
     return this.orderState$.pipe(map((state) => state.order));
+  }
+
+  get selectCoupon$() {
+    return this.orderState$.pipe(map((state) => state.coupon));
   }
 
   private patchState(stateSlice: Partial<OrderState>) {
@@ -157,7 +161,6 @@ export class OrderService {
   }
 
   private reserveSeat(seat: Seat) {
-    console.log('wykonuje');
     return this.http.patch(`${this.API_URL}/screenings/${this._screening.id}`, {
       seatsOccupied: [
         ...this._screening.seatsOccupied,
@@ -165,6 +168,26 @@ export class OrderService {
         seat,
       ],
     });
+  }
+
+  private deleteCouponFromDb(couponId: number) {
+    return this.http.delete(`${this.API_URL}/coupons/$couponId`);
+  }
+
+  transformTicketTypesToObject() {
+    return this.selectTicketTypes$.pipe(
+      map((result) => {
+        return result.reduce<Record<number, { name: string; price: number }>>(
+          (acc, curr) => {
+            return {
+              ...acc,
+              [curr.id]: { name: curr.name, price: curr.price },
+            };
+          },
+          {} as Record<number, { name: string; price: number }>
+        );
+      })
+    );
   }
 
   toggleSeat(seat: Seat) {
@@ -216,9 +239,40 @@ export class OrderService {
     this.patchState({ seatsChosen: newSeatsChosen });
   }
 
-  calculatePrice() {}
+  calculatePrice() {
+    return combineLatest([
+      this.selectSeatsChosen$,
+      this.transformTicketTypesToObject(),
+      this.selectCoupon$,
+    ]).pipe(
+      map(([seats, ticketTypes, coupon]) => {
+        const basePrice = seats.reduce<number>((acc, curr) => {
+          return acc + +ticketTypes[curr[2]].price;
+        }, 0);
+        if (coupon?.discount) {
+          const finalPrice = basePrice - coupon.discount;
+          return finalPrice > 0 ? finalPrice : 0;
+        } else {
+          return basePrice;
+        }
+      })
+    );
+  }
+
+  addCoupon(code: string) {
+    this.http
+      .get<Coupon[]>(`${this.API_URL}/coupons?code=${code}`)
+      .subscribe((result) => {
+        this.patchState({ coupon: result[0] });
+      });
+  }
+
+  removeCoupon() {
+    this.patchState({ coupon: null });
+  }
 
   createOrder(form: FinalizeForm) {
+    this.setLoading();
     const orderPost = this.http.post<OrderPostResponse>(
       `${this.API_URL}/orders`,
       {
@@ -237,9 +291,11 @@ export class OrderService {
           : [...this._orderState$$.value.seatsChosen],
       }
     );
+
     return combineLatest([orderPost, seatsPost]).pipe(
       tap({
         next: ([postResponse]) => {
+          this.setLoaderStatus({ status: 'success', successMessage: '' });
           if (this._cartId !== null) {
             this.store.dispatch(
               CartActions.removeScreening({ id: this._cartId })
@@ -247,6 +303,11 @@ export class OrderService {
           }
           this.patchState({ order: postResponse });
         },
+        error: (error) =>
+          this.setLoaderStatus({
+            status: 'failed',
+            errorMessage: 'Coś poszło nie tak',
+          }),
       })
     );
   }
