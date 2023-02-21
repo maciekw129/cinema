@@ -24,9 +24,7 @@ export class TicketComponent {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.ticketService.getTicket(params['id']).subscribe(console.log);
       this.ticket$ = this.ticketService.getTicket(params['id']);
-      this.ticketService.getTicketTypes().subscribe(console.log);
     });
   }
 }

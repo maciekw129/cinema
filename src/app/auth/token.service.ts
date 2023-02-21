@@ -18,7 +18,6 @@ export class TokenService {
 
   constructor() {
     this._decodedToken = this.decodeToken();
-    console.log(this._decodedToken);
   }
 
   private decodeToken() {

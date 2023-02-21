@@ -6,6 +6,8 @@ import {
   FetchedRoom,
   Screening,
 } from '../../admin-panel.interface';
+import { IsExistingStateMatcher } from '../isExistingStateMatcher';
+import { TimeRoomScreeningValidator } from './time-room-screening-validator';
 
 @Component({
   selector: 'app-add-screening-form[movies][rooms]',
@@ -18,8 +20,14 @@ export class AddScreeningFormComponent {
   @Input() rooms!: FetchedRoom[];
 
   private builder = inject(NonNullableFormBuilder);
-  addScreeningForm = this.createForm();
   today = new Date();
+  private timeRoomScreeningValidator = inject(TimeRoomScreeningValidator);
+  addScreeningForm = this.createForm();
+  isExistingMatcher = new IsExistingStateMatcher();
+
+  ngOnInit() {
+    this.timeRoomScreeningValidator.validate;
+  }
 
   get movieIdCtrl() {
     return this.addScreeningForm.controls.movieId;
@@ -69,19 +77,28 @@ export class AddScreeningFormComponent {
   }
 
   private createForm() {
-    return this.builder.group<AddScreeningForm>({
-      movieId: this.builder.control(null, {
-        validators: [Validators.required],
-      }),
-      hour: this.builder.control('', {
-        validators: [Validators.required],
-      }),
-      day: this.builder.control('', {
-        validators: [Validators.required],
-      }),
-      roomId: this.builder.control(null, {
-        validators: [Validators.required],
-      }),
-    });
+    return this.builder.group<AddScreeningForm>(
+      {
+        movieId: this.builder.control('', {
+          validators: [Validators.required],
+        }),
+        hour: this.builder.control('', {
+          validators: [Validators.required],
+        }),
+        day: this.builder.control('', {
+          validators: [Validators.required],
+        }),
+        roomId: this.builder.control('', {
+          validators: [Validators.required],
+        }),
+      },
+      {
+        asyncValidators: [
+          this.timeRoomScreeningValidator.validate.bind(
+            this.timeRoomScreeningValidator
+          ),
+        ],
+      }
+    );
   }
 }

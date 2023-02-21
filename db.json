@@ -173,7 +173,7 @@
       "genre": [
         "dramat"
       ],
-      "duration": "120 min.",
+      "duration": 120,
       "ageRestrictions": "PG-16",
       "description": "Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.",
       "rating": 8
@@ -186,7 +186,7 @@
       "genre": [
         "thriller"
       ],
-      "duration": "109 min.",
+      "duration": 109,
       "ageRestrictions": "PG-16",
       "description": "Rok 1862. Dręczona przeszłością pielęgniarka wyjeżdża z Anglii do odległej irlandzkiej wioski, aby zbadać sprawę pewnej dziewczynki i jej rzekomo cudownego postu.",
       "hoursOfScreenings": [
@@ -206,7 +206,7 @@
         "dramat",
         "wojenny"
       ],
-      "duration": "147 min.",
+      "duration": 147,
       "ageRestrictions": "PG-16",
       "description": "Przerażające przeżycia młodego niemieckiego żołnierza na froncie zachodnim podczas I wojny światowej.",
       "hoursOfScreenings": [
@@ -225,7 +225,7 @@
       "genre": [
         "horror"
       ],
-      "duration": "75 min.",
+      "duration": 75,
       "ageRestrictions": "PG-18",
       "description": "Po tym, jak dr Rose Carter bierze udział w traumatycznym zdarzeniu z udziałem pacjentki, wokół niej zaczynają dziać się niewytłumaczalne rzeczy.",
       "hoursOfScreenings": [
@@ -244,7 +244,7 @@
       "genre": [
         "dramat"
       ],
-      "duration": "188 min.",
+      "duration": 188,
       "ageRestrictions": "PG-16",
       "description": "Emerytowany strażnik więzienny opowiada przyjaciółce o niezwykłym mężczyźnie, którego skazano na śmierć za zabójstwo dwóch 9-letnich dziewczynek.",
       "hoursOfScreenings": [
@@ -264,7 +264,7 @@
         "dramat",
         "komedia"
       ],
-      "duration": "144 min.",
+      "duration": 144,
       "ageRestrictions": "PG-16",
       "description": "Historia życia Forresta, chłopca o niskim ilorazie inteligencji z niedowładem kończyn, który staje się miliarderem i bohaterem wojny w Wietnamie.",
       "hoursOfScreenings": [
@@ -284,7 +284,7 @@
         "dramat",
         "kryminał"
       ],
-      "duration": "101 min.",
+      "duration": 101,
       "ageRestrictions": "PG-18",
       "description": "Po śmierci nauczyciela jego przyjaciel i były policjant podejmuje pracę w szkole, aby zmierzyć się z gangiem podejrzewanym o jego zabójstwo.",
       "hoursOfScreenings": [
@@ -305,7 +305,7 @@
         "horror",
         "romans"
       ],
-      "duration": "130 min.",
+      "duration": 130,
       "ageRestrictions": "PG-16",
       "description": "Młoda kobieta uczy się jak przetrwać na marginesie społeczeństwa.",
       "hoursOfScreenings": [
@@ -324,7 +324,7 @@
       "genre": [
         "czarna komedia"
       ],
-      "duration": "144 min.",
+      "duration": 144,
       "ageRestrictions": "PG-16",
       "description": "Młoda para wybiera się na odległą wyspę, do ekskluzywnej restauracji. Okazuje się jednak, że nie wszystko jest takie jakim się wydaje a w menu czekają zaskakujące niespodzianki.",
       "hoursOfScreenings": [
@@ -343,7 +343,7 @@
         "dramat",
         "komedia"
       ],
-      "duration": "138min.",
+      "duration": 138,
       "ageRestrictions": "PG-16",
       "description": "Młody ojciec Calum i jego córka Sophie wyjeżdżają razem do tureckiego kurortu. Podczas wspólnych wakacji stają się sobie bliżsi niż kiedykolwiek.",
       "rating": 0,
@@ -356,7 +356,7 @@
       "genre": [
         "komedia"
       ],
-      "duration": "120min.",
+      "duration": 120,
       "ageRestrictions": "PG-12",
       "description": "Najnowsza odsłona serii wigilijnych opowieści \"Listy do M.\", w której zobaczymy nowe świąteczne perypetie znanych bohaterów.",
       "rating": 0,
@@ -369,7 +369,7 @@
       "genre": [
         "dramat"
       ],
-      "duration": "117min.",
+      "duration": 117,
       "ageRestrictions": "PG-16",
       "description": "Cierpiący na poważną otyłość nauczyciel angielskiego próbuje odbudować więź ze swoją nastoletnią córką.",
       "rating": 0,
@@ -588,6 +588,76 @@
       "roomId": 1,
       "seatsOccupied": [],
       "id": 17
+    },
+    {
+      "movieId": 2,
+      "hour": [
+        "21:12"
+      ],
+      "day": "22-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 18
+    },
+    {
+      "movieId": 8,
+      "hour": [
+        "12:00"
+      ],
+      "day": "20-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 19
+    },
+    {
+      "movieId": 2,
+      "hour": [
+        "12:12"
+      ],
+      "day": "20-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 20
+    },
+    {
+      "movieId": 2,
+      "hour": [
+        "16:12"
+      ],
+      "day": "20-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 21
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "11:11"
+      ],
+      "day": "21-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 22
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "11:11"
+      ],
+      "day": "21-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 23
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "11:11"
+      ],
+      "day": "28-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 24
     }
   ],
   "ticketTypes": [
@@ -775,6 +845,12 @@
       "movieId": 12,
       "userId": 10,
       "id": 11
+    },
+    {
+      "rate": 3,
+      "movieId": 8,
+      "userId": 4,
+      "id": 12
     }
   ],
   "wantToWatch": [
@@ -830,6 +906,18 @@
         ]
       ],
       "id": 2
+    },
+    {
+      "userId": 4,
+      "screeningId": 17,
+      "reservedSeats": [
+        [
+          6,
+          6,
+          1
+        ]
+      ],
+      "id": 3
     }
   ]
 }

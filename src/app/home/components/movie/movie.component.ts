@@ -56,7 +56,6 @@ export class MovieComponent {
         this.isRatingModalVisible = false;
         this.refreshEvent.emit();
       },
-      error: (error) => console.log(error),
     });
   }
 

@@ -57,14 +57,35 @@
 
   <mat-form-field color="primary" class="fieldset__input">
     <mat-label>Godzina</mat-label>
-    <input matInput formControlName="hour" type="time" />
+    <input
+      matInput
+      formControlName="hour"
+      type="time"
+      [errorStateMatcher]="isExistingMatcher"
+    />
     <!-- <mat-error *ngIf="eventDetailsForm.hasError('isHourInThePast')">Godzina nie może być w przeszłości.</mat-error> -->
-    <mat-error *ngIf="hourCtrl.errors as errors">
-      <ng-container *ngIf="errors['required']"
-        >To pole jest wymagane.</ng-container
-      >
+    <mat-error>
+      <ng-container *ngIf="hourCtrl.errors as errors; else isEqual">
+        <ng-container *ngIf="errors['required']"
+          >To pole jest wymagane.</ng-container
+        >
+      </ng-container>
+      <ng-template #isEqual>
+        <ng-container *ngIf="addScreeningForm.errors as errors">
+          <ng-container *ngIf="errors['isExisting']">
+            W tym czasie i sali odbywa się inny seans.
+          </ng-container>
+        </ng-container>
+      </ng-template>
     </mat-error>
   </mat-form-field>
 
-  <button mat-flat-button color="primary">Zatwierdź</button>
+  <button mat-flat-button color="primary" [disabled]="!addScreeningForm.valid">
+    Zatwierdź
+  </button>
+  <mat-spinner
+    matSuffix
+    diameter="20"
+    *ngIf="(addScreeningForm.statusChanges | async) === 'PENDING'"
+  ></mat-spinner>
 </form>

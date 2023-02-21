@@ -5,12 +5,20 @@ export interface Room {
   rows: number;
   columns: number;
 }
+
 export interface Screening {
   movieId: number;
   hour: string[];
   day: string;
   roomId: number;
   seatsOccupied: [];
+}
+
+export interface RawScreening {
+  movieId: string;
+  hour: string;
+  day: string;
+  roomId: string;
 }
 
 export interface FetchedMovie extends Movie {
@@ -22,7 +30,7 @@ export interface Movie {
   image: string;
   premiere: boolean;
   genre: Genre[];
-  duration: string;
+  duration: number;
   ageRestrictions: string;
   description: string;
   rating: number;
@@ -33,10 +41,10 @@ export interface FetchedRoom extends Room {
 }
 
 export interface AddScreeningForm {
-  movieId: FormControl<number | null>;
+  movieId: FormControl<string>;
   hour: FormControl<string>;
   day: FormControl<string>;
-  roomId: FormControl<number | null>;
+  roomId: FormControl<string>;
 }
 
 export interface AddMovieForm {

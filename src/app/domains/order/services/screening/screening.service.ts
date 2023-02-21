@@ -19,6 +19,12 @@ import { Rate } from 'src/app/home/services/rating/rating.service';
 import { Loader } from 'src/app/shared/loader/loader';
 import { Screening, Screenings } from 'src/types';
 
+export interface WantToWatch {
+  userId: number;
+  movieId: number;
+  id: number;
+}
+
 @UntilDestroy()
 @Injectable({
   providedIn: 'root',
@@ -52,11 +58,11 @@ export class ScreeningService extends Loader {
   private getRating(value: Screenings[]) {
     return of(value).pipe(
       switchMap((screenings) => {
-        const observables: Observable<any>[] = [];
+        const observables: Observable<WantToWatch[]>[] = [];
         if (this.isUserLogged) {
           screenings.forEach((screenings) => {
             observables.push(
-              this.http.get<[]>(
+              this.http.get<WantToWatch[]>(
                 `${this.API_URL}/wantToWatch?movieId=${screenings.movieId}&userId=${this.userId}`
               )
             );
@@ -144,8 +150,7 @@ export class ScreeningService extends Loader {
               errorMessage: 'Coś poszło nie tak',
             }),
         })
-      )
-      .subscribe();
+      );
   }
 
   addToWantToWatch(movieId: number) {

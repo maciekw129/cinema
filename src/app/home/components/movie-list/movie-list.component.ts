@@ -29,7 +29,7 @@ export class MovieListComponent {
   }
 
   fetchScreenings(date: string) {
-    this.screeningService.getScreenings(date);
+    this.screeningService.getScreenings(date).subscribe();
   }
 
   handleChangeDay(value: { date: string; id: number }) {

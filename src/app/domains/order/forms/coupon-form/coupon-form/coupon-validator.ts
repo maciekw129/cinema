@@ -13,7 +13,9 @@ import { CouponService } from '../../../services/coupon/coupon.service';
 export class CouponValidator implements AsyncValidator {
   private couponService = inject(CouponService);
 
-  validate(control: AbstractControl): Observable<ValidationErrors | null> {
+  validate = (
+    control: AbstractControl
+  ): Observable<ValidationErrors | null> => {
     return of(EMPTY).pipe(
       delay(1000),
       switchMap(() => {
@@ -23,5 +25,5 @@ export class CouponValidator implements AsyncValidator {
         );
       })
     );
-  }
+  };
 }

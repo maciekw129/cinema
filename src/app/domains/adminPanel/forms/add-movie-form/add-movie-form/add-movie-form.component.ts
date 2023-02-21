@@ -44,7 +44,7 @@ export class AddMovieFormComponent {
       duration;
       this.handleSubmitEvent.emit({
         ...value,
-        duration: duration + 'min.',
+        duration: duration,
         ageRestrictions: 'PG-' + ageRestrictions,
         rating: 0,
       });

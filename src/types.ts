@@ -48,7 +48,7 @@ export interface Movie {
   image: string;
   premiere: boolean;
   genre: string[];
-  duration: string;
+  duration: number;
   ageRestrictions: string;
   description: string;
   rating: number;
@@ -60,7 +60,7 @@ export interface Screening {
   movie: Movie;
   roomId: number;
   hour: string[];
-  day: number;
+  day: string;
   id: number;
   room: {
     columns: number;
@@ -78,7 +78,7 @@ export interface Screenings {
     hour: string;
     screeningId: number;
   }[];
-  day: number;
+  day: string;
 }
 
 export type Seat = [column: number, row: number, seatTypeId: number];
