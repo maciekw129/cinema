@@ -62,8 +62,8 @@
       formControlName="hour"
       type="time"
       [errorStateMatcher]="isExistingMatcher"
+      [errorStateMatcher]="isHourInThePastStateMatcher"
     />
-    <!-- <mat-error *ngIf="eventDetailsForm.hasError('isHourInThePast')">Godzina nie może być w przeszłości.</mat-error> -->
     <mat-error>
       <ng-container *ngIf="hourCtrl.errors as errors; else isEqual">
         <ng-container *ngIf="errors['required']"
@@ -74,6 +74,9 @@
         <ng-container *ngIf="addScreeningForm.errors as errors">
           <ng-container *ngIf="errors['isExisting']">
             W tym czasie i sali odbywa się inny seans.
+          </ng-container>
+          <ng-container *ngIf="errors['isHourInThePast']">
+            Seans nie może być w przeszłości.
           </ng-container>
         </ng-container>
       </ng-template>

@@ -7,6 +7,8 @@ import {
   Screening,
 } from '../../admin-panel.interface';
 import { IsExistingStateMatcher } from '../isExistingStateMatcher';
+import { IsHourInThePastStateMatcher } from './isHourInThePastStateMatcher';
+import { isHourInThePastValidator } from './isHourInThePastValidator';
 import { TimeRoomScreeningValidator } from './time-room-screening-validator';
 
 @Component({
@@ -24,6 +26,7 @@ export class AddScreeningFormComponent {
   private timeRoomScreeningValidator = inject(TimeRoomScreeningValidator);
   addScreeningForm = this.createForm();
   isExistingMatcher = new IsExistingStateMatcher();
+  isHourInThePastStateMatcher = new IsHourInThePastStateMatcher();
 
   ngOnInit() {
     this.timeRoomScreeningValidator.validate;
@@ -54,6 +57,7 @@ export class AddScreeningFormComponent {
   }
 
   handleSubmit() {
+    console.log(this.addScreeningForm.errors);
     this.addScreeningForm.markAllAsTouched();
     if (this.addScreeningForm.invalid) return;
 
@@ -93,6 +97,7 @@ export class AddScreeningFormComponent {
         }),
       },
       {
+        validators: [isHourInThePastValidator],
         asyncValidators: [
           this.timeRoomScreeningValidator.validate.bind(
             this.timeRoomScreeningValidator
