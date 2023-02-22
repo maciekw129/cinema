@@ -1,83 +1,89 @@
-<div class="movie main-container">
-  <img class="movie__image" [src]="screenings.movie.image" alt="Movie image" />
-  <div class="movie__content">
-    <div class="content__text">
-      <h2 class="content__name">
-        {{ screenings.movie.name
-        }}<span
-          class="content__premiere fnt-18-regular"
-          *ngIf="screenings.movie.premiere"
-        >
-          - Premiera!</span
-        >
-      </h2>
-      <p class="content__informations">
-        {{
-          screenings.movie.genre.join(" | ") +
-            " | " +
-            screenings.movie.duration +
-            " min." +
-            " | " +
-            screenings.movie.ageRestrictions
-        }}
-      </p>
-      <p class="content__description">{{ screenings.movie.description }}</p>
-    </div>
-    <ul class="content__button-bar">
-      <li
-        *ngFor="let hour of screenings.hours"
-        class="button-bar__item"
-        (click)="handleClick(hour.screeningId)"
-      >
-        {{ hour.hour }}
-      </li>
-    </ul>
-  </div>
-  <div class="movie__left-container">
-    <p class="movie__rating fnt-24-bold">{{ ratingValue$ | async }}/5</p>
-    <ng-container *ngIf="isUserLogged$$ | async as isUserLogged">
-      <ng-container *ngIf="ratingState$ | async as ratingState">
-        <button
-          color="primary"
-          mat-flat-button
-          *ngIf="isUserLogged && !ratingState.hasUserRated"
-          (click)="showRatingModal()"
-        >
-          Oceń ten film!
-        </button>
-        <p *ngIf="isUserLogged && ratingState.hasUserRated">
-          Oceniłeś ten film na: {{ ratingState.rating }}
+<div class="main-container">
+  <div class="movie main-card">
+    <img
+      class="movie__image"
+      [src]="screenings.movie.image"
+      alt="Movie image"
+    />
+    <div class="movie__content">
+      <div class="content__text">
+        <h2 class="content__name">
+          {{ screenings.movie.name
+          }}<span
+            class="content__premiere fnt-18-regular"
+            *ngIf="screenings.movie.premiere"
+          >
+            - Premiera!</span
+          >
+        </h2>
+        <p class="content__informations">
+          {{
+            screenings.movie.genre.join(" | ") +
+              " | " +
+              screenings.movie.duration +
+              " min." +
+              " | " +
+              screenings.movie.ageRestrictions
+          }}
         </p>
-      </ng-container>
-      <button
-        *ngIf="isUserLogged && !screenings.wantToWatch"
-        mat-flat-button
-        color="primary"
-        (click)="handleAddToWatch()"
-      >
-        Chcę zobaczyć
-      </button>
-      <button
-        *ngIf="isUserLogged && screenings.wantToWatch"
-        mat-flat-button
-        color="primary"
-        (click)="handleRemoveFromWatch()"
-      >
-        Nie chcę zobaczyć
-      </button>
-    </ng-container>
-  </div>
-
-  <app-modal
-    *ngIf="isRatingModalVisible"
-    (closeEvent)="closeRatingModal()"
-    class="movie__modal"
-  >
-    <div class="movie__rating-modal">
-      <app-rating-scale (setRateEvent)="setRate($event)"></app-rating-scale>
-      <button mat-flat-button color="primary" (click)="handleRate()">
-        Zatwierdź
-      </button>
+        <p class="content__description">{{ screenings.movie.description }}</p>
+      </div>
+      <ul class="content__button-bar">
+        <li
+          *ngFor="let hour of screenings.hours"
+          class="button-bar__item"
+          (click)="handleClick(hour.screeningId)"
+        >
+          {{ hour.hour }}
+        </li>
+      </ul>
     </div>
-  </app-modal>
+    <div class="movie__left-container">
+      <p class="movie__rating fnt-24-bold">{{ ratingValue$ | async }}/5</p>
+      <ng-container *ngIf="isUserLogged$$ | async as isUserLogged">
+        <ng-container *ngIf="ratingState$ | async as ratingState">
+          <button
+            color="primary"
+            mat-flat-button
+            *ngIf="isUserLogged && !ratingState.hasUserRated"
+            (click)="showRatingModal()"
+          >
+            Oceń ten film!
+          </button>
+          <p *ngIf="isUserLogged && ratingState.hasUserRated">
+            Oceniłeś ten film na: {{ ratingState.rating }}
+          </p>
+        </ng-container>
+        <button
+          *ngIf="isUserLogged && !screenings.wantToWatch"
+          mat-flat-button
+          color="primary"
+          (click)="handleAddToWatch()"
+        >
+          Chcę zobaczyć
+        </button>
+        <button
+          *ngIf="isUserLogged && screenings.wantToWatch"
+          mat-flat-button
+          color="primary"
+          (click)="handleRemoveFromWatch()"
+        >
+          Nie chcę zobaczyć
+        </button>
+      </ng-container>
+    </div>
+
+    <app-modal
+      *ngIf="isRatingModalVisible"
+      (closeEvent)="closeRatingModal()"
+      class="movie__modal"
+    >
+      <div class="movie__rating-modal">
+        <app-rating-scale (setRateEvent)="setRate($event)"></app-rating-scale>
+        <button mat-flat-button color="primary" (click)="handleRate()">
+          Zatwierdź
+        </button>
+      </div>
+    </app-modal>
+  </div>
 </div>

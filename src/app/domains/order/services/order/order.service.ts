@@ -11,6 +11,7 @@ import { Loader } from 'src/app/shared/loader/loader';
 import { Screening, TicketTypes } from 'src/app/core/core.interace';
 import { FinalizeForm } from '../../forms/finalize-form/finalize-form.interface';
 import { Order, Seat } from '../../order.interface';
+import { TicketTypesService } from '../ticket-types/ticket-types.service';
 
 export interface OrderState {
   seatsChosen: Seat[];
@@ -36,6 +37,7 @@ export class OrderService extends Loader {
   private store = inject<Store<AppState>>(Store);
   private cartService = inject(CartService);
   private screeningService = inject(ScreeningService);
+  private ticketTypesService = inject(TicketTypesService);
 
   constructor() {
     super();
@@ -111,11 +113,9 @@ export class OrderService extends Loader {
   }
 
   private fetchTicketTypes() {
-    this.http
-      .get<TicketTypes[]>(`${this.API_URL}/ticketTypes`)
-      .subscribe((result) => {
-        this.patchState({ ticketTypes: result });
-      });
+    this.ticketTypesService.ticketTypes$$.subscribe((result) => {
+      this.patchState({ ticketTypes: result });
+    });
   }
 
   private getSeatsChosenFromCart() {
@@ -167,7 +167,7 @@ export class OrderService extends Loader {
   }
 
   private deleteCouponFromDb(couponId: number) {
-    return this.http.delete(`${this.API_URL}/coupons/$couponId`);
+    return this.http.delete(`${this.API_URL}/coupons/${couponId}`);
   }
 
   transformTicketTypesToObject() {
@@ -291,7 +291,13 @@ export class OrderService extends Loader {
     return combineLatest([orderPost, seatsPost]).pipe(
       tap({
         next: ([postResponse]) => {
+          if (this._orderState$$.value.coupon) {
+            this.deleteCouponFromDb(
+              this._orderState$$.value.coupon.id
+            ).subscribe();
+          }
           this.setLoaderStatus({ status: 'success', successMessage: '' });
+          this.removeCoupon();
           if (this._cartId !== null) {
             this.store.dispatch(
               CartActions.removeScreening({ id: this._cartId })

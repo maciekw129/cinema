@@ -7,13 +7,13 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Screenings } from 'src/types';
 import { RatingService } from '../../services/rating/rating.service';
 import { Observable, tap } from 'rxjs';
 import { ScreeningService } from 'src/app/domains/order/services/screening/screening.service';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.module';
 import { selectIsUserLogged } from 'src/app/auth/store/auth.selectors';
+import { Screenings } from 'src/app/core/core.interace';
 
 @Component({
   selector: 'app-movie[screenings]',

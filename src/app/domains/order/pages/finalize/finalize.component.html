@@ -14,7 +14,9 @@
               <p class="seats__informations">
                 Rząd {{ alphabeth[seat[0]] }}, miejsce {{ seat[1] + 1 }}
               </p>
-              <p class="seats__price">{{ ticketTypes[+seat[2]].price }}zł</p>
+              <p *ngIf="!!ticketTypes[+seat[2]]" class="seats__price">
+                {{ ticketTypes[+seat[2]].price }}zł
+              </p>
             </div>
             <div class="finalize__seat" *ngIf="coupon$ | async as coupon">
               <button mat-icon-button (click)="removeCoupon()">

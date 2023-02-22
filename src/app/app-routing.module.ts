@@ -9,15 +9,7 @@ import { CanLoginGuard } from './auth/guards/can-login.guard';
 import { AdminGuard } from './auth/guards/admin.guard';
 import { MovieListComponent } from './home/components/movie-list/movie-list.component';
 import { IsNotAdminGuard } from './auth/guards/is-not-admin.guard';
-
-const getToday = () => {
-  const day = new Date();
-  let mounth = `${day.getMonth() + 1}`;
-  if (mounth.length === 1) {
-    mounth = '0' + mounth;
-  }
-  return day.getDate() + '-' + mounth + '-' + day.getFullYear();
-};
+import { getToday } from './core/getToday';
 
 const routes: Routes = [
   {

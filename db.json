@@ -5,9 +5,9 @@
       "password": "$2a$10$8lSG1y4lyqZZjkTP85YLLOXh4DVRZlogjhaYpQaF80QhhOUIvsEFm",
       "accountType": "user",
       "userData": {
-        "firstName": "Maciej",
+        "firstName": "Kacper",
         "lastName": "Kowalski",
-        "phone": "123123122"
+        "phone": ""
       },
       "id": 4
     },
@@ -625,7 +625,18 @@
       ],
       "day": "22-02-2023",
       "roomId": 1,
-      "seatsOccupied": [],
+      "seatsOccupied": [
+        [
+          6,
+          6,
+          1
+        ],
+        [
+          8,
+          6,
+          1
+        ]
+      ],
       "id": 17
     },
     {
@@ -649,6 +660,26 @@
         [
           2,
           4,
+          1
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          8,
+          6,
+          1
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          9,
+          6,
           1
         ]
       ],
@@ -741,6 +772,51 @@
           8,
           2,
           1
+        ],
+        [
+          9,
+          6,
+          1
+        ],
+        [
+          0,
+          9,
+          1
+        ],
+        [
+          0,
+          8,
+          1
+        ],
+        [
+          9,
+          6,
+          1
+        ],
+        [
+          9,
+          8,
+          1
+        ],
+        [
+          8,
+          8,
+          1
+        ],
+        [
+          9,
+          6,
+          1
+        ],
+        [
+          8,
+          6,
+          1
+        ],
+        [
+          8,
+          5,
+          1
         ]
       ],
       "id": 25
@@ -762,7 +838,53 @@
       ],
       "day": "22-02-2023",
       "roomId": 1,
-      "seatsOccupied": [],
+      "seatsOccupied": [
+        [
+          9,
+          7,
+          1
+        ],
+        [
+          9,
+          6,
+          1
+        ],
+        [
+          7,
+          8,
+          1
+        ],
+        [
+          9,
+          8,
+          1
+        ],
+        [
+          5,
+          7,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          6,
+          7,
+          1
+        ],
+        [
+          9,
+          4,
+          1
+        ],
+        [
+          2,
+          6,
+          1
+        ]
+      ],
       "id": 27
     },
     {
@@ -835,6 +957,16 @@
       "roomId": 10,
       "seatsOccupied": [],
       "id": 33
+    },
+    {
+      "movieId": 5,
+      "hour": [
+        "15:30"
+      ],
+      "day": "24-02-2023",
+      "roomId": 2,
+      "seatsOccupied": [],
+      "id": 34
     }
   ],
   "ticketTypes": [
@@ -990,6 +1122,101 @@
         "email": "maciej@email.com"
       },
       "id": 7
+    },
+    {
+      "screeningId": 27,
+      "seats": [
+        [
+          9,
+          7,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asd",
+        "lastName": "asd",
+        "phone": "123123123",
+        "email": "asd@asd.pl"
+      },
+      "id": 8
+    },
+    {
+      "screeningId": 27,
+      "seats": [
+        [
+          9,
+          6,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "asd",
+        "lastName": "asd",
+        "phone": "123123123",
+        "email": "asd@a.pl"
+      },
+      "id": 9
+    },
+    {
+      "screeningId": 27,
+      "seats": [
+        [
+          9,
+          8,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "abc",
+        "lastName": "aca",
+        "phone": "123123123",
+        "email": "abc@o2.pl"
+      },
+      "id": 10
+    },
+    {
+      "screeningId": 27,
+      "seats": [
+        [
+          5,
+          7,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "abcc",
+        "lastName": "abcc",
+        "phone": "123123123",
+        "email": "a@lpl.pl"
+      },
+      "id": 11
+    },
+    {
+      "screeningId": 25,
+      "seats": [
+        [
+          8,
+          6,
+          1
+        ],
+        [
+          8,
+          5,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": "123123123",
+        "email": "aa@l.pl"
+      },
+      "id": 12
     }
   ],
   "rating": [
@@ -1097,11 +1324,6 @@
   ],
   "coupons": [
     {
-      "id": 1,
-      "code": "super-kupon",
-      "discount": 20
-    },
-    {
       "id": 2,
       "code": "ekstra-kupon",
       "discount": 10
@@ -1182,6 +1404,47 @@
         ]
       ],
       "id": 5
+    },
+    {
+      "userId": 4,
+      "screeningId": 26,
+      "reservedSeats": [
+        [
+          9,
+          5,
+          1
+        ],
+        [
+          8,
+          6,
+          1
+        ]
+      ],
+      "id": 6
+    },
+    {
+      "userId": 4,
+      "screeningId": 25,
+      "reservedSeats": [
+        [
+          9,
+          6,
+          1
+        ]
+      ],
+      "id": 7
+    },
+    {
+      "userId": 4,
+      "screeningId": 27,
+      "reservedSeats": [
+        [
+          9,
+          4,
+          1
+        ]
+      ],
+      "id": 8
     }
   ]
 }

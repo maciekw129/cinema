@@ -8,9 +8,9 @@ import { TicketService } from './ticket.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { API_URL } from '../../core/env.token';
 import { Observable, of } from 'rxjs';
-import { Movie, TicketTypes } from 'src/types';
 import { Room } from '../adminPanel/admin-panel.interface';
 import { CoreRequestsService } from '../../core/core-requests.service';
+import { Movie, TicketTypes } from 'src/app/core/core.interace';
 
 describe('TicketService', () => {
   const coreRequestsMock = {
