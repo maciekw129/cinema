@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { OnlyNumbersDirective } from 'src/app/shared/directives/only-numbers.directive';
+import { NoLeadingZerosDirective } from 'src/app/shared/directives/no-leading-zeros.directive';
 
 const routes: Routes = [
   {
@@ -64,6 +66,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     LoaderComponent,
+    OnlyNumbersDirective,
+    NoLeadingZerosDirective,
   ],
   providers: [AdminPanelService],
 })

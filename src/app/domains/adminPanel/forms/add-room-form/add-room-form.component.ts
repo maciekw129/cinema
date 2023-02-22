@@ -43,10 +43,18 @@ export class AddRoomFormComponent {
         validators: [Validators.required],
       }),
       rows: this.builder.control('', {
-        validators: [Validators.required],
+        validators: [
+          Validators.required,
+          Validators.min(5),
+          Validators.max(25),
+        ],
       }),
       columns: this.builder.control('', {
-        validators: [Validators.required],
+        validators: [
+          Validators.required,
+          Validators.min(5),
+          Validators.max(25),
+        ],
       }),
     });
   }

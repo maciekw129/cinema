@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AppState } from 'src/app/app.module';
 import { selectUserId } from 'src/app/auth/store/auth.selectors';
-import { API_URL } from 'src/app/env.token';
+import { API_URL } from 'src/app/core/env.token';
 
 export interface RatingState {
   rating: number;

@@ -29,6 +29,19 @@ export interface FinalizeForm {
   email: string;
 }
 
+export interface FetchedOrder {
+  screeningId: number;
+  seats: Seat[];
+  userId: number;
+  ownerDetails: {
+    firstName: string;
+    lastName: string;
+    phone?: string;
+    email: string;
+  };
+  id: number;
+}
+
 export interface Order {
   screening: Screening;
   screeningId: number;

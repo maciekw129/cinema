@@ -79,7 +79,7 @@
 
   <mat-form-field color="primary">
     <mat-label>Czas trwania</mat-label>
-    <input matInput formControlName="duration" type="number" />
+    <input matInput appOnlyNumbers formControlName="duration" />
     <mat-hint>Czas proszę podać w minutach</mat-hint>
     <mat-error *ngIf="durationCtrl.errors as errors">
       <ng-container *ngIf="errors['required']; else nameMin"
@@ -100,7 +100,7 @@
 
   <mat-form-field color="primary">
     <mat-label>Ograniczenia wiekowe</mat-label>
-    <input matInput formControlName="ageRestrictions" type="number" />
+    <input matInput formControlName="ageRestrictions" appOnlyNumbers />
     <mat-hint>Minimalny wiek oglądającego.</mat-hint>
     <mat-error *ngIf="ageRestrictionsCtrl.errors as errors">
       <ng-container *ngIf="errors['required']; else nameMax"

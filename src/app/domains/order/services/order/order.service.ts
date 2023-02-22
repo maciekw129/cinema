@@ -13,7 +13,7 @@ import { CartService } from 'src/app/domains/cart/cart.service';
 import { AppState } from 'src/app/app.module';
 import { Store } from '@ngrx/store';
 import { CartActions } from 'src/app/domains/cart/store/cart.actions';
-import { API_URL } from 'src/app/env.token';
+import { API_URL } from 'src/app/core/env.token';
 import { Loader } from 'src/app/shared/loader/loader';
 
 export interface OrderState {

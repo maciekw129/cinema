@@ -14,7 +14,7 @@ import {
 } from 'rxjs';
 import { AppState } from 'src/app/app.module';
 import { Cart } from 'src/app/domains/cart/cart.interface';
-import { API_URL } from 'src/app/env.token';
+import { API_URL } from 'src/app/core/env.token';
 import { Rate } from 'src/app/home/services/rating/rating.service';
 import { Loader } from 'src/app/shared/loader/loader';
 import { Screening, Screenings } from 'src/types';

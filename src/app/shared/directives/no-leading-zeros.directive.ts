@@ -2,16 +2,16 @@ import { Directive, ElementRef, HostListener, inject } from '@angular/core';
 
 @Directive({
   standalone: true,
-  selector: 'input[appNoSpaces]',
+  selector: '[appNoLeadingZeros]',
 })
-export class NoSpacesDirective {
+export class NoLeadingZerosDirective {
   private el = inject(ElementRef);
 
   @HostListener('input') onInput() {
     const element = this.el.nativeElement as HTMLInputElement;
-    const value = [...this.el.nativeElement.value].filter(
-      (char) => char !== ' '
-    );
-    element.value = value.join('');
+
+    if (element.value) {
+      element.value = parseInt(element.value).toString();
+    }
   }
 }

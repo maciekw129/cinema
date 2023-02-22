@@ -15,6 +15,6 @@ export class AddMovieComponent {
   genres$ = this.adminPanelService.getAllGenres();
 
   createMovie(movie: Movie) {
-    this.adminPanelService.createMovie(movie);
+    this.adminPanelService.createMovie(movie).subscribe();
   }
 }

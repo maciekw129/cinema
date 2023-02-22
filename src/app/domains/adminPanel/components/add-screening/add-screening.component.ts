@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { combineLatest } from 'rxjs';
+import { CoreRequestsService } from '../../../../core/core-requests.service';
 import { Screening } from '../../admin-panel.interface';
 import { AdminPanelService } from '../../admin-panel.service';
 
@@ -10,15 +11,16 @@ import { AdminPanelService } from '../../admin-panel.service';
 })
 export class AddScreeningComponent {
   private adminPanelService = inject(AdminPanelService);
+  private coreRequestsService = inject(CoreRequestsService);
 
   requestState = this.adminPanelService.requestState$$;
 
-  movies$ = this.adminPanelService.getAllMovies();
-  rooms$ = this.adminPanelService.getAllRooms();
+  movies$ = this.coreRequestsService.getAllMovies();
+  rooms$ = this.coreRequestsService.getAllRooms();
 
   data$ = combineLatest([this.movies$, this.rooms$]);
 
   createScreening(screening: Screening) {
-    this.adminPanelService.createScreening(screening);
+    this.adminPanelService.createScreening(screening).subscribe();
   }
 }

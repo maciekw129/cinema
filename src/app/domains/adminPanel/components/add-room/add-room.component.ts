@@ -14,6 +14,6 @@ export class AddRoomComponent {
   requestState = this.adminPanelService.requestState$$;
 
   createRoom(room: Room) {
-    this.adminPanelService.createRoom(room);
+    this.adminPanelService.createRoom(room).subscribe();
   }
 }

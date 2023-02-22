@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 import { AppState } from 'src/app/app.module';
 import { selectUserId } from 'src/app/auth/store/auth.selectors';
-import { API_URL } from 'src/app/env.token';
+import { API_URL } from 'src/app/core/env.token';
 import { Loader } from 'src/app/shared/loader/loader';
 import { Movie } from 'src/types';
 

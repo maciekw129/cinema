@@ -27,7 +27,7 @@ import { CartEffects } from './domains/cart/store/cart.effects';
 import { CartState } from './domains/cart/cart.interface';
 import { cartReducer } from './domains/cart/store/cart.reducer';
 import { CountCartItemsPipe } from './domains/cart/count-cart-items.pipe';
-import { API_URL } from './env.token';
+import { API_URL } from './core/env.token';
 import { environment } from '../environment';
 import { AuthState } from './auth/auth.interface';
 import { authReducer } from './auth/store/auth.reducer';

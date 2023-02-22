@@ -36,30 +36,20 @@
 
   <mat-form-field color="primary">
     <mat-label>Liczba rzędów</mat-label>
-    <input type="number" appNoSpaces matInput formControlName="rows" />
-    <mat-error *ngIf="nameCtrl.errors as errors">
-      <ng-container *ngIf="errors['required']; else nameMinLength"
+    <input appOnlyNumbers appNoLeadingZeros matInput formControlName="rows" />
+    <mat-hint>Wpisz liczbę między 5 a 25</mat-hint>
+    <mat-error *ngIf="rowsCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMin"
         >To pole jest wymagane.</ng-container
       >
-      <ng-template #nameMinLength>
-        <ng-container
-          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
-          >Min. liczba znaków: {{ minLength.actualLength }}/{{
-            minLength.requiredLength
-          }}.</ng-container
+      <ng-template #nameMin>
+        <ng-container *ngIf="errors['min'] as min; else nameMax"
+          >Min. liczba rzędów: {{ min.actual }}/{{ min.min }}.</ng-container
         >
       </ng-template>
-      <ng-template #nameMaxLength>
-        <ng-container
-          *ngIf="errors['maxlength'] as maxLength; else nameSpecialLetters"
-          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
-            maxLength.requiredLength
-          }}.</ng-container
-        >
-      </ng-template>
-      <ng-template #nameSpecialLetters>
-        <ng-container *ngIf="errors['pattern']"
-          >Znaki specjalne są niedozwolone</ng-container
+      <ng-template #nameMax>
+        <ng-container *ngIf="errors['max'] as max"
+          >Maks. liczba rzędów: {{ max.actual }}/{{ max.max }}.</ng-container
         >
       </ng-template>
     </mat-error>
@@ -67,30 +57,25 @@
 
   <mat-form-field color="primary">
     <mat-label>Liczba kolumn</mat-label>
-    <input type="number" appNoSpaces matInput formControlName="columns" />
-    <mat-error *ngIf="nameCtrl.errors as errors">
-      <ng-container *ngIf="errors['required']; else nameMinLength"
+    <input
+      appOnlyNumbers
+      appNoLeadingZeros
+      matInput
+      formControlName="columns"
+    />
+    <mat-hint>Wpisz liczbę między 5 a 25</mat-hint>
+    <mat-error *ngIf="columnsCtrl.errors as errors">
+      <ng-container *ngIf="errors['required']; else nameMin"
         >To pole jest wymagane.</ng-container
       >
-      <ng-template #nameMinLength>
-        <ng-container
-          *ngIf="errors['minlength'] as minLength; else nameMaxLength"
-          >Min. liczba znaków: {{ minLength.actualLength }}/{{
-            minLength.requiredLength
-          }}.</ng-container
+      <ng-template #nameMin>
+        <ng-container *ngIf="errors['min'] as min; else nameMax"
+          >Min. liczba kolumn: {{ min.actual }}/{{ min.min }}.</ng-container
         >
       </ng-template>
-      <ng-template #nameMaxLength>
-        <ng-container
-          *ngIf="errors['maxlength'] as maxLength; else nameSpecialLetters"
-          >Maks. liczba znaków: {{ maxLength.actualLength }}/{{
-            maxLength.requiredLength
-          }}.</ng-container
-        >
-      </ng-template>
-      <ng-template #nameSpecialLetters>
-        <ng-container *ngIf="errors['pattern']"
-          >Znaki specjalne są niedozwolone</ng-container
+      <ng-template #nameMax>
+        <ng-container *ngIf="errors['max'] as max"
+          >Maks. liczba kolumn: {{ max.actual }}/{{ max.max }}.</ng-container
         >
       </ng-template>
     </mat-error>
