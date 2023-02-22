@@ -34,7 +34,7 @@ export class IsNotAdminGuard implements CanActivate {
             this.router.navigate(['/']);
             return of(false);
           }
-          return of(result.isLogged);
+          return of(true);
         })
       );
   }

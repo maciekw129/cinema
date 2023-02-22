@@ -15,7 +15,8 @@
         {{
           screenings.movie.genre.join(" | ") +
             " | " +
-            screenings.movie.duration + ' min.' +
+            screenings.movie.duration +
+            " min." +
             " | " +
             screenings.movie.ageRestrictions
         }}
@@ -33,7 +34,7 @@
     </ul>
   </div>
   <div class="movie__left-container">
-    <p class="movie__rating fnt-24-bold">{{ ratingValue$ | async }}/10</p>
+    <p class="movie__rating fnt-24-bold">{{ ratingValue$ | async }}/5</p>
     <ng-container *ngIf="isUserLogged$$ | async as isUserLogged">
       <ng-container *ngIf="ratingState$ | async as ratingState">
         <button

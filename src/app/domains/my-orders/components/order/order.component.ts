@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Order } from 'src/types';
+import { Order } from 'src/app/domains/order/order.interface';
 
 @Component({
   selector: 'app-order[order]',

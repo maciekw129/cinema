@@ -17,4 +17,8 @@ export class AddMovieComponent {
   createMovie(movie: Movie) {
     this.adminPanelService.createMovie(movie).subscribe();
   }
+
+  ngOnDestroy() {
+    this.adminPanelService.clearLoaderState();
+  }
 }

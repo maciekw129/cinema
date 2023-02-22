@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../../services/order/order.service';
-import { Seat } from 'src/types';
 import { of, tap } from 'rxjs';
+import { Seat } from '../../order.interface';
 
 @Component({
   selector: 'app-reservation',

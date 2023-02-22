@@ -72,7 +72,7 @@ export class AdminPanelService extends Loader {
       this.coreRequests.getScreeningByDayAndRoom(properDay, roomId),
     ]).pipe(
       switchMap(([movie, screenings]) => {
-        const isNotColiding = screenings.some((screening, index) => {
+        const isColiding = screenings.some((screening, index) => {
           let [day, mounth, year] = screening.day.split('-');
           let [hours, minutes] = screening.hour[0].split(':');
           let [hoursToInsert, minutesToInsert] = hour.split(':');
@@ -93,9 +93,9 @@ export class AdminPanelService extends Loader {
           let endDateToInsert = new Date(
             startDateToInsert.getTime() + movie.duration * 60000
           );
-          return endDateToInsert < startDate || startDateToInsert > endDate;
+          return !(endDateToInsert < startDate || startDateToInsert > endDate);
         });
-        return of(isNotColiding);
+        return of(!isColiding);
       })
     );
   }

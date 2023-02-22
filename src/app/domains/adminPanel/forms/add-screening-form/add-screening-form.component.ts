@@ -57,7 +57,6 @@ export class AddScreeningFormComponent {
   }
 
   handleSubmit() {
-    console.log(this.addScreeningForm.errors);
     this.addScreeningForm.markAllAsTouched();
     if (this.addScreeningForm.invalid) return;
 

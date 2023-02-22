@@ -16,4 +16,8 @@ export class AddRoomComponent {
   createRoom(room: Room) {
     this.adminPanelService.createRoom(room).subscribe();
   }
+
+  ngOnDestroy() {
+    this.adminPanelService.clearLoaderState();
+  }
 }

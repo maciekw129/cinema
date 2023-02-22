@@ -22,6 +22,10 @@ export class Loader {
     this._requestState$$.next(value);
   }
 
+  clearLoaderState() {
+    this._requestState$$.next({ status: 'initial' });
+  }
+
   protected postWithLoader(
     url: string,
     payload: Record<any, any>,

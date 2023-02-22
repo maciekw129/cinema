@@ -8,6 +8,7 @@ export class IsHourInThePastStateMatcher implements ErrorStateMatcher {
   ): boolean {
     const isSubmitted = form && form.submitted;
     if (form?.hasError('isHourInThePast')) return true;
+    if (form?.hasError('isExisting')) return true;
     return !!(
       control &&
       control.invalid &&

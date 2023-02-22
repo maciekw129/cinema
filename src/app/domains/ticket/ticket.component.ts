@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EMPTY, Observable } from 'rxjs';
-import { Order } from 'src/types';
 import { TicketService } from './ticket.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { Order } from '../order/order.interface';
 
 @Component({
   standalone: true,

@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { Seat } from 'src/types';
+import { Seat } from '../../order/order.interface';
 import { Cart } from '../cart.interface';
 
 export const CartActions = createActionGroup({

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminPanelComponent } from './admin-panel.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { AddRoomFormComponent } from './forms/add-room-form/add-room-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -61,7 +60,6 @@ const routes: Routes = [
     MatNativeDateModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    ButtonComponent,
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,

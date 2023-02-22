@@ -23,4 +23,8 @@ export class AddScreeningComponent {
   createScreening(screening: Screening) {
     this.adminPanelService.createScreening(screening).subscribe();
   }
+
+  ngOnDestroy() {
+    this.adminPanelService.clearLoaderState();
+  }
 }

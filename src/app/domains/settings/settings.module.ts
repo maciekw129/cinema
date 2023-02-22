@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SettingsFormComponent } from './settings-form/settings-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ButtonComponent } from '../../shared/components/button/button.component';
 import { LoaderComponent } from '../../shared/loader/loader/loader.component';
 import { NoSpacesDirective } from 'src/app/shared/directives/no-spaces.directive';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,7 +23,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    ButtonComponent,
     LoaderComponent,
     MatButtonModule,
     MatFormFieldModule,

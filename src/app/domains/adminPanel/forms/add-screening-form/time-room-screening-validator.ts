@@ -17,7 +17,6 @@ export class TimeRoomScreeningValidator implements AsyncValidator {
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     const form = control as FormGroup<AddScreeningForm>;
-
     return of(EMPTY).pipe(
       delay(1000),
       switchMap(() => {

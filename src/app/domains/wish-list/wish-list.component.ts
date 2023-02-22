@@ -21,6 +21,7 @@ export class WishListComponent {
       next: () => this.wishListService.getWishList(),
       error: (error) => {
         if (error.status === 500) {
+          this.wishListService.getWishList();
         }
       },
     });

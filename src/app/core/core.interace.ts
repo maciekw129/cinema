@@ -1,15 +1,9 @@
-export interface Order {
-  screening: Screening;
-  screeningId: number;
-  seats: Seat[];
-  userId: number;
-  ownerDetails: {
-    firstName: string;
-    lastName: string;
-    phone?: string;
-    email: string;
-  };
-  id: number;
+import { Seat } from '../domains/order/order.interface';
+
+export interface TicketTypes {
+  id: string;
+  name: string;
+  price: number;
 }
 
 export interface Movie {
@@ -49,5 +43,3 @@ export interface Screenings {
   }[];
   day: string;
 }
-
-export type Seat = [column: number, row: number, seatTypeId: number];

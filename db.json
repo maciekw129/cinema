@@ -136,6 +136,18 @@
       "rows": 1,
       "columns": 1,
       "id": 9
+    },
+    {
+      "name": "Super sala",
+      "rows": 11,
+      "columns": 11,
+      "id": 10
+    },
+    {
+      "name": "salkaa",
+      "rows": null,
+      "columns": 12,
+      "id": 11
     }
   ],
   "genres": [
@@ -374,6 +386,33 @@
       "description": "Cierpiący na poważną otyłość nauczyciel angielskiego próbuje odbudować więź ze swoją nastoletnią córką.",
       "rating": 0,
       "id": 12
+    },
+    {
+      "id": 13,
+      "name": "Night of the Day of the Dawn of the Son of the Bride of the Return of the Revenge of the Terror of the Attack of the Evil, Mutant, Alien, Flesh Eating, Hellbound, Zombified Living Dead Part 2: In Shocking 2-D",
+      "image": "https://fwcdn.pl/fpo/87/79/148779/7593345.6.jpg",
+      "premiere": false,
+      "genre": [
+        "horror"
+      ],
+      "duration": 96,
+      "ageRestrictions": "PG-18",
+      "description": "film produkcji amerykańskiej, znany także pod skróconymi tytułami Night of the Day of the Dawn of the Son of the Bride of the Return of the Terror lub NOTDOT, powstały w 1991 roku wyreżyserowany przez Jamesa Riffela, który jest także autorem filmowego scenariusza, oraz który film wyprodukował.",
+      "rating": 0
+    },
+    {
+      "name": "Duchy Inisherin",
+      "image": "https://fwcdn.pl/fpo/69/01/856901/8054045.6.jpg",
+      "premiere": true,
+      "genre": [
+        "dramat",
+        "komedia"
+      ],
+      "duration": "114",
+      "ageRestrictions": "PG-18",
+      "description": "Życie dwóch długoletnich znajomych znajduje się w impasie, gdy jeden z nich nagle kończy ich przyjaźń, co ma nieoczekiwane konsekwencje dla nich obydwu.",
+      "rating": 0,
+      "id": 14
     }
   ],
   "screenings": [
@@ -596,7 +635,23 @@
       ],
       "day": "22-02-2023",
       "roomId": 1,
-      "seatsOccupied": [],
+      "seatsOccupied": [
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          7,
+          3,
+          1
+        ],
+        [
+          2,
+          4,
+          1
+        ]
+      ],
       "id": 18
     },
     {
@@ -658,6 +713,128 @@
       "roomId": 1,
       "seatsOccupied": [],
       "id": 24
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "12:12"
+      ],
+      "day": "22-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          9,
+          5,
+          1
+        ],
+        [
+          4,
+          4,
+          1
+        ],
+        [
+          8,
+          2,
+          1
+        ]
+      ],
+      "id": 25
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "12:12"
+      ],
+      "day": "22-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 26
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "11:11"
+      ],
+      "day": "22-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 27
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "11:11"
+      ],
+      "day": "22-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 28
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "11:11"
+      ],
+      "day": "24-02-2023",
+      "roomId": 2,
+      "seatsOccupied": [],
+      "id": 29
+    },
+    {
+      "movieId": 8,
+      "hour": [
+        "22:00"
+      ],
+      "day": "24-02-2023",
+      "roomId": 2,
+      "seatsOccupied": [],
+      "id": 30
+    },
+    {
+      "movieId": 1,
+      "hour": [
+        "20:30"
+      ],
+      "day": "24-02-2023",
+      "roomId": 1,
+      "seatsOccupied": [],
+      "id": 31
+    },
+    {
+      "movieId": 13,
+      "hour": [
+        "23:30"
+      ],
+      "day": "25-02-2023",
+      "roomId": 4,
+      "seatsOccupied": [
+        [
+          5,
+          2,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ]
+      ],
+      "id": 32
+    },
+    {
+      "movieId": 14,
+      "hour": [
+        "23:30"
+      ],
+      "day": "28-02-2023",
+      "roomId": 10,
+      "seatsOccupied": [],
+      "id": 33
     }
   ],
   "ticketTypes": [
@@ -777,6 +954,42 @@
         "email": "kacper@email.com"
       },
       "id": 5
+    },
+    {
+      "screeningId": 32,
+      "seats": [
+        [
+          6,
+          6,
+          1
+        ]
+      ],
+      "userId": 4,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Kowalski",
+        "phone": "",
+        "email": "user@email.com"
+      },
+      "id": 6
+    },
+    {
+      "screeningId": 25,
+      "seats": [
+        [
+          8,
+          2,
+          1
+        ]
+      ],
+      "userId": null,
+      "ownerDetails": {
+        "firstName": "Maciej",
+        "lastName": "Walecki",
+        "phone": "123123123",
+        "email": "maciej@email.com"
+      },
+      "id": 7
     }
   ],
   "rating": [
@@ -851,6 +1064,18 @@
       "movieId": 8,
       "userId": 4,
       "id": 12
+    },
+    {
+      "rate": 5,
+      "movieId": 13,
+      "userId": 4,
+      "id": 13
+    },
+    {
+      "rate": 5,
+      "movieId": 13,
+      "userId": 10,
+      "id": 14
     }
   ],
   "wantToWatch": [
@@ -940,6 +1165,23 @@
         ]
       ],
       "id": 4
+    },
+    {
+      "userId": 10,
+      "screeningId": 13,
+      "reservedSeats": [
+        [
+          10,
+          9,
+          1
+        ],
+        [
+          10,
+          8,
+          1
+        ]
+      ],
+      "id": 5
     }
   ]
 }

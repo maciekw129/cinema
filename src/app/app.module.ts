@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './home/components/header/header.component';
 import { FooterComponent } from './home/components/footer/footer.component';
-import { ButtonComponent } from './shared/components/button/button.component';
 import { HomeComponent } from './home/home.component';
 import { ButtonBarComponent } from './home/components/button-bar/button-bar.component';
 import { MovieComponent } from './home/components/movie/movie.component';
@@ -79,7 +78,6 @@ export interface AppState {
     MatFormFieldModule,
     MatButtonModule,
     MatMenuModule,
-    ButtonComponent,
     LoaderComponent,
     ModalComponent,
     BrowserModule,

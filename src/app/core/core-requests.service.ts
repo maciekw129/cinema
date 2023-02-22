@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Movie, TicketTypes } from 'src/types';
+import { tap } from 'rxjs';
+
 import {
   FetchedGenre,
   FetchedMovie,
@@ -8,6 +9,7 @@ import {
   Room,
 } from '../domains/adminPanel/admin-panel.interface';
 import { FetchedScreening } from '../domains/adminPanel/admin-panel.service';
+import { Movie, TicketTypes } from './core.interace';
 import { API_URL } from './env.token';
 
 @Injectable({

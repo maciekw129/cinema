@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { combineLatest, map, of, switchMap } from 'rxjs';
 import { API_URL } from '../../core/env.token';
-import { Order } from 'src/types';
 import { CoreRequestsService } from '../../core/core-requests.service';
+import { Order } from '../order/order.interface';
 
 interface TicketTypesObject {
   [key: number]: string;

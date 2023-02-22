@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Movie } from 'src/types';
+import { Movie } from 'src/app/core/core.interace';
 
 @Component({
   selector: 'app-wish-list-item[movie][wishId]',

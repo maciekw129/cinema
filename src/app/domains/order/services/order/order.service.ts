@@ -1,13 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, combineLatest, map, Observable, tap } from 'rxjs';
-import {
-  FinalizeForm,
-  Order,
-  Screening,
-  Seat,
-  TicketTypes,
-} from '../../../../../types';
 import { ScreeningService } from '../screening/screening.service';
 import { CartService } from 'src/app/domains/cart/cart.service';
 import { AppState } from 'src/app/app.module';
@@ -15,6 +8,9 @@ import { Store } from '@ngrx/store';
 import { CartActions } from 'src/app/domains/cart/store/cart.actions';
 import { API_URL } from 'src/app/core/env.token';
 import { Loader } from 'src/app/shared/loader/loader';
+import { Screening, TicketTypes } from 'src/app/core/core.interace';
+import { FinalizeForm } from '../../forms/finalize-form/finalize-form.interface';
+import { Order, Seat } from '../../order.interface';
 
 export interface OrderState {
   seatsChosen: Seat[];

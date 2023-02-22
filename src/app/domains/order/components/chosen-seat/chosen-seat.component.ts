@@ -4,12 +4,11 @@ import {
   inject,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { Seat } from 'src/types';
 import { OrderService } from '../../services/order/order.service';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FormControl } from '@angular/forms';
-import { tap } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { Seat } from '../../order.interface';
 
 @UntilDestroy()
 @Component({

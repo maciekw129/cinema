@@ -1,6 +1,6 @@
 .movie {
   display: flex;
-  height: 330px;
+  max-height: 900px;
   width: 100%;
   justify-content: space-around;
   align-items: center;

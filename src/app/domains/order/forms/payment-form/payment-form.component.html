@@ -1,8 +1,4 @@
-<form class='payment-form' [formGroup]="paymentForm" (submit)="handleSubmit()">
-    <input 
-        class="input"
-        placeholder="kod blik"
-        formControlName="blikNumber"
-    />
-    <app-button text="Płacę!"></app-button>
+<form class="payment-form" [formGroup]="paymentForm" (submit)="handleSubmit()">
+  <input class="input" placeholder="kod blik" formControlName="blikNumber" />
+  <button mat-flat-button color="primary">Płacę!</button>
 </form>

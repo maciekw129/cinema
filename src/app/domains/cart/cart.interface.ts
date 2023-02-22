@@ -1,4 +1,4 @@
-import { Screening } from 'src/types';
+import { Screening } from 'src/app/core/core.interace';
 
 export interface CartState {
   cart: Cart[];

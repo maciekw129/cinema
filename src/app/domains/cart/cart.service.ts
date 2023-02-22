@@ -5,8 +5,9 @@ import { Store } from '@ngrx/store';
 import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { AppState } from 'src/app/app.module';
 import { selectUserId } from 'src/app/auth/store/auth.selectors';
+import { Movie } from 'src/app/core/core.interace';
 import { API_URL } from 'src/app/core/env.token';
-import { Movie, Seat } from 'src/types';
+import { Seat } from '../order/order.interface';
 import { Cart } from './cart.interface';
 
 @UntilDestroy()
