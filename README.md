@@ -4,6 +4,8 @@ My personal project of cinema site made in purpose of learning Angular framework
 ## Table of contents
 * [Launch](#launch)
 * [Technologies](#technologies)
+* [Features](#features)
+* [Todo](#todo)
 ## Launch
 Project is deployed [here](https://gleaming-rabanadas-c6f5e0.netlify.app), but to make it fully functional, you need to run this mocked server: 
 ## Technologies:
@@ -13,7 +15,7 @@ Project is deployed [here](https://gleaming-rabanadas-c6f5e0.netlify.app), but t
 - ***Angular Material***,
 - TypeScript 4.9.5,
 - HTML, CSS,
-- Jest 29.4.3
+- Jest 29.4.3 for unit tests
 
 I also used ***jwt-decode***, ***font-awesome*** and ***ng-neat/until-destroy***.
 ## Features
@@ -38,3 +40,9 @@ I also used ***jwt-decode***, ***font-awesome*** and ***ng-neat/until-destroy***
 - Adding new rooms,
 - Adding new movies,
 - Adding new Screenings
+
+## Todo
+- English language,
+- Dark theme mode,
+- Feature for adding coupons in the admin panel,
+- Feature for editing existing movies, screening and rooms in the admin panel
