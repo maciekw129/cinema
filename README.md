@@ -1,6 +1,6 @@
 # Cinema
 ## General informations
-My personal project of cinema site made in purpose of learning Angular framework.
+My personal project of cinema site made in purpose of learning Angular framework which includes: angular components, services, stateful-services, dependency injection, reactive-forms, async validators, NgRx, RxJS, Angular Material, directives, routing, guards, pipes, async pipies, content-projection, standalone components, modules, lazy-loading
 ## Table of contents
 * [Launch](#launch)
 * [Technologies](#technologies)
@@ -9,10 +9,10 @@ My personal project of cinema site made in purpose of learning Angular framework
 ## Launch
 Project is deployed [here](https://gleaming-rabanadas-c6f5e0.netlify.app), but to make it fully functional, you need to run this mocked server: 
 ## Technologies:
-- ***Angular*** 15.1.4,
-- ***NgRx*** 15.3.0,
-- ***RxJS*** 7.5.0,
-- ***Angular Material***,
+- **Angular** 15.1.4,
+- **NgRx** 15.3.0,
+- **RxJS** 7.5.0,
+- **Angular Material**,
 - TypeScript 4.9.5,
 - HTML, CSS,
 - Jest 29.4.3 for unit tests
