@@ -64,3 +64,4 @@ I also used ***jwt-decode***, ***font-awesome*** and ***ng-neat/until-destroy***
 - Dark theme mode,
 - Feature for adding coupons in the admin panel,
 - Feature for editing existing movies, screening and rooms in the admin panel
+- Change CSS to SCSS styling
